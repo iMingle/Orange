@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mingle</groupId>
+  <artifactId>practice</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <name>orange</name>
+  <description>the orange project</description>
+  
+  <developers>
+<!-- 算法第4版 need start -->
+  	<developer>
+  		<id>jinml</id>
+  		<name>JinMinglei</name>
+  		<email>jinminglei@yeah.net</email>
+  		<organization>google</organization>
+  		<organizationUrl>www.google.com</organizationUrl>
+  		<roles>
+  			<role>
+  				main soengineer
+  			</role>
+  		</roles>
+  		<timezone>UTC+08:00</timezone>
+  		<url>www.jinminglei.com</url>
+  	</developer>
+  </developers>
+  
+  <dependencies>
+<!-- 算法第4版 need end -->
+  	<dependency>
+  		<groupId>orange.arithmetic</groupId>
+  		<artifactId>algs</artifactId>
+  		<version>4.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>orange.arithmetic</groupId>
+  		<artifactId>stdlib</artifactId>
+  		<version>4.0</version>
+  	</dependency>
+<!-- 算法第4版 -->
+  	<dependency>
+  		<groupId>com.itextpdf</groupId>
+  		<artifactId>itextpdf</artifactId>
+  		<version>5.5.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.11</version>
+  	</dependency>
+  </dependencies>
+</project>
