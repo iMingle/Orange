@@ -1,4 +1,4 @@
-package org.mingle.orange.other;
+package org.mingle.orange.hello;
 
 public class BitTest {
 
