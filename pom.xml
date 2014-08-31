@@ -17,7 +17,7 @@
   		<organizationUrl>www.google.com</organizationUrl>
   		<roles>
   			<role>
-  				main soengineer
+  				main engineer
   			</role>
   		</roles>
   		<timezone>UTC+08:00</timezone>
@@ -28,12 +28,12 @@
   <dependencies>
 <!-- 算法第4版 need end -->
   	<dependency>
-  		<groupId>orange.arithmetic</groupId>
+  		<groupId>org.mingle.arithmetic</groupId>
   		<artifactId>algs</artifactId>
   		<version>4.0</version>
   	</dependency>
   	<dependency>
-  		<groupId>orange.arithmetic</groupId>
+  		<groupId>org.mingle.arithmetic</groupId>
   		<artifactId>stdlib</artifactId>
   		<version>4.0</version>
   	</dependency>
