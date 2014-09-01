@@ -41,6 +41,10 @@ public class LinkedListTest {
 		ListIterator<String> lit = lists.listIterator();
 		lit.add("seven");
 		lit.add("eight");
+		System.out.println(lit.nextIndex());
+//		lit.previous();
+//		lit.set("nine");
+		lit.remove();	// before call set() or remove() function, need call next() or previous() 
 
 		System.out.println("lists = " + lists);//lists = [seven, eight, one, three, four, five, six]
 
