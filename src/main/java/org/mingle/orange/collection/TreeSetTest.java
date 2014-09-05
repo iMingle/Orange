@@ -26,7 +26,7 @@ public class TreeSetTest {
 		
 		System.out.println(parts);
 		
-		SortedSet<Item> sortByDescription = new TreeSet<>(new Comparator<Item>() {
+		SortedSet<Item> sortByDescription = new TreeSet<Item>(new Comparator<Item>() {
 
 			@Override
 			public int compare(Item o1, Item o2) {
