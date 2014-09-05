@@ -1,9 +1,9 @@
-package org.mingle.orange.arithmetic.base;
+ï»¿package org.mingle.orange.arithmetic.base;
 
 public class UFWeightedQuickUnion {
-	private int[] id;	//·ÖÁ¿ÊıÁ¿£¬´¥µãÊı
-	private int[] sz;	//¸÷¸ö¸ù½Úµã¶ÔÓ¦µÄµÄ·ÖÁ¿µÄ´óĞ¡
-	private int count;	//Á¬Í¨·ÖÁ¿¸öÊı
+	private int[] id;	//åˆ†é‡æ•°é‡ï¼Œè§¦ç‚¹æ•°
+	private int[] sz;	//å„ä¸ªæ ¹èŠ‚ç‚¹å¯¹åº”çš„çš„åˆ†é‡çš„å¤§å°
+	private int count;	//è¿é€šåˆ†é‡ä¸ªæ•°
 	
 	public UFWeightedQuickUnion(int N) {
 		count = N;
@@ -28,7 +28,7 @@ public class UFWeightedQuickUnion {
 	}
 
 	public int find(int p) {
-		//ÕÒ³ö·ÖÁ¿µÄÃû³Æ
+		//æ‰¾å‡ºåˆ†é‡çš„åç§°
 		while (p != id[p]) p = id[p];
 		
 		return p;

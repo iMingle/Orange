@@ -1,4 +1,4 @@
-package org.mingle.orange.test;
+ï»¿package org.mingle.orange.test;
 
 public class TestSync implements Runnable {
   Timer timer = new Timer();
@@ -23,7 +23,7 @@ class Timer{
 	    num ++;
 	    try {Thread.sleep(1);} 
 	    catch (InterruptedException e) {}
-	    System.out.println(name+", ÄãÊÇµÚ"+num+"¸öÊ¹ÓÃtimerµÄÏß³Ì");
+	    System.out.println(name+", ä½ æ˜¯ç¬¬"+num+"ä¸ªä½¿ç”¨timerçš„çº¿ç¨‹");
 	  //}
   }
 }

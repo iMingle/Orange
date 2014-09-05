@@ -1,4 +1,4 @@
-package org.mingle.orange.annotation;
+ï»¿package org.mingle.orange.annotation;
 
 import java.awt.Color;
 
@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 /**
- * @version 1.0 2014Äê6ÔÂ22ÈÕ
+ * @version 1.0 2014å¹´6æœˆ22æ—¥
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */

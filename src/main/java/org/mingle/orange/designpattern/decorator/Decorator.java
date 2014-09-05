@@ -1,4 +1,4 @@
-package org.mingle.orange.designpattern.decorator;
+﻿package org.mingle.orange.designpattern.decorator;
 
 public class Decorator extends SchoolReport {
 	private SchoolReport sr;

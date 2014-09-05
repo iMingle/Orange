@@ -1,4 +1,4 @@
-package org.mingle.orange.jdbc;
+﻿package org.mingle.orange.jdbc;
 
 public class Student {
 	private int id;

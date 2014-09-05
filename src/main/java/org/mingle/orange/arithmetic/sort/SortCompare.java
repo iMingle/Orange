@@ -1,4 +1,4 @@
-package org.mingle.orange.arithmetic.sort;
+﻿package org.mingle.orange.arithmetic.sort;
 
 import org.mingle.orange.arithmetic.base.Stopwatch;
 

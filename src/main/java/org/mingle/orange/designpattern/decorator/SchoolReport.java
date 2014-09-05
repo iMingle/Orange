@@ -1,10 +1,10 @@
-package org.mingle.orange.designpattern.decorator;
+锘縫ackage org.mingle.orange.designpattern.decorator;
 
 public abstract class SchoolReport {
 	
-	//展示成绩
+	//灞曠ず鎴愮哗
 	public abstract void report();
-	//家长签名
+	//瀹堕暱绛惧悕
 	public abstract void sign(String name);
 
 }

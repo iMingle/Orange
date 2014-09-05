@@ -1,5 +1,5 @@
-/**
- * @version 1.0 2014Äê6ÔÂ25ÈÕ
+ï»¿/**
+ * @version 1.0 2014å¹´6æœˆ25æ—¥
  * @author mingle
  */
 package org.mingle.orange.itext;
@@ -21,7 +21,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 /**
- * @version 1.0 2014Äê6ÔÂ25ÈÕ
+ * @version 1.0 2014å¹´6æœˆ25æ—¥
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */

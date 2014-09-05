@@ -1,4 +1,4 @@
-package org.mingle.orange.test;
+﻿package org.mingle.orange.test;
 
 public class Salesman extends Employee {
 	private String mobile = "15524566288";

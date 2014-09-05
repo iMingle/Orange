@@ -1,4 +1,4 @@
-package org.mingle.orange.jdbc;
+ï»¿package org.mingle.orange.jdbc;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -22,7 +22,7 @@ public class DBUtils {
 	private static String password;
 	
 	/**
-	 * ´ÓÎÄ¼şÖĞ¶ÁÈ¡Ïà¹ØÊı¾İ¿âÊôĞÔ
+	 * ä»æ–‡ä»¶ä¸­è¯»å–ç›¸å…³æ•°æ®åº“å±æ€§
 	 * @param path
 	 */
 	public static final void getProperties(String path) {
@@ -48,7 +48,7 @@ public class DBUtils {
 	}
 	
 	/**
-	 * »ñÈ¡Êı¾İ¿âÁ¬½Ó
+	 * è·å–æ•°æ®åº“è¿æ¥
 	 * @return Connection
 	 */
 	public static final Connection getConnection() {
@@ -67,7 +67,7 @@ public class DBUtils {
 	}
 	
 	/**
-	 * ¹Ø±ÕÊı¾İ¿â
+	 * å…³é—­æ•°æ®åº“
 	 */
 	public static final void closeDatabase(Connection conn, Statement st, ResultSet rs) {
 		try {
@@ -88,7 +88,7 @@ public class DBUtils {
 	}
 	
 	/**
-	 * ²éÑ¯²Ù×÷
+	 * æŸ¥è¯¢æ“ä½œ
 	 */
 	public static final List<Student> sqlQuery(String sql) {
 		List<Student> list = new ArrayList<Student>();
@@ -124,7 +124,7 @@ public class DBUtils {
 	}
 	
 	/**
-	 * ÔöÉ¾¸Ä²Ù×÷
+	 * å¢åˆ æ”¹æ“ä½œ
 	 */
 	public static final void sqlUpdate(String sql) {
 		String path = "." + File.separator + "resource" + File.separator + "db.properties";
@@ -151,7 +151,7 @@ public class DBUtils {
 	}
 	
 	/**
-	 * Êı¾İ¿âÔöÉ¾¸Ä²é²Ù×÷
+	 * æ•°æ®åº“å¢åˆ æ”¹æŸ¥æ“ä½œ
 	 */
 	public static final List<Student> sqlDatabase(String sql) {
 		if (sql.toLowerCase().indexOf("select") != -1) {

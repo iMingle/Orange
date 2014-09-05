@@ -1,9 +1,9 @@
-package org.mingle.orange.designpattern.strategy;
+ï»¿package org.mingle.orange.designpattern.strategy;
 
 public class StrategyImplTwo implements Strategy {
 
 	public void operate() {
-		System.out.println("²ßÂÔ2Ö´ÐÐ");
+		System.out.println("ç­–ç•¥2æ‰§è¡Œ");
 	}
 
 }

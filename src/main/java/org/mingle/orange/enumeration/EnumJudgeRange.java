@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * Copyright (c) 2014, Mingle. All rights reserved.
  */
 package org.mingle.orange.enumeration;
@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @version 1.0 2014Äê7ÔÂ8ÈÕ
+ * @version 1.0 2014å¹´7æœˆ8æ—¥
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */

@@ -1,7 +1,7 @@
-package org.mingle.orange.designpattern.strategy;
+ï»¿package org.mingle.orange.designpattern.strategy;
 
 /**
- * ²ßÂÔµÄÓ¦ÓÃ³¡¾°
+ * ç­–ç•¥çš„åº”ç”¨åœºæ™¯
  * @author mingle
  *
  */

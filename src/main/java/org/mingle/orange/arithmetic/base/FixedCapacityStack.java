@@ -1,4 +1,4 @@
-package org.mingle.orange.arithmetic.base;
+﻿package org.mingle.orange.arithmetic.base;
 
 import java.util.Iterator;
 import java.util.Stack;

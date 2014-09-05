@@ -1,17 +1,17 @@
-/**
+ï»¿/**
  * Copyright (c) 2014, Mingle. All rights reserved.
  */
 package org.mingle.orange.enumeration;
 
 /**
- * @version 1.0 2014Äê7ÔÂ8ÈÕ
+ * @version 1.0 2014å¹´7æœˆ8æ—¥
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */
 public enum EnumTest {
-	RED("ºìÉ«", 1), GREEN("ÂÌÉ«", 2), BLANK("°×É«", 3), YELLO("»ÆÉ«", 4);
+	RED("çº¢è‰²", 1), GREEN("ç»¿è‰²", 2), BLANK("ç™½è‰²", 3), YELLO("é»„è‰²", 4);
 	
-	// ³ÉÔ±±äÁ¿
+	// æˆå‘˜å˜é‡
     private String name;
     private int index;
 
@@ -19,7 +19,7 @@ public enum EnumTest {
     	
     }
     
-	// ¹¹Ôì·½·¨
+	// æ„é€ æ–¹æ³•
     private EnumTest(String name, int index) {
         this.name = name;
         this.index = index;

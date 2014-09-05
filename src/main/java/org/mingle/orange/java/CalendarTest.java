@@ -1,5 +1,5 @@
-/**
- * @version 1.0 2014Äê6ÔÂ23ÈÕ
+ï»¿/**
+ * @version 1.0 2014å¹´6æœˆ23æ—¥
  * @author mingle
  */
 package org.mingle.orange.java;
@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
- * @version 1.0 2014Äê6ÔÂ23ÈÕ
+ * @version 1.0 2014å¹´6æœˆ23æ—¥
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */

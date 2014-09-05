@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Copyright (c) 2014, Mingle. All rights reserved.
  */
 package org.mingle.orange.java;
@@ -6,7 +6,7 @@ package org.mingle.orange.java;
 import java.net.URL;
 
 /**
- * @version 1.0 2014��6��28��
+ * @version 1.0 2014锟斤拷6锟斤拷28锟斤拷
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */
@@ -23,7 +23,7 @@ public class ClassLoaderTest {
 		}
 		
 		// extension classloader
-		// extension classloader��system classloader��parent����bootstrap classloader��extension classloader��parent����������һ��ʵ�ʵ�classloader������Ϊnull��
+		// extension classloader锟斤拷system classloader锟斤拷parent锟斤拷锟斤拷bootstrap classloader锟斤拷extension classloader锟斤拷parent锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷一锟斤拷实锟绞碉拷classloader锟斤拷锟斤拷锟斤拷为null锟斤拷
 		System.out.println(System.getProperty("java.ext.dirs"));
 		ClassLoader extensionClassloader = ClassLoader.getSystemClassLoader().getParent();
 		System.out.println(extensionClassloader.getParent());

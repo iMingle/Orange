@@ -1,4 +1,4 @@
-package org.mingle.orange.world;
+ï»¿package org.mingle.orange.world;
 
 public class Mingle {
 
@@ -14,11 +14,11 @@ public class Mingle {
 		System.out.println(c.get(Calendar.MONTH));
 		if(c.get(Calendar.MONTH)!=c1.get(Calendar.MONTH))
 		{
-			System.out.println("ÊÇ×îºóÒ»Ìì");
+			System.out.println("æ˜¯æœ€åä¸€å¤©");
 		}
 		else
 		{
-			System.out.println("²»ÊÇÈ¡ºóÒ»Ìì");
+			System.out.println("ä¸æ˜¯å–åä¸€å¤©");
 			
 		}
 

@@ -1,20 +1,20 @@
-package org.mingle.orange.designpattern.decorator;
+ï»¿package org.mingle.orange.designpattern.decorator;
 
 public class FourthGradeSchoolReport extends SchoolReport {
 
 	@Override
 	public void report() {
-		//³É¼¨µ¥µÄ¸ñÊ½ÊÇÕâ¸öÑù×ÓµÄ
-		System.out.println("×ğ¾´µÄXXX¼Ò³¤:");
+		//æˆç»©å•çš„æ ¼å¼æ˜¯è¿™ä¸ªæ ·å­çš„
+		System.out.println("å°Šæ•¬çš„XXXå®¶é•¿:");
 		System.out.println(" ......");
-		System.out.println(" ÓïÎÄ 62 ÊıÑ§65 ÌåÓı 98 ×ÔÈ» 63");
+		System.out.println(" è¯­æ–‡ 62 æ•°å­¦65 ä½“è‚² 98 è‡ªç„¶ 63");
 		System.out.println(" .......");
-		System.out.println(" ¼Ò³¤Ç©Ãû£º ");
+		System.out.println(" å®¶é•¿ç­¾åï¼š ");
 	}
 
 	@Override
 	public void sign(String name) {
-		System.out.println("¼Ò³¤Ç©ÃûÎª£º" + name);
+		System.out.println("å®¶é•¿ç­¾åä¸ºï¼š" + name);
 	}
 
 }

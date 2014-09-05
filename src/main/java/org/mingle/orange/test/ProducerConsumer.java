@@ -1,4 +1,4 @@
-package org.mingle.orange.test;
+ï»¿package org.mingle.orange.test;
 
 public class ProducerConsumer {
 	public static void main(String[] args) {
@@ -63,7 +63,7 @@ class Producer implements Runnable {
 		for(int i=0; i<20; i++) {
 			WoTou wt = new WoTou(i);
 			ss.push(wt);
-System.out.println("Éú²úÁË£º" + wt);
+System.out.println("ç”Ÿäº§äº†ï¼š" + wt);
 			try {
 				Thread.sleep((int)(Math.random() * 200));
 			} catch (InterruptedException e) {
@@ -82,7 +82,7 @@ class Consumer implements Runnable {
 	public void run() {
 		for(int i=0; i<20; i++) {
 			WoTou wt = ss.pop();
-System.out.println("Ïû·ÑÁË: " + wt);
+System.out.println("æ¶ˆè´¹äº†: " + wt);
 			try {
 				Thread.sleep((int)(Math.random() * 1000));
 			} catch (InterruptedException e) {

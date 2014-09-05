@@ -1,4 +1,4 @@
-package org.mingle.orange.arithmetic.base;
+﻿package org.mingle.orange.arithmetic.base;
 
 public class Rational {
 	private int numerator;
@@ -54,7 +54,7 @@ public class Rational {
 		result.setDenominator(result.getDenominator() / temp);
 		result.setNumerator(result.getNumerator() / temp);
 		
-		assert result.getDenominator() == 0 : "��ĸΪ0";
+		assert result.getDenominator() == 0 : "分母为0";
 		
 		return result;
 	}
@@ -72,7 +72,7 @@ public class Rational {
 		result.setDenominator(result.getDenominator() / temp);
 		result.setNumerator(result.getNumerator() / temp);
 		
-		assert result.getDenominator() == 0 : "��ĸΪ0";
+		assert result.getDenominator() == 0 : "分母为0";
 		
 		return result;
 	}

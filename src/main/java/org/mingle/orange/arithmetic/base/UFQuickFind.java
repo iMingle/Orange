@@ -1,10 +1,10 @@
-package org.mingle.orange.arithmetic.base;
+ï»¿package org.mingle.orange.arithmetic.base;
 
 import edu.princeton.cs.introcs.StdIn;
 
 public class UFQuickFind {
-	private int[] id;	//·ÖÁ¿ÊıÁ¿£¬´¥µãÊı
-	private int count;	//Á¬Í¨·ÖÁ¿¸öÊı
+	private int[] id;	//åˆ†é‡æ•°é‡ï¼Œè§¦ç‚¹æ•°
+	private int count;	//è¿é€šåˆ†é‡ä¸ªæ•°
 	
 	public UFQuickFind(int N) {
 		count = N;

@@ -1,4 +1,4 @@
-package org.mingle.orange.test;
+ï»¿package org.mingle.orange.test;
 
 import java.util.*;
 public class TestInterrupt {
@@ -33,8 +33,8 @@ public void run() {
       t = t.trim();
       String[] time = t.split(":");
       if (time.length == 3) {
-        System.out.println(¡°ÏÖÔÚÊÇ¡± + time[0] + ¡°µã¡± + 
-                  time[1] + "·Ö" + time[2] + "Ãë");
+        System.out.println(â€œç°åœ¨æ˜¯â€ + time[0] + â€œç‚¹â€ + 
+                  time[1] + "åˆ†" + time[2] + "ç§’");
       }
       try {
         Thread.sleep(5000);

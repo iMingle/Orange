@@ -1,4 +1,4 @@
-package org.mingle.orange.hello;
+ï»¿package org.mingle.orange.hello;
 
 import java.util.Arrays;
 
@@ -18,7 +18,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * Ã°ÅİÅÅĞò(´óÆøÅİ³Áµ×)
+	 * å†’æ³¡æ’åº(å¤§æ°”æ³¡æ²‰åº•)
 	 * 
 	 * @param array
 	 */
@@ -33,7 +33,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * Ã°ÅİÅÅĞò(ÇáÆøÅİÉÏ¸¡)
+	 * å†’æ³¡æ’åº(è½»æ°”æ³¡ä¸Šæµ®)
 	 * 
 	 * @param array
 	 */
@@ -48,7 +48,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * Ñ¡ÔñÅÅĞò
+	 * é€‰æ‹©æ’åº
 	 * 
 	 * @param array
 	 */
@@ -68,7 +68,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * ¼òµ¥²åÈëÅÅĞò
+	 * ç®€å•æ’å…¥æ’åº
 	 * 
 	 * @param array
 	 */
@@ -81,7 +81,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * shellÅÅĞò
+	 * shellæ’åº
 	 * 
 	 * @param array
 	 */
@@ -104,7 +104,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * Êı×é¹é²¢
+	 * æ•°ç»„å½’å¹¶
 	 * 
 	 * @param array
 	 * @param start
@@ -135,7 +135,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * ¹é²¢ÅÅĞò
+	 * å½’å¹¶æ’åº
 	 * 
 	 * @param array
 	 * @param low
@@ -159,13 +159,13 @@ public class SortingAlgorithm {
 		Comparable v = array[low];
 
 		while (true) {
-			// ´Ó×óÏòÓÒÕÒµ½±Èv´óµÄÔªËØ
+			// ä»å·¦å‘å³æ‰¾åˆ°æ¯”vå¤§çš„å…ƒç´ 
 			while (less(array[++i], v)) {
 				if (i == high)
 					break;
 			}
 
-			// ´ÓÓÒÏò×óÕÒµ½±ÈvĞ¡µÄÔªËØ
+			// ä»å³å‘å·¦æ‰¾åˆ°æ¯”vå°çš„å…ƒç´ 
 			while (less(v, array[--j])) {
 				if (j == low)
 					break;
@@ -182,7 +182,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * ¿ìËÙÅÅĞò
+	 * å¿«é€Ÿæ’åº
 	 * 
 	 * @param array
 	 * @param low
@@ -219,7 +219,7 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * ¶ÑÅÅĞò
+	 * å †æ’åº
 	 * 
 	 * @param array
 	 */
@@ -237,17 +237,17 @@ public class SortingAlgorithm {
 	}
 
 	/**
-	 * »ùÊıÅÅĞò
+	 * åŸºæ•°æ’åº
 	 * 
 	 * @param array
-	 * @param digit ±íÊ¾×î´óµÄÊıÓĞ¶àÉÙÎ»
+	 * @param digit è¡¨ç¤ºæœ€å¤§çš„æ•°æœ‰å¤šå°‘ä½
 	 */
 	public static void radixSort(int[] array, int digit) {
-		int k = 0;									// ¼ÆÊıÓÃ
-		int n = 1;									// ÌøÎ»ÓÃ£¬¸öÎ»µ½Ê®Î»
-		int m = 1;									// ¿ØÖÆ¼üÖµÅÅĞòÒÀ¾İÔÚÄÄÒ»Î»
-		int[][] bucket = new int[10][array.length];	// Êı×éµÄµÚÒ»Î¬±íÊ¾¿ÉÄÜµÄÓàÊı0-9
-		int[] number = new int[10];					// Êı×éorder[i]ÓÃÀ´±íÊ¾¸ÃÎ»ÊÇiµÄÊıµÄ¸öÊı
+		int k = 0;									// è®¡æ•°ç”¨
+		int n = 1;									// è·³ä½ç”¨ï¼Œä¸ªä½åˆ°åä½
+		int m = 1;									// æ§åˆ¶é”®å€¼æ’åºä¾æ®åœ¨å“ªä¸€ä½
+		int[][] bucket = new int[10][array.length];	// æ•°ç»„çš„ç¬¬ä¸€ç»´è¡¨ç¤ºå¯èƒ½çš„ä½™æ•°0-9
+		int[] number = new int[10];					// æ•°ç»„order[i]ç”¨æ¥è¡¨ç¤ºè¯¥ä½æ˜¯içš„æ•°çš„ä¸ªæ•°
 		
 		while (m <= digit) {
 			for (int i = 0; i < array.length; i++) {

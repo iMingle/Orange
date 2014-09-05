@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 /**
- * @version 1.0 2014Äê7ÔÂ7ÈÕ
+ * @version 1.0 2014å¹´7æœˆ7æ—¥
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */

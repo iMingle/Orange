@@ -1,4 +1,4 @@
-package org.mingle.orange.arithmetic.base;
+﻿package org.mingle.orange.arithmetic.base;
 
 public class CircularRotation {
 	

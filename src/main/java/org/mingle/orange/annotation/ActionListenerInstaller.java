@@ -1,4 +1,4 @@
-package org.mingle.orange.annotation;
+ï»¿package org.mingle.orange.annotation;
 
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
@@ -8,15 +8,15 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @version 1.0 2014Äê6ÔÂ22ÈÕ
+ * @version 1.0 2014å¹´6æœˆ22æ—¥
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */
 public class ActionListenerInstaller {
 
 	/**
-	 * ´¦ÀíËùÓĞµÄActionListenerFor
-	 * @param obj Æä·½·¨¿ÉÄÜ°üº¬ActionListenerFor×¢½â
+	 * å¤„ç†æ‰€æœ‰çš„ActionListenerFor
+	 * @param obj å…¶æ–¹æ³•å¯èƒ½åŒ…å«ActionListenerForæ³¨è§£
 	 */
 	public static void processAnnotations(Object obj) {
 		try {
@@ -37,7 +37,7 @@ public class ActionListenerInstaller {
 	}
 
 	/**
-	 * Ìí¼ÓÊÂ¼ş´¦ÀíÆ÷
+	 * æ·»åŠ äº‹ä»¶å¤„ç†å™¨
 	 * @param source
 	 * @param param
 	 * @param m

@@ -1,4 +1,4 @@
-package org.mingle.orange.arithmetic.base;
+﻿package org.mingle.orange.arithmetic.base;
 
 import edu.princeton.cs.algs4.Interval1D;
 import edu.princeton.cs.algs4.Interval2D;

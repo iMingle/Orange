@@ -1,4 +1,4 @@
-package org.mingle.orange.world;
+ï»¿package org.mingle.orange.world;
 
 public class Son extends Father {
 	
@@ -16,7 +16,7 @@ public class Son extends Father {
 		Son s = new Son(5);
 //		s.Inner in = s.new Inner();
 		
-		String str = "ÎÒAB";
+		String str = "æˆ‘AB";
 		
 		System.out.println((str.charAt(0) + "").getBytes().length);
 	}

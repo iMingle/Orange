@@ -1,11 +1,11 @@
-/**
- * @version 1.0 2014Äê6ÔÂ26ÈÕ
+ï»¿/**
+ * @version 1.0 2014å¹´6æœˆ26æ—¥
  * @author mingle
  */
 package org.mingle.orange.java;
 
 /**
- * @version 1.0 2014Äê6ÔÂ26ÈÕ
+ * @version 1.0 2014å¹´6æœˆ26æ—¥
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  *
  */
@@ -25,9 +25,9 @@ class Professor0 implements Cloneable {
 }
  
 class Student0 implements Cloneable {
-    String name;// ³£Á¿¶ÔÏó¡£
+    String name;// å¸¸é‡å¯¹è±¡ã€‚
     int age;
-    Professor0 p;// Ñ§Éú1ºÍÑ§Éú2µÄÒıÓÃÖµ¶¼ÊÇÒ»ÑùµÄ¡£
+    Professor0 p;// å­¦ç”Ÿ1å’Œå­¦ç”Ÿ2çš„å¼•ç”¨å€¼éƒ½æ˜¯ä¸€æ ·çš„ã€‚
  
     Student0(String name, int age, Professor0 p) {
         this.name = name;
@@ -57,6 +57,6 @@ public class ShallowCopy {
         s2.p.age = 30;
         s2.name = "z";
         s2.age = 45;
-        System.out.println("Ñ§Éús1µÄĞÕÃû£º" + s1.name + "\nÑ§Éús1½ÌÊÚµÄĞÕÃû£º" + s1.p.name + "," + "\nÑ§Éús1½ÌÊÚµÄÄê¼Í" + s1.p.age);// Ñ§Éú1µÄ½ÌÊÚ
+        System.out.println("å­¦ç”Ÿs1çš„å§“åï¼š" + s1.name + "\nå­¦ç”Ÿs1æ•™æˆçš„å§“åï¼š" + s1.p.name + "," + "\nå­¦ç”Ÿs1æ•™æˆçš„å¹´çºª" + s1.p.age);// å­¦ç”Ÿ1çš„æ•™æˆ
     }
 }
