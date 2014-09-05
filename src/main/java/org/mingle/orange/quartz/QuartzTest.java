@@ -1,6 +1,5 @@
-/*
- * (c) Copyright 2013 网神信息技术（北京）股份有限公司
- * http://www.legendsec.com
+/**
+ * Copyright (c) 2014, Mingle. All rights reserved.
  */
 package org.mingle.orange.quartz;
 
@@ -32,25 +31,25 @@ public class QuartzTest {
 			// Grab the Scheduler instance from the Factory 
 			Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 			
+			// and start it off
+			scheduler.start();
+			
 			// define the job and tie it to our SimpleJob class
 			JobDetail job = JobBuilder.newJob(SimpleJob.class).withIdentity("job", "group").build();
 			
-			// Trigger the job to run now, and then repeat every 40 seconds
+			// Trigger the job to run now, and then repeat every 5 seconds
 			Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger", "group").startNow()
 					.withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(5)).build();
 			
 			scheduler.scheduleJob(job, trigger);
 			
-			// and start it off
-			scheduler.start();
-			
 			try {
-				Thread.sleep(6 * 1000);
+				Thread.sleep(60L * 1000L);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-//			scheduler.shutdown();
+			scheduler.shutdown();
 		} catch (SchedulerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
