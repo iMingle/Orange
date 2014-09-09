@@ -40,8 +40,13 @@ public class QuartzTest {
 			
 			scheduler.scheduleJob(job, trigger);
 			
-
-//			scheduler.shutdown();
+			try {
+				Thread.sleep(60L * 1000L);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			scheduler.shutdown();
 		} catch (SchedulerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
