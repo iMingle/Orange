@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.java;
+﻿package org.mingle.orange.reflect;
 
 import java.util.*;
 import java.lang.reflect.*;

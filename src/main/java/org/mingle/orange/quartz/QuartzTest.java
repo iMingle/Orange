@@ -3,11 +3,8 @@
  */
 package org.mingle.orange.quartz;
 
-import org.quartz.Job;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
-import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SimpleScheduleBuilder;
@@ -43,33 +40,12 @@ public class QuartzTest {
 			
 			scheduler.scheduleJob(job, trigger);
 			
-			try {
-				Thread.sleep(60L * 1000L);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			scheduler.shutdown();
+
+//			scheduler.shutdown();
 		} catch (SchedulerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-}
-
-/**
- * a job
- */
-class SimpleJob implements Job {
-
-	/* (non-Javadoc)
-	 * @see org.quartz.Job#execute(org.quartz.JobExecutionContext)
-	 */
-	@Override
-	public void execute(JobExecutionContext context)
-			throws JobExecutionException {
-		System.out.println(context.getTrigger().getJobKey() + ":" + context.getTrigger().getKey());
-	}
-	
 }
