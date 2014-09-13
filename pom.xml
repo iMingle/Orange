@@ -25,6 +25,12 @@
   	</developer>
   </developers>
   
+  <!-- 属性 -->
+  <properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+  
   <dependencies>
 <!-- 算法第4版 need end -->
   	<dependency>
