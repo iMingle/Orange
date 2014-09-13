@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.annotation;
+package org.mingle.orange.annotation;
 
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;

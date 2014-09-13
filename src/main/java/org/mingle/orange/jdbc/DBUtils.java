@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.jdbc;
+package org.mingle.orange.jdbc;
 
 import java.io.BufferedInputStream;
 import java.io.File;

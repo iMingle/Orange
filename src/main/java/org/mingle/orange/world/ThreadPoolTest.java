@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.world;
+package org.mingle.orange.world;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

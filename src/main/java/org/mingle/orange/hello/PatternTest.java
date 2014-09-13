@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.hello;
+package org.mingle.orange.hello;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

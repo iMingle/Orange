@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @version 1.0 2014年6月24日
  * @author mingle
  */

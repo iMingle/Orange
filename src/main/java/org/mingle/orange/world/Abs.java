@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.world;
+package org.mingle.orange.world;
 
 public abstract class Abs extends Mingle {
 

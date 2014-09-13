@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (c) 2014, Mingle. All rights reserved.
  */
 package org.mingle.orange.java;

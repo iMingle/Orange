@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.reflect;
+package org.mingle.orange.reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

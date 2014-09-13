@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.designpattern.strategy;
+package org.mingle.orange.designpattern.strategy;
 
 public class Mingle {
 

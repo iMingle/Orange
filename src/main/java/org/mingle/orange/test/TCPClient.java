@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.test;
+package org.mingle.orange.test;
 
 import java.net.*;
 import java.io.*;

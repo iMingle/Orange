@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.designpattern.strategy;
+package org.mingle.orange.designpattern.strategy;
 
 /**
  * 策略的应用场景

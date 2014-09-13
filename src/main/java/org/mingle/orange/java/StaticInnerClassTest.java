@@ -1,4 +1,4 @@
-﻿package org.mingle.orange.java;
+package org.mingle.orange.java;
 
 /**
  * This program demonstrates the use of static inner classes.
