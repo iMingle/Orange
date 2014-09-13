@@ -1,4 +1,4 @@
-package org.mingle.orange.test;
+package org.mingle.orange.thread;
 
 public class TT implements Runnable {
 	int b = 100;

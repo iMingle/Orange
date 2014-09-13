@@ -1,4 +1,4 @@
-package org.mingle.orange.hello;
+package org.mingle.orange.thread;
 
 public class ThreadTestTemp {
 	

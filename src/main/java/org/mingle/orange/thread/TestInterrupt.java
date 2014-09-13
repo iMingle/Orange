@@ -1,4 +1,4 @@
-package org.mingle.orange.test;
+package org.mingle.orange.thread;
 
 import java.util.*;
 public class TestInterrupt {

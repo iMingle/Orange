@@ -1,4 +1,4 @@
-package org.mingle.orange.test;
+package org.mingle.orange.thread;
 
 public class TestSync implements Runnable {
   Timer timer = new Timer();
