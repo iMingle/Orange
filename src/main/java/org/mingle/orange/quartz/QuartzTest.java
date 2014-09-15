@@ -41,12 +41,15 @@ public class QuartzTest {
 			scheduler.scheduleJob(job, trigger);
 			
 			try {
-				Thread.sleep(60L * 1000L);
+				System.out.println(Thread.activeCount());	// 13
+				Thread.sleep(10L * 1000L);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			scheduler.shutdown();
+			// scheduler is a alone thread
+			System.out.println(Thread.activeCount());		// 12
 		} catch (SchedulerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
