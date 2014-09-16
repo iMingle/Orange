@@ -6,7 +6,6 @@ package org.mingle.orange.thread;
 /**
  *
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @daten 2014年9月16日
  * @version 1.0
  */
 public class UncaughtExceptionTest {
