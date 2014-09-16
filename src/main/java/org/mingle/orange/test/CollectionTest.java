@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 /**
  *
  * @since 1.0 2014年7月22日
- * @author <a href="mailto:jinml@legendsec.com">靳明雷</a>
+ * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  * @version 1.0
  */
 public class CollectionTest {

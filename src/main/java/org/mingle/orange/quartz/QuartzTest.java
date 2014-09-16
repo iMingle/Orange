@@ -14,8 +14,8 @@ import org.quartz.impl.StdSchedulerFactory;
 
 /**
  *
- * @since 1.0 2014年9月5日
- * @author <a href="mailto:jinml@legendsec.com">靳明雷</a>
+ * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
+ * @date 2014年9月5日
  * @version 1.0
  */
 public class QuartzTest {

@@ -7,7 +7,7 @@ package org.mingle.orange.test;
 /**
  *
  * @since 1.0 2014年7月18日
- * @author <a href="mailto:jinml@legendsec.com">靳明雷</a>
+ * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  * @version 1.0
  */
 public class MethodTest {
