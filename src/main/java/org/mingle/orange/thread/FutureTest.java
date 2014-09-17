@@ -74,6 +74,7 @@ class MatchCounter implements Callable<Integer> {
 			File[] files = this.directory.listFiles();
 			ArrayList<Future<Integer>> results = new ArrayList<Future<Integer>>();
 			
+			// if has too many files, the system will die.
 			for (File file : files) {
 				if (file.isDirectory()) {
 					MatchCounter counter = new MatchCounter(file, keyword);
