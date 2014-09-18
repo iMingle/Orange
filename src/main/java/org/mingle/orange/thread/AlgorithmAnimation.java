@@ -51,8 +51,8 @@ class AnimationFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1903321498984042398L;
-	private static final int DEFAULT_WIDTH = 300;
-	private static final int DEFAULT_HEIGHT = 300;
+	private static final int DEFAULT_WIDTH = 800;
+	private static final int DEFAULT_HEIGHT = 600;
 
 	public AnimationFrame() {
 		ArrayComponent comp = new ArrayComponent();
