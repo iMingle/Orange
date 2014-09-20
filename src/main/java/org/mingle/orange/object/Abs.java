@@ -2,7 +2,7 @@
  * @version 1.0 2014年6月24日
  * @author mingle
  */
-package org.mingle.orange.java;
+package org.mingle.orange.object;
 
 /**
  * @version 1.0 2014年6月24日

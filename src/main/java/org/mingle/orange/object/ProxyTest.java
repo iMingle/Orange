@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2014, Mingle. All rights reserved.
  */
-package org.mingle.orange.java;
+package org.mingle.orange.object;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

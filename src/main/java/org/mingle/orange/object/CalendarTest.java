@@ -2,7 +2,7 @@
  * @version 1.0 2014年6月23日
  * @author mingle
  */
-package org.mingle.orange.java;
+package org.mingle.orange.object;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
