@@ -6,7 +6,6 @@ package org.mingle.orange.generic;
 /**
  * generic class pair
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @date 2014年7月22日
  * @version 1.0
  */
 public class Pair<T> {

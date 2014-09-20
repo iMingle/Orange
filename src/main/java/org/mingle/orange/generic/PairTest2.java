@@ -10,7 +10,6 @@ import java.util.GregorianCalendar;
 /**
  *
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @date 2014年7月22日
  * @version 1.0
  */
 public class PairTest2 {

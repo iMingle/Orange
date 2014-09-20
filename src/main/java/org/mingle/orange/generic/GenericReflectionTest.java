@@ -16,7 +16,6 @@ import java.util.Scanner;
 /**
  *
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @date 2014年7月24日
  * @version 1.0
  */
 public class GenericReflectionTest {
