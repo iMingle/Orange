@@ -97,19 +97,21 @@ class Sorter implements Runnable {
 	private static final int DELAY = 100;
 	private volatile boolean run;
 	private static final int VALUES_LENGTH = 30;
-	
+
 	/**
 	 * Constructs a Sorter.
 	 * 
-	 * @param values the array to be sorted
-	 * @param comp the component on which to display the sorting progress
+	 * @param values
+	 *            the array to be sorted
+	 * @param comp
+	 *            the component on which to display the sorting progress
 	 */
 	public Sorter(ArrayComponent comp) {
 		values = new Double[VALUES_LENGTH];
 		for (int i = 0; i < values.length; i++)
 			values[i] = new Double(Math.random());
 		this.component = comp;
-		this.gate = new Semaphore(1);
+		this.gate = new Semaphore(1); // 将信号量初始化为 1，使得它在使用时最多只有一个可用的许可，从而可用作一个相互排斥的锁。
 		this.run = false;
 	}
 
@@ -180,9 +182,10 @@ class ArrayComponent extends JComponent {
 		repaint();
 	}
 
-	public synchronized void paintComponent(Graphics g) // Called on the event
-														// dispatch thread
-	{
+	/**
+	 * Called on the event dispatch thread
+	 */
+	public synchronized void paintComponent(Graphics g) {
 		if (values == null)
 			return;
 		Graphics2D g2 = (Graphics2D) g;
@@ -197,5 +200,5 @@ class ArrayComponent extends JComponent {
 				g2.draw(bar);
 		}
 	}
-	
+
 }
