@@ -53,7 +53,7 @@ class ResourceTestFrame extends JFrame {
 		setIconImage(img);
 
 		JTextArea textArea = new JTextArea();
-		InputStream stream = getClass().getResourceAsStream("/documents/about.txt");
+		InputStream stream = getClass().getResourceAsStream("/documents/deploy.txt");
 		Scanner in = new Scanner(stream);
 		while (in.hasNext())
 			textArea.append(in.nextLine() + "\n");

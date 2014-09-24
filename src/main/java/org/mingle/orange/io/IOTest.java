@@ -14,16 +14,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class IOTest {
 
 	public static void main(String[] args) {
-		String file = "." + File.separator + "resource" + File.separator + "data.txt";
-
+		URI uri = null;
+		try {
+			uri = IOTest.class.getResource("/documents/data.txt").toURI();
+		} catch (URISyntaxException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
 		FileOutputStream outFile = null;
 		FileInputStream inFile = null;
 		try {
-			outFile = new FileOutputStream(file);
+			outFile = new FileOutputStream(new File(uri));
 			
 			outFile.write(97);
 			outFile.write(98);
@@ -37,7 +44,7 @@ public class IOTest {
 		}
 		
 		try {
-			inFile = new FileInputStream(file);
+			inFile = new FileInputStream(new File(uri));
 			
 			System.out.println(inFile.read());
 			System.out.println(inFile.read());
