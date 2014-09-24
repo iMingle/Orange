@@ -1,4 +1,4 @@
-package org.mingle.orange.hello;
+package org.mingle.orange.io;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
