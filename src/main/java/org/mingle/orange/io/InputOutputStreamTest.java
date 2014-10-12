@@ -28,6 +28,7 @@ public class InputOutputStreamTest {
 		};
 		
 		System.out.println(in.read());
+		in.close();
 	}
 
 }
