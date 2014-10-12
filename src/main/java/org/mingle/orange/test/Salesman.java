@@ -1,6 +1,10 @@
 package org.mingle.orange.test;
 
 public class Salesman extends Employee {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4677675899569711439L;
 	private String mobile = "15524566288";
 
 	@Override

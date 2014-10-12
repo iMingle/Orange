@@ -29,8 +29,8 @@ public class TextFileTest {
 		staff[1] = new Employee("Harry Hacker", 50000, 1989, 10, 1);
 		staff[2] = new Employee("Tony Tester", 40000, 1990, 3, 15);
 		
-		// save all employee records to the file out_employee.txt
 		try {
+			// save all employee records to the file out_employee.txt
 			PrintWriter out = new PrintWriter(new File(
 					TextFileTest.class.getResource(
 					"/documents/out_employee.txt").toURI()));
