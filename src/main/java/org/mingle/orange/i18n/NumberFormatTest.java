@@ -8,12 +8,16 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Locale;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -54,7 +58,7 @@ class NumberFormatFrame extends JFrame {
 
 	private Locale[] locales;
 	private double currentNumber;
-	private JComboBox localeCombo = new JComboBox();
+	private JComboBox<String> localeCombo = new JComboBox<String>();
 	private JButton parseButton = new JButton("Parse");
 	private JTextField numberText = new JTextField(30);
 	private JRadioButton numberRadioButton = new JRadioButton("Number");
@@ -80,6 +84,50 @@ class NumberFormatFrame extends JFrame {
 		this.addRadioButton(p, numberRadioButton, rbGroup, listener);
 		this.addRadioButton(p, currencyRadioButton, rbGroup, listener);
 		this.addRadioButton(p, percentRadioButton, rbGroup, listener);
+
+		this.add(new JLabel("Locale:"), new GBC(0, 0).setAnchor(GBC.EAST));
+		this.add(p, new GBC(1, 1));
+		this.add(parseButton, new GBC(0, 2).setInsets(2));
+		this.add(localeCombo, new GBC(1, 0).setAnchor(GBC.WEST));
+		this.add(numberText, new GBC(1, 2).setFill(GBC.HORIZONTAL));
+		locales = NumberFormat.getAvailableLocales();
+		Arrays.sort(locales, new Comparator<Locale>() {
+
+			@Override
+			public int compare(Locale o1, Locale o2) {
+				return o1.getDisplayName().compareTo(o2.getDisplayName());
+			}
+		});
+		
+		for (Locale loc : locales) {
+			localeCombo.addItem(loc.getDisplayName());
+		}
+		localeCombo.setSelectedItem(Locale.getDefault().getDisplayName());
+		currentNumber = 123456.78;
+		this.updateDisplay();
+		
+		localeCombo.addActionListener(listener);
+		
+		parseButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String s = numberText.getText().trim();
+				try {
+					Number n = currentNumberFormat.parse(s);
+					if (n != null) {
+						currentNumber = n.doubleValue();
+						updateDisplay();
+					} else {
+						numberText.setText("Parse error: " + s);
+					}
+				} catch (ParseException e1) {
+					numberText.setText("Parse error: " + s);
+				}
+			}
+		});
+		
+		this.pack();
 	}
 
 	/**
@@ -113,10 +161,12 @@ class NumberFormatFrame extends JFrame {
 		if (numberRadioButton.isSelected())
 			currentNumberFormat = NumberFormat.getNumberInstance(currentLocale);
 		else if (currencyRadioButton.isSelected())
-			currentNumberFormat = NumberFormat.getCurrencyInstance(currentLocale);
+			currentNumberFormat = NumberFormat
+					.getCurrencyInstance(currentLocale);
 		else if (percentRadioButton.isSelected())
-			currentNumberFormat = NumberFormat.getPercentInstance(currentLocale);
-		
+			currentNumberFormat = NumberFormat
+					.getPercentInstance(currentLocale);
+
 		String str = currentNumberFormat.format(currentNumber);
 		this.numberText.setText(str);
 	}
