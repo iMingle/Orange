@@ -98,18 +98,18 @@ class NumberFormatFrame extends JFrame {
 				return o1.getDisplayName().compareTo(o2.getDisplayName());
 			}
 		});
-		
+
 		for (Locale loc : locales) {
 			localeCombo.addItem(loc.getDisplayName());
 		}
 		localeCombo.setSelectedItem(Locale.getDefault().getDisplayName());
 		currentNumber = 123456.78;
 		this.updateDisplay();
-		
+
 		localeCombo.addActionListener(listener);
-		
+
 		parseButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String s = numberText.getText().trim();
@@ -126,7 +126,7 @@ class NumberFormatFrame extends JFrame {
 				}
 			}
 		});
-		
+
 		this.pack();
 	}
 
