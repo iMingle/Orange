@@ -23,7 +23,7 @@ import javax.swing.event.ListDataListener;
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  * @version 1.0
  */
-public class LocaleCombo extends JComboBox<String> {
+public class LocaleCombo extends JComboBox<Object> {
 	private static final long serialVersionUID = -895992472810878939L;
 
 	private Locale[] locales;
@@ -58,7 +58,7 @@ public class LocaleCombo extends JComboBox<String> {
 			}
 		};
 		Arrays.sort(locales, comp);
-		setModel(new ComboBoxModel() {
+		setModel(new ComboBoxModel<Object>() {
 			public Object getElementAt(int i) {
 				return locales[i];
 			}
@@ -90,13 +90,14 @@ public class LocaleCombo extends JComboBox<String> {
 		setSelectedItem(selected);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ListCellRenderer getRenderer() {
 		if (renderer == null) {
-			final ListCellRenderer originalRenderer = super.getRenderer();
+			final ListCellRenderer<Object> originalRenderer = super.getRenderer();
 			if (originalRenderer == null)
 				return null;
-			renderer = new ListCellRenderer() {
-				public Component getListCellRendererComponent(JList list,
+			renderer = new ListCellRenderer<Object>() {
+				public Component getListCellRendererComponent(JList<?> list,
 						Object value, int index, boolean isSelected,
 						boolean cellHasFocus) {
 					String renderedValue = ((Locale) value)
@@ -109,7 +110,7 @@ public class LocaleCombo extends JComboBox<String> {
 		return renderer;
 	}
 
-	public void setRenderer(ListCellRenderer newValue) {
+	public void setRenderer(ListCellRenderer<Object> newValue) {
 		renderer = null;
 		super.setRenderer(newValue);
 	}

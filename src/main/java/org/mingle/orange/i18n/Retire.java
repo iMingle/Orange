@@ -62,7 +62,7 @@ public class Retire extends JApplet {
 
 	private Locale[] locales = { Locale.US, Locale.CHINA, Locale.GERMANY };
 	private Locale currentLocale;
-	private JComboBox<String> localeCombo = new LocaleCombo(locales);
+	private JComboBox<Object> localeCombo = new LocaleCombo(locales);
 	private ResourceBundle res;
 	private ResourceBundle resStrings;
 	private NumberFormat currencyFmt;
@@ -141,10 +141,11 @@ public class Retire extends JApplet {
 			if (getLocale().equals(locales[i]))
 				localeIndex = i;
 		setCurrentLocale(locales[localeIndex]);
-
+		
 		localeCombo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				setCurrentLocale((Locale) localeCombo.getSelectedItem());
+				System.out.println(this.getClass());
 				validate();
 			}
 		});
