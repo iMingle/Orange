@@ -145,7 +145,7 @@ public class Retire extends JApplet {
 		localeCombo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				setCurrentLocale((Locale) localeCombo.getSelectedItem());
-				System.out.println(this.getClass());
+				
 				validate();
 			}
 		});
