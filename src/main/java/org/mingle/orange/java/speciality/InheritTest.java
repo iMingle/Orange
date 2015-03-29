@@ -19,10 +19,10 @@ public class InheritTest {
 		Father fs = new Son(12);
 		System.out.println(f.inherit(f));	// I am father, i am age of 48
 		System.out.println(s.inherit(s));	// I am son, i am age of 24
-		System.out.println(s.inherit(f));	// I am father, i am age of 48
+		System.out.println(s.inherit(f));	// I am father son, i am age of 48
 		System.out.println(f.inherit(s));	// I am father, i am age of 24
-		System.out.println(fs.inherit(f));	// I am father, i am age of 48
-		System.out.println(fs.inherit(s));	// I am father, i am age of 24
+		System.out.println(fs.inherit(f));	// I am father son, i am age of 48
+		System.out.println(fs.inherit(s));	// I am father son, i am age of 24
 	}
 
 }
@@ -63,6 +63,10 @@ class Son extends Father {
 	 */
 	public Son(int age) {
 		super(age);
+	}
+	
+	public String inherit(Father f) {
+		return "I am father son, i am age of " + f.getAge();
 	}
 
 	public String inherit(Son f) {

@@ -6,7 +6,7 @@ package org.mingle.orange.java.util;
 import java.util.Random;
 
 /**
- *
+ * 随机数类Random测试
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  * @version 1.0
  */

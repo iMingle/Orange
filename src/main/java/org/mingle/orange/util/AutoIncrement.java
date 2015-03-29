@@ -6,6 +6,7 @@ package org.mingle.orange.util;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -23,9 +24,9 @@ public class AutoIncrement {
 	 */
 	private int id;
 	/**
-	 * 单例对象
+	 * volatile变量
 	 */
-	private static final AutoIncrement autoIncrement = new AutoIncrement();
+	private volatile int vid;
 	/**
 	 * 锁对象
 	 */
@@ -34,19 +35,29 @@ public class AutoIncrement {
 	 * 条件变量
 	 */
 	private Condition condition = lock.newCondition();
-	
+	/**
+	 * 原子变量
+	 */
+	private AtomicInteger atomic = new AtomicInteger(0);
+	/**
+	 * 私有构造方法
+	 */
 	private AutoIncrement() {}
 	
+	private static class AutoIncrementInstance {
+		private static final AutoIncrement autoIncrement = new AutoIncrement();
+	}
+	
 	public static AutoIncrement getInstance() {
-		return autoIncrement;
+		return AutoIncrementInstance.autoIncrement;
 	}
 	
 	/**
-	 * 非同步
+	 * volatile同步，无法保证非原子操作
 	 * @return
 	 */
-	public int getId() {
-		return id++;
+	public int getVolatileId() {
+		return vid++;
 	}
 	
 	/**
@@ -54,7 +65,9 @@ public class AutoIncrement {
 	 * @return
 	 */
 	public int getSyncBlockId() {
-		return id++;
+		synchronized(this) {
+			return id++;
+		}
 	}
 	
 	/**
@@ -72,17 +85,17 @@ public class AutoIncrement {
 	public int getLockId() {
 		lock.lock();
 		try {
-			id++;
+			return id++;
 		} finally {
 			lock.unlock();
 		}
-		return id;
 	}
 	
 	/**
-	 * 锁对象操作加上条件对象
+	 * 锁对象操作加上条件对象，对此类没有意义
 	 * @return
 	 */
+	@Deprecated
 	public int getLockConditionId() {
 		lock.lock();
 		try {
@@ -106,7 +119,7 @@ public class AutoIncrement {
 	public int getTryLockId() {
 		if (lock.tryLock()) {
 			try {
-				id++;
+				return id++;
 			} finally {
 				lock.unlock();
 			}
@@ -114,7 +127,10 @@ public class AutoIncrement {
 			System.out.println("cannot get lock");
 			return 1;
 		}
-		return id;
+	}
+	
+	public int getAtomicId() {
+		return atomic.addAndGet(1);
 	}
 	
 	public static void main(String[] args) {
@@ -158,11 +174,13 @@ class ThreadId implements Runnable {
 		if (autoIncrement == null) System.out.println("get AutoIncrement is null");
 		int id = 0;
 		
-		while (id < 5000000) {
-//			id = autoIncrement.getSyncMethodId();
-//			id = autoIncrement.getLockId();
-//			id = autoIncrement.getTryLockId();
-			id = autoIncrement.getLockConditionId();
+		while (id < 500000) {
+			id = autoIncrement.getVolatileId();			// 无法正常工作
+//			id = autoIncrement.getSyncMethodId();		// 6643ms
+//			id = autoIncrement.getSyncBlockId();		// 6469ms
+//			id = autoIncrement.getLockId();				// 6401ms
+//			id = autoIncrement.getTryLockId();			// 可能获取不到锁
+//			id = autoIncrement.getAtomicId();			// 6297ms
 			System.out.println(" ID = " + id);
 			if (!set.add(id)) {
 				System.out.println("has repeat element");
