@@ -1,27 +1,40 @@
-/*
- * (c) Copyright 2013 网神信息技术（北京）股份有限公司
- * http://www.legendsec.com
+/**
+ * Copyright (c) 2014, Mingle. All rights reserved.
  */
-package org.mingle.orange.util;
+package org.mingle.orange.arithmetic.base;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * String工具类
+ * 算法的解法
  * 
- * @since 1.0 2015年3月13日
- * @author <a href="mailto:jinml@legendsec.com">靳明雷</a>
+ * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  * @version 1.0
  */
-public class StringUtils {
+public class Solution {
+	/**
+	 * Given an array of integers, every element appears twice except for one.
+	 * Find that single one.
+	 * 
+	 * @param A
+	 * @return
+	 */
+	public static int singleNumber(int[] A) {
+		int n = A.length;
+		while (--n > 0)
+			A[n - 1] ^= A[n];
+
+		return A[0];
+	}
+
 	/**
 	 * Given an input string, reverse the string word by word.
 	 * 
 	 * @param in
 	 * @return
 	 */
-	public static String reverse(String in) {
+	public static String reverseWords(String in) {
 		if (in == null)
 			return null;
 		if (in == "")
@@ -49,14 +62,9 @@ public class StringUtils {
 
 		return result.toString().trim();
 	}
-
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
-		String seq = "Hello";
-		System.out.println(StringUtils.reverse("I  love the game"));
-		System.out.println(seq);
+		System.out.println(Solution.singleNumber(new int[] {1, 1, 3, 3, 5, 6, 6}));
+		System.out.println(Solution.reverseWords("I  love you "));
 	}
-
 }
