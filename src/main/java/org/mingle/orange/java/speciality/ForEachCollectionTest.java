@@ -3,21 +3,27 @@
  */
 package org.mingle.orange.java.speciality;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /**
- * foreach测试
+ * foreach List测试
  * 
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  * @version 1.0
  */
-public class ForEachTest {
+public class ForEachCollectionTest {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] array = new int[] { 6, 8 };
+		Collection<Integer> array = new ArrayList<Integer>();
+		array.add(6);
+		array.add(8);
 		
-		for (int i : array) {
+		for (Integer i : array) {
 			System.out.println(i);
 		}
 	}
