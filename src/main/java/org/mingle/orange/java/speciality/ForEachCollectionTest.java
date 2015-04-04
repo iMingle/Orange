@@ -5,7 +5,6 @@ package org.mingle.orange.java.speciality;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * foreach List测试

@@ -13,6 +13,7 @@ public class InheritTest {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		Father f = new Father(48);
 		Son s = new Son(24);
@@ -24,6 +25,7 @@ public class InheritTest {
 		System.out.println(fs.inherit(f));	// I am father son, i am age of 48
 		System.out.println(fs.inherit(s));	// I am father son, i am age of 24
 		fs.retValInherit();					// return value is Son
+		s.staticFunction();					// 子类继承父类的所有方法，包括静态方法
 	}
 
 }
@@ -39,6 +41,15 @@ class Father {
 		this.age = age;
 	}
 
+	public static void staticFunction() {
+		System.out.println("Father static function!");
+	}
+	
+	@SuppressWarnings("unused")
+	private void privateFunction() {
+		System.out.println("Father private function!");
+	}
+	
 	/**
 	 * @return the age
 	 */

@@ -54,4 +54,12 @@ public class GenericTest<T> {
 		
 		return min;
 	}
+	
+	public T max(T[] numbers) {
+		return numbers[0];
+	}
+	
+	public <K extends Comparable<?>> void mm(Class<K> klass) {
+		return;
+	}
 }
