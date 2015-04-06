@@ -30,7 +30,9 @@ public class RandomTest {
 			System.out.print(b + ", ");
 		}
 		System.out.println();
-		System.out.println("ran.nextDouble() = " + ran.nextDouble());	// 同一个种子，生成的随机数相同
-		System.out.println("ran.nextDouble() = " + ran1.nextDouble());
+		System.out.println("ran.nextDouble() = " + ran.nextDouble());	// 0.7220096548596434 同一个种子，生成的随机数相同
+		System.out.println("ran.nextDouble() = " + ran.nextDouble());	// 0.19497605734770518
+		System.out.println("ran.nextDouble() = " + ran1.nextDouble());	// 0.7220096548596434
+		System.out.println("ran.nextDouble() = " + ran1.nextDouble());	// 0.19497605734770518
 	}
 }
