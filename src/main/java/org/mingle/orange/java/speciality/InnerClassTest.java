@@ -8,11 +8,27 @@ package org.mingle.orange.java.speciality;
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  * @version 1.0
  */
+@SuppressWarnings("unused")
 public class InnerClassTest {
 	private int outerNo;
+	/**
+	 * 内部类的创建不依赖以外部类的创建
+	 */
+	private Inner inner = new Inner(5);
 	
+	/**
+	 * @param outerNo
+	 */
+	public InnerClassTest(int outerNo) {
+		super();
+		this.outerNo = outerNo;
+		System.out.println("Outer class create");
+	}
+
 	class Inner extends InnerStatic implements Service {
-		public Inner(int x) {}
+		public Inner(int x) {
+			System.out.println("Inner class create");
+		}
 		
 		public int getOuterNo() {
 			return outerNo;
@@ -54,7 +70,6 @@ public class InnerClassTest {
 		return result;
 	}
 	
-	@SuppressWarnings("unused")
 	public Inner innerAnonymous(int x, final int xx) {
 		return new Inner(x) {
 			private int age = xx;
@@ -68,9 +83,8 @@ public class InnerClassTest {
 	/**
 	 * @param args
 	 */
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		InnerClassTest outer = new InnerClassTest();
+		InnerClassTest outer = new InnerClassTest(6);
 		InnerClassTest.Inner inner = outer.new Inner(5);
 		InnerClassTest.InnerStatic innerStatic = new InnerStatic();
 		inner.service();
