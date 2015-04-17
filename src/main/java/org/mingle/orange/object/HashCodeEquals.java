@@ -77,4 +77,14 @@ public class HashCodeEquals {
 		return true;
 	}
 
+	public static void main(String[] args) {
+		System.out.println(Integer.valueOf(1) == Integer.valueOf(1));
+		System.out.println(Integer.valueOf(1000) == Integer.valueOf(1000));
+		
+		System.out.println(Class.class.isInstance(new Object()));
+		String s = new String("abc").intern();
+		System.out.println(s.intern() == "abc");
+		System.out.println(new String().intern() == new String().intern());
+		System.out.println("a".hashCode());
+	}
 }
