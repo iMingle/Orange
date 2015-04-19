@@ -495,3 +495,50 @@ class TypeCounter extends HashMap<Class<?>, Integer> {
 		System.out.println(counter);
 	}
 }
+
+class Base {}
+
+class Derived extends Base {}
+
+/**
+ * 测试instanceof和Class的等价性
+ */
+class FamilyVsExactType {
+	static void test(Object o) {
+		System.out.println("Testing o of type " + o.getClass());
+		System.out.println("o instanceof Base " + (o instanceof Base));
+		System.out.println("o instanceof Derived " + (o instanceof Derived));
+		System.out.println("Base.isInstance(o) " + Base.class.isInstance(o));
+		System.out.println("Derived.isInstance(o) " + Derived.class.isInstance(o));
+		System.out.println("o.getClass() == Base.class " + (o.getClass() == Base.class));
+		System.out.println("o.getClass() == Derived.class " + (o.getClass() == Derived.class));
+		System.out.println("o.getClass().equals(Base.class) " + (o.getClass().equals(Base.class)));
+		System.out.println("o.getClass().equals(Derived.class) " + (o.getClass().equals(Derived.class)));
+	}
+	
+	public static void main(String[] args) {
+		test(new Base());
+		test(new Derived());
+/*		
+Output:
+		Testing o of type class org.mingle.orange.java.speciality.Base
+		o instanceof Base true
+		o instanceof Derived false
+		Base.isInstance(o) true
+		Derived.isInstance(o) false
+		o.getClass() == Base.class true
+		o.getClass() == Derived.class false
+		o.getClass().equals(Base.class) true
+		o.getClass().equals(Derived.class) false
+		Testing o of type class org.mingle.orange.java.speciality.Derived
+		o instanceof Base true
+		o instanceof Derived true
+		Base.isInstance(o) true
+		Derived.isInstance(o) true
+		o.getClass() == Base.class false
+		o.getClass() == Derived.class true
+		o.getClass().equals(Base.class) false
+		o.getClass().equals(Derived.class) true
+*/
+	}
+}
