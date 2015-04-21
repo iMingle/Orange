@@ -693,6 +693,245 @@ class Holder<T> {
 			System.out.println(e);		// java.lang.ClassCastException
 		}
 		
+//		fruit.setValue(new Apple());	// Compile Error
+		
 		System.out.println(fruit.equals(d));	// true
+	}
+}
+
+/**
+ * 超类型通配符
+ */
+class SuperTypeWildcards {
+	static void writeTo(List<? super Apple> apples) {
+		apples.add(new Apple());
+		apples.add(new Jonathan());
+//		apples.add(new Fruit());	// Compile Error
+	}
+}
+
+class GenericWriting {
+	static <T> void writeExact(List<T> list, T item) {
+		list.add(item);
+	}
+	
+	static List<Apple> apples = new ArrayList<Apple>();
+	static List<Fruit> fruit = new ArrayList<Fruit>();
+	
+	static void f1() {
+		writeExact(apples, new Apple());
+		writeExact(fruit, new Apple());
+	}
+	
+	static <T> void writeWithWildcard(List<? super T> list, T item) {
+		list.add(item);
+	}
+	
+	static void f2() {
+		writeWithWildcard(apples, new Apple());
+		writeWithWildcard(fruit, new Apple());
+	}
+	
+	public static void main(String[] args) {
+		f1();
+		f2();
+	}
+}
+
+class GenericReading {
+	static <T> T readExact(List<T> list) {
+		return list.get(0);
+	}
+	
+	static List<Apple> apples = Arrays.asList(new Apple());
+	static List<Fruit> fruit = Arrays.asList(new Fruit());
+	
+	@SuppressWarnings("unused")
+	static void f1() {
+		Apple a = readExact(apples);
+		Fruit f = readExact(fruit);
+		f = readExact(apples);
+	}
+	
+	static class Reader<T> {
+		T readExact(List<T> list) {
+			return list.get(0);
+		}
+	}
+	
+	@SuppressWarnings("unused")
+	static void f2() {
+		Reader<Fruit> fruitReader = new Reader<Fruit>();
+		Fruit f = fruitReader.readExact(fruit);
+//		Fruit a = fruitReader.readExact(apples);	// Compile Error
+	}
+	
+	static class CovariantReader<T> {
+		T readCovariant(List<? extends T> list) {
+			return list.get(0);
+		}
+	}
+	
+	@SuppressWarnings("unused")
+	static void f3() {
+		CovariantReader<Fruit> fruitReader = new CovariantReader<Fruit>();
+		Fruit f = fruitReader.readCovariant(fruit);
+		Fruit a = fruitReader.readCovariant(apples);
+	}
+	
+	public static void main(String[] args) {
+		f1(); f2(); f3();
+	}
+}
+
+/**
+ * 无界通配符<?>
+ */
+class UnboundedWildcards1 {
+	@SuppressWarnings("rawtypes")
+	static List list1;
+	static List<?> list2;
+	static List<? extends Object> list3;
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	static void assign1(List list) {
+		list1 = list;
+		list2 = list;
+		list3 = list;
+	}
+	
+	static void assign2(List<?> list) {
+		list1 = list;
+		list2 = list;
+		list3 = list;
+	}
+	
+	static void assign3(List<? extends Object> list) {
+		list1 = list;
+		list2 = list;
+		list3 = list;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args) {
+		assign1(new ArrayList());
+		assign2(new ArrayList());
+		assign3(new ArrayList());
+		
+		assign1(new ArrayList<String>());
+		assign2(new ArrayList<String>());
+		assign3(new ArrayList<String>());
+		
+		List<?> wildlist = new ArrayList();
+		assign1(wildlist);
+		assign2(wildlist);
+		assign3(wildlist);
+	}
+}
+
+class UnboundedWildcards2 {
+	@SuppressWarnings("rawtypes")
+	static Map map1;
+	static Map<?, ?> map2;
+	static Map<String, ?> map3;
+	
+	@SuppressWarnings("rawtypes")
+	static void assign1(Map map) {
+		map1 = map;
+	}
+	
+	static void assign2(Map<?, ?> map) {
+		map2 = map;
+	}
+	
+	static void assign3(Map<String, ?> map) {
+		map3 = map;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static void main(String[] args) {
+		assign1(new HashMap());
+		assign2(new HashMap());
+		assign3(new HashMap());
+		
+		assign1(new HashMap<String, Integer>());
+		assign2(new HashMap<String, Integer>());
+		assign3(new HashMap<String, Integer>());
+	}
+}
+
+/**
+ * 通配符
+ */
+class Wildcards {
+	static void rawArgs(Holder holder, Object arg) {
+		holder.setValue(arg);
+		holder.setValue(new Wildcards());
+		Object obj = holder.getValue();
+	}
+	
+	static void unboundedArg(Holder<?> holder, Object arg) {
+//		holder.setValue(arg);				// Compile Error
+//		holder.setValue(new Wildcards());	// Compile Error
+		Object obj = holder.getValue();
+	}
+	
+	static <T> T exact1(Holder<T> holder) {
+		T t = holder.getValue();
+		return t;
+	}
+	
+	static <T> T exact2(Holder<T> holder, T arg) {
+		holder.setValue(arg);
+		T t = holder.getValue();
+		return t;
+	}
+	
+	static <T> T wildSubtype(Holder<? extends T> holder, T arg) {
+//		holder.setValue(arg);	// Compile Error
+		T t = holder.getValue();
+		return t;
+	}
+	
+	static <T> void wildSupertype(Holder<? super T> holder, T arg) {
+		holder.setValue(arg);
+//		T t = holder.getValue();	// Compile Error
+		Object obj = holder.getValue();
+	}
+	
+	public static void main(String[] args) {
+		Holder raw = new Holder<Long>();
+		raw = new Holder();
+		
+		Holder<Long> qualified = new Holder<Long>();
+		Holder<?> unbounded = new Holder<Long>();
+		Holder<? extends Long> bounded = new Holder<Long>();
+		
+		Long lng = 1L;
+		
+		rawArgs(raw, lng);
+		rawArgs(qualified, lng);
+		rawArgs(unbounded, lng);
+		rawArgs(bounded, lng);
+		
+		unboundedArg(raw, lng);
+		unboundedArg(qualified, lng);
+		unboundedArg(unbounded, lng);
+		unboundedArg(bounded, lng);
+		
+		Object r1 = exact1(raw);
+		Long r2 = exact1(qualified);
+		Object r3 = exact1(unbounded);
+		Long r4 = exact1(bounded);
+		
+		Long r5 = exact2(raw, lng);
+		Long r6 = exact2(qualified, lng);
+//		Long r7 = exact2(unbounded, lng);	// Compile Error
+//		Long r8 = exact2(bounded, lng);		// Compile Error
+		
+		Long r9 = wildSubtype(raw, lng);
+		Long r10 = wildSubtype(qualified, lng);
+		Object r11 = wildSubtype(unbounded, lng);
+		Long r12 = wildSubtype(bounded, lng);
 	}
 }
