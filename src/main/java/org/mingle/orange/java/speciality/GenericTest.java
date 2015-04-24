@@ -864,12 +864,22 @@ class UnboundedWildcards2 {
  * 通配符
  */
 class Wildcards {
+	/**
+	 * 原生类型，可以传递任何类型Object
+	 * @param holder
+	 * @param arg
+	 */
 	static void rawArgs(Holder holder, Object arg) {
 		holder.setValue(arg);
 		holder.setValue(new Wildcards());
 		Object obj = holder.getValue();
 	}
 	
+	/**
+	 * 无界匹配,持有具有某种具体类型的同构集合，不能只向其传递Object
+	 * @param holder
+	 * @param arg
+	 */
 	static void unboundedArg(Holder<?> holder, Object arg) {
 //		holder.setValue(arg);				// Compile Error
 //		holder.setValue(new Wildcards());	// Compile Error
@@ -881,18 +891,35 @@ class Wildcards {
 		return t;
 	}
 	
+	/**
+	 * 确切的泛型类型
+	 * @param holder
+	 * @param arg
+	 * @return
+	 */
 	static <T> T exact2(Holder<T> holder, T arg) {
 		holder.setValue(arg);
 		T t = holder.getValue();
 		return t;
 	}
 	
+	/**
+	 * 边界,为了防止将Orange放入Holder<Apple>中,set方法不允许,get返回T是基类型，没有问题
+	 * @param holder
+	 * @param arg
+	 * @return
+	 */
 	static <T> T wildSubtype(Holder<? extends T> holder, T arg) {
 //		holder.setValue(arg);	// Compile Error
 		T t = holder.getValue();
 		return t;
 	}
 	
+	/**
+	 * 逆变，可以工作于基类的对象都可以工作于导出类,尝试调用get是没有用的,因为holder持有的可以是任何超类型,唯一安全的类型是Object
+	 * @param holder
+	 * @param arg
+	 */
 	static <T> void wildSupertype(Holder<? super T> holder, T arg) {
 		holder.setValue(arg);
 //		T t = holder.getValue();	// Compile Error
