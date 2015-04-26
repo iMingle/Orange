@@ -3,9 +3,12 @@
  */
 package org.mingle.orange.java.speciality;
 
+import java.util.AbstractList;
 import java.util.AbstractMap;
 import java.util.AbstractSet;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,6 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -422,6 +426,7 @@ class Countries {
 	
 	private static class FlyweightMap extends AbstractMap<String, String> {
 		private static class Entry implements Map.Entry<String, String> {
+			// 只存储索引,不是实际的键和值,享元模式
 			int index;
 
 			public Entry(int index) {
@@ -476,13 +481,14 @@ class Countries {
 			public EntrySet(int size) {
 				if (size < 0)
 					this.size = 0;
-				else if (size < DATA.length)
+				else if (size > DATA.length)
 					this.size = DATA.length;
 				else
 					this.size = size;
 			}
 			
 			private class Iter implements Iterator<Map.Entry<String, String>> {
+				// 每个迭代器只包含一个Map.Entry,享元模式
 				private Entry entry = new Entry(-1);
 
 				/* (non-Javadoc)
@@ -581,3 +587,336 @@ class Countries {
 	}
 }
 
+/**
+ * 任意尺寸的Integer列表
+ */
+class CountingIntegerList extends AbstractList<Integer> {
+	private int size;
+
+	public CountingIntegerList(int size) {
+		super();
+		this.size = size < 0 ? 0 : size;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.AbstractList#get(int)
+	 */
+	@Override
+	public Integer get(int index) {
+		return Integer.valueOf(index);
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.AbstractCollection#size()
+	 */
+	@Override
+	public int size() {
+		return size;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new CountingIntegerList(30));
+	}
+}
+
+/**
+ * 任意尺寸的<Integer, String>Map列表
+ */
+class CountingMapData extends AbstractMap<Integer, String> {
+	private int size;
+	private static String[] chars = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
+	
+	public CountingMapData(int size) {
+		if (size < 0)
+			this.size = 0;
+		else
+			this.size = size;
+	}
+	
+	private static class Entry implements Map.Entry<Integer, String> {
+		int index;
+
+		public Entry(int index) {
+			this.index = index;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#equals(java.lang.Object)
+		 */
+		@Override
+		public boolean equals(Object obj) {
+			return Integer.valueOf(index).equals(obj);
+		}
+
+		/* (non-Javadoc)
+		 * @see java.util.Map.Entry#getKey()
+		 */
+		@Override
+		public Integer getKey() {
+			return index;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.util.Map.Entry#getValue()
+		 */
+		@Override
+		public String getValue() {
+			return chars[index % chars.length] + Integer.toString(index / chars.length);
+		}
+
+		/* (non-Javadoc)
+		 * @see java.util.Map.Entry#setValue(java.lang.Object)
+		 */
+		@Override
+		public String setValue(String value) {
+			throw new UnsupportedOperationException();
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#hashCode()
+		 */
+		@Override
+		public int hashCode() {
+			return Integer.valueOf(index).hashCode();
+		}
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.AbstractMap#entrySet()
+	 */
+	@Override
+	public Set<java.util.Map.Entry<Integer, String>> entrySet() {
+		Set<Map.Entry<Integer, String>> entries = new LinkedHashSet<>();
+		for (int i = 0; i < size; i++) {
+			entries.add(new Entry(i));
+		}
+		return entries;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new CountingMapData(60));
+	}
+}
+
+class CollectionMethods {
+	public static void main(String[] args) {
+		Collection<String> c = new ArrayList<>();
+		c.addAll(Countries.names(6));
+		c.add("ten");
+		c.add("eleven");
+		System.out.println(c);
+		
+		Object[] array = c.toArray();
+		System.out.println(array);
+		
+		String[] str = c.toArray(new String[0]);
+		System.out.println(str);
+		
+		System.out.println(Collections.max(c));
+		System.out.println(Collections.min(c));
+		
+		Collection<String> c2 = new ArrayList<>();
+		c2.addAll(Countries.names(6));
+		c.addAll(c2);
+		System.out.println(c);
+		c.remove(Countries.DATA[0][0]);
+		System.out.println(c);
+		c.remove(Countries.DATA[1][0]);
+		System.out.println(c);
+		
+		c.removeAll(c2);
+		System.out.println(c);
+		c.addAll(c2);
+		System.out.println(c);
+		
+		System.out.println(c.contains(Countries.DATA[3][0]));
+		System.out.println(c.containsAll(c2));
+		
+		Collection<String> c3 = ((List<String>)c).subList(3, 5);
+		c2.retainAll(c3);
+		System.out.println(c2);
+		
+		c2.removeAll(c3);
+		System.out.println(c2.isEmpty());
+		
+		c = new ArrayList<>();
+		c.addAll(Countries.names(6));
+		System.out.println(c);
+		c.clear();
+		System.out.println(c);
+	}
+}
+
+/**
+ * Collection可选操作
+ */
+class Unsupported {
+	static void test(String msg, List<String> list) {
+		System.out.println("--- " + msg + " ---");
+		Collection<String> c = list;
+		Collection<String> subList = list.subList(1, 8);
+		Collection<String> c2 = new ArrayList<>(subList);
+		
+		try {
+			c.retainAll(c2);
+		} catch (Exception e) {
+			System.out.println("retainAll(): " + e);
+		}
+		
+		try {
+			c.removeAll(c2);
+		} catch (Exception e) {
+			System.out.println("removeAll(): " + e);
+		}
+		
+		try {
+			c.clear();
+		} catch (Exception e) {
+			System.out.println("clear(): " + e);
+		}
+		
+		try {
+			c.add("X");
+		} catch (Exception e) {
+			System.out.println("add(): " + e);
+		}
+		
+		try {
+			c.addAll(c2);
+		} catch (Exception e) {
+			System.out.println("addAll(): " + e);
+		}
+		
+		try {
+			c.remove("C");
+		} catch (Exception e) {
+			System.out.println("remove(): " + e);
+		}
+		
+		try {
+			list.set(0, "X");
+		} catch (Exception e) {
+			System.out.println("List.set(): " + e);
+		}
+	}
+	
+	public static void main(String[] args) {
+		List<String> list = Arrays.asList("A B C D E F G H I J K L".split(" "));
+		test("Modifiable Copy", new ArrayList<>(list));
+		test("Arrays.asList()", list);
+		test("unmodifiableList", Collections.unmodifiableList(new ArrayList<>(list)));
+	}
+}
+
+
+class Lists {
+	@SuppressWarnings("unused")
+	private static boolean b;
+	@SuppressWarnings("unused")
+	private static String s;
+	@SuppressWarnings("unused")
+	private static int i;
+	@SuppressWarnings("unused")
+	private static Iterator<String> it;
+	@SuppressWarnings("unused")
+	private static ListIterator<String> lit;
+	
+	public static void basicTest(List<String> a) {
+		a.add(1, "x");
+		a.add("x");
+		a.addAll(Countries.names(5));
+		a.addAll(3, Countries.names(5));
+		b = a.contains("1");
+		b = a.containsAll(Countries.names(5));
+		s = a.get(1);
+		i = a.indexOf("1");
+		it = a.iterator();
+		lit = a.listIterator();
+		lit = a.listIterator(3);
+		i = a.lastIndexOf("1");
+		a.remove(1);
+		a.remove("3");
+		a.set(1, "y");
+		a.retainAll(Countries.names(5));
+		a.removeAll(Countries.names(5));
+		i = a.size();
+		a.clear();
+	}
+	
+	public static void iterMotion(List<String> a) {
+		ListIterator<String> it = a.listIterator();
+		b = it.hasNext();
+		b = it.hasPrevious();
+		s = it.next();
+		i = it.nextIndex();
+		s = it.previous();
+		i = it.previousIndex();
+	}
+	
+	public static void iterManipulation(List<String> a) {
+		ListIterator<String> it = a.listIterator();
+		System.out.println(a);
+		it.add("47");
+		System.out.println(a);
+		// 必须在调用add后移动一个元素
+		System.out.println(it.next());
+		System.out.println(a);
+		it.remove();
+		System.out.println(a);
+		// 必须在调用remove后移动一个元素
+		System.out.println(it.next());
+		it.set("47");
+		System.out.println(a);
+	}
+	
+	public static void testVisual(List<String> a) {
+		System.out.println(a);
+		List<String> b = Countries.names(5);
+		System.out.println("b = " + b);
+		a.addAll(b);
+		a.addAll(b);
+		System.out.println(a);
+		
+		ListIterator<String> x = a.listIterator(a.size() / 2);
+		x.add("one");
+		System.out.println(a);
+		System.out.println(x.next());
+		x.remove();
+		System.out.println(x.next());
+		x.set("47");
+		System.out.println(a);
+		
+		x = a.listIterator(a.size());
+		while (x.hasPrevious()) {
+			System.out.print(x.previous() + " ");
+		}
+		System.out.println();
+		System.out.println("testVisual finished");
+	}
+	
+	public static void testLinkedList() {
+		LinkedList<String> ll = new LinkedList<String>();
+		ll.addAll(Countries.names(5));
+		System.out.println(ll);
+		ll.addFirst("one");
+		ll.addFirst("two");
+		System.out.println(ll);
+		System.out.println(ll.getFirst());
+		System.out.println(ll.removeFirst());
+		System.out.println(ll.removeFirst());
+		System.out.println(ll.removeLast());
+		System.out.println(ll);
+	}
+	
+	public static void main(String[] args) {
+		basicTest(new LinkedList<>(Countries.names(5)));
+		basicTest(new ArrayList<>(Countries.names(5)));
+		iterMotion(new LinkedList<>(Countries.names(5)));
+		iterMotion(new ArrayList<>(Countries.names(5)));
+		iterManipulation(new LinkedList<>(Countries.names(5)));
+		iterManipulation(new ArrayList<>(Countries.names(5)));
+		testVisual(new LinkedList<>(Countries.names(5)));
+		testLinkedList();
+	}
+}
