@@ -20,9 +20,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
 /**
  * 容器深入
@@ -918,5 +925,229 @@ class Lists {
 		iterManipulation(new ArrayList<>(Countries.names(5)));
 		testVisual(new LinkedList<>(Countries.names(5)));
 		testLinkedList();
+	}
+}
+
+/**
+ * Set测试
+ */
+class SetType {
+	int i;
+
+	/**
+	 * @param n
+	 */
+	public SetType(int n) {
+		this.i = n;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof SetType && (i == ((SetType)obj).i);
+	}
+	
+	public String toString() {
+		return Integer.toString(i);
+	}
+}
+
+class HashType extends SetType {
+
+	public HashType(int n) {
+		super(n);
+	}
+	
+	public int hashCode() {
+		return i;
+	}
+}
+
+class TreeType extends SetType implements Comparable<TreeType> {
+
+	public TreeType(int n) {
+		super(n);
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	@Override
+	public int compareTo(TreeType o) {
+		return o.i < i ? -1 : (o.i == i ? 0 : 1);
+	}
+	
+}
+
+class TypesForSets {
+	static <T> Set<T> fill(Set<T> set, Class<T> type) {
+		try {
+			for (int i = 0; i < 10; i++) {
+				set.add(type.getConstructor(int.class).newInstance(i));
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+		return set;
+	}
+	
+	static <T> void test(Set<T> set, Class<T> type) {
+		fill(set, type);
+		fill(set, type);
+		fill(set, type);
+		System.out.println(set);
+	}
+	
+	public static void main(String[] args) {
+		test(new HashSet<HashType>(), HashType.class);
+		test(new LinkedHashSet<HashType>(), HashType.class);
+		test(new TreeSet<TreeType>(), TreeType.class);
+		
+		test(new HashSet<SetType>(), SetType.class);
+		test(new HashSet<TreeType>(), TreeType.class);
+		test(new LinkedHashSet<SetType>(), SetType.class);
+		test(new LinkedHashSet<TreeType>(), TreeType.class);
+		
+		try {
+			test(new TreeSet<SetType>(), SetType.class);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			test(new TreeSet<HashType>(), HashType.class);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		Set<SetType> sets = new HashSet<>();
+		sets.add(new SetType(1));
+		sets.add(new SetType(1));
+		System.out.println(sets);
+	}
+}
+
+class SortedSetDemo {
+	public static void main(String[] args) {
+		SortedSet<String> sortedSet = new TreeSet<>();
+		Collections.addAll(sortedSet, "one two three four five six seven eight".split(" "));
+		System.out.println(sortedSet);	// [eight, five, four, one, seven, six, three, two]
+		String low = sortedSet.first();
+		String high = sortedSet.last();
+		System.out.println(low);		// eight
+		System.out.println(high);		// two
+		
+		Iterator<String> it = sortedSet.iterator();
+		for (int i = 0; i <= 6; i++) {
+			if (i == 3) low = it.next();
+			if (i == 6) high = it.next();
+			else it.next();
+		}
+		System.out.println(low);	// one
+		System.out.println(high);	// two
+		System.out.println(sortedSet.subSet(low, high));	// [one, seven, six, three]
+		System.out.println(sortedSet.headSet(high));		// [eight, five, four, one, seven, six, three]
+		System.out.println(sortedSet.tailSet(low));	// [one, seven, six, three, two]
+	}
+}
+
+/**
+ * 队列测试
+ */
+class QueueBehavior {
+	private static int count = 10;
+	
+	static <T> void test(Queue<T> queue, Generator<T> gen) {
+		for (int i = 0; i < count; i++) {
+			queue.offer(gen.next());
+		}
+		while (queue.peek() != null) {
+			System.out.print(queue.remove() + " ");
+		}
+		System.out.println();
+	}
+	
+	static class Gen implements Generator<String> {
+		String[] s = ("one two three four five six seven eight nine ten").split(" ");
+		int i;
+
+		/* (non-Javadoc)
+		 * @see org.mingle.orange.java.speciality.Generator#next()
+		 */
+		@Override
+		public String next() {
+			return s[i++];
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		test(new LinkedList<String>(), new Gen());
+		test(new PriorityQueue<String>(), new Gen());
+		test(new ArrayBlockingQueue<String>(count), new Gen());
+		test(new ConcurrentLinkedQueue<String>(), new Gen());
+		test(new LinkedBlockingQueue<String>(), new Gen());
+		test(new PriorityBlockingQueue<String>(), new Gen());
+	}
+}
+
+class ToDoList extends PriorityQueue<ToDoList.ToDoItem> {
+	private static final long serialVersionUID = -4202975097781905232L;
+
+	static class ToDoItem implements Comparable<ToDoItem> {
+		private char primary;
+		private int secondary;
+		private String item;
+		
+		/**
+		 * @param primary
+		 * @param secondary
+		 * @param item
+		 */
+		public ToDoItem(char primary, int secondary, String item) {
+			this.primary = primary;
+			this.secondary = secondary;
+			this.item = item;
+		}
+		
+		/* (non-Javadoc)
+		 * @see java.lang.Comparable#compareTo(java.lang.Object)
+		 */
+		@Override
+		public int compareTo(ToDoItem o) {
+			if (primary > o.primary) return 1;
+			if (primary == o.primary)
+				if (secondary > o.secondary) return 1;
+				else if (secondary == o.secondary) return 0;
+			return -1;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return Character.toString(primary) + secondary + ": " + item;
+		}
+
+	}
+	
+	public void add(char primary, int secondary, String item) {
+		super.add(new ToDoItem(primary, secondary, item));
+	}
+	
+	public static void main(String[] args) {
+		ToDoList toDoList = new ToDoList();
+		toDoList.add('C', 4, "Empty trash");
+		toDoList.add('A', 2, "Feed dog");
+		toDoList.add('B', 7, "Feed bird");
+		toDoList.add('C', 3, "Mow lawn");
+		toDoList.add('A', 1, "Water lawn");
+		toDoList.add('B', 1, "Feed cat");
+		while (!toDoList.isEmpty())
+			System.out.println(toDoList.remove());
 	}
 }
