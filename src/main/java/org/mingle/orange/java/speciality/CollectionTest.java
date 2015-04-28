@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -26,7 +27,9 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.WeakHashMap;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -1094,6 +1097,9 @@ class QueueBehavior {
 	}
 }
 
+/**
+ * 优先级队列
+ */
 class ToDoList extends PriorityQueue<ToDoList.ToDoItem> {
 	private static final long serialVersionUID = -4202975097781905232L;
 
@@ -1149,5 +1155,105 @@ class ToDoList extends PriorityQueue<ToDoList.ToDoItem> {
 		toDoList.add('B', 1, "Feed cat");
 		while (!toDoList.isEmpty())
 			System.out.println(toDoList.remove());
+	}
+}
+
+/**
+ * 关联数组,模仿Map
+ */
+class AssociativeArray<K,V> {
+	private Object[][] pairs;
+	private int index;
+	
+	public AssociativeArray(int length) {
+		pairs = new Object[length][2];
+	}
+	
+	public void put(K key, V value) {
+		if (index > pairs.length)
+			throw new ArrayIndexOutOfBoundsException();
+		pairs[index++] = new Object[] {key, value};
+	}
+	
+	@SuppressWarnings("unchecked")
+	public V get(K key) {
+		for (int i = 0; i < index; i++) {
+			if (key.equals(pairs[i][0])) {
+				return (V) pairs[i][1];
+			}
+		}
+		return null;
+	}
+	
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		for (int i = 0; i < index; i++) {
+			result.append(pairs[i][0].toString());
+			result.append(" : ");
+			result.append(pairs[i][1].toString());
+			if (i < index - 1)
+				result.append("\n");
+		}
+		
+		return result.toString();
+	}
+	
+	public static void main(String[] args) {
+		AssociativeArray<String, String> map = new AssociativeArray<String, String>(6);
+		map.put("sky", "blue");
+		map.put("grass", "green");
+		map.put("ocean", "dancing");
+		map.put("tree", "tail");
+		map.put("earth", "brown");
+		map.put("sun", "warm");
+		try {
+			map.put("extra", "object");
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("too many objects");
+		}
+		System.out.println(map);
+		System.out.println(map.get("ocean"));
+	}
+}
+
+class Maps {
+	public static void printKeys(Map<Integer, String> map) {
+		System.out.print("Size = " + map.size() + ", ");
+		System.out.print("Keys: ");
+		System.out.println(map.keySet());
+	}
+	
+	public static void test(Map<Integer, String> map) {
+		System.out.println(map.getClass().getSimpleName());
+		map.putAll(new CountingMapData(25));
+		map.putAll(new CountingMapData(25));
+		printKeys(map);
+		
+		System.out.print("Values: ");
+		System.out.println(map.values());
+		System.out.println(map);
+		
+		System.out.println(map.containsKey(11));
+		System.out.println(map.get(11));
+		System.out.println(map.containsValue("F0"));
+		
+		Integer key = map.keySet().iterator().next();
+		System.out.println("First key in map: " + key);
+		map.remove(key);
+		printKeys(map);
+		map.clear();
+		System.out.println(map.isEmpty());
+		map.putAll(new CountingMapData(25));
+		map.keySet().removeAll(map.keySet());
+		System.out.println(map.isEmpty());
+	}
+	
+	public static void main(String[] args) {
+		test(new HashMap<>());
+		test(new TreeMap<>());
+		test(new LinkedHashMap<>());
+		test(new IdentityHashMap<>());
+		test(new ConcurrentHashMap<>());
+		test(new WeakHashMap<>());
 	}
 }
