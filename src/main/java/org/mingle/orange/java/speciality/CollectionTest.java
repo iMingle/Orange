@@ -1257,3 +1257,164 @@ class Maps {
 		test(new WeakHashMap<>());
 	}
 }
+
+/**
+ * 排序Map
+ */
+class SortedMapDemo {
+	public static void main(String[] args) {
+		TreeMap<Integer, String> sortedMap = new TreeMap<>(new CountingMapData(10));
+		System.out.println(sortedMap);	// {0=A0, 1=B0, 2=C0, 3=D0, 4=E0, 5=F0, 6=G0, 7=H0, 8=I0, 9=J0}
+		
+		Integer low = sortedMap.firstKey();
+		Integer high = sortedMap.lastKey();
+		System.out.println(low);	// 0
+		System.out.println(high);	// 9
+		
+		Iterator<Integer> it = sortedMap.keySet().iterator();
+		for (int i = 0; i <= 6; i++) {
+			if (i == 3) low = it.next();
+			if (i == 6) high = it.next();
+			else it.next();
+		}
+		System.out.println(low);	// 3
+		System.out.println(high);	// 7
+		System.out.println(sortedMap.subMap(low, high));	// {3=D0, 4=E0, 5=F0, 6=G0}
+		System.out.println(sortedMap.headMap(high));	// {0=A0, 1=B0, 2=C0, 3=D0, 4=E0, 5=F0, 6=G0}
+		System.out.println(sortedMap.tailMap(low));	// {3=D0, 4=E0, 5=F0, 6=G0, 7=H0, 8=I0, 9=J0}
+	}
+}
+
+class LinkedHashMapDemo {
+	public static void main(String[] args) {
+		LinkedHashMap<Integer, String> linkedMap = new LinkedHashMap<>(new CountingMapData(9));
+		System.out.println(linkedMap);	// {0=A0, 1=B0, 2=C0, 3=D0, 4=E0, 5=F0, 6=G0, 7=H0, 8=I0}
+		// LRU最近最少使用,没有被访问过的出现在队列的前面
+		linkedMap = new LinkedHashMap<>(16, 0.75f, true);
+		linkedMap.putAll(new CountingMapData(9));
+		System.out.println(linkedMap);	// {0=A0, 1=B0, 2=C0, 3=D0, 4=E0, 5=F0, 6=G0, 7=H0, 8=I0}
+		for (int i = 0; i < 6; i++) {
+			linkedMap.get(i);
+		}
+		System.out.println(linkedMap);	// {6=G0, 7=H0, 8=I0, 0=A0, 1=B0, 2=C0, 3=D0, 4=E0, 5=F0}
+		linkedMap.get(0);
+		System.out.println(linkedMap);	// {6=G0, 7=H0, 8=I0, 1=B0, 2=C0, 3=D0, 4=E0, 5=F0, 0=A0}
+	}
+}
+
+/**
+ * 用ArrayList实现的Map
+ */
+class SlowMap<K,V> extends AbstractMap<K, V> {
+	private List<K> keys = new ArrayList<>();
+	private List<V> values = new ArrayList<>();
+	
+	public V put(K key, V value) {
+		V oldValue = get(key);
+		if (!keys.contains(key)) {
+			keys.add(key);
+			values.add(value);
+		} else {
+			values.set(keys.indexOf(key), value);
+		}
+		
+		return oldValue;
+	}
+	
+	public V get(Object key) {
+		if (!keys.contains(key))
+			return null;
+		return values.get(keys.indexOf(key));
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.AbstractMap#entrySet()
+	 */
+	@Override
+	public Set<java.util.Map.Entry<K, V>> entrySet() {
+		Set<Map.Entry<K, V>> set = new HashSet<>();
+		Iterator<K> ki = keys.iterator();
+		Iterator<V> vi = values.iterator();
+		while (ki.hasNext()) {
+			set.add(new MapEntry<K,V>(ki.next(), vi.next()));
+		}
+		return set;
+	}
+	
+	public static void main(String[] args) {
+		SlowMap<String, String> m = new SlowMap<String, String>();
+		m.putAll(Countries.capitals(15));
+		System.out.println(m);
+		System.out.println(m.get("BULGARIL"));
+		System.out.println(m.entrySet());
+	}
+}
+
+class MapEntry<K,V> implements Map.Entry<K, V> {
+	private K key;
+	private V value;
+
+	/**
+	 * @param key
+	 * @param value
+	 */
+	public MapEntry(K key, V value) {
+		this.key = key;
+		this.value = value;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.Map.Entry#getKey()
+	 */
+	@Override
+	public K getKey() {
+		return key;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.Map.Entry#getValue()
+	 */
+	@Override
+	public V getValue() {
+		return value;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.Map.Entry#setValue(java.lang.Object)
+	 */
+	@Override
+	public V setValue(V value) {
+		V result = this.value;
+		this.value = value;
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return (key == null ? 0 : key.hashCode()) ^ (value == null ? 0 : value.hashCode());
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@SuppressWarnings("rawtypes")
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof MapEntry)) return false;
+		MapEntry me = (MapEntry) obj;
+		return (key == null ? me.getKey() == null : key.equals(me.getKey())) &&
+				(value == null ? me.getValue() == null : key.equals(me.getValue()));
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return key + "=" + value;
+	}
+	
+}
