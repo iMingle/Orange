@@ -476,7 +476,7 @@ class Countries {
 			public EntrySet(int size) {
 				if (size < 0)
 					this.size = 0;
-				else if (size < DATA.length)
+				else if (size > DATA.length)
 					this.size = DATA.length;
 				else
 					this.size = size;
