@@ -4,8 +4,7 @@
  */
 package org.mingle.orange.util;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * String工具类
@@ -27,7 +26,7 @@ public class StringUtils {
 		if (in == "")
 			return "";
 
-		Deque<String> stack = new ArrayDeque<String>();
+		LinkedList<String> stack = new LinkedList<String>();
 		in = in.trim() + ' ';
 		int length = in.length();
 		int i = 0;
