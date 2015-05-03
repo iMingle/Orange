@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014, Mingle. All rights reserved.
+ * Copyright (c) 2015, Mingle. All rights reserved.
  */
 /**
  * @author <a href="mailto:jinminglei@yeah.net">Mingle</a>
