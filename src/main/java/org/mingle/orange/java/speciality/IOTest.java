@@ -12,6 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
+import java.io.Externalizable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,8 +22,11 @@ import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInput;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.io.Serializable;
@@ -38,11 +42,23 @@ import java.nio.ShortBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.SortedMap;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
 import java.util.regex.Pattern;
+
+import nu.xom.Builder;
+import nu.xom.Document;
+import nu.xom.Element;
+import nu.xom.Elements;
+import nu.xom.ParsingException;
+import nu.xom.Serializer;
+import nu.xom.ValidityException;
 
 /**
  * Java I/O测试
@@ -65,7 +81,7 @@ public class IOTest {
  * 目录列表器
  */
 class DirList {
-	
+
 	public static void main(String[] args) {
 		File path = new File(".");
 		String[] list;
@@ -74,7 +90,7 @@ class DirList {
 		else
 			list = path.list(new FilenameFilter() {
 				private Pattern pattern = Pattern.compile(args[0]);
-				
+
 				@Override
 				public boolean accept(File dir, String name) {
 					return pattern.matcher(name).matches();
@@ -166,7 +182,7 @@ class BufferedInputFile {
 		in.close();
 		return sb.toString();
 	}
-	
+
 	public static void main(String[] args) throws IOException {
 		System.out.print(read("pom.xml"));
 	}
@@ -180,7 +196,7 @@ class MemoryInput {
 		StringReader in = new StringReader(BufferedInputFile.read("pom.xml"));
 		int c;
 		while ((c = in.read()) != -1)
-			System.out.println((char)c);
+			System.out.println((char) c);
 	}
 }
 
@@ -193,9 +209,8 @@ class FormattedMemoryInput {
 			DataInputStream in = new DataInputStream(new ByteArrayInputStream(
 					BufferedInputFile.read("pom.xml").getBytes()));
 			while (true)
-				System.out.print((char)in.readByte());
-		}
-		catch (EOFException e) {
+				System.out.print((char) in.readByte());
+		} catch (EOFException e) {
 			System.out.println("End of stream");
 		}
 	}
@@ -203,9 +218,10 @@ class FormattedMemoryInput {
 
 class TestEOF {
 	public static void main(String[] args) throws IOException {
-		DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream("pom.xml")));
+		DataInputStream in = new DataInputStream(new BufferedInputStream(
+				new FileInputStream("pom.xml")));
 		while (in.available() != 0)
-			System.out.print((char)in.readByte());
+			System.out.print((char) in.readByte());
 		in.close();
 	}
 }
@@ -215,10 +231,12 @@ class TestEOF {
  */
 class BasicFileOutput {
 	static String file = "BasicFileOutput.out";
-	
+
 	public static void main(String[] args) throws IOException {
-		BufferedReader in = new BufferedReader(new StringReader(BufferedInputFile.read("pom.xml")));
-		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+		BufferedReader in = new BufferedReader(new StringReader(
+				BufferedInputFile.read("pom.xml")));
+		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(
+				file)));
 		int lineCount = 1;
 		String s;
 		while ((s = in.readLine()) != null)
@@ -233,9 +251,10 @@ class BasicFileOutput {
  */
 class FileOutputShortcut {
 	static String file = "FileOutputShortcut.out";
-	
+
 	public static void main(String[] args) throws IOException {
-		BufferedReader in = new BufferedReader(new StringReader(BufferedInputFile.read("pom.xml")));
+		BufferedReader in = new BufferedReader(new StringReader(
+				BufferedInputFile.read("pom.xml")));
 		PrintWriter out = new PrintWriter(file);
 		int lineCount = 1;
 		String s;
@@ -251,14 +270,16 @@ class FileOutputShortcut {
  */
 class StoringAndRecoverData {
 	public static void main(String[] args) throws IOException {
-		DataOutputStream out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Data.txt")));
+		DataOutputStream out = new DataOutputStream(new BufferedOutputStream(
+				new FileOutputStream("Data.txt")));
 		out.writeDouble(3.14159);
 		out.writeUTF("That was pi");
 		out.writeDouble(1.41413);
 		out.writeUTF("Square root of 2");
 		out.close();
-		
-		DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream("Data.txt")));
+
+		DataInputStream in = new DataInputStream(new BufferedInputStream(
+				new FileInputStream("Data.txt")));
 		System.out.println(in.readDouble());
 		System.out.println(in.readUTF());
 		System.out.println(in.readDouble());
@@ -272,7 +293,7 @@ class StoringAndRecoverData {
  */
 class UsingRandomAccessFile {
 	static String file = "UsingRandomAccessFile.out";
-	
+
 	static void display() throws IOException {
 		RandomAccessFile rf = new RandomAccessFile(file, "r");
 		for (int i = 0; i < 7; i++) {
@@ -281,7 +302,7 @@ class UsingRandomAccessFile {
 		System.out.println(rf.readUTF());
 		rf.close();
 	}
-	
+
 	public static void main(String[] args) throws IOException {
 		RandomAccessFile rf = new RandomAccessFile(file, "rw");
 		for (int i = 0; i < 7; i++) {
@@ -306,12 +327,14 @@ class OSExecute {
 		boolean err = false;
 		try {
 			Process process = new ProcessBuilder(command.split(" ")).start();
-			BufferedReader results = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			BufferedReader results = new BufferedReader(new InputStreamReader(
+					process.getInputStream()));
 			String s;
 			while ((s = results.readLine()) != null)
 				System.out.println(s);
-			
-			BufferedReader errors = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+			BufferedReader errors = new BufferedReader(new InputStreamReader(
+					process.getErrorStream()));
 			while ((s = errors.readLine()) != null)
 				System.err.println(s);
 			err = true;
@@ -321,11 +344,11 @@ class OSExecute {
 			else
 				throw new RuntimeException(e);
 		}
-		
+
 		if (err)
 			throw new OSExecuteException("Errors executing " + command);
 	}
-	
+
 	public static void main(String[] args) {
 		command("mvn clean package");
 	}
@@ -334,7 +357,7 @@ class OSExecute {
 class OSExecuteException extends RuntimeException {
 
 	private static final long serialVersionUID = -5490675660424170302L;
-	
+
 	public OSExecuteException(String why) {
 		super(why);
 	}
@@ -345,28 +368,28 @@ class OSExecuteException extends RuntimeException {
  */
 class GetChannel {
 	private static final int BSIZE = 1024;
-	
+
 	public static void main(String[] args) throws IOException {
 		FileOutputStream fos = new FileOutputStream("Channel.txt");
 		FileChannel fc = fos.getChannel();
 		fc.write(ByteBuffer.wrap("Some text".getBytes()));
 		fc.close();
 		fos.close();
-		
+
 		RandomAccessFile raf = new RandomAccessFile("Channel.txt", "rw");
 		fc = raf.getChannel();
 		fc.position(fc.size());
 		fc.write(ByteBuffer.wrap("Some more".getBytes()));
 		fc.close();
 		raf.close();
-		
+
 		FileInputStream fis = new FileInputStream("Channel.txt");
 		fc = fis.getChannel();
 		ByteBuffer buff = ByteBuffer.allocate(BSIZE);
 		fc.read(buff);
 		buff.flip();
 		while (buff.hasRemaining())
-			System.out.print((char)buff.get());
+			System.out.print((char) buff.get());
 		fis.close();
 	}
 }
@@ -376,7 +399,7 @@ class GetChannel {
  */
 class ChannelCopy {
 	private static final int BSIZE = 1024;
-	
+
 	public static void main(String[] args) throws IOException {
 		if (args.length != 2) {
 			System.out.println("arguments: sourcefile destfile");
@@ -384,16 +407,16 @@ class ChannelCopy {
 		}
 		FileInputStream fis0 = new FileInputStream(args[0]);
 		RandomAccessFile fis1 = new RandomAccessFile(args[1], "rw");
-		
+
 		FileChannel in = fis0.getChannel();
-		FileChannel	out = fis1.getChannel();
+		FileChannel out = fis1.getChannel();
 		ByteBuffer buffer = ByteBuffer.allocate(BSIZE);
 		while (in.read(buffer) != -1) {
-			buffer.flip();	// prepare for writing
+			buffer.flip(); // prepare for writing
 			out.write(buffer);
-			buffer.clear();	// prepare for reading
+			buffer.clear(); // prepare for reading
 		}
-		
+
 		out.close();
 		in.close();
 		fis1.close();
@@ -412,13 +435,13 @@ class TransferTo {
 		}
 		FileInputStream fis0 = new FileInputStream(args[0]);
 		RandomAccessFile fis1 = new RandomAccessFile(args[1], "rw");
-		
+
 		FileChannel in = fis0.getChannel();
-		FileChannel	out = fis1.getChannel();
-		
+		FileChannel out = fis1.getChannel();
+
 		in.transferTo(0, in.size(), out);
-//		out.transferFrom(in, 0, in.size());
-		
+		// out.transferFrom(in, 0, in.size());
+
 		out.close();
 		in.close();
 		fis1.close();
@@ -428,48 +451,48 @@ class TransferTo {
 
 class BufferToText {
 	private static final int BSIZE = 1024;
-	
+
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
 		FileOutputStream fos = new FileOutputStream("Channel.txt");
 		FileChannel fc = fos.getChannel();
 		fc.write(ByteBuffer.wrap("Some text".getBytes()));
 		fc.close();
-		
+
 		FileInputStream fis = new FileInputStream("Channel.txt");
 		fc = fis.getChannel();
 		ByteBuffer buff = ByteBuffer.allocate(BSIZE);
 		fc.read(buff);
 		buff.flip();
 		// Doesn't work
-		System.out.println(buff.asCharBuffer());	// 卯浥⁴數
+		System.out.println(buff.asCharBuffer()); // 卯浥⁴數
 		// 用系统默认的Charset解码
 		buff.rewind();
 		String encoding = System.getProperty("file.encoding");
-		System.out.println(Charset.forName(encoding).decode(buff));	// Some text
-		
+		System.out.println(Charset.forName(encoding).decode(buff)); // Some text
+
 		fc = new FileOutputStream("Channel.txt").getChannel();
 		fc.write(ByteBuffer.wrap("Some text".getBytes("UTF-16BE")));
 		fc.close();
-		
+
 		fc = new FileInputStream("Channel.txt").getChannel();
 		buff.clear();
 		fc.read(buff);
 		buff.flip();
-		System.out.println(buff.asCharBuffer());	// Some text
-		
+		System.out.println(buff.asCharBuffer()); // Some text
+
 		// 用CharBuffer
 		fc = new FileOutputStream("Channel.txt").getChannel();
 		buff = ByteBuffer.allocate(24);
 		buff.asCharBuffer().put("Some text");
 		fc.write(buff);
 		fc.close();
-		
+
 		fc = new FileInputStream("Channel.txt").getChannel();
 		buff.clear();
 		fc.read(buff);
 		buff.flip();
-		System.out.println(buff.asCharBuffer());	// Some text空格空格空格
+		System.out.println(buff.asCharBuffer()); // Some text空格空格空格
 	}
 }
 
@@ -483,7 +506,8 @@ class AvailableCharsets {
 		while (it.hasNext()) {
 			String csName = it.next();
 			System.out.print(csName);
-			Iterator<String> aliases = charSets.get(csName).aliases().iterator();
+			Iterator<String> aliases = charSets.get(csName).aliases()
+					.iterator();
 			if (aliases.hasNext()) {
 				System.out.print(": ");
 			}
@@ -502,7 +526,7 @@ class AvailableCharsets {
  */
 class GetData {
 	private static final int BSIZE = 1024;
-	
+
 	public static void main(String[] args) {
 		ByteBuffer bb = ByteBuffer.allocate(BSIZE);
 		int i = 0;
@@ -516,23 +540,23 @@ class GetData {
 		while ((c = bb.getChar()) != 0)
 			System.out.print(c + " ");
 		System.out.println();
-		
+
 		bb.rewind();
 		bb.asShortBuffer().put((short) 471142);
 		System.out.println(bb.getShort());
-		
+
 		bb.rewind();
 		bb.asIntBuffer().put(99471142);
 		System.out.println(bb.getInt());
-		
+
 		bb.rewind();
 		bb.asLongBuffer().put(99471142);
 		System.out.println(bb.getLong());
-		
+
 		bb.rewind();
 		bb.asFloatBuffer().put(99471142);
 		System.out.println(bb.getFloat());
-		
+
 		bb.rewind();
 		bb.asDoubleBuffer().put(99471142);
 		System.out.println(bb.getDouble());
@@ -542,12 +566,12 @@ class GetData {
 
 class IntBufferDemo {
 	private static final int BSIZE = 1024;
-	
+
 	public static void main(String[] args) {
 		ByteBuffer bb = ByteBuffer.allocate(BSIZE);
 		IntBuffer ib = bb.asIntBuffer();
 		ib.put(new int[] { 11, 42, 47, 99, 143, 811, 1016 });
-		System.out.println(ib.get(3));	// 99
+		System.out.println(ib.get(3)); // 99
 		ib.put(3, 1811);
 		ib.flip();
 		while (ib.hasRemaining()) {
@@ -562,44 +586,45 @@ class IntBufferDemo {
  */
 class ViewBuffers {
 	public static void main(String[] args) {
-		ByteBuffer bb = ByteBuffer.wrap(new byte[] { 0, 0, 0, 0, 0, 0, 0, 'a'});
+		ByteBuffer bb = ByteBuffer
+				.wrap(new byte[] { 0, 0, 0, 0, 0, 0, 0, 'a' });
 		bb.rewind();
 		System.out.print("Byte Buffer ");
 		while (bb.hasRemaining())
 			System.out.print(bb.position() + " -> " + bb.get() + ", ");
 		System.out.println();
-		
-		CharBuffer cb = ((ByteBuffer)bb.rewind()).asCharBuffer();
+
+		CharBuffer cb = ((ByteBuffer) bb.rewind()).asCharBuffer();
 		System.out.print("Char Buffer ");
 		while (cb.hasRemaining())
 			System.out.print(cb.position() + " -> " + cb.get() + ", ");
 		System.out.println();
-		
-		FloatBuffer fb = ((ByteBuffer)bb.rewind()).asFloatBuffer();
+
+		FloatBuffer fb = ((ByteBuffer) bb.rewind()).asFloatBuffer();
 		System.out.print("Float Buffer ");
 		while (fb.hasRemaining())
 			System.out.print(fb.position() + " -> " + fb.get() + ", ");
 		System.out.println();
-		
-		IntBuffer ib = ((ByteBuffer)bb.rewind()).asIntBuffer();
+
+		IntBuffer ib = ((ByteBuffer) bb.rewind()).asIntBuffer();
 		System.out.print("Int Buffer ");
 		while (ib.hasRemaining())
 			System.out.print(ib.position() + " -> " + ib.get() + ", ");
 		System.out.println();
-		
-		LongBuffer lb = ((ByteBuffer)bb.rewind()).asLongBuffer();
+
+		LongBuffer lb = ((ByteBuffer) bb.rewind()).asLongBuffer();
 		System.out.print("Long Buffer ");
 		while (lb.hasRemaining())
 			System.out.print(lb.position() + " -> " + lb.get() + ", ");
 		System.out.println();
-		
-		ShortBuffer sb = ((ByteBuffer)bb.rewind()).asShortBuffer();
+
+		ShortBuffer sb = ((ByteBuffer) bb.rewind()).asShortBuffer();
 		System.out.print("Short Buffer ");
 		while (sb.hasRemaining())
 			System.out.print(sb.position() + " -> " + sb.get() + ", ");
 		System.out.println();
-		
-		DoubleBuffer db = ((ByteBuffer)bb.rewind()).asDoubleBuffer();
+
+		DoubleBuffer db = ((ByteBuffer) bb.rewind()).asDoubleBuffer();
 		System.out.print("Double Buffer ");
 		while (db.hasRemaining())
 			System.out.print(db.position() + " -> " + db.get() + ", ");
@@ -610,17 +635,19 @@ class ViewBuffers {
  * 内存映射文件
  */
 class LargeMappedFiles {
-	static int length = 0x8FFFFFF;	// 128MB
-	
+	static int length = 0x8FFFFFF; // 128MB
+
 	@SuppressWarnings("resource")
-	public static void main(String[] args) throws FileNotFoundException, IOException {
-		MappedByteBuffer out = new RandomAccessFile("large.dat", "rw").getChannel().map(FileChannel.MapMode.READ_WRITE, 0, length);
+	public static void main(String[] args) throws FileNotFoundException,
+			IOException {
+		MappedByteBuffer out = new RandomAccessFile("large.dat", "rw")
+				.getChannel().map(FileChannel.MapMode.READ_WRITE, 0, length);
 		for (int i = 0; i < length; i++) {
-			out.put((byte)'x');
+			out.put((byte) 'x');
 		}
 		System.out.println("Finished Writing");
 		for (int i = length / 2; i < length / 2 + 6; i++)
-			System.out.print((char)out.getChar(i));
+			System.out.print((char) out.getChar(i));
 	}
 }
 
@@ -720,12 +747,12 @@ class MappedIO {
 	public static void main(String[] args) {
 		for (Tester test : tests)
 			test.runTest();
-//		Stream Write: 0.89
-//		Mapped Write: 0.06
-//		Stream Read: 0.86
-//		Mapped Read: 0.08
-//		Stream Read/Write: 6.64
-//		Mapped Read/Write: 0.01
+		// Stream Write: 0.89
+		// Mapped Write: 0.06
+		// Stream Read: 0.86
+		// Mapped Read: 0.08
+		// Stream Read/Write: 6.64
+		// Mapped Read/Write: 0.01
 
 	}
 }
@@ -752,21 +779,23 @@ class FileLocking {
 class LockingMappedFiles {
 	static final int LENGTH = 0x8FFFFFF; // 128 MB
 	static FileChannel fc;
-	
+
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
 		fc = new RandomAccessFile("large.dat", "rw").getChannel();
-		MappedByteBuffer out = fc.map(FileChannel.MapMode.READ_WRITE, 0, LENGTH);
+		MappedByteBuffer out = fc
+				.map(FileChannel.MapMode.READ_WRITE, 0, LENGTH);
 		for (int i = 0; i < LENGTH; i++) {
-			out.put((byte)'x');
+			out.put((byte) 'x');
 		}
 		new LockAndModify(out, 0, 0 + LENGTH / 3);
 		new LockAndModify(out, LENGTH / 2, LENGTH / 2 + LENGTH / 4);
 	}
-	
+
 	private static class LockAndModify extends Thread {
 		private ByteBuffer buff;
 		private int start, end;
+
 		/**
 		 * @param buff
 		 * @param start
@@ -780,8 +809,10 @@ class LockingMappedFiles {
 			this.buff = buff.slice();
 			start();
 		}
-		
-		/* (non-Javadoc)
+
+		/*
+		 * (non-Javadoc)
+		 * 
 		 * @see java.lang.Thread#run()
 		 */
 		@Override
@@ -797,7 +828,7 @@ class LockingMappedFiles {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
 }
 
@@ -806,7 +837,7 @@ class LockingMappedFiles {
  */
 class Data implements Serializable {
 	private static final long serialVersionUID = -468587976413264274L;
-	
+
 	private int n;
 
 	/**
@@ -816,7 +847,7 @@ class Data implements Serializable {
 		super();
 		this.n = n;
 	}
-	
+
 	public String toString() {
 		return Integer.toString(n);
 	}
@@ -826,18 +857,15 @@ class Worm implements Serializable {
 	private static final long serialVersionUID = -3798002066339821114L;
 
 	private Random rand = new Random(47);
-	private Data[] d = {
-			new Data(rand.nextInt(10)),
-			new Data(rand.nextInt(10)),
-			new Data(rand.nextInt(10))
-	};
+	private Data[] d = { new Data(rand.nextInt(10)),
+			new Data(rand.nextInt(10)), new Data(rand.nextInt(10)) };
 	private Worm next;
 	private char c;
-	
+
 	public Worm() {
 		System.out.println("Default constractor");
 	}
-	
+
 	public Worm(int i, char x) {
 		System.out.println("Worm constructor: " + i);
 		c = x;
@@ -845,7 +873,9 @@ class Worm implements Serializable {
 			next = new Worm(i, (char) (x + 1));
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -861,32 +891,543 @@ class Worm implements Serializable {
 			result.append(next);
 		return result.toString();
 	}
-	
-	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+
+	public static void main(String[] args) throws FileNotFoundException,
+			IOException, ClassNotFoundException {
 		Worm w = new Worm(6, 'a');
 		System.out.println("w = " + w);
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("worm.out"));
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(
+				"worm.out"));
 		out.writeObject("Worm storage\n");
 		out.writeObject(w);
 		out.close();
-		
-		ObjectInputStream in = new ObjectInputStream(new FileInputStream("worm.out"));
+
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(
+				"worm.out"));
 		String s = (String) in.readObject();
 		Worm w2 = (Worm) in.readObject();
 		in.close();
 		System.out.println(s + "w2 = " + w2);
-		
+
 		ByteArrayOutputStream bout = new ByteArrayOutputStream();
 		ObjectOutputStream out2 = new ObjectOutputStream(bout);
 		out2.writeObject("Worm storage\n");
 		out2.writeObject(w);
 		out2.flush();
-		
-		ObjectInputStream in2 = new ObjectInputStream(new ByteArrayInputStream(bout.toByteArray()));
+
+		ObjectInputStream in2 = new ObjectInputStream(new ByteArrayInputStream(
+				bout.toByteArray()));
 		s = (String) in2.readObject();
 		Worm w3 = (Worm) in2.readObject();
 		System.out.println(s + "w3 = " + w3);
 	}
-	
+
 }
 
+/**
+ * 序列化的控制,例如不将子对象序列化
+ */
+class Blip1 implements Externalizable {
+	public Blip1() {
+		System.out.println("Blip1 Constructor");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
+	 */
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		System.out.println("Blip1.writeExternal");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
+	 */
+	@Override
+	public void readExternal(ObjectInput in) throws IOException,
+			ClassNotFoundException {
+		System.out.println("Blip1.readExternal");
+	}
+
+}
+
+class Blip2 implements Externalizable {
+	Blip2() {
+		System.out.println("Blip2 Constructor");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
+	 */
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		System.out.println("Blip2.writeExternal");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
+	 */
+	@Override
+	public void readExternal(ObjectInput in) throws IOException,
+			ClassNotFoundException {
+		System.out.println("Blip2.readExternal");
+	}
+
+}
+
+class Blips {
+	public static void main(String[] args) throws FileNotFoundException,
+			IOException, ClassNotFoundException {
+		System.out.println("Constructing objects");
+		Blip1 b1 = new Blip1();
+		Blip2 b2 = new Blip2();
+		ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(
+				"Blips.out"));
+		System.out.println("Saving objects:");
+		o.writeObject(b1);
+		o.writeObject(b2);
+		o.close();
+
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(
+				"Blips.out"));
+		System.out.println("Recovering b1:");
+		b1 = (Blip1) in.readObject();
+		System.out.println("Recovering b2:");
+		b2 = (Blip2) in.readObject(); // no valid constructor 必须有默认构造函数
+		in.close();
+	}
+}
+
+class Blip3 implements Externalizable {
+	private int i;
+	private String s; // 未初始化
+
+	public Blip3() {
+		System.out.println("Blip3 Constructor");
+	}
+
+	/**
+	 * @param i
+	 * @param s
+	 */
+	public Blip3(int i, String s) {
+		System.out.println("Blip3(int i, String s)");
+		this.i = i;
+		this.s = s;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return s + i;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
+	 */
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		System.out.println("Blip3.writeExternal");
+		out.writeObject(s);
+		out.writeInt(i);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
+	 */
+	@Override
+	public void readExternal(ObjectInput in) throws IOException,
+			ClassNotFoundException {
+		System.out.println("Blip3.readExternal");
+		s = (String) in.readObject();
+		i = in.readInt();
+	}
+
+	public static void main(String[] args) throws FileNotFoundException,
+			IOException, ClassNotFoundException {
+		System.out.println("Constructing objects");
+		Blip3 b3 = new Blip3(47, "A String ");
+		System.out.println(b3);
+		ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(
+				"Blip3.out"));
+		System.out.println("Saving objects:");
+		o.writeObject(b3);
+		o.close();
+
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(
+				"Blip3.out"));
+		System.out.println("Recovering b3:");
+		b3 = (Blip3) in.readObject();
+		System.out.println(b3);
+		in.close();
+	}
+}
+
+/**
+ * 使用持久性
+ */
+class HousePersist implements Serializable {
+	private static final long serialVersionUID = -7740563484425871817L;
+}
+
+class AnimalPersist implements Serializable {
+	private static final long serialVersionUID = 2492308569619687228L;
+	private String name;
+	private HousePersist preferredHouse;
+
+	AnimalPersist(String nm, HousePersist h) {
+		name = nm;
+		preferredHouse = h;
+	}
+
+	public String toString() {
+		return name + "[" + super.toString() + "], " + preferredHouse + "\n";
+	}
+}
+
+class MyWorld {
+	public static void main(String[] args) throws IOException,
+			ClassNotFoundException {
+		HousePersist house = new HousePersist();
+		List<AnimalPersist> animals = new ArrayList<AnimalPersist>();
+		animals.add(new AnimalPersist("Bosco the dog", house));
+		animals.add(new AnimalPersist("Ralph the hamster", house));
+		animals.add(new AnimalPersist("Molly the cat", house));
+		System.out.println("animals: " + animals);
+		ByteArrayOutputStream buf1 = new ByteArrayOutputStream();
+		ObjectOutputStream o1 = new ObjectOutputStream(buf1);
+		o1.writeObject(animals);
+		o1.writeObject(animals); // Write a 2nd set
+		// Write to a different stream:
+		ByteArrayOutputStream buf2 = new ByteArrayOutputStream();
+		ObjectOutputStream o2 = new ObjectOutputStream(buf2);
+		o2.writeObject(animals);
+		// Now get them back:
+		ObjectInputStream in1 = new ObjectInputStream(new ByteArrayInputStream(
+				buf1.toByteArray()));
+		ObjectInputStream in2 = new ObjectInputStream(new ByteArrayInputStream(
+				buf2.toByteArray()));
+		List<?> animals1 = (List<?>) in1.readObject(), animals2 = (List<?>) in1
+				.readObject(), animals3 = (List<?>) in2.readObject();
+		System.out.println("animals1: " + animals1);
+		System.out.println("animals2: " + animals2);
+		System.out.println("animals3: " + animals3);
+	}
+}
+
+/**
+ * Class对象序列化
+ */
+abstract class Shape implements Serializable {
+	private static final long serialVersionUID = -5879348407256143737L;
+
+	public static final int RED = 1, BLUE = 2, GREEN = 3;
+	private int xPos, yPos, dimension;
+	private static Random rand = new Random(47);
+	private static int counter = 0;
+
+	public abstract void setColor(int newColor);
+
+	public abstract int getColor();
+
+	public Shape(int xVal, int yVal, int dim) {
+		xPos = xVal;
+		yPos = yVal;
+		dimension = dim;
+	}
+
+	public String toString() {
+		return getClass() + "color[" + getColor() + "] xPos[" + xPos
+				+ "] yPos[" + yPos + "] dim[" + dimension + "]\n";
+	}
+
+	public static Shape randomFactory() {
+		int xVal = rand.nextInt(100);
+		int yVal = rand.nextInt(100);
+		int dim = rand.nextInt(100);
+		switch (counter++ % 3) {
+		default:
+		case 0:
+			return new Circle(xVal, yVal, dim);
+		case 1:
+			return new Square(xVal, yVal, dim);
+		case 2:
+			return new Line(xVal, yVal, dim);
+		}
+	}
+}
+
+class Circle extends Shape {
+	private static final long serialVersionUID = -3913546106184163486L;
+
+	private static int color = RED;
+
+	public Circle(int xVal, int yVal, int dim) {
+		super(xVal, yVal, dim);
+	}
+
+	public void setColor(int newColor) {
+		color = newColor;
+	}
+
+	public int getColor() {
+		return color;
+	}
+}
+
+class Square extends Shape {
+	private static final long serialVersionUID = 4383767259377843887L;
+
+	private static int color;
+
+	public Square(int xVal, int yVal, int dim) {
+		super(xVal, yVal, dim);
+		color = RED;
+	}
+
+	public void setColor(int newColor) {
+		color = newColor;
+	}
+
+	public int getColor() {
+		return color;
+	}
+}
+
+class Line extends Shape {
+	private static final long serialVersionUID = -4809225470276727356L;
+
+	private static int color = RED;
+
+	/**
+	 * 必须手动序列化static变量
+	 * @param os
+	 * @throws IOException
+	 */
+	public static void serializeStaticState(ObjectOutputStream os)
+			throws IOException {
+		os.writeInt(color);
+	}
+
+	public static void deserializeStaticState(ObjectInputStream os)
+			throws IOException {
+		color = os.readInt();
+	}
+
+	public Line(int xVal, int yVal, int dim) {
+		super(xVal, yVal, dim);
+	}
+
+	public void setColor(int newColor) {
+		color = newColor;
+	}
+
+	public int getColor() {
+		return color;
+	}
+}
+
+class StoreCADState {
+	public static void main(String[] args) throws Exception {
+		List<Class<? extends Shape>> shapeTypes = new ArrayList<Class<? extends Shape>>();
+		// Add references to the class objects:
+		shapeTypes.add(Circle.class);
+		shapeTypes.add(Square.class);
+		shapeTypes.add(Line.class);
+		List<Shape> shapes = new ArrayList<Shape>();
+		// Make some shapes:
+		for (int i = 0; i < 10; i++)
+			shapes.add(Shape.randomFactory());
+		// Set all the static colors to GREEN:
+		for (int i = 0; i < 10; i++)
+			((Shape) shapes.get(i)).setColor(Shape.GREEN);
+		// Save the state vector:
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(
+				"CADState.out"));
+		out.writeObject(shapeTypes);
+		Line.serializeStaticState(out);
+		out.writeObject(shapes);
+		// Display the shapes:
+		System.out.println(shapes);
+		// [class org.mingle.orange.java.speciality.Circlecolor[3] xPos[58]
+		// yPos[55] dim[93]
+		// , class org.mingle.orange.java.speciality.Squarecolor[3] xPos[61]
+		// yPos[61] dim[29]
+		// , class org.mingle.orange.java.speciality.Linecolor[3] xPos[68]
+		// yPos[0] dim[22]
+		// , class org.mingle.orange.java.speciality.Circlecolor[3] xPos[7]
+		// yPos[88] dim[28]
+		// , class org.mingle.orange.java.speciality.Squarecolor[3] xPos[51]
+		// yPos[89] dim[9]
+		// , class org.mingle.orange.java.speciality.Linecolor[3] xPos[78]
+		// yPos[98] dim[61]
+		// , class org.mingle.orange.java.speciality.Circlecolor[3] xPos[20]
+		// yPos[58] dim[16]
+		// , class org.mingle.orange.java.speciality.Squarecolor[3] xPos[40]
+		// yPos[11] dim[22]
+		// , class org.mingle.orange.java.speciality.Linecolor[3] xPos[4]
+		// yPos[83] dim[6]
+		// , class org.mingle.orange.java.speciality.Circlecolor[3] xPos[75]
+		// yPos[10] dim[42]
+		// ]
+
+	}
+}
+
+class RecoverCADState {
+	@SuppressWarnings({ "unchecked", "unused" })
+	public static void main(String[] args) throws Exception {
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(
+				"CADState.out"));
+		// Read in the same order they were written:
+		List<Class<? extends Shape>> shapeTypes = (List<Class<? extends Shape>>) in
+				.readObject();
+		Line.deserializeStaticState(in);
+		List<Shape> shapes = (List<Shape>) in.readObject();
+		System.out.println(shapes);
+		// [class org.mingle.orange.java.speciality.Circlecolor[1] xPos[58]
+		// yPos[55] dim[93]
+		// , class org.mingle.orange.java.speciality.Squarecolor[0] xPos[61]
+		// yPos[61] dim[29]
+		// , class org.mingle.orange.java.speciality.Linecolor[3] xPos[68]
+		// yPos[0] dim[22]
+		// , class org.mingle.orange.java.speciality.Circlecolor[1] xPos[7]
+		// yPos[88] dim[28]
+		// , class org.mingle.orange.java.speciality.Squarecolor[0] xPos[51]
+		// yPos[89] dim[9]
+		// , class org.mingle.orange.java.speciality.Linecolor[3] xPos[78]
+		// yPos[98] dim[61]
+		// , class org.mingle.orange.java.speciality.Circlecolor[1] xPos[20]
+		// yPos[58] dim[16]
+		// , class org.mingle.orange.java.speciality.Squarecolor[0] xPos[40]
+		// yPos[11] dim[22]
+		// , class org.mingle.orange.java.speciality.Linecolor[3] xPos[4]
+		// yPos[83] dim[6]
+		// , class org.mingle.orange.java.speciality.Circlecolor[1] xPos[75]
+		// yPos[10] dim[42]
+		// ]
+
+	}
+}
+
+/**
+ * 用XOM解析XML,序列化对象
+ */
+class XOMPerson {
+	private String first;
+	private String last;
+	
+	public XOMPerson(String first, String last) {
+		this.first = first;
+		this.last = last;
+	}
+	
+	public Element getXML() {
+		Element person = new Element("person");
+		Element firstName = new Element("first");
+		firstName.appendChild(first);
+		Element lastName = new Element("last");
+		lastName.appendChild(last);
+		person.appendChild(firstName);
+		person.appendChild(lastName);
+		
+		return person;
+	}
+	
+	/**
+	 * 从XML中恢复数据
+	 */
+	public XOMPerson(Element person) {
+		first = person.getFirstChildElement("first").getValue();
+		last = person.getFirstChildElement("last").getValue();
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return first + " " + last;
+	}
+	
+	public static void format(OutputStream os, Document doc) throws Exception {
+		Serializer serializer = new Serializer(os, "UTF-8");
+		serializer.setIndent(4);
+		serializer.setMaxLength(60);
+		serializer.write(doc);
+		serializer.flush();
+	}
+	
+	public static void main(String[] args) throws Exception {
+		List<XOMPerson> people = Arrays.asList(
+				new XOMPerson("Dr. Bunsen", "Honeydew"),
+				new XOMPerson("Minglei", "Jin"),
+				new XOMPerson("明雷", "靳"));
+		System.out.println(people);
+		
+		Element root = new Element("people");
+		for (XOMPerson p : people) {
+			root.appendChild(p.getXML());
+		}
+		Document doc = new Document(root);
+		format(System.out, doc);
+		format(new BufferedOutputStream(new FileOutputStream("people.xml")), doc);
+	}
+}
+
+/**
+ * 从XML中恢复对象
+ */
+class People extends ArrayList<XOMPerson> {
+	private static final long serialVersionUID = 8878183606574705842L;
+
+	public People(String filename) throws ValidityException, ParsingException, IOException {
+		Document doc = new Builder().build(filename);
+		Elements elements = doc.getRootElement().getChildElements();
+		for (int i = 0; i < elements.size(); i++) {
+			add(new XOMPerson(elements.get(i)));
+		}
+	}
+	
+	public static void main(String[] args) throws ValidityException, ParsingException, IOException {
+		People p = new People("people.xml");
+		System.out.println(p);
+	}
+}
+
+/**
+ * Preferences,主要用于读取用户的偏好和程序配置项信息
+ * 在Windows平台中，用户参数项在注册表中的根节点是: HKEY_CURRENT_USER\Software\JavaSoft\Prefs
+ * 系统参数项在注册表中的根节点是: HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Prefs
+ */
+class PreferencesDemo {
+	public static void main(String[] args) throws BackingStoreException {
+		Preferences prefs = Preferences.userNodeForPackage(PreferencesDemo.class);
+		prefs.put("Location", "Oz");
+		prefs.put("Footwear", "Ruby Slippers");
+		prefs.putBoolean("isMan", false);
+		prefs.putInt("age", 28);
+		
+		for (String key : prefs.keys()) {
+			System.out.println(key + ": " + prefs.get(key, null));
+		}
+		
+		System.out.println(prefs.getInt("age", 18));
+	}
+}
