@@ -8,6 +8,7 @@ package org.mingle.orange.java.speciality.annotations;
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
  * @version 1.0
  */
+@ExtractInterface("IMultiply")
 public class Multiply {
 	public int multiply(int x, int y) {
 		int total = 0;
