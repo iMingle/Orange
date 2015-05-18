@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2015, Mingle. All rights reserved.
+ */
 package org.mingle.orange.annotation;
 
 import java.awt.Color;
@@ -5,6 +8,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 /**
  * @version 1.0 2014年6月22日
  * @author <a href="mailto:jinminglei@yeah.net">mingle</a>

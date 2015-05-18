@@ -1,6 +1,5 @@
 /**
- * @version 1.0 2014年6月22日
- * @author mingle
+ * Copyright (c) 2015, Mingle. All rights reserved.
  */
 package org.mingle.orange.annotation;
 
