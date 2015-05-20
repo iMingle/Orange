@@ -9,8 +9,8 @@ import java.util.ListResourceBundle;
 /**
  * These are the German non-string resources for the retirement calculator.
  * 
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class RetireResources_de extends ListResourceBundle {
 	static final Object[][] contents = {

@@ -31,8 +31,8 @@ import javax.swing.JTextField;
  * This applet shows a retirement calculator. The UI is displayed in English,
  * German, and Chinese.
  * 
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class Retire extends JApplet {
 	private static final long serialVersionUID = -1213481803285648211L;

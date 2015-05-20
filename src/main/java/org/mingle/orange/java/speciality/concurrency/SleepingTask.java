@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class SleepingTask extends LiftOff {
 

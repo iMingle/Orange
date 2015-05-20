@@ -9,9 +9,8 @@ import java.util.TreeSet;
 
 /**
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @date 2014年9月1日
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class TreeSetTest {
 

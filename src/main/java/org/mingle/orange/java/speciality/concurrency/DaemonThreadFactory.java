@@ -8,8 +8,8 @@ import java.util.concurrent.ThreadFactory;
 /**
  * 后台线程创建工程
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class DaemonThreadFactory implements ThreadFactory {
 

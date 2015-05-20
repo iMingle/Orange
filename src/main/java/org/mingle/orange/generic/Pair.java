@@ -5,8 +5,9 @@ package org.mingle.orange.generic;
 
 /**
  * generic class pair
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class Pair<T> {
 	private T first;

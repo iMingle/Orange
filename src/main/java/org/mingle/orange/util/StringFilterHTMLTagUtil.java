@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 
 /**
  * 
- * @author <a href="mailto:jinml@legendsec.com">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class StringFilterHTMLTagUtil {
 

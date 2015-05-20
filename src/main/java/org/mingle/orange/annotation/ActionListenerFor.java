@@ -9,9 +9,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @version 1.0 2014年6月22日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

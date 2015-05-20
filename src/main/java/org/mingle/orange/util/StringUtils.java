@@ -1,6 +1,5 @@
-/*
- * (c) Copyright 2013 网神信息技术（北京）股份有限公司
- * http://www.legendsec.com
+/**
+ * Copyright (c) 2015, Mingle. All rights reserved.
  */
 package org.mingle.orange.util;
 
@@ -9,9 +8,8 @@ import java.util.LinkedList;
 /**
  * String工具类
  * 
- * @since 1.0 2015年3月13日
- * @author <a href="mailto:jinml@legendsec.com">靳明雷</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class StringUtils {
 	/**

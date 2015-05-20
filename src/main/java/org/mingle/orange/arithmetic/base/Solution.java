@@ -9,8 +9,8 @@ import java.util.Deque;
 /**
  * 算法的解法
  * 
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class Solution {
 	/**

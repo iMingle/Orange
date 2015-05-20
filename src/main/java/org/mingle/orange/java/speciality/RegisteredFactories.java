@@ -10,8 +10,8 @@ import java.util.Random;
 /**
  * 注册工厂，将对象的创建工作交给类自己去完成
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class RegisteredFactories {
 	public static void main(String[] args) {

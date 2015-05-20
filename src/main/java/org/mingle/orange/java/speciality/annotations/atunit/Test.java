@@ -10,8 +10,8 @@ import java.lang.annotation.Target;
 
 /**
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

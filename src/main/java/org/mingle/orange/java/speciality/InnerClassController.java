@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * 内部类实现控制框架
  * 
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class InnerClassController {
 	// hold Event objects:

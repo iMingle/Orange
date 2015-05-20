@@ -13,8 +13,9 @@ import java.util.regex.Pattern;
  * This program displays all URLs in a web page by matching a regular expression that describes the
  * <a href=...> HTML tag. Start the program as <br>
  * java HrefMatch URL
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class HrefMatch {
 

@@ -45,8 +45,8 @@ import java.util.concurrent.PriorityBlockingQueue;
 /**
  * 容器深入
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class CollectionTest {
 

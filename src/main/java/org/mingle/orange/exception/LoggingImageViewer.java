@@ -29,9 +29,8 @@ import javax.swing.filechooser.FileFilter;
 
 /**
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @date 2014年7月17日
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class LoggingImageViewer {
 

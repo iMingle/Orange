@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 /**
  * 反射测试类
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class ReflectTest {
 	private static String usage = 

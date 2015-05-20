@@ -5,8 +5,9 @@ package org.mingle.orange.designpattern.factory;
 
 /**
  * 用匿名内部类实现的工厂方法
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class InnerClassFactory {
 	public static void serviceConsumer(ServiceFactory factory) {

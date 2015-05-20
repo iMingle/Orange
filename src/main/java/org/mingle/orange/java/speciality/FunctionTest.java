@@ -7,7 +7,7 @@ package org.mingle.orange.java.speciality;
  * 方法的测试
  * @since 1.0 2015年4月2日
  * @author <a href="mailto:jinml@legendsec.com">靳明雷</a>
- * @version 1.0
+ * @author Mingle
  */
 public class FunctionTest {
 	/**

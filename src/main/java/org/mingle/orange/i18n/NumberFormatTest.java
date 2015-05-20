@@ -26,7 +26,7 @@ import javax.swing.JTextField;
  * This program demonstrates formatting numbers under various locales.
  * 
  * @author <a href="mailto:jinminglei@yeah.net">Mingle</a>
- * @version 1.0
+ * @author Mingle
  */
 public class NumberFormatTest {
 

@@ -4,8 +4,8 @@
 package org.mingle.orange.java.speciality;
 /**
  * 接口冲突
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 interface I1 {
 	void f();

@@ -1,15 +1,13 @@
 /**
- * @version 1.0 2014年6月26日
- * @author mingle
+ * Copyright (c) 2015, Mingle. All rights reserved.
  */
 package org.mingle.orange.object;
 
 /**
- * @version 1.0 2014年6月26日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
-
 class Professor0 implements Cloneable {
     String name;
     int age;

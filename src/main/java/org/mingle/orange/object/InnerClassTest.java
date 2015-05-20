@@ -1,15 +1,14 @@
 /**
- * @version 1.0 2014年6月28日
- * @author mingle
+ * Copyright (c) 2015, Mingle. All rights reserved.
  */
 package org.mingle.orange.object;
 
 import java.util.Date;
 
 /**
- * @version 1.0 2014年6月28日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class InnerClassTest {
 	private static int age;

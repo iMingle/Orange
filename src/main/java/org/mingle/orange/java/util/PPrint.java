@@ -8,8 +8,8 @@ import java.util.*;
 /**
  * Pretty-printer for collections
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class PPrint {
 	public static String pformat(Collection<?> c) {

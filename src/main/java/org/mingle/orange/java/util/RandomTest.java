@@ -7,8 +7,8 @@ import java.util.Random;
 
 /**
  * 随机数类Random测试
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class RandomTest {
 	public static void main(String[] args) {

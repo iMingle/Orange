@@ -9,8 +9,8 @@ import java.io.IOException;
 /**
  * 根据Strategy对象处理目录中的文件
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class ProcessFiles {
 	public interface Strategy {

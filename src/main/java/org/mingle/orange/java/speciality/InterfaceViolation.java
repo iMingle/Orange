@@ -8,8 +8,8 @@ import java.lang.reflect.Method;
 /**
  * 接口与类型信息，使用类型信息，耦合性还是会传播出去
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class InterfaceViolation {
 	@SuppressWarnings("unused")

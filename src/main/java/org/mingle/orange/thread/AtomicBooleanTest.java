@@ -7,8 +7,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * 原子的boolean type
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class AtomicBooleanTest {
 	private static boolean done = true;

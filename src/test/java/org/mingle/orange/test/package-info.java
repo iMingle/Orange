@@ -3,6 +3,6 @@
  */
 /**
  * @author <a href="mailto:jinminglei@yeah.net">Mingle</a>
- * @version 1.0
+ * @author Mingle
  */
 package org.mingle.orange.test;

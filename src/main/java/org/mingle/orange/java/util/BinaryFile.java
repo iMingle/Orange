@@ -8,8 +8,8 @@ import java.io.*;
 /**
  * 二进制文件
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class BinaryFile {
 	public static byte[] read(File bFile) throws IOException {

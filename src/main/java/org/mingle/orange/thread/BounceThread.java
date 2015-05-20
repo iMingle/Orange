@@ -17,9 +17,9 @@ import javax.swing.JPanel;
 /**
  * shows animated bouncing ball.
  * 
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
+ * @since 1.8
  * @date 2014年9月13日
- * @version 1.0
+ * @author Mingle
  */
 public class BounceThread {
 

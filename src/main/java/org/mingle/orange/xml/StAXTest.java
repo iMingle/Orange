@@ -16,8 +16,9 @@ import javax.xml.stream.XMLStreamReader;
  * This program demonstrates how to use a StAX parser. The program prints all hyperlinks links of an
  * XHTML web page. <br>
  * Usage: java StAXTest url
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class StAXTest {
 

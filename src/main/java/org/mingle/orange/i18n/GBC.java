@@ -10,7 +10,7 @@ import java.awt.Insets;
  * This class simplifies the use of the GridBagConstraints class.
  * 
  * @author <a href="mailto:jinminglei@yeah.net">Mingle</a>
- * @version 1.0
+ * @author Mingle
  */
 public class GBC extends GridBagConstraints {
 

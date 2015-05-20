@@ -8,8 +8,8 @@ import java.util.*;
 /**
  * 被测试类
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class StackL<T> {
 	private LinkedList<T> list = new LinkedList<T>();

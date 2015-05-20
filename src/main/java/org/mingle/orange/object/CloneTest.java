@@ -1,11 +1,15 @@
+/**
+ * Copyright (c) 2015, Mingle. All rights reserved.
+ */
 package org.mingle.orange.object;
 
 import java.util.*;
 
 /**
  * This program demonstrates cloning.
- * @version 1.10 2002-07-01
- * @author Cay Horstmann
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class CloneTest
 {

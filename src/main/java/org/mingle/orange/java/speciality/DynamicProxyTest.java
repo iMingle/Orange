@@ -10,8 +10,8 @@ import java.lang.reflect.Proxy;
 /**
  * 动态代理测试类
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class DynamicProxyTest {
 	public static void consumer(Interface iface) {

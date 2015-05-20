@@ -12,8 +12,8 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * 阻塞队列
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class BlockingQueueTest {
 

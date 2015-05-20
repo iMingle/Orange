@@ -9,9 +9,9 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 /**
- * @version 1.0 2014年7月7日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class CollectionTest {
 	

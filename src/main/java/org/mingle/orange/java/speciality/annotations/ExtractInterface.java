@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 /**
  * 抽取类中的public方法构成一个新的接口
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)

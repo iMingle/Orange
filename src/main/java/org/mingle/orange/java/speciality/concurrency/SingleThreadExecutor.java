@@ -9,8 +9,8 @@ import java.util.concurrent.Executors;
 /**
  * 一个Thread
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class SingleThreadExecutor {
 

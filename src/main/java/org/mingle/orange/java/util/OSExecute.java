@@ -8,8 +8,8 @@ import java.io.*;
 /**
  * Run an operating system command and send the output to the console.
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class OSExecute {
 	public static void command(String command) {

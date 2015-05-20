@@ -5,8 +5,9 @@ package org.mingle.orange.thread;
 
 /**
  * a bank with a number of bank accounts that uses synchronization primitives.
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class BankSync {
 	private final double[] accounts;

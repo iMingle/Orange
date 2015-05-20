@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @version 1.0 2014年6月28日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class ProxyTest {
 

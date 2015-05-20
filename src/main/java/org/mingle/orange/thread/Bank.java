@@ -9,8 +9,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * A bank with a number of bank accounts.
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class Bank {
 	private final double[] accounts;

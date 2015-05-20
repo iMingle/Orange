@@ -13,9 +13,8 @@ import com.google.common.collect.Lists;
 /**
  * most common use: filtering collections (view)
  * 
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @date 2014年9月4日
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class PredicateTest {
 

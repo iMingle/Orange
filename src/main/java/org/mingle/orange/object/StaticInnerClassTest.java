@@ -2,8 +2,9 @@ package org.mingle.orange.object;
 
 /**
  * This program demonstrates the use of static inner classes.
- * @version 1.01 2004-02-27
- * @author Cay Horstmann
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class StaticInnerClassTest
 {

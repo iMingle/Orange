@@ -13,8 +13,8 @@ import java.util.concurrent.Future;
 /**
  * 从任务中产生返回值
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class CallableDemo {
 

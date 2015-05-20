@@ -15,9 +15,8 @@ import java.lang.reflect.Proxy;
 
 /**
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @date 2014年7月21日
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class EventTracer {
 	private InvocationHandler handler;

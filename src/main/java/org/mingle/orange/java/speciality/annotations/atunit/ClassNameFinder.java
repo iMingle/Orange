@@ -16,8 +16,8 @@ import org.mingle.orange.java.util.Directory;
 /**
  * 从class文件中读取文件名称
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class ClassNameFinder {
 	@SuppressWarnings("unused")

@@ -10,15 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * @version 1.0 2014年6月22日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class ButtonFrame extends JFrame {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 9035834462481324499L;
 	
 	private static final int DEFAULT_WIDTH = 300;

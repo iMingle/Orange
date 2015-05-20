@@ -12,8 +12,8 @@ import java.util.regex.Pattern;
  * Enter a pattern and strings to match, or hit Cancel
  * to exit. If the pattern contains groups, the group
  * boundaries are displayed in the match.
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class RegExTest {
 

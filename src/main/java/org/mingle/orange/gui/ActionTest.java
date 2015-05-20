@@ -21,9 +21,8 @@ import javax.swing.KeyStroke;
 
 /**
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @date 2014年7月13日
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class ActionTest {
 

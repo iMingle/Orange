@@ -7,7 +7,7 @@ import java.util.Locale;
 
 /**
  * @author <a href="mailto:jinminglei@yeah.net">Mingle</a>
- * @version 1.0
+ * @author Mingle
  */
 public class LocaleTest {
 

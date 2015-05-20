@@ -20,8 +20,8 @@ import javax.swing.event.ListDataListener;
  * locale of the combo box, and sorted according to the collator of the display
  * locale.
  * 
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class LocaleCombo extends JComboBox<Object> {
 	private static final long serialVersionUID = -895992472810878939L;

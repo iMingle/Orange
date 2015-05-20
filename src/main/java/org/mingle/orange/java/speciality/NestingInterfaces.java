@@ -77,8 +77,8 @@ interface E {
 /**
  * 嵌套接口测试
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class NestingInterfaces {
 	public class BImp implements A.B {

@@ -4,9 +4,9 @@
 package org.mingle.orange.enumeration;
 
 /**
- * @version 1.0 2014年7月8日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public enum EnumTest {
 	RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);

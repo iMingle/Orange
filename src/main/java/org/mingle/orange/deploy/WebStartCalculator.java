@@ -10,8 +10,9 @@ import javax.jnlp.*;
 
 /**
  * A calculator with a calculation history that can be deployed as a Java Web Start application.
- * @version 1.02 2007-06-12
- * @author Cay Horstmann
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class WebStartCalculator
 {

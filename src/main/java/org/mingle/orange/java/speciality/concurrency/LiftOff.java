@@ -6,8 +6,8 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 火箭发射前的倒计时
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class LiftOff implements Runnable {
 	protected int countDown = 10;

@@ -20,8 +20,8 @@ import org.mingle.orange.java.util.ProcessFiles;
 /**
  * 移除@Unit测试代码工具
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class AtUnitRemover implements ProcessFiles.Strategy {
 	private static boolean remove = false;

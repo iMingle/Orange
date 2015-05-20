@@ -1,14 +1,12 @@
-/*
- * (c) Copyright 2013 网神信息技术（北京）股份有限公司
- * http://www.legendsec.com
+/**
+ * Copyright (c) 2015, Mingle. All rights reserved.
  */
 package org.mingle.orange.test;
 
 /**
  *
- * @since 1.0 2014年7月18日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class MethodTest {
 	

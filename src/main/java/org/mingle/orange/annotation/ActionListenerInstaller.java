@@ -11,9 +11,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @version 1.0 2014年6月22日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class ActionListenerInstaller {
 

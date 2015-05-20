@@ -1,5 +1,5 @@
 /**
- * @version 1.0 2014年6月25日
+ * @author Mingle 2014年6月25日
  * @author mingle
  */
 package org.mingle.orange.itext;
@@ -22,9 +22,9 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 /**
- * @version 1.0 2014年6月25日
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- *
+ * 
+ * @since 1.8
+ * @author Mingle
  */
 public class ImportImage {
 

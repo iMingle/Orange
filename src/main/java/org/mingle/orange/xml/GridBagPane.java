@@ -29,8 +29,8 @@ import org.xml.sax.SAXException;
  * This panel uses an XML file to describe its components and their grid bag
  * layout positions.
  * 
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class GridBagPane extends JPanel {
 

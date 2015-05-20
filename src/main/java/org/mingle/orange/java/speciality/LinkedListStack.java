@@ -9,8 +9,8 @@ import java.util.LinkedList;
 /**
  * LinkedList实现的Stack数据结构
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public class LinkedListStack<T> {
 	private LinkedList<T> storage = new LinkedList<>();

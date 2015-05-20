@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 /**
  * 目录实用工具,打印所有的目录和文件
  *
- * @author <a href="mailto:jinminglei@yeah.net">mingle</a>
- * @version 1.0
+ * @since 1.8
+ * @author Mingle
  */
 public final class Directory {
 	public static File[] local(File dir, final String regex) {
