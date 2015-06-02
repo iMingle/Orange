@@ -3,7 +3,6 @@
  */
 package org.mingle.orange.java.speciality.concurrency;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
