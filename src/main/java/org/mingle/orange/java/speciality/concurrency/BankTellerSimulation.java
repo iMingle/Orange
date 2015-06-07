@@ -139,7 +139,6 @@ class TellerManager implements Runnable {
 	private PriorityQueue<Teller> workingTellers = new PriorityQueue<>();
 	private Queue<Teller> tellersDoingOtherThings = new LinkedList<Teller>();
 	private int adjustmentPeriod;
-	private static Random rand = new Random(47);
 
 	public TellerManager(ExecutorService exec, CustomerLine customers,
 			int adjustmentPeriod) {
@@ -160,6 +159,9 @@ class TellerManager implements Runnable {
 				workingTellers.offer(teller);
 				return;
 			}
+			Teller teller = new Teller(customers);
+			exec.execute(teller);
+			workingTellers.add(teller);
 		}
 		
 		if (workingTellers.size() > 1 && customers.size() / workingTellers.size() < 2)
