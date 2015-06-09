@@ -7,6 +7,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.mingle.orange.java.util.Generated;
+import org.mingle.orange.java.util.RandomGenerator;
+
 /**
  * 容器测试框架
  * 
@@ -36,15 +39,52 @@ public abstract class Tester<C> {
 		this.testId = testId + " " + nReaders + "r " + nWriters + "w";
 		this.nReaders = nReaders;
 		this.nWriters = nWriters;
+		writeData = Generated.array(Integer.class, new RandomGenerator.Integer(), containerSize);
+		for (int i = 0; i < testReps; i++) {
+			runTest();
+			readTime = 0;
+			writeTime = 0;
+		}
+	}
+	
+	void runTest() {
+		endLatch = new CountDownLatch(nReaders + nWriters);
+		testContainer = containerInitializer();
+		startReadersAndWriters();
+		try {
+			endLatch.await();
+		} catch (InterruptedException e) {
+			System.out.println("endLatch interrupted");
+		}
+		System.out.printf("%-27s %14d %14d\n", testId, readTime, writeTime);
+		if (readTime != 0 && writeTime != 0)
+			System.out.printf("%-27s %14d\n", "readTime + writeTime = ", readTime + writeTime);
+	}
+	
+	abstract class TestTask implements Runnable {
+		abstract void test();
+		abstract void putResults();
+		long duration;
 		
+		public void run() {
+			long startTime = System.nanoTime();
+			test();
+			duration = System.nanoTime() - startTime;
+			synchronized (Tester.this) {
+				putResults();
+			}
+			endLatch.countDown();
+		}
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void initMain(String[] args) {
+		if (args.length > 0)
+			testReps = new Integer(args[0]);
+		if (args.length > 1)
+			testCycles = new Integer(args[1]);
+		if (args.length > 2)
+			containerSize = new Integer(args[2]);
+		System.out.printf("%-27s %14s %14s\n", "Type", "Read time", "Write time");
 	}
 
 }
