@@ -80,9 +80,9 @@ class SynchronizedHashMapTest extends MapTest {
 	
 }
 
-class CopyOnWriteHashMapTest extends MapTest {
+class ConcurrentHashMapTest extends MapTest {
 
-	public CopyOnWriteHashMapTest(int nReaders, int nWriters) {
+	public ConcurrentHashMapTest(int nReaders, int nWriters) {
 		super("ConcurrentHashMap", nReaders, nWriters);
 	}
 
@@ -105,9 +105,9 @@ public class MapComparisons {
 		new SynchronizedHashMapTest(10, 0);
 		new SynchronizedHashMapTest(9, 1);
 		new SynchronizedHashMapTest(5, 5);
-		new CopyOnWriteHashMapTest(10, 0);
-		new CopyOnWriteHashMapTest(9, 1);
-		new CopyOnWriteHashMapTest(5, 5);
+		new ConcurrentHashMapTest(10, 0);
+		new ConcurrentHashMapTest(9, 1);
+		new ConcurrentHashMapTest(5, 5);
 		Tester.exec.shutdown();
 	}
 
