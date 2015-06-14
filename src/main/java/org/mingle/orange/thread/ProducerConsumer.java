@@ -1,4 +1,4 @@
-package org.mingle.orange.test;
+package org.mingle.orange.thread;
 
 public class ProducerConsumer {
 	public static void main(String[] args) {

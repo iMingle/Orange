@@ -1,4 +1,4 @@
-package org.mingle.orange.world;
+package org.mingle.orange.socket;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
