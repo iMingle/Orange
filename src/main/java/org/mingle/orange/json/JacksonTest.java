@@ -3,6 +3,8 @@
  */
 package org.mingle.orange.json;
 
+import java.io.IOException;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -16,8 +18,15 @@ public class JacksonTest {
 	public static void main(String[] args) {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			System.out.println(mapper.writeValueAsString(new JacksonObject(8, "Mingle")));
+			JacksonObject jsonObj = new JacksonObject(8, "Mingle");
+			String json = mapper.writeValueAsString(jsonObj);
+			System.out.println(json);
+			
+			System.out.println(mapper.readValue(json, JacksonObject.class).toString());
 		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -28,6 +37,11 @@ public class JacksonTest {
 class JacksonObject {
 	private int no;
 	private String name;
+	
+	/**
+	 * 在将JSON转为对象时必须有默认构造方法
+	 */
+	public JacksonObject() {}
 	
 	/**
 	 * @return the no
@@ -99,6 +113,11 @@ class JacksonObject {
 		if (no != other.no)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "JacksonObject [no=" + no + ", name=" + name + "]";
 	}
 	
 }
