@@ -12,13 +12,10 @@
   		<id>jinml</id>
   		<name>JinMinglei</name>
   		<email>jinminglei@yeah.net</email>
-  		<organization>google</organization>
-  		<organizationUrl>www.google.com</organizationUrl>
   		<roles>
   			<role>main engineer</role>
   		</roles>
   		<timezone>UTC+08:00</timezone>
-  		<url>www.jinminglei.com</url>
   	</developer>
   </developers>
   
@@ -169,14 +166,29 @@
   <build>
   	<plugins>
   		<plugin>
-  			<groupId>org.apache.meven.plugins</groupId>
+  			<groupId>org.apache.maven.plugins</groupId>
   			<artifactId>maven-compiler-plugin</artifactId>
-  			<version>3.1</version>
+  			<version>3.3</version>
   			<configuration>
+  				<compilerId>javac-with-errorprone</compilerId>
+        		<forceJavacCompilerUse>true</forceJavacCompilerUse>
+        		<compilerVersion>${compiler.version}</compilerVersion>
   				<source>${compiler.version}</source>
   				<target>${compiler.version}</target>
   				<encoding>UTF-8</encoding>
   			</configuration>
+  			<dependencies>
+		        <dependency>
+					<groupId>org.codehaus.plexus</groupId>
+					<artifactId>plexus-compiler-javac-errorprone</artifactId>
+					<version>2.5</version>
+		        </dependency>
+		        <dependency>
+					<groupId>com.google.errorprone</groupId>
+		            <artifactId>error_prone_core</artifactId>
+		            <version>2.0.3</version>
+				</dependency>
+			</dependencies>
   		</plugin>
   	</plugins>
   </build>

@@ -176,6 +176,6 @@ class CleanUp {
 			e.printStackTrace();
 		}
 		
-		System.out.println(new Date(1428949095000l));
+		System.out.println(new Date(1428949095000L));
 	}
 }

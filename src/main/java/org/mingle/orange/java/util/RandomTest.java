@@ -14,8 +14,8 @@ public class RandomTest {
 	public static void main(String[] args) {
 		Random random = new Random();
 		Random random1 = new Random();
-		Random ran = new Random(100l);
-		Random ran1 = new Random(100l);
+		Random ran = new Random(100L);
+		Random ran1 = new Random(100L);
 		byte[] bytes = new byte[10];
 		System.out.println("random.nextBoolean() = " + random.nextBoolean());	// false or true
 		System.out.println("random.nextDouble() = " + random.nextDouble());		// 0.0d <= x < 1.0d

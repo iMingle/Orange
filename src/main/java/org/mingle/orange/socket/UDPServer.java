@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import java.util.Arrays;
 
 public class UDPServer {
 
@@ -17,7 +18,7 @@ public class UDPServer {
 			
 			ds.receive(dp);
 			
-			System.out.println(buf.toString());
+			System.out.println(Arrays.toString(buf));
 			
 			ds.close();
 		} catch (SocketException e) {

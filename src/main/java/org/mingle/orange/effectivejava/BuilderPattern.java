@@ -36,7 +36,7 @@ class NutritionFactsOne {
 	private final int carbohydrate;	// (g)				optional
 	
 	public NutritionFactsOne(int servingSize, int servings) {
-		this(servingSize, servingSize, 0);
+		this(servingSize, servings, 0);
 	}
 	
 	public NutritionFactsOne(int servingSize, int servings, int calories) {
