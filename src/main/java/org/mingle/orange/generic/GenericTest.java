@@ -5,6 +5,11 @@ package org.mingle.orange.generic;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import com.google.common.collect.Maps;
 
 
 /**
@@ -42,6 +47,22 @@ public class GenericTest<T> {
 		}
 		
 		System.out.println(pair.getClass());	// class org.mingle.orange.generic.Pair
+		
+		Map<Class<?>, Object> favorites = Maps.newHashMap();
+		favorites.put(Integer.class, "Integer1");
+		favorites.put(Integer.class, "Integer2");
+		System.out.println(favorites);
+	}
+	
+	public static <T extends Comparable<? super T>> T max(List<? extends T> list) {
+		Iterator<? extends T> i = list.iterator();
+		T result = i.next();
+		while (i.hasNext()) {
+			T t = i.next();
+			if (t.compareTo(result) > 0)
+				result = t;
+		}
+		return result;
 	}
 
 	public static <T extends Comparable<? super T>> T min(T[] words) {
