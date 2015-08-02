@@ -22,11 +22,12 @@ public class App extends NanoHTTPD {
 		super(port);
 		start();
 		System.out.println("Running! Point your browers to http://localhost:8080/\n");
+		System.in.read();
 	}
 
 	public static void main(String[] args) {
 		try {
-			new App(80);
+			new App(8080);
 		} catch (IOException e) {
 			System.err.println("Couldn't start server:\n" + e);
 		}

@@ -5,9 +5,8 @@ package org.mingle.orange.distributed.rmi.server;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
 import java.util.Map;
-
-import com.google.common.collect.Maps;
 
 /**
  * 仓库的实现类
@@ -24,8 +23,8 @@ public class WarehouseImpl extends UnicastRemoteObject implements Warehouse {
 	 * @throws RemoteException
 	 */
 	protected WarehouseImpl() throws RemoteException {
-		super();
-		prices = Maps.newHashMap();
+		super(8888);
+		prices = new HashMap<>();
 		prices.put("Orange", 2.95);
 		prices.put("Apple", 4.99);
 	}
