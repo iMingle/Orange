@@ -4,9 +4,15 @@
 package org.mingle.orange.json;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import lombok.Data;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 /**
  * json测试
@@ -15,26 +21,42 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Mingle
  */
 public class JacksonTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
+		JacksonObject jsonObj = null;
+		String json = "";
 		try {
-			JacksonObject jsonObj = new JacksonObject(8, "Mingle");
-			String json = mapper.writeValueAsString(jsonObj);
+			jsonObj = new JacksonObject(8, "Mingle");
+			json = mapper.writeValueAsString(jsonObj);
+			System.out.println("============== Bean ==============");
 			System.out.println(json);
-			
 			System.out.println(mapper.readValue(json, JacksonObject.class).toString());
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		List<String> lists = Lists.newArrayList();
+		lists.add("One");
+		lists.add("Two");
+		json = mapper.writeValueAsString(lists);
+		System.out.println("============== List ==============");
+		System.out.println(json);
+		System.out.println(mapper.readValue(json, List.class).toString());
+		
+		Map<Integer, String> maps = Maps.newHashMap();
+		maps.put(1, "One");
+		maps.put(2, "Two");
+		json = mapper.writeValueAsString(maps);
+		System.out.println("============== Map ==============");
+		System.out.println(json);
+		System.out.println(mapper.readValue(json, Map.class).toString());
 	}
 
 }
 
-class JacksonObject {
+@Data class JacksonObject {
 	private int no;
 	private String name;
 	
@@ -44,80 +66,12 @@ class JacksonObject {
 	public JacksonObject() {}
 	
 	/**
-	 * @return the no
-	 */
-	public int getNo() {
-		return no;
-	}
-
-	/**
-	 * @param no the no to set
-	 */
-	public void setNo(int no) {
-		this.no = no;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
 	 * @param no
 	 * @param name
 	 */
 	public JacksonObject(int no, String name) {
-		super();
 		this.no = no;
 		this.name = name;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + no;
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		JacksonObject other = (JacksonObject) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (no != other.no)
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "JacksonObject [no=" + no + ", name=" + name + "]";
 	}
 	
 }
