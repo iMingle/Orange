@@ -1,8 +1,11 @@
 package org.mingle.orange.reflect;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
+import lombok.Data;
 
 public class Reflection {
 	
@@ -13,7 +16,7 @@ public class Reflection {
 		return name;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException {
 		Field[] fields = new Field[10];
 		Method[] methods = new Method[10];
 		Reflection r = new Reflection();
@@ -44,58 +47,34 @@ public class Reflection {
 		try {
 			// Inner must has a default constructor, otherwise error
 			Class<?> clazz = Class.forName("org.mingle.orange.reflect.Inner");
-			// public class has a default constructor
-//			Class<?> clazz = Class.forName("org.mingle.orange.reflect.ReflectionTest");
 			Inner inner = (Inner) clazz.newInstance();
 			System.out.println(inner);
+			
+			inner = Inner.class.newInstance();
+			System.out.println(inner);
+			
+			Constructor<Inner> con = Inner.class.getConstructor(new Class<?>[] { String.class });
+			inner = con.newInstance("Mingle");
+			System.out.println(inner);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 }
 
-class Inner {
+@Data class Inner {
 	private String name;
 	
-	public Inner() {
-		
-	}
+	public Inner() {}
 
-	/**
-	 * @param name
-	 */
 	public Inner(String name) {
 		super();
 		this.name = name;
 	}
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Inner [name=" + name + "]";
-	}
 }
