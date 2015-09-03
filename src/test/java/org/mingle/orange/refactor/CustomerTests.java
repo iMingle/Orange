@@ -22,5 +22,6 @@ public class CustomerTests {
 		Customer customer = new Customer("Mingle");
 		customer.addRental(new Rental(new Movie("末日", Movie.REGULAR), 7));
 		System.out.println(customer.statement());
+		System.out.println(customer.htmlStatement());
 	}
 }
