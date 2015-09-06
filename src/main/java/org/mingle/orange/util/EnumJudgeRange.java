@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.enumeration;
+package org.mingle.orange.util;
 
 import java.util.Arrays;
 import java.util.List;

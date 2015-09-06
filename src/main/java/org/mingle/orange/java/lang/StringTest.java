@@ -283,3 +283,16 @@ class ReadComment {
 		}
 	}
 }
+
+class StringIntern {
+	public static void main(String[] args) {
+		String str1 = new StringBuffer("计算机").append("软件").toString();
+		System.out.println(str1.intern() == str1);	// true,JDK1.6 false
+		
+		String str2 = new StringBuffer("ja").append("va").toString();
+		System.out.println(str2.intern() == str2);	// false,JDK1.6 false
+		
+		String str3 = "hello";
+		System.out.println(str3.intern() == str3);	// true,JDK1.6 true
+	}
+}
