@@ -7,4 +7,4 @@ public @Data class Student {
 	private String name;
 	private String sex;
 	private int age;
-} 
+}
