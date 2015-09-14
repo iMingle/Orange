@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.thread;
+package org.mingle.orange.concurrent;
 
 /**
  * a runnable that transfers money form an account to other accounts in bank.

@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.thread;
+package org.mingle.orange.concurrent;
 
 /**
  * This program shows data corruption when multiple threads access a data structure.

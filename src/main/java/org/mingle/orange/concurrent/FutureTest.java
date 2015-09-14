@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.thread;
+package org.mingle.orange.concurrent;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,17 +10,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.FutureTask;
 
 /**
  *
  * @since 1.8
  * @author Mingle
  */
-public class ThreadPoolTest {
+public class FutureTest {
 
 	/**
 	 * @param args
@@ -32,44 +30,37 @@ public class ThreadPoolTest {
 		System.out.print("Enter keyword (e.g. volatile): ");
 		String keyword = in.nextLine();
 		
-		ExecutorService pool = Executors.newCachedThreadPool();
-		
-		MatchCounter_ counter = new MatchCounter_(new File(directory), keyword, pool);
-		Future<Integer> result = pool.submit(counter);
+		MatchCounter counter = new MatchCounter(new File(directory), keyword);
+		FutureTask<Integer> task = new FutureTask<Integer>(counter);
+		Thread t = new Thread(task);
+		t.start();
 		
 		try {
-			System.out.println(result.get() + " matching files.");
+			System.out.println(task.get() + " matching files.");
 		} catch (InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		in.close();
-		pool.shutdown();
-		
-		int largestPoolSize = ((ThreadPoolExecutor)pool).getLargestPoolSize();
-		System.out.println("largest pool size = " + largestPoolSize);
 	}
 
 }
 
-
 /**
  * this task counts the files in a directory and its subdirectories that contain a given keyword.
  */
-class MatchCounter_ implements Callable<Integer> {
+class MatchCounter implements Callable<Integer> {
 	private File directory;
 	private String keyword;
-	private ExecutorService pool;
 	private int count;
 
 	/**
 	 * @param directory
 	 * @param keyword
 	 */
-	public MatchCounter_(File directory, String keyword, ExecutorService pool) {
+	public MatchCounter(File directory, String keyword) {
 		this.directory = directory;
 		this.keyword = keyword;
-		this.pool = pool;
 	}
 
 	/* (non-Javadoc)
@@ -86,9 +77,11 @@ class MatchCounter_ implements Callable<Integer> {
 			// if has too many files, the system will die.
 			for (File file : files) {
 				if (file.isDirectory()) {
-					MatchCounter_ counter = new MatchCounter_(file, keyword, pool);
-					Future<Integer> result = pool.submit(counter);
-					results.add(result);
+					MatchCounter counter = new MatchCounter(file, keyword);
+					FutureTask<Integer> task = new FutureTask<Integer>(counter);
+					results.add(task);
+					Thread t = new Thread(task);
+					t.start();
 				} else {
 					if (search(file)) count++;
 				}
