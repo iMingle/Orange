@@ -1,23 +1,27 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.concurrent.limit;
+package org.mingle.orange.concurrent.construct;
 
 import org.mingle.orange.concurrent.util.Helper;
 
 /**
- * 
+ * 开放调用(非同步发送消息)
  * 
  * @since 1.8
  * @author Mingle
  */
-public class ServerWithStateUpdate {
+public class ServerWithOpenCall {
 	private double state;
 	private final Helper helper = new Helper();
 
-	public synchronized void service() {
-		state = 2.0f;	// set to some new value
-		helper.operation();	// 花费时间很长的话,那么此方法需要阻塞无法接受的时间
+	public void service() {
+		updateState();
+		helper.operation();
+	}
+
+	public synchronized void updateState() {
+		state = 2.0f; // set to some new value
 	}
 
 	public synchronized double getState() {

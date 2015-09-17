@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.concurrent.limit;
+package org.mingle.orange.concurrent.construct;
 
 import org.mingle.orange.concurrent.util.Helper;
 

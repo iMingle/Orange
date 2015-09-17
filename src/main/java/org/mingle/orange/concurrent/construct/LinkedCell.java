@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.concurrent.limit;
+package org.mingle.orange.concurrent.construct;
 
 /**
  * 不变引用连接的数据结构,当synchronized方法调用非同步方法时,非同步方法依然处于同步状态
