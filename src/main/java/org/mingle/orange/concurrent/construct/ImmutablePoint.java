@@ -26,3 +26,32 @@ public class ImmutablePoint {
 		return y;
 	}
 }
+
+class Dot {
+	protected ImmutablePoint loc;
+	
+	public Dot(int x, int y) {
+		loc = new ImmutablePoint(x, y);
+	}
+	
+	public synchronized ImmutablePoint location() {
+		return loc;
+	}
+	
+	protected synchronized void updateLoc(ImmutablePoint newLoc) {
+		loc = newLoc;
+	}
+	
+	public void moveTo(int x, int y) {
+		updateLoc(new ImmutablePoint(x, y));
+	}
+	
+	/**
+	 * loc可变,此方法必须同步
+	 * 
+	 * @param delta
+	 */
+	public synchronized void shiftX(int delta) {
+		updateLoc(new ImmutablePoint(loc.x() + delta, loc.y()));
+	}
+}
