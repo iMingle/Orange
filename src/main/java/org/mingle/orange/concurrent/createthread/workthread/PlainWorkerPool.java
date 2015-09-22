@@ -1,7 +1,10 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.concurrent.createthread.threadpermessage;
+package org.mingle.orange.concurrent.createthread.workthread;
+
+import org.mingle.orange.concurrent.createthread.threadpermessage.Channel;
+import org.mingle.orange.concurrent.createthread.threadpermessage.Executor;
 
 /**
  * 
@@ -35,8 +38,7 @@ public class PlainWorkerPool implements Executor {
 						Runnable r = workQueue.take();
 						r.run();
 					}
-				} catch (InterruptedException ie) {
-				} // die
+				} catch (InterruptedException ie) {} // die
 			}
 		};
 		new Thread(runLoop).start();

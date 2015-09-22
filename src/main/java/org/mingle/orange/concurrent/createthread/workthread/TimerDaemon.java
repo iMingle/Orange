@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2015, Mingle. All rights reserved.
  */
-package org.mingle.orange.concurrent.createthread.threadpermessage;
+package org.mingle.orange.concurrent.createthread.workthread;
 
 import java.util.Date;
 
