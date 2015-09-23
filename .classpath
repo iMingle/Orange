@@ -28,5 +28,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/jdk1.8.0_20/jre/lib/javaws.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
