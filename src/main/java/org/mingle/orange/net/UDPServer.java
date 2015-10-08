@@ -1,4 +1,4 @@
-package org.mingle.orange.socket;
+package org.mingle.orange.net;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -22,10 +22,8 @@ public class UDPServer {
 			
 			ds.close();
 		} catch (SocketException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

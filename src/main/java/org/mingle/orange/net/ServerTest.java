@@ -1,4 +1,4 @@
-package org.mingle.orange.socket;
+package org.mingle.orange.net;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class ServerTest {
 			ServerSocket server = new ServerSocket(8888);
 System.out.println("server start");
 			Socket s = server.accept();
-System.out.println("server accept client");			
+System.out.println("server accept client");
 			InputStream in = s.getInputStream();
 			OutputStream out = s.getOutputStream();
 			
@@ -38,7 +38,6 @@ System.out.println("server accept client");
 			s.close();
 			server.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
