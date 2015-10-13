@@ -33,6 +33,15 @@ public class LogService {
 	}
 	
 	public void start() {
+		/**
+		 * 通过注册一个一个关闭钩子来停止日志服务
+		 */
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			@Override
+			public void run() {
+				LogService.this.stop();
+			}
+		});
 		loggerThread.start();
 	}
 	
