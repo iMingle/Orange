@@ -10,6 +10,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
+import org.mingle.orange.util.LaunderThrowable;
+
 /**
  * 缓存
  * 问题1:如果计算取消或检测到RuntimeExeption,需要移除Future

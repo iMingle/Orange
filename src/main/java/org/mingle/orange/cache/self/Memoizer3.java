@@ -10,6 +10,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
+import org.mingle.orange.util.LaunderThrowable;
+
 /**
  * 缓存
  * 

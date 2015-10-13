@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
-import org.mingle.orange.cache.self.LaunderThrowable;
+import org.mingle.orange.util.LaunderThrowable;
 
 /**
  * 
