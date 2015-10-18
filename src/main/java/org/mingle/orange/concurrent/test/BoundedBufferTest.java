@@ -17,13 +17,13 @@ public class BoundedBufferTest extends TestCase {
     private static final int THRESHOLD = 10000;
     
 	void testIsEmptyWhenConstructed() {
-		SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(10);
+		SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(CAPACITY);
 		assertTrue(bb.isEmpty());
 		assertFalse(bb.isFull());
 	}
 	
 	void testIsFullAfterPuts() throws InterruptedException {
-		SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(10);
+		SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(CAPACITY);
 		for (int i = 0; i < 10; i++)
 			bb.put(i);
 		assertTrue(bb.isFull());
@@ -31,7 +31,7 @@ public class BoundedBufferTest extends TestCase {
 	}
 	
 	void testTakeBlocksWhenEmpty() {
-		final SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(10);
+		final SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(CAPACITY);
 		Thread taker = new Thread() {
             public void run() {
                 try {
@@ -51,5 +51,27 @@ public class BoundedBufferTest extends TestCase {
         } catch (Exception unexpected) {
             fail();
         }
+	}
+	
+	/**
+	 * 大对象
+	 */
+	class Big {
+		double[] data = new double[100000];
+	}
+	
+	/**
+	 * 测试资源泄露
+	 * @throws InterruptedException 
+	 */
+	void testLeak() throws InterruptedException {
+		SemaphoreBoundedBuffer<Big> bb = new SemaphoreBoundedBuffer<>(CAPACITY);
+		int heapSize1 = 800;	/* 生成堆的快照 */
+		for (int i = 0; i < CAPACITY; i++)
+			bb.put(new Big());
+		for (int i = 0; i < CAPACITY; i++)
+			bb.take();
+		int heapSize2 = 900;	/* 生成堆的快照 */
+		assertTrue(Math.abs(heapSize1 - heapSize2) < THRESHOLD);
 	}
 }
