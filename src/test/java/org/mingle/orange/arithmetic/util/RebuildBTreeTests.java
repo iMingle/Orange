@@ -28,6 +28,5 @@ public class RebuildBTreeTests {
 		assertThat(root.right.data).isEqualTo('c');
 		assertThat(root.right.left.data).isEqualTo('e');
 		assertThat(root.right.right.data).isEqualTo('f');
-		
 	}
 }
