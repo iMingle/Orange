@@ -13,10 +13,10 @@ public class SingletonThree {
 	private SingletonThree() {}
 	
 	private static class SingletonThreeInstance {
-		private static final SingletonThree instance = new SingletonThree();
+		private static final SingletonThree INSTANCE = new SingletonThree();
 	}
 	
 	public static SingletonThree getInstance() {
-		return SingletonThreeInstance.instance;
+		return SingletonThreeInstance.INSTANCE;
 	}
 }
