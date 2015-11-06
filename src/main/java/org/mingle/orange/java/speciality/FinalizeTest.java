@@ -4,6 +4,9 @@
 package org.mingle.orange.java.speciality;
 
 /**
+ * 应避免使用finalize方法
+ * 1. 作为安全网
+ * 2. 为了终止非关键的本地资源
  *
  * @since 1.8
  * @author Mingle
