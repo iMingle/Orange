@@ -5,6 +5,7 @@ package org.mingle.orange.effectivejava;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
@@ -18,17 +19,53 @@ import java.util.TreeSet;
 public class Composition {
 
 	public static void main(String[] args) {
-		InstrumentedSet<String> s = new InstrumentedSet<String>(new TreeSet<String>());
+		InstrumentedSetComposition<String> s = new InstrumentedSetComposition<String>(new TreeSet<String>());
 		s.addAll(Arrays.asList("Snap", "Crackle", "Pop"));
 		System.out.println(s.getAddCount());
 	}
 
 }
 
-class InstrumentedSet<E> extends ForwardingSet<E> {
+/**
+ * 继承方式实现
+ */
+class InstrumentedHashSet<E> extends HashSet<E> {
+	private static final long serialVersionUID = -3048767023300971996L;
+	
+	// The number of attempted element insertions
 	private int addCount = 0;
 	
-	public InstrumentedSet(Set<E> s) {
+	public InstrumentedHashSet() {}
+
+	public InstrumentedHashSet(int initialCapacity, float loadFactor) {
+		super(initialCapacity, loadFactor);
+	}
+	
+	@Override public boolean add(E e) {
+		addCount++;
+		return super.add(e);
+	}
+	
+	/**
+	 * addAll方法会调用add方法,导致计数错误
+	 */
+	@Override public boolean addAll(Collection<? extends E> c) {
+		addCount += c.size();
+		return super.addAll(c);
+	}
+	
+	public int getAddCount() {
+		return addCount;
+	}
+}
+
+/**
+ * 组合方式实现
+ */
+class InstrumentedSetComposition<E> extends ForwardingSet<E> {
+	private int addCount = 0;
+	
+	public InstrumentedSetComposition(Set<E> s) {
 		super(s);
 	}
 
