@@ -5,7 +5,6 @@ package org.mingle.orange.effectivejava;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 /**
