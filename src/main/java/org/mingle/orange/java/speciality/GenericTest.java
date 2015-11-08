@@ -23,14 +23,7 @@ import java.util.Set;
  * @author Mingle
  */
 public class GenericTest {
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
-	}
-
+	public static void main(String[] args) {}
 }
 
 /**
