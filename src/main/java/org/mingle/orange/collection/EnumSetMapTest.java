@@ -13,9 +13,6 @@ import java.util.EnumSet;
  */
 public class EnumSetMapTest {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		EnumSet<Weekday> always = EnumSet.allOf(Weekday.class);
 		System.out.println("always = " + always);
