@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -18,13 +19,13 @@ import java.util.concurrent.atomic.AtomicReference;
  * @since 1.8
  * @author Mingle
  */
-public class Serializable implements java.io.Serializable {
+public class Serialization implements Serializable {
 	private static final long serialVersionUID = 1339037634067378632L;
 	
 	private final Date start;
 	private final Date end;
 	
-	public Serializable(Date start, Date end) {
+	public Serialization(Date start, Date end) {
 		this.start = start;
 		this.end = end;
 	}
@@ -32,13 +33,13 @@ public class Serializable implements java.io.Serializable {
 	/**
 	 * 序列化代理,优先选择的方式,可以阻止伪字节流的攻击,并且外围类的域可以是final的
 	 */
-	private static class SerializableProxy implements java.io.Serializable {
+	private static class SerializationProxy implements Serializable {
 		private static final long serialVersionUID = -726413810585864902L;
 		
 		private final Date start;
 		private final Date end;
 		
-		public SerializableProxy(Serializable s) {
+		public SerializationProxy(Serialization s) {
 			this.start = s.start;
 			this.end = s.end;
 		}
@@ -49,7 +50,7 @@ public class Serializable implements java.io.Serializable {
 		 * @return
 		 */
 		private Object readResolve() {
-			return new Serializable(start, end);
+			return new Serialization(start, end);
 		}
 	}
 	
@@ -59,7 +60,7 @@ public class Serializable implements java.io.Serializable {
 	 * @return
 	 */
 	private Object writeReplace() {
-		return new SerializableProxy(this);
+		return new SerializationProxy(this);
 	}
 	
 	private void readObject(ObjectInputStream s) throws InvalidObjectException {
@@ -142,7 +143,7 @@ abstract class AbstractFoo {
 	}
 }
 
-class Foo extends AbstractFoo implements java.io.Serializable {
+class Foo extends AbstractFoo implements Serializable {
 	private static final long serialVersionUID = 3968193554302599953L;
 	
 	private void readObject(ObjectInputStream in) throws ClassNotFoundException, IOException {
@@ -165,7 +166,7 @@ class Foo extends AbstractFoo implements java.io.Serializable {
 	}
 }
 
-final class StringList implements java.io.Serializable {
+final class StringList implements Serializable {
 	private static final long serialVersionUID = -5685050420587458489L;
 	
 	private transient int size = 0;
