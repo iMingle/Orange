@@ -6,8 +6,10 @@ package org.mingle.orange.effectivejava;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -16,7 +18,63 @@ import java.util.concurrent.atomic.AtomicReference;
  * @since 1.8
  * @author Mingle
  */
-public class Serializable {
+public class Serializable implements java.io.Serializable {
+	private static final long serialVersionUID = 1339037634067378632L;
+	
+	private final Date start;
+	private final Date end;
+	
+	public Serializable(Date start, Date end) {
+		this.start = start;
+		this.end = end;
+	}
+
+	/**
+	 * 序列化代理,优先选择的方式,可以阻止伪字节流的攻击,并且外围类的域可以是final的
+	 */
+	private static class SerializableProxy implements java.io.Serializable {
+		private static final long serialVersionUID = -726413810585864902L;
+		
+		private final Date start;
+		private final Date end;
+		
+		public SerializableProxy(Serializable s) {
+			this.start = s.start;
+			this.end = s.end;
+		}
+		
+		/**
+		 * 返回真正的序列化类实例,将代理转变回外围类的实例
+		 * 
+		 * @return
+		 */
+		private Object readResolve() {
+			return new Serializable(start, end);
+		}
+	}
+	
+	/**
+	 * 序列化是用代理类取代本身
+	 * 
+	 * @return
+	 */
+	private Object writeReplace() {
+		return new SerializableProxy(this);
+	}
+	
+	private void readObject(ObjectInputStream s) throws InvalidObjectException {
+		throw new InvalidObjectException("Proxy required");
+	}
+
+	/**
+	 * 如果构造是的默认值违背了约束条件
+	 * 
+	 * @throws InvalidObjectException
+	 */
+	@SuppressWarnings("unused")
+	private void readObjectNoData() throws InvalidObjectException {
+		throw new InvalidObjectException("Stream data required");
+	}
 
 	public static void main(String[] args) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -50,8 +108,7 @@ abstract class AbstractFoo {
 	private enum State {
 		NEW, INITIALIZING, INITIALIZED
 	}
-	private final AtomicReference<State> init = 
-			new AtomicReference<AbstractFoo.State>(State.NEW);
+	private final AtomicReference<State> init = new AtomicReference<>(State.NEW);
 	
 	public AbstractFoo(int x, int y) {
 		initialize(x, y);
@@ -105,5 +162,45 @@ class Foo extends AbstractFoo implements java.io.Serializable {
 	
 	public Foo(int x, int y) {
 		super(x, y);
+	}
+}
+
+final class StringList implements java.io.Serializable {
+	private static final long serialVersionUID = -5685050420587458489L;
+	
+	private transient int size = 0;
+	private transient Entry head = null;
+	
+	private static class Entry {
+		String data;
+		Entry next;
+		@SuppressWarnings("unused")
+		Entry previous;
+	}
+	
+	public final void add(String s) {}
+	
+	/**
+	 * Serialize this {@code StringList} instance
+	 * 
+	 * @serialData The size of the list (the numbers of strings it contains) is emitted ({@code int}),
+	 * followed by all of its elements (each a {@code String}), in the proper sequence.
+	 * 
+	 * @param s
+	 * @throws IOException
+	 */
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		s.writeInt(size);
+		for (Entry e = head; e != null; e = e.next)
+			s.writeObject(e.data);
+	}
+	
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		int numElements = s.readInt();
+		
+		for (int i = 0; i < numElements; i++)
+			add((String) s.readObject());
 	}
 }
