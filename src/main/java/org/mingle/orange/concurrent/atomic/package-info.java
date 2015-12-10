@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2015, Mingle. All rights reserved.
+ * Copyright (c) 2016, Mingle. All rights reserved.
  */
 /**
  * 原子变量与非阻塞同步机制
