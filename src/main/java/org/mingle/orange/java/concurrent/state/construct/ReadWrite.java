@@ -1,0 +1,86 @@
+/**
+ * Copyright (c) 2016, Mingle. All rights reserved.
+ */
+package org.mingle.orange.java.concurrent.state.construct;
+
+/**
+ * 读入者写入者
+ * 
+ * @since 1.8
+ * @author Mingle
+ */
+public abstract class ReadWrite {
+	protected int activeReaders = 0; // threads executing read
+	protected int activeWriters = 0; // always zero or one
+
+	protected int waitingReaders = 0; // threads not yet in read
+	protected int waitingWriters = 0; // same for write
+
+	protected abstract void doRead(); // implement in subclasses
+
+	protected abstract void doWrite();
+
+	public void read() throws InterruptedException {
+		beforeRead();
+		try {
+			doRead();
+		} finally {
+			afterRead();
+		}
+	}
+
+	public void write() throws InterruptedException {
+		beforeWrite();
+		try {
+			doWrite();
+		} finally {
+			afterWrite();
+		}
+	}
+
+	protected boolean allowReader() {
+		return waitingWriters == 0 && activeWriters == 0;
+	}
+
+	protected boolean allowWriter() {
+		return activeReaders == 0 && activeWriters == 0;
+	}
+
+	protected synchronized void beforeRead() throws InterruptedException {
+		++waitingReaders;
+		while (!allowReader()) {
+			try {
+				wait();
+			} catch (InterruptedException ie) {
+				--waitingReaders; // roll back state
+				throw ie;
+			}
+		}
+		--waitingReaders;
+		++activeReaders;
+	}
+
+	protected synchronized void afterRead() {
+		--activeReaders;
+		notifyAll();
+	}
+
+	protected synchronized void beforeWrite() throws InterruptedException {
+		++waitingWriters;
+		while (!allowWriter()) {
+			try {
+				wait();
+			} catch (InterruptedException ie) {
+				--waitingWriters;
+				throw ie;
+			}
+		}
+		--waitingWriters;
+		++activeWriters;
+	}
+
+	protected synchronized void afterWrite() {
+		--activeWriters;
+		notifyAll();
+	}
+}
