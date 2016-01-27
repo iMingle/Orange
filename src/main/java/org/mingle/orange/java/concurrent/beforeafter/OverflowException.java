@@ -10,6 +10,6 @@ package org.mingle.orange.java.concurrent.beforeafter;
  * @author Mingle
  */
 public class OverflowException extends Exception {
-	private static final long serialVersionUID = 711326932997440618L;
+    private static final long serialVersionUID = 711326932997440618L;
 
 }

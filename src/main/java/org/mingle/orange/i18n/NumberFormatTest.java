@@ -30,20 +30,20 @@ import javax.swing.JTextField;
  */
 public class NumberFormatTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
 
-			@Override
-			public void run() {
-				JFrame frame = new NumberFormatFrame();
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-			}
-		});
-	}
+            @Override
+            public void run() {
+                JFrame frame = new NumberFormatFrame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
 
 }
 
@@ -54,120 +54,120 @@ public class NumberFormatTest {
  */
 class NumberFormatFrame extends JFrame {
 
-	private static final long serialVersionUID = -6340221190096179751L;
+    private static final long serialVersionUID = -6340221190096179751L;
 
-	private Locale[] locales;
-	private double currentNumber;
-	private JComboBox<String> localeCombo = new JComboBox<String>();
-	private JButton parseButton = new JButton("Parse");
-	private JTextField numberText = new JTextField(30);
-	private JRadioButton numberRadioButton = new JRadioButton("Number");
-	private JRadioButton currencyRadioButton = new JRadioButton("Currency");
-	private JRadioButton percentRadioButton = new JRadioButton("Percent");
-	private ButtonGroup rbGroup = new ButtonGroup();
-	private NumberFormat currentNumberFormat;
+    private Locale[] locales;
+    private double currentNumber;
+    private JComboBox<String> localeCombo = new JComboBox<String>();
+    private JButton parseButton = new JButton("Parse");
+    private JTextField numberText = new JTextField(30);
+    private JRadioButton numberRadioButton = new JRadioButton("Number");
+    private JRadioButton currencyRadioButton = new JRadioButton("Currency");
+    private JRadioButton percentRadioButton = new JRadioButton("Percent");
+    private ButtonGroup rbGroup = new ButtonGroup();
+    private NumberFormat currentNumberFormat;
 
-	public NumberFormatFrame() {
-		this.setTitle("NumberFormatTest");
-		this.setLayout(new GridBagLayout());
+    public NumberFormatFrame() {
+        this.setTitle("NumberFormatTest");
+        this.setLayout(new GridBagLayout());
 
-		ActionListener listener = new ActionListener() {
+        ActionListener listener = new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				updateDisplay();
-			}
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay();
+            }
 
-		};
+        };
 
-		JPanel p = new JPanel();
-		this.addRadioButton(p, numberRadioButton, rbGroup, listener);
-		this.addRadioButton(p, currencyRadioButton, rbGroup, listener);
-		this.addRadioButton(p, percentRadioButton, rbGroup, listener);
+        JPanel p = new JPanel();
+        this.addRadioButton(p, numberRadioButton, rbGroup, listener);
+        this.addRadioButton(p, currencyRadioButton, rbGroup, listener);
+        this.addRadioButton(p, percentRadioButton, rbGroup, listener);
 
-		this.add(new JLabel("Locale:"), new GBC(0, 0).setAnchor(GBC.EAST));
-		this.add(p, new GBC(1, 1));
-		this.add(parseButton, new GBC(0, 2).setInsets(2));
-		this.add(localeCombo, new GBC(1, 0).setAnchor(GBC.WEST));
-		this.add(numberText, new GBC(1, 2).setFill(GBC.HORIZONTAL));
-		locales = NumberFormat.getAvailableLocales();
-		Arrays.sort(locales, new Comparator<Locale>() {
+        this.add(new JLabel("Locale:"), new GBC(0, 0).setAnchor(GBC.EAST));
+        this.add(p, new GBC(1, 1));
+        this.add(parseButton, new GBC(0, 2).setInsets(2));
+        this.add(localeCombo, new GBC(1, 0).setAnchor(GBC.WEST));
+        this.add(numberText, new GBC(1, 2).setFill(GBC.HORIZONTAL));
+        locales = NumberFormat.getAvailableLocales();
+        Arrays.sort(locales, new Comparator<Locale>() {
 
-			@Override
-			public int compare(Locale o1, Locale o2) {
-				return o1.getDisplayName().compareTo(o2.getDisplayName());
-			}
-		});
+            @Override
+            public int compare(Locale o1, Locale o2) {
+                return o1.getDisplayName().compareTo(o2.getDisplayName());
+            }
+        });
 
-		for (Locale loc : locales) {
-			localeCombo.addItem(loc.getDisplayName());
-		}
-		localeCombo.setSelectedItem(Locale.getDefault().getDisplayName());
-		currentNumber = 123456.78;
-		this.updateDisplay();
+        for (Locale loc : locales) {
+            localeCombo.addItem(loc.getDisplayName());
+        }
+        localeCombo.setSelectedItem(Locale.getDefault().getDisplayName());
+        currentNumber = 123456.78;
+        this.updateDisplay();
 
-		localeCombo.addActionListener(listener);
+        localeCombo.addActionListener(listener);
 
-		parseButton.addActionListener(new ActionListener() {
+        parseButton.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String s = numberText.getText().trim();
-				try {
-					Number n = currentNumberFormat.parse(s);
-					if (n != null) {
-						currentNumber = n.doubleValue();
-						updateDisplay();
-					} else {
-						numberText.setText("Parse error: " + s);
-					}
-				} catch (ParseException e1) {
-					numberText.setText("Parse error: " + s);
-				}
-			}
-		});
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = numberText.getText().trim();
+                try {
+                    Number n = currentNumberFormat.parse(s);
+                    if (n != null) {
+                        currentNumber = n.doubleValue();
+                        updateDisplay();
+                    } else {
+                        numberText.setText("Parse error: " + s);
+                    }
+                } catch (ParseException e1) {
+                    numberText.setText("Parse error: " + s);
+                }
+            }
+        });
 
-		this.pack();
-	}
+        this.pack();
+    }
 
-	/**
-	 * Adds a radio button to a container.
-	 * 
-	 * @param p
-	 *            the container into which to place the button
-	 * @param b
-	 *            the button
-	 * @param g
-	 *            the button group
-	 * @param listener
-	 *            the button listener
-	 */
-	private void addRadioButton(JPanel p, JRadioButton b, ButtonGroup g,
-			ActionListener listener) {
-		b.setSelected(g.getButtonCount() == 0);
-		b.addActionListener(listener);
-		g.add(b);
-		p.add(b);
-	}
+    /**
+     * Adds a radio button to a container.
+     * 
+     * @param p
+     *            the container into which to place the button
+     * @param b
+     *            the button
+     * @param g
+     *            the button group
+     * @param listener
+     *            the button listener
+     */
+    private void addRadioButton(JPanel p, JRadioButton b, ButtonGroup g,
+            ActionListener listener) {
+        b.setSelected(g.getButtonCount() == 0);
+        b.addActionListener(listener);
+        g.add(b);
+        p.add(b);
+    }
 
-	/**
-	 * Updates the display and formats the number according to the user
-	 * settings.
-	 */
-	private void updateDisplay() {
-		Locale currentLocale = this.locales[localeCombo.getSelectedIndex()];
-		currentNumberFormat = null;
+    /**
+     * Updates the display and formats the number according to the user
+     * settings.
+     */
+    private void updateDisplay() {
+        Locale currentLocale = this.locales[localeCombo.getSelectedIndex()];
+        currentNumberFormat = null;
 
-		if (numberRadioButton.isSelected())
-			currentNumberFormat = NumberFormat.getNumberInstance(currentLocale);
-		else if (currencyRadioButton.isSelected())
-			currentNumberFormat = NumberFormat
-					.getCurrencyInstance(currentLocale);
-		else if (percentRadioButton.isSelected())
-			currentNumberFormat = NumberFormat
-					.getPercentInstance(currentLocale);
+        if (numberRadioButton.isSelected())
+            currentNumberFormat = NumberFormat.getNumberInstance(currentLocale);
+        else if (currencyRadioButton.isSelected())
+            currentNumberFormat = NumberFormat
+                    .getCurrencyInstance(currentLocale);
+        else if (percentRadioButton.isSelected())
+            currentNumberFormat = NumberFormat
+                    .getPercentInstance(currentLocale);
 
-		String str = currentNumberFormat.format(currentNumber);
-		this.numberText.setText(str);
-	}
+        String str = currentNumberFormat.format(currentNumber);
+        this.numberText.setText(str);
+    }
 }

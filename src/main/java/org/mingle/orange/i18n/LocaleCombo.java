@@ -24,95 +24,95 @@ import javax.swing.event.ListDataListener;
  * @author Mingle
  */
 public class LocaleCombo extends JComboBox<Object> {
-	private static final long serialVersionUID = -895992472810878939L;
+    private static final long serialVersionUID = -895992472810878939L;
 
-	private Locale[] locales;
-	private ListCellRenderer<?> renderer;
+    private Locale[] locales;
+    private ListCellRenderer<?> renderer;
 
-	/**
-	 * Constructs a locale combo that displays an immutable collection of
-	 * locales.
-	 * 
-	 * @param locales
-	 *            the locales to display in this combo box
-	 */
-	public LocaleCombo(Locale[] locales) {
-		this.locales = (Locale[]) locales.clone();
-		sort();
-		setSelectedItem(getLocale());
-	}
+    /**
+     * Constructs a locale combo that displays an immutable collection of
+     * locales.
+     * 
+     * @param locales
+     *            the locales to display in this combo box
+     */
+    public LocaleCombo(Locale[] locales) {
+        this.locales = (Locale[]) locales.clone();
+        sort();
+        setSelectedItem(getLocale());
+    }
 
-	public void setLocale(Locale newValue) {
-		super.setLocale(newValue);
-		sort();
-	}
+    public void setLocale(Locale newValue) {
+        super.setLocale(newValue);
+        sort();
+    }
 
-	private void sort() {
-		Object selected = getSelectedItem();
-		final Locale loc = getLocale();
-		final Collator collator = Collator.getInstance(loc);
-		final Comparator<Locale> comp = new Comparator<Locale>() {
-			public int compare(Locale a, Locale b) {
-				return collator.compare(a.getDisplayName(loc),
-						b.getDisplayName(loc));
-			}
-		};
-		Arrays.sort(locales, comp);
-		setModel(new ComboBoxModel<Object>() {
-			public Object getElementAt(int i) {
-				return locales[i];
-			}
+    private void sort() {
+        Object selected = getSelectedItem();
+        final Locale loc = getLocale();
+        final Collator collator = Collator.getInstance(loc);
+        final Comparator<Locale> comp = new Comparator<Locale>() {
+            public int compare(Locale a, Locale b) {
+                return collator.compare(a.getDisplayName(loc),
+                        b.getDisplayName(loc));
+            }
+        };
+        Arrays.sort(locales, comp);
+        setModel(new ComboBoxModel<Object>() {
+            public Object getElementAt(int i) {
+                return locales[i];
+            }
 
-			public int getSize() {
-				return locales.length;
-			}
+            public int getSize() {
+                return locales.length;
+            }
 
-			public void addListDataListener(ListDataListener l) {
-			}
+            public void addListDataListener(ListDataListener l) {
+            }
 
-			public void removeListDataListener(ListDataListener l) {
-			}
+            public void removeListDataListener(ListDataListener l) {
+            }
 
-			public Object getSelectedItem() {
-				return selected >= 0 ? locales[selected] : null;
-			}
+            public Object getSelectedItem() {
+                return selected >= 0 ? locales[selected] : null;
+            }
 
-			public void setSelectedItem(Object anItem) {
-				if (anItem == null)
-					selected = -1;
-				else
-					selected = Arrays.binarySearch(locales, (Locale) anItem,
-							comp);
-			}
+            public void setSelectedItem(Object anItem) {
+                if (anItem == null)
+                    selected = -1;
+                else
+                    selected = Arrays.binarySearch(locales, (Locale) anItem,
+                            comp);
+            }
 
-			private int selected;
-		});
-		setSelectedItem(selected);
-	}
+            private int selected;
+        });
+        setSelectedItem(selected);
+    }
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public ListCellRenderer getRenderer() {
-		if (renderer == null) {
-			final ListCellRenderer<Object> originalRenderer = super.getRenderer();
-			if (originalRenderer == null)
-				return null;
-			renderer = new ListCellRenderer<Object>() {
-				public Component getListCellRendererComponent(JList<?> list,
-						Object value, int index, boolean isSelected,
-						boolean cellHasFocus) {
-					String renderedValue = ((Locale) value)
-							.getDisplayName(getLocale());
-					return originalRenderer.getListCellRendererComponent(list,
-							renderedValue, index, isSelected, cellHasFocus);
-				}
-			};
-		}
-		return renderer;
-	}
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public ListCellRenderer getRenderer() {
+        if (renderer == null) {
+            final ListCellRenderer<Object> originalRenderer = super.getRenderer();
+            if (originalRenderer == null)
+                return null;
+            renderer = new ListCellRenderer<Object>() {
+                public Component getListCellRendererComponent(JList<?> list,
+                        Object value, int index, boolean isSelected,
+                        boolean cellHasFocus) {
+                    String renderedValue = ((Locale) value)
+                            .getDisplayName(getLocale());
+                    return originalRenderer.getListCellRendererComponent(list,
+                            renderedValue, index, isSelected, cellHasFocus);
+                }
+            };
+        }
+        return renderer;
+    }
 
-	public void setRenderer(ListCellRenderer<Object> newValue) {
-		renderer = null;
-		super.setRenderer(newValue);
-	}
+    public void setRenderer(ListCellRenderer<Object> newValue) {
+        renderer = null;
+        super.setRenderer(newValue);
+    }
 
 }

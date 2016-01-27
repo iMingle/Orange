@@ -13,24 +13,24 @@ import static org.mingle.orange.args.ArgsException.ErrorCode.*;
  * @author Mingle
  */
 public class StringArgumentMarshaler implements ArgumentMarshaler {
-	private String stringValue = "";
+    private String stringValue = "";
 
-	/* (non-Javadoc)
-	 * @see org.mingle.orange.args.ArgumentMarshaler#set(java.util.Iterator)
-	 */
-	@Override
-	public void set(Iterator<String> currentArgument) throws ArgsException {
-		try {
-			stringValue = currentArgument.next();
-		} catch (NoSuchElementException e) {
-			throw new ArgsException(MISSING_STRING);
-		}
-	}
+    /* (non-Javadoc)
+     * @see org.mingle.orange.args.ArgumentMarshaler#set(java.util.Iterator)
+     */
+    @Override
+    public void set(Iterator<String> currentArgument) throws ArgsException {
+        try {
+            stringValue = currentArgument.next();
+        } catch (NoSuchElementException e) {
+            throw new ArgsException(MISSING_STRING);
+        }
+    }
 
-	public static String getValue(ArgumentMarshaler am) {
-		if (am != null && am instanceof StringArgumentMarshaler)
-			return ((StringArgumentMarshaler) am).stringValue;
-		else
-			return "";
-	}
+    public static String getValue(ArgumentMarshaler am) {
+        if (am != null && am instanceof StringArgumentMarshaler)
+            return ((StringArgumentMarshaler) am).stringValue;
+        else
+            return "";
+    }
 }

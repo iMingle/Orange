@@ -11,16 +11,16 @@ package org.mingle.orange.java.concurrent.state.fail;
  * @author Mingle
  */
 public class HandledService implements ServerWithException {
-	final ServerWithException server = new ServerImpl();
-	final ServiceExceptionHandler handler = new HandlerImpl();
+    final ServerWithException server = new ServerImpl();
+    final ServiceExceptionHandler handler = new HandlerImpl();
 
-	@Override
-	public void service() {
-		try {
-			server.service();
-		} catch (ServiceException e) {
-			handler.handle(e);
-		}
-	}
+    @Override
+    public void service() {
+        try {
+            server.service();
+        } catch (ServiceException e) {
+            handler.handle(e);
+        }
+    }
 
 }

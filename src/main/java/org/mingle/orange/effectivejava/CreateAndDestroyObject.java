@@ -10,15 +10,15 @@ package org.mingle.orange.effectivejava;
  * @author Mingle
  */
 public class CreateAndDestroyObject {
-	
-	/**
-	 * 考虑用静态工厂代替构造器
-	 * 
-	 * @param b
-	 * @return
-	 */
-	public static Boolean valueOf(boolean b) {
-		return b ? Boolean.TRUE : Boolean.FALSE;
-	}
-	
+    
+    /**
+     * 考虑用静态工厂代替构造器
+     * 
+     * @param b
+     * @return
+     */
+    public static Boolean valueOf(boolean b) {
+        return b ? Boolean.TRUE : Boolean.FALSE;
+    }
+    
 }

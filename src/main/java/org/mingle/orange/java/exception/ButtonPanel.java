@@ -16,49 +16,49 @@ import javax.swing.JPanel;
  * @author Mingle
  */
 public class ButtonPanel extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -215780346925182795L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -215780346925182795L;
 
-	public ButtonPanel() {
-		// create buttons
+    public ButtonPanel() {
+        // create buttons
 
-		JButton yellowButton = new JButton("Yellow");
-		JButton blueButton = new JButton("Blue");
-		JButton redButton = new JButton("Red");
+        JButton yellowButton = new JButton("Yellow");
+        JButton blueButton = new JButton("Blue");
+        JButton redButton = new JButton("Red");
 
-		// add buttons to panel
+        // add buttons to panel
 
-		add(yellowButton);
-		add(blueButton);
-		add(redButton);
+        add(yellowButton);
+        add(blueButton);
+        add(redButton);
 
-		// create button actions
+        // create button actions
 
-		ColorAction yellowAction = new ColorAction(Color.YELLOW);
-		ColorAction blueAction = new ColorAction(Color.BLUE);
-		ColorAction redAction = new ColorAction(Color.RED);
+        ColorAction yellowAction = new ColorAction(Color.YELLOW);
+        ColorAction blueAction = new ColorAction(Color.BLUE);
+        ColorAction redAction = new ColorAction(Color.RED);
 
-		// associate actions with buttons
+        // associate actions with buttons
 
-		yellowButton.addActionListener(yellowAction);
-		blueButton.addActionListener(blueAction);
-		redButton.addActionListener(redAction);
-	}
+        yellowButton.addActionListener(yellowAction);
+        blueButton.addActionListener(blueAction);
+        redButton.addActionListener(redAction);
+    }
 
-	/**
-	 * An action listener that sets the panel's background color.
-	 */
-	private class ColorAction implements ActionListener {
-		public ColorAction(Color c) {
-			backgroundColor = c;
-		}
+    /**
+     * An action listener that sets the panel's background color.
+     */
+    private class ColorAction implements ActionListener {
+        public ColorAction(Color c) {
+            backgroundColor = c;
+        }
 
-		public void actionPerformed(ActionEvent event) {
-			setBackground(backgroundColor);
-		}
+        public void actionPerformed(ActionEvent event) {
+            setBackground(backgroundColor);
+        }
 
-		private Color backgroundColor;
-	}
+        private Color backgroundColor;
+    }
 }

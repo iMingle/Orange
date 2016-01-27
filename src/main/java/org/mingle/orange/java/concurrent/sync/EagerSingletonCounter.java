@@ -12,24 +12,24 @@ import java.util.Random;
  * @author Mingle
  */
 public class EagerSingletonCounter {
-	private final long initial;
-	private long count;
-	private static final EagerSingletonCounter s = new EagerSingletonCounter();
-	
-	public EagerSingletonCounter() {
-		initial = Math.abs(new Random().nextLong() / 2);
-		count = initial;
-	}
-	
-	public static EagerSingletonCounter instance() {
-		return s;
-	}
+    private final long initial;
+    private long count;
+    private static final EagerSingletonCounter s = new EagerSingletonCounter();
+    
+    public EagerSingletonCounter() {
+        initial = Math.abs(new Random().nextLong() / 2);
+        count = initial;
+    }
+    
+    public static EagerSingletonCounter instance() {
+        return s;
+    }
 
-	public synchronized long next() {
-		return count++;
-	}
+    public synchronized long next() {
+        return count++;
+    }
 
-	public synchronized void reset() {
-		count = initial;
-	}
+    public synchronized void reset() {
+        count = initial;
+    }
 }

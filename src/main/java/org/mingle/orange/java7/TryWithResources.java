@@ -20,22 +20,22 @@ import java.util.zip.ZipFile;
  * @author Mingle
  */
 public class TryWithResources {
-	public static void writeToFileZipFileContents(String zipFileName,
-			String outputFileName) throws java.io.IOException {
-		Charset charset = StandardCharsets.US_ASCII;
-		Path outputFilePath = Paths.get(outputFileName);
+    public static void writeToFileZipFileContents(String zipFileName,
+            String outputFileName) throws java.io.IOException {
+        Charset charset = StandardCharsets.US_ASCII;
+        Path outputFilePath = Paths.get(outputFileName);
 
-		// Open zip file and create output file with
-		// try-with-resources statement
-		try (ZipFile zf = new ZipFile(zipFileName);
-				BufferedWriter writer = Files.newBufferedWriter(outputFilePath, charset)) {
-			// Enumerate each entry
-			for (Enumeration<? extends ZipEntry> entries = zf.entries(); entries.hasMoreElements();) {
-				// Get the entry name and write it to the output file
-				String newLine = System.getProperty("line.separator");
-				String zipEntryName = ((ZipEntry) entries.nextElement()).getName() + newLine;
-				writer.write(zipEntryName, 0, zipEntryName.length());
-			}
-		}
-	}
+        // Open zip file and create output file with
+        // try-with-resources statement
+        try (ZipFile zf = new ZipFile(zipFileName);
+                BufferedWriter writer = Files.newBufferedWriter(outputFilePath, charset)) {
+            // Enumerate each entry
+            for (Enumeration<? extends ZipEntry> entries = zf.entries(); entries.hasMoreElements();) {
+                // Get the entry name and write it to the output file
+                String newLine = System.getProperty("line.separator");
+                String zipEntryName = ((ZipEntry) entries.nextElement()).getName() + newLine;
+                writer.write(zipEntryName, 0, zipEntryName.length());
+            }
+        }
+    }
 }

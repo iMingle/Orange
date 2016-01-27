@@ -10,5 +10,5 @@ package org.mingle.orange.java.concurrent.state.construct;
  * @author Mingle
  */
 public class StackEmptyException extends Exception {
-	private static final long serialVersionUID = 6106935661180448497L;
+    private static final long serialVersionUID = 6106935661180448497L;
 }

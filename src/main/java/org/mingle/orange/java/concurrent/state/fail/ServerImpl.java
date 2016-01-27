@@ -12,7 +12,7 @@ package org.mingle.orange.java.concurrent.state.fail;
  */
 public class ServerImpl implements ServerWithException {
 
-	@Override
-	public void service() throws ServiceException {}
+    @Override
+    public void service() throws ServiceException {}
 
 }

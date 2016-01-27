@@ -10,25 +10,25 @@ package org.mingle.orange.java.concurrent.state.construct;
  * @author Mingle
  */
 public class OwnedPartWithGuard {
-	protected boolean cond = false;
-	final Object lock;
+    protected boolean cond = false;
+    final Object lock;
 
-	OwnedPartWithGuard(Object owner) {
-		lock = owner;
-	}
+    OwnedPartWithGuard(Object owner) {
+        lock = owner;
+    }
 
-	void await() throws InterruptedException {
-		synchronized (lock) {
-			while (!cond)
-				lock.wait();
-			// ...
-		}
-	}
+    void await() throws InterruptedException {
+        synchronized (lock) {
+            while (!cond)
+                lock.wait();
+            // ...
+        }
+    }
 
-	void signal(boolean c) {
-		synchronized (lock) {
-			cond = c;
-			lock.notifyAll();
-		}
-	}
+    void signal(boolean c) {
+        synchronized (lock) {
+            cond = c;
+            lock.notifyAll();
+        }
+    }
 }

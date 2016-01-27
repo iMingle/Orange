@@ -22,18 +22,18 @@ import javax.swing.JFrame;
  */
 public class FontTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				FontFrame frame = new FontFrame();
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-			}
-		});
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                FontFrame frame = new FontFrame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
 
 }
 
@@ -41,71 +41,71 @@ public class FontTest {
  * A frame with a text message component
  */
 class FontFrame extends JFrame {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -9190279632603189926L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -9190279632603189926L;
 
-	public FontFrame() {
-		setTitle("FontTest");
-		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+    public FontFrame() {
+        setTitle("FontTest");
+        setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
-		// add component to frame
+        // add component to frame
 
-		FontComponent component = new FontComponent();
-		add(component);
-	}
+        FontComponent component = new FontComponent();
+        add(component);
+    }
 
-	public static final int DEFAULT_WIDTH = 300;
-	public static final int DEFAULT_HEIGHT = 200;
+    public static final int DEFAULT_WIDTH = 300;
+    public static final int DEFAULT_HEIGHT = 200;
 }
 
 /**
  * A component that shows a centered message in a box.
  */
 class FontComponent extends JComponent {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8276612063740971504L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -8276612063740971504L;
 
-	public void paintComponent(Graphics g) {
-		Graphics2D g2 = (Graphics2D) g;
+    public void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
 
-		String message = "Hello, World!";
+        String message = "Hello, World!";
 
-		Font f = new Font("Serif", Font.BOLD, 36);
-		g2.setFont(f);
+        Font f = new Font("Serif", Font.BOLD, 36);
+        g2.setFont(f);
 
-		// measure the size of the message
+        // measure the size of the message
 
-		FontRenderContext context = g2.getFontRenderContext();
-		Rectangle2D bounds = f.getStringBounds(message, context);
+        FontRenderContext context = g2.getFontRenderContext();
+        Rectangle2D bounds = f.getStringBounds(message, context);
 
-		// set (x,y) = top left corner of text
+        // set (x,y) = top left corner of text
 
-		double x = (getWidth() - bounds.getWidth()) / 2;
-		double y = (getHeight() - bounds.getHeight()) / 2;
+        double x = (getWidth() - bounds.getWidth()) / 2;
+        double y = (getHeight() - bounds.getHeight()) / 2;
 
-		// add ascent to y to reach the baseline
+        // add ascent to y to reach the baseline
 
-		double ascent = -bounds.getY();
-		double baseY = y + ascent;
+        double ascent = -bounds.getY();
+        double baseY = y + ascent;
 
-		// draw the message
+        // draw the message
 
-		g2.drawString(message, (int) x, (int) baseY);
+        g2.drawString(message, (int) x, (int) baseY);
 
-		g2.setPaint(Color.LIGHT_GRAY);
+        g2.setPaint(Color.LIGHT_GRAY);
 
-		// draw the baseline
+        // draw the baseline
 
-		g2.draw(new Line2D.Double(x, baseY, x + bounds.getWidth(), baseY));
+        g2.draw(new Line2D.Double(x, baseY, x + bounds.getWidth(), baseY));
 
-		// draw the enclosing rectangle
+        // draw the enclosing rectangle
 
-		Rectangle2D rect = new Rectangle2D.Double(x, y, bounds.getWidth(),
-				bounds.getHeight());
-		g2.draw(rect);
-	}
+        Rectangle2D rect = new Rectangle2D.Double(x, y, bounds.getWidth(),
+                bounds.getHeight());
+        g2.draw(rect);
+    }
 }

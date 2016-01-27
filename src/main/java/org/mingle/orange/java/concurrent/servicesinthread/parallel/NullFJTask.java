@@ -11,59 +11,59 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
  */
 public class NullFJTask extends FJTask {
 
-	@Override
-	public void run() {
-		
-	}
+    @Override
+    public void run() {
+        
+    }
 
-	@Override
-	boolean isDone() {
-		return false;
-	}
+    @Override
+    boolean isDone() {
+        return false;
+    }
 
-	@Override
-	void cancel() {
-		
-	}
+    @Override
+    void cancel() {
+        
+    }
 
-	@Override
-	void fork() {
-		
-	}
+    @Override
+    void fork() {
+        
+    }
 
-	@Override
-	void start() {
-		
-	}
+    @Override
+    void start() {
+        
+    }
 
-	@Override
-	void yield() {
-		
-	}
+    @Override
+    void yield() {
+        
+    }
 
-	@Override
-	void join() {
-		
-	}
+    @Override
+    void join() {
+        
+    }
 
-	@Override
-	void invoke(FJTask t) {
-		
-	}
+    @Override
+    void invoke(FJTask t) {
+        
+    }
 
-	@Override
-	void coInvoke(FJTask t, FJTask u) {
-		
-	}
+    @Override
+    void coInvoke(FJTask t, FJTask u) {
+        
+    }
 
-	@Override
-	void coInvoke(FJTask[] tasks) {
-		
-	}
+    @Override
+    void coInvoke(FJTask[] tasks) {
+        
+    }
 
-	@Override
-	void reset() {
-		
-	}
+    @Override
+    void reset() {
+        
+    }
 
 }

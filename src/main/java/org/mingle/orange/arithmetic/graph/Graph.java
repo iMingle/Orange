@@ -16,7 +16,7 @@ import edu.princeton.cs.introcs.StdOut;
  * @author Mingle
  */
 public class Graph {
-	private final int V;
+    private final int V;
     private int E;
     private Bag<Integer>[] adj;
     
@@ -26,7 +26,7 @@ public class Graph {
      * @throws java.lang.IllegalArgumentException if <tt>V</tt> < 0
      */
     @SuppressWarnings("unchecked")
-	public Graph(int V) {
+    public Graph(int V) {
         if (V < 0) throw new IllegalArgumentException("Number of vertices must be nonnegative");
         this.V = V;
         this.E = 0;

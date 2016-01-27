@@ -10,15 +10,15 @@ package org.mingle.orange.java.concurrent.state.transaction;
  * @author Mingle
  */
 public class TransactionLogger {
-	void cancelLogEntry(Transaction t, long amount, TransBankAccount src,
-			TransBankAccount dst) {
-	}
+    void cancelLogEntry(Transaction t, long amount, TransBankAccount src,
+            TransBankAccount dst) {
+    }
 
-	void logTransfer(Transaction t, long amount, TransBankAccount src,
-			TransBankAccount dst) {
-	}
+    void logTransfer(Transaction t, long amount, TransBankAccount src,
+            TransBankAccount dst) {
+    }
 
-	void logCompletedTransfer(Transaction t, long amount, TransBankAccount src,
-			TransBankAccount dst) {
-	}
+    void logCompletedTransfer(Transaction t, long amount, TransBankAccount src,
+            TransBankAccount dst) {
+    }
 }

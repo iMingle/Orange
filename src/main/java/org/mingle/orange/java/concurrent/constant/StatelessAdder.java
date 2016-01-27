@@ -10,7 +10,7 @@ package org.mingle.orange.java.concurrent.constant;
  * @author Mingle
  */
 public class StatelessAdder {
-	public int add(int a, int b) {
-		return a + b;
-	}
+    public int add(int a, int b) {
+        return a + b;
+    }
 }

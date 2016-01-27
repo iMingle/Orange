@@ -11,7 +11,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
  */
 public class DevNull implements PushStage {
 
-	@Override
-	public void putA(Box p) {}
+    @Override
+    public void putA(Box p) {}
 
 }

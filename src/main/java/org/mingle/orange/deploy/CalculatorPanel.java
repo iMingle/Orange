@@ -11,9 +11,9 @@ import javax.swing.text.*;
 public class CalculatorPanel extends JPanel
 {  
    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 2973948611765523512L;
+     * 
+     */
+    private static final long serialVersionUID = 2973948611765523512L;
 /**
       Lays out the panel.
    */

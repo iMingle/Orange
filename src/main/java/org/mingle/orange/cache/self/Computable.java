@@ -10,5 +10,5 @@ package org.mingle.orange.cache.self;
  * @author Mingle
  */
 public interface Computable<A, V> {
-	V compute(A arg) throws InterruptedException;
+    V compute(A arg) throws InterruptedException;
 }

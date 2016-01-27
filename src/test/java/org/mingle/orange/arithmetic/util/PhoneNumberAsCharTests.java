@@ -12,10 +12,10 @@ import org.junit.Test;
  * @author Mingle
  */
 public class PhoneNumberAsCharTests {
-	@Test
-	public void changeNumberToStr() {
-		int[] answer = new int[] {0, 0};
-		PhoneNumberAsChar.changeNumberToStr(45L, answer);
-		PhoneNumberAsChar.changeNumberToStrRecursive(45L, answer, 0);
-	}
+    @Test
+    public void changeNumberToStr() {
+        int[] answer = new int[] {0, 0};
+        PhoneNumberAsChar.changeNumberToStr(45L, answer);
+        PhoneNumberAsChar.changeNumberToStrRecursive(45L, answer, 0);
+    }
 }

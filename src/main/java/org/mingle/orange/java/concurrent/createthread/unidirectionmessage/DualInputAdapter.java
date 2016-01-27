@@ -10,15 +10,15 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
  * @author Mingle
  */
 public class DualInputAdapter implements PushStage {
-	protected final DualInputPushStage stage;
+    protected final DualInputPushStage stage;
 
-	public DualInputAdapter(DualInputPushStage s) {
-		stage = s;
-	}
+    public DualInputAdapter(DualInputPushStage s) {
+        stage = s;
+    }
 
-	@Override
-	public void putA(Box p) {
-		stage.putB(p);
-	}
+    @Override
+    public void putA(Box p) {
+        stage.putB(p);
+    }
 
 }

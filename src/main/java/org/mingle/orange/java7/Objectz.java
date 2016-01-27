@@ -13,8 +13,8 @@ import java.util.Objects;
  */
 public class Objectz {
 
-	public static void main(String[] args) {
-		Objects.isNull(Integer.valueOf(0));
-	}
+    public static void main(String[] args) {
+        Objects.isNull(Integer.valueOf(0));
+    }
 
 }

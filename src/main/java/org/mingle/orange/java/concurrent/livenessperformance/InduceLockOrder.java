@@ -10,61 +10,61 @@ package org.mingle.orange.java.concurrent.livenessperformance;
  * @author Mingle
  */
 public class InduceLockOrder {
-	private static final Object tieLock = new Object();
+    private static final Object tieLock = new Object();
 
-	public void transferMoney(Account fromAccount, Account toAccount,
-			DollarAmount amount) throws InsufficientFundsException {
-		class Helper {
-			public void transfer() throws InsufficientFundsException {
-				if (fromAccount.getBalance().compareTo(amount) < 0)
-					throw new InsufficientFundsException();
-				else {
-					fromAccount.debit(amount);
-					toAccount.credit(amount);
-				}
-			}
-		}
+    public void transferMoney(Account fromAccount, Account toAccount,
+            DollarAmount amount) throws InsufficientFundsException {
+        class Helper {
+            public void transfer() throws InsufficientFundsException {
+                if (fromAccount.getBalance().compareTo(amount) < 0)
+                    throw new InsufficientFundsException();
+                else {
+                    fromAccount.debit(amount);
+                    toAccount.credit(amount);
+                }
+            }
+        }
 
-		int fromHash = System.identityHashCode(fromAccount);
-		int toHash = System.identityHashCode(toAccount);
+        int fromHash = System.identityHashCode(fromAccount);
+        int toHash = System.identityHashCode(toAccount);
 
-		if (fromHash < toHash) {
-			synchronized (fromAccount) {
-				synchronized (toAccount) {
-					new Helper().transfer();
-				}
-			}
-		} else if (fromHash > toHash) {
-			synchronized (toAccount) {
-				synchronized (fromAccount) {
-					new Helper().transfer();
-				}
-			}
-		} else {
-			synchronized (tieLock) {
-				synchronized (fromAccount) {
-					synchronized (toAccount) {
-						new Helper().transfer();
-					}
-				}
-			}
-		}
-	}
+        if (fromHash < toHash) {
+            synchronized (fromAccount) {
+                synchronized (toAccount) {
+                    new Helper().transfer();
+                }
+            }
+        } else if (fromHash > toHash) {
+            synchronized (toAccount) {
+                synchronized (fromAccount) {
+                    new Helper().transfer();
+                }
+            }
+        } else {
+            synchronized (tieLock) {
+                synchronized (fromAccount) {
+                    synchronized (toAccount) {
+                        new Helper().transfer();
+                    }
+                }
+            }
+        }
+    }
 
-	interface DollarAmount extends Comparable<DollarAmount> {
-	}
+    interface DollarAmount extends Comparable<DollarAmount> {
+    }
 
-	interface Account {
-		void debit(DollarAmount d);
+    interface Account {
+        void debit(DollarAmount d);
 
-		void credit(DollarAmount d);
+        void credit(DollarAmount d);
 
-		DollarAmount getBalance();
+        DollarAmount getBalance();
 
-		int getAcctNo();
-	}
+        int getAcctNo();
+    }
 
-	class InsufficientFundsException extends Exception {
-		private static final long serialVersionUID = -1513455755958604625L;
-	}
+    class InsufficientFundsException extends Exception {
+        private static final long serialVersionUID = -1513455755958604625L;
+    }
 }

@@ -10,28 +10,28 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
  * @author Mingle
  */
 public class SingleOutputPushStage {
-	private PushStage next1 = null;
+    private PushStage next1 = null;
 
-	protected synchronized PushStage next1() {
-		return next1;
-	}
+    protected synchronized PushStage next1() {
+        return next1;
+    }
 
-	public synchronized void attach1(PushStage s) {
-		next1 = s;
-	}
+    public synchronized void attach1(PushStage s) {
+        next1 = s;
+    }
 }
 
 /**
  * 有两个后继的阶段
  */
 class DualOutputPushStage extends SingleOutputPushStage {
-	private PushStage next2 = null;
+    private PushStage next2 = null;
 
-	protected synchronized PushStage next2() {
-		return next2;
-	}
+    protected synchronized PushStage next2() {
+        return next2;
+    }
 
-	public synchronized void attach2(PushStage s) {
-		next2 = s;
-	}
+    public synchronized void attach2(PushStage s) {
+        next2 = s;
+    }
 }

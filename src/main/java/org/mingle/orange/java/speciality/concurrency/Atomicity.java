@@ -10,18 +10,18 @@ package org.mingle.orange.java.speciality.concurrency;
  * @author Mingle
  */
 public class Atomicity {
-	int i;
-	
-	void f1() {
-		i++;
-	}
-	
-	void f2() {
-		i += 3;
-	}
+    int i;
+    
+    void f1() {
+        i++;
+    }
+    
+    void f2() {
+        i += 3;
+    }
 
-	public static void main(String[] args) {
-		
-	}
+    public static void main(String[] args) {
+        
+    }
 
 }

@@ -16,34 +16,34 @@ import java.util.ListIterator;
  */
 public class IteratorTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		List<String> names = new ArrayList<>();
-		names.add("Mingle");
-		names.add("Jack");
-		names.add("Lucy");
-		
-		Iterator<String> it = names.iterator();
-		ListIterator<String> listIt = names.listIterator();
-		
-		System.out.println("ListIterator正序");
-		while (listIt.hasNext()) {
-			System.out.println(listIt.next() + ", " + listIt.previousIndex() + ", " + listIt.nextIndex());
-		}
-		
-		System.out.println("ListIterator倒序");
-		while (listIt.hasPrevious()) {
-			System.out.println(listIt.previous());
-		}
-		
-		System.out.println("Iterator正序");
-		while (it.hasNext()) {
-			System.out.println(it.next());
-			it.remove();
-		}
-		System.out.println(names);
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Mingle");
+        names.add("Jack");
+        names.add("Lucy");
+        
+        Iterator<String> it = names.iterator();
+        ListIterator<String> listIt = names.listIterator();
+        
+        System.out.println("ListIterator正序");
+        while (listIt.hasNext()) {
+            System.out.println(listIt.next() + ", " + listIt.previousIndex() + ", " + listIt.nextIndex());
+        }
+        
+        System.out.println("ListIterator倒序");
+        while (listIt.hasPrevious()) {
+            System.out.println(listIt.previous());
+        }
+        
+        System.out.println("Iterator正序");
+        while (it.hasNext()) {
+            System.out.println(it.next());
+            it.remove();
+        }
+        System.out.println(names);
+    }
 
 }

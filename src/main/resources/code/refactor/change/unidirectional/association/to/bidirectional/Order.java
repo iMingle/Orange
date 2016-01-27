@@ -9,14 +9,14 @@ package change.unidirectional.association.to.bidirectional;
  */
 public class Order {
 
-	Customer _customer;
+    Customer _customer;
 
-	public Customer getCustomer() {
-		return _customer;
-	}
+    public Customer getCustomer() {
+        return _customer;
+    }
 
-	public void setCustomer(Customer customer) {
-		_customer = customer;
-	}
-	
+    public void setCustomer(Customer customer) {
+        _customer = customer;
+    }
+    
 }

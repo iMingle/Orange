@@ -13,25 +13,25 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Mingle
  */
 public class Memoizer2<A, V> implements Computable<A, V> {
-	private final Map<A, V> cache = new ConcurrentHashMap<A, V>();
-	private final Computable<A, V> c;
-	
-	public Memoizer2(Computable<A, V> c) {
-		this.c = c;
-	}
+    private final Map<A, V> cache = new ConcurrentHashMap<A, V>();
+    private final Computable<A, V> c;
+    
+    public Memoizer2(Computable<A, V> c) {
+        this.c = c;
+    }
 
-	/**
-	 * 可能出现2个线程同时计算相同的数据
-	 */
-	@Override
-	public V compute(A arg) throws InterruptedException {
-		V result = cache.get(arg);
-		if (null == result) {
-			result = c.compute(arg);
-			cache.put(arg, result);
-		}
-		
-		return result;
-	}
+    /**
+     * 可能出现2个线程同时计算相同的数据
+     */
+    @Override
+    public V compute(A arg) throws InterruptedException {
+        V result = cache.get(arg);
+        if (null == result) {
+            result = c.compute(arg);
+            cache.put(arg, result);
+        }
+        
+        return result;
+    }
 
 }

@@ -21,30 +21,30 @@ import org.apache.activemq.spring.ActiveMQConnectionFactory;
  */
 public class ActiveMQMessageProducer {
 
-	public static void main(String[] args) {
-		ConnectionFactory cf = new ActiveMQConnectionFactory();
-		Connection conn = null;
-		Session session = null;
-		try {
-			conn = cf.createConnection();
-			session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			Destination destination = new ActiveMQQueue("messageQueue");
-			MessageProducer producer = session.createProducer(destination);
-			TextMessage message = session.createTextMessage();
-			message.setText("hello");
-			producer.send(message);
-		} catch (JMSException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (session != null)
-					session.close();
-				if (conn != null)
-					conn.close();
-			} catch (JMSException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    public static void main(String[] args) {
+        ConnectionFactory cf = new ActiveMQConnectionFactory();
+        Connection conn = null;
+        Session session = null;
+        try {
+            conn = cf.createConnection();
+            session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            Destination destination = new ActiveMQQueue("messageQueue");
+            MessageProducer producer = session.createProducer(destination);
+            TextMessage message = session.createTextMessage();
+            message.setText("hello");
+            producer.send(message);
+        } catch (JMSException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (session != null)
+                    session.close();
+                if (conn != null)
+                    conn.close();
+            } catch (JMSException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

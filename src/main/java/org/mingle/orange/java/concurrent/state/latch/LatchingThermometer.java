@@ -10,17 +10,17 @@ package org.mingle.orange.java.concurrent.state.latch;
  * @author Mingle
  */
 public class LatchingThermometer {
-	private volatile boolean ready; // latching
-	private volatile float temperature;
+    private volatile boolean ready; // latching
+    private volatile float temperature;
 
-	public double getReading() {
-		while (!ready)
-			Thread.yield();
-		return temperature;
-	}
+    public double getReading() {
+        while (!ready)
+            Thread.yield();
+        return temperature;
+    }
 
-	void sense(float t) { // called from sensor
-		temperature = t;
-		ready = true;
-	}
+    void sense(float t) { // called from sensor
+        temperature = t;
+        ready = true;
+    }
 }

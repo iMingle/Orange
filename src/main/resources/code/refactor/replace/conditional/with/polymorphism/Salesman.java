@@ -8,8 +8,8 @@ package replace.conditional.with.polymorphism;
  *
  */
 public class Salesman extends EmployeeType{
-	
-	int payAmount(EmployeeRF emp) {
-		return emp.get_monthlySalary() + emp.get_commission();
-	}
+    
+    int payAmount(EmployeeRF emp) {
+        return emp.get_monthlySalary() + emp.get_commission();
+    }
 }

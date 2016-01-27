@@ -16,12 +16,12 @@ import org.mockito.Mockito;
  * @author Mingle
  */
 public class CustomerTests {
-	@Test
-	public void statement() {
-		System.out.println(Mockito.mock(Customer.class));
-		Customer customer = new Customer("Mingle");
-		customer.addRental(new Rental(new Movie("末日", Movie.REGULAR), 7));
-		System.out.println(customer.statement());
-		System.out.println(customer.htmlStatement());
-	}
+    @Test
+    public void statement() {
+        System.out.println(Mockito.mock(Customer.class));
+        Customer customer = new Customer("Mingle");
+        customer.addRental(new Rental(new Movie("末日", Movie.REGULAR), 7));
+        System.out.println(customer.statement());
+        System.out.println(customer.htmlStatement());
+    }
 }

@@ -10,13 +10,13 @@ package org.mingle.orange.java.concurrent.constant;
  * @author Mingle
  */
 public class ImmutableAdder {
-	private final int offset;
+    private final int offset;
 
-	public ImmutableAdder(int offset) {
-		this.offset = offset;
-	}
+    public ImmutableAdder(int offset) {
+        this.offset = offset;
+    }
 
-	public int addOffset(int b) {
-		return offset + b;
-	}
+    public int addOffset(int b) {
+        return offset + b;
+    }
 }

@@ -17,36 +17,36 @@ import javax.script.ScriptException;
  */
 public class RunJavaScript {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		ScriptEngineManager factory = new ScriptEngineManager();
-		ScriptEngine engine = factory.getEngineByName("JavaScript");
-		List<ScriptEngineFactory> list = factory.getEngineFactories();
-		for (ScriptEngineFactory s : list) {
-			System.out.println(s.getNames());
-			// [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript]
-		}
-		
-//		JavaScriptDomainInner script = new JavaScriptDomainInner();		// error
-		JavaScriptDomain script = new JavaScriptDomain();
-		engine.put("scriptDomain", script);
-		
-		try {
-			engine.eval("print('Hello World!')");
-			engine.eval("print(scriptDomain.say())");
-		} catch (ScriptException e) {
-			e.printStackTrace();
-		}
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        ScriptEngineManager factory = new ScriptEngineManager();
+        ScriptEngine engine = factory.getEngineByName("JavaScript");
+        List<ScriptEngineFactory> list = factory.getEngineFactories();
+        for (ScriptEngineFactory s : list) {
+            System.out.println(s.getNames());
+            // [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript]
+        }
+        
+//        JavaScriptDomainInner script = new JavaScriptDomainInner();        // error
+        JavaScriptDomain script = new JavaScriptDomain();
+        engine.put("scriptDomain", script);
+        
+        try {
+            engine.eval("print('Hello World!')");
+            engine.eval("print(scriptDomain.say())");
+        } catch (ScriptException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 
 class JavaScriptDomainInner {
-	private String name = "JavaScript";
-	
-	public String say() {
-		return this.name;
-	}
+    private String name = "JavaScript";
+    
+    public String say() {
+        return this.name;
+    }
 }

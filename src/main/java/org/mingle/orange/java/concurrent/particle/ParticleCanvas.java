@@ -13,28 +13,28 @@ import java.awt.Graphics;
  * @author Mingle
  */
 public class ParticleCanvas extends Canvas {
-	private static final long serialVersionUID = -4834861050300977216L;
-	
-	private Particle[] particles = new Particle[0];
-	
-	public ParticleCanvas(int size) {
-		setSize(size, size);
-	}
+    private static final long serialVersionUID = -4834861050300977216L;
+    
+    private Particle[] particles = new Particle[0];
+    
+    public ParticleCanvas(int size) {
+        setSize(size, size);
+    }
 
-	protected synchronized Particle[] getParticles() {
-		return particles;
-	}
+    protected synchronized Particle[] getParticles() {
+        return particles;
+    }
 
-	protected synchronized void setParticles(Particle[] ps) {
-		if (ps == null)
-			throw new IllegalArgumentException("Cannot set null");
-		this.particles = ps;
-	}
-	
-	@Override
-	public void paint(Graphics g) {
-		Particle[] ps = getParticles();
-		for (Particle particle : ps)
-			particle.draw(g);
-	}
+    protected synchronized void setParticles(Particle[] ps) {
+        if (ps == null)
+            throw new IllegalArgumentException("Cannot set null");
+        this.particles = ps;
+    }
+    
+    @Override
+    public void paint(Graphics g) {
+        Particle[] ps = getParticles();
+        for (Particle particle : ps)
+            particle.draw(g);
+    }
 }

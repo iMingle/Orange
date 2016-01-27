@@ -18,22 +18,22 @@ import java.util.GregorianCalendar;
  */
 public class SerialCloneTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Employee4 harry = new Employee4("Harry Hacker", 35000, 1989, 10, 1);
-		// clone harry
-		Employee4 harry2 = (Employee4) harry.clone();
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Employee4 harry = new Employee4("Harry Hacker", 35000, 1989, 10, 1);
+        // clone harry
+        Employee4 harry2 = (Employee4) harry.clone();
 
-		// mutate harry
-		harry.raiseSalary(10);
+        // mutate harry
+        harry.raiseSalary(10);
 
-		// now harry and the clone are different
-		System.out.println(harry);
-		System.out.println(harry2);
-	}
+        // now harry and the clone are different
+        System.out.println(harry);
+        System.out.println(harry2);
+    }
 
 }
 
@@ -42,37 +42,37 @@ public class SerialCloneTest {
  */
 class SerialCloneable implements Cloneable, Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4802191062063297367L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 4802191062063297367L;
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#clone()
-	 */
-	@Override
-	protected Object clone() {
-		try {
-			// save the object to a byte array
-			ByteArrayOutputStream bout = new ByteArrayOutputStream();
-			ObjectOutputStream out = new ObjectOutputStream(bout);
-			out.writeObject(this);
-			out.close();
-			
-			// read a clone of the object from the byte array
-			ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
-			ObjectInputStream in = new ObjectInputStream(bin);
-			Object ret = in.readObject();
-			in.close();
-			
-			return ret;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	
+    /* (non-Javadoc)
+     * @see java.lang.Object#clone()
+     */
+    @Override
+    protected Object clone() {
+        try {
+            // save the object to a byte array
+            ByteArrayOutputStream bout = new ByteArrayOutputStream();
+            ObjectOutputStream out = new ObjectOutputStream(bout);
+            out.writeObject(this);
+            out.close();
+            
+            // read a clone of the object from the byte array
+            ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
+            ObjectInputStream in = new ObjectInputStream(bin);
+            Object ret = in.readObject();
+            in.close();
+            
+            return ret;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    
 }
 
 /**
@@ -80,45 +80,45 @@ class SerialCloneable implements Cloneable, Serializable {
  * SerialCloneable class. 
  */
 class Employee4 extends SerialCloneable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3449212078994340481L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -3449212078994340481L;
 
-	private String name;
-	private double salary;
-	private Date hireDay;
+    private String name;
+    private double salary;
+    private Date hireDay;
 
-	public Employee4() {
-	}
+    public Employee4() {
+    }
 
-	public Employee4(String n, double s, int year, int month, int day) {
-		name = n;
-		salary = s;
-		GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
-		hireDay = calendar.getTime();
-	}
+    public Employee4(String n, double s, int year, int month, int day) {
+        name = n;
+        salary = s;
+        GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+        hireDay = calendar.getTime();
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public double getSalary() {
-		return salary;
-	}
+    public double getSalary() {
+        return salary;
+    }
 
-	public Date getHireDay() {
-		return hireDay;
-	}
+    public Date getHireDay() {
+        return hireDay;
+    }
 
-	public void raiseSalary(double byPercent) {
-		double raise = salary * byPercent / 100;
-		salary += raise;
-	}
+    public void raiseSalary(double byPercent) {
+        double raise = salary * byPercent / 100;
+        salary += raise;
+    }
 
-	public String toString() {
-		return getClass().getName() + "[name=" + name + ",salary=" + salary
-				+ ",hireDay=" + hireDay + "]";
-	}
+    public String toString() {
+        return getClass().getName() + "[name=" + name + ",salary=" + salary
+                + ",hireDay=" + hireDay + "]";
+    }
 
 }

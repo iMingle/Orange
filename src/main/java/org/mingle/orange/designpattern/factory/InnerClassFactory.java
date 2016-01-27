@@ -10,61 +10,61 @@ package org.mingle.orange.designpattern.factory;
  * @author Mingle
  */
 public class InnerClassFactory {
-	public static void serviceConsumer(ServiceFactory factory) {
-		Service service = factory.getService();
-		service.service();
-	}
-	
-	public static void main(String[] args) {
-		InnerClassFactory.serviceConsumer(Implementation1.factory);
-		InnerClassFactory.serviceConsumer(Implementation2.factory);
-	}
+    public static void serviceConsumer(ServiceFactory factory) {
+        Service service = factory.getService();
+        service.service();
+    }
+    
+    public static void main(String[] args) {
+        InnerClassFactory.serviceConsumer(Implementation1.factory);
+        InnerClassFactory.serviceConsumer(Implementation2.factory);
+    }
 }
 
 interface Service {
-	void service();
+    void service();
 }
 
 interface ServiceFactory {
-	Service getService();
+    Service getService();
 }
 
 class Implementation1 implements Service {
-	private Implementation1() {}
-	public static ServiceFactory factory = new ServiceFactory() {
-		
-		@Override
-		public Service getService() {
-			return new Implementation1();
-		}
-	};
+    private Implementation1() {}
+    public static ServiceFactory factory = new ServiceFactory() {
+        
+        @Override
+        public Service getService() {
+            return new Implementation1();
+        }
+    };
 
-	/* (non-Javadoc)
-	 * @see org.mingle.orange.java.speciality.Service#service()
-	 */
-	@Override
-	public void service() {
-		System.out.println("Implementation1 service you");
-	}
-	
+    /* (non-Javadoc)
+     * @see org.mingle.orange.java.speciality.Service#service()
+     */
+    @Override
+    public void service() {
+        System.out.println("Implementation1 service you");
+    }
+    
 }
 
 class Implementation2 implements Service {
-	private Implementation2() {}
-	public static ServiceFactory factory = new ServiceFactory() {
-		
-		@Override
-		public Service getService() {
-			return new Implementation2();
-		}
-	};
-	
-	/* (non-Javadoc)
-	 * @see org.mingle.orange.java.speciality.Service#service()
-	 */
-	@Override
-	public void service() {
-		System.out.println("Implementation2 service you");
-	}
-	
+    private Implementation2() {}
+    public static ServiceFactory factory = new ServiceFactory() {
+        
+        @Override
+        public Service getService() {
+            return new Implementation2();
+        }
+    };
+    
+    /* (non-Javadoc)
+     * @see org.mingle.orange.java.speciality.Service#service()
+     */
+    @Override
+    public void service() {
+        System.out.println("Implementation2 service you");
+    }
+    
 }

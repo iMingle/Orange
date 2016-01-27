@@ -12,78 +12,78 @@ import java.net.URL;
  * @author Mingle
  */
 public class PicturAppWithFuture {
-	private final Renderer renderer = new AsynchRenderer();
+    private final Renderer renderer = new AsynchRenderer();
 
-	void displayBorders() {
-	}
+    void displayBorders() {
+    }
 
-	void displayCaption() {
-	}
+    void displayCaption() {
+    }
 
-	void displayImage(byte[] b) {
-	}
+    void displayImage(byte[] b) {
+    }
 
-	void cleanup() {
-	}
+    void cleanup() {
+    }
 
-	public void show(final URL imageSource) {
-		Pic pic = renderer.render(imageSource);
+    public void show(final URL imageSource) {
+        Pic pic = renderer.render(imageSource);
 
-		displayBorders(); // do other things ...
-		displayCaption();
+        displayBorders(); // do other things ...
+        displayCaption();
 
-		byte[] im = pic.getImage();
-		if (im != null)
-			displayImage(im);
-		else {} // deal with assumed rendering failure
-	}
+        byte[] im = pic.getImage();
+        if (im != null)
+            displayImage(im);
+        else {} // deal with assumed rendering failure
+    }
 }
 
 class AsynchRenderer implements Renderer {
-	private final Renderer renderer = new StandardRenderer();
+    private final Renderer renderer = new StandardRenderer();
 
-	static class FuturePic implements Pic { // inner class
-		private Pic pic = null;
-		private boolean ready = false;
+    static class FuturePic implements Pic { // inner class
+        private Pic pic = null;
+        private boolean ready = false;
 
-		synchronized void setPic(Pic p) {
-			pic = p;
-			ready = true;
-			notifyAll();
-		}
+        synchronized void setPic(Pic p) {
+            pic = p;
+            ready = true;
+            notifyAll();
+        }
 
-		public synchronized byte[] getImage() {
-			while (!ready)
-				try {
-					wait();
-				} catch (InterruptedException e) {
-					return null;
-				}
-			return pic.getImage();
-		}
-	}
+        public synchronized byte[] getImage() {
+            while (!ready)
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    return null;
+                }
+            return pic.getImage();
+        }
+    }
 
-	public Pic render(final URL src) {
-		final FuturePic p = new FuturePic();
-		new Thread(new Runnable() {
-			public void run() {
-				p.setPic(renderer.render(src));
-			}
-		}).start();
-		return p;
-	}
+    public Pic render(final URL src) {
+        final FuturePic p = new FuturePic();
+        new Thread(new Runnable() {
+            public void run() {
+                p.setPic(renderer.render(src));
+            }
+        }).start();
+        return p;
+    }
 }
 
 interface Pic {
-	byte[] getImage();
+    byte[] getImage();
 }
 
 interface Renderer {
-	Pic render(URL src);
+    Pic render(URL src);
 }
 
 class StandardRenderer implements Renderer {
-	public Pic render(URL src) {
-		return null;
-	}
+    public Pic render(URL src) {
+        return null;
+    }
 }

@@ -13,12 +13,12 @@ import java.rmi.RemoteException;
  * @author Mingle
  */
 public interface Warehouse extends Remote {
-	/**
-	 * 询问某个商品的价格
-	 * 
-	 * @param description
-	 * @return
-	 * @throws RemoteException
-	 */
-	double getPrice(String description) throws RemoteException;
+    /**
+     * 询问某个商品的价格
+     * 
+     * @param description
+     * @return
+     * @throws RemoteException
+     */
+    double getPrice(String description) throws RemoteException;
 }

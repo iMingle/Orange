@@ -14,51 +14,51 @@ import java.io.IOException;
  * @author Mingle
  */
 public class ThrowableSuppressed {
-	public void read(String filename) throws Exception {
-		FileInputStream input = null;
-		IOException readException = null;
-		try {
-			input = new FileInputStream(filename);
-		} catch (IOException ex) {
-			readException = ex; // 保存原始异常
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException ex) {
-					if (readException == null) {
-						readException = ex;
-					}
-				}
-			}
-			if (readException != null) {
-				throw new Exception(readException);
-			}
-		}
-	}
+    public void read(String filename) throws Exception {
+        FileInputStream input = null;
+        IOException readException = null;
+        try {
+            input = new FileInputStream(filename);
+        } catch (IOException ex) {
+            readException = ex; // 保存原始异常
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException ex) {
+                    if (readException == null) {
+                        readException = ex;
+                    }
+                }
+            }
+            if (readException != null) {
+                throw new Exception(readException);
+            }
+        }
+    }
 
-	public void readNew(String filename) throws IOException {
-		FileInputStream input = null;
-		IOException readException = null;
-		try {
-			input = new FileInputStream(filename);
-		} catch (IOException ex) {
-			readException = ex;
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException ex) {
-					if (readException != null) { // 此处的区别
-						readException.addSuppressed(ex);	// 记录被抑制的异常
-					} else {
-						readException = ex;
-					}
-				}
-			}
-			if (readException != null) {
-				throw readException;
-			}
-		}
-	}
+    public void readNew(String filename) throws IOException {
+        FileInputStream input = null;
+        IOException readException = null;
+        try {
+            input = new FileInputStream(filename);
+        } catch (IOException ex) {
+            readException = ex;
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException ex) {
+                    if (readException != null) { // 此处的区别
+                        readException.addSuppressed(ex);    // 记录被抑制的异常
+                    } else {
+                        readException = ex;
+                    }
+                }
+            }
+            if (readException != null) {
+                throw readException;
+            }
+        }
+    }
 }

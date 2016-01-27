@@ -10,10 +10,10 @@ package org.mingle.orange.effectivejava;
  * @author Mingle
  */
 public class UtilityClass {
-	/**
-	 * 通过私有构造器强化不可实例化的能力
-	 */
-	private UtilityClass() {
-		throw new AssertionError();
-	}
+    /**
+     * 通过私有构造器强化不可实例化的能力
+     */
+    private UtilityClass() {
+        throw new AssertionError();
+    }
 }

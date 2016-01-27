@@ -10,5 +10,5 @@ package org.mingle.orange.java.concurrent.state.transaction;
  * @author Mingle
  */
 public class RetryableTransferException extends Exception {
-	private static final long serialVersionUID = -8108538285598502332L;
+    private static final long serialVersionUID = -8108538285598502332L;
 }

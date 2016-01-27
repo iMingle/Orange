@@ -29,55 +29,55 @@ import javax.tools.JavaFileObject;
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class InterfaceExtractorProcessor extends AbstractProcessor {
 
-	/* (non-Javadoc)
-	 * @see javax.annotation.processing.AbstractProcessor#process(java.util.Set, javax.annotation.processing.RoundEnvironment)
-	 */
-	@Override
-	public boolean process(Set<? extends TypeElement> annotations,
-			RoundEnvironment roundEnv) {
-		PrintWriter writer = null;
-		JavaFileObject sourceFile = null;
-		for (TypeElement typeElement : annotations) {
-			for (Element element : roundEnv.getElementsAnnotatedWith(typeElement)) {
-				if (ElementKind.CLASS == element.getKind()) {
-					try {
-						sourceFile = processingEnv.getFiler().createSourceFile(element.getAnnotation(ExtractInterface.class).value());
-						writer = new PrintWriter(sourceFile.openWriter());
-						writer.println(element.getEnclosingElement() + ";");
-						writer.println("public interface " + element.getAnnotation(ExtractInterface.class).value() + " {");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					
-					for (Element e : element.getEnclosedElements()) {
-						if (ElementKind.METHOD == e.getKind()) {
-							if (e.getModifiers().contains(Modifier.PUBLIC) && !e.getModifiers().contains(Modifier.STATIC)) {
-								ExecutableElement ee = (ExecutableElement) e;
-								writer.print("	public ");
-								writer.print(ee.getReturnType() + " ");
-								writer.print(ee.getSimpleName() + "(");
-								int i = 0;
-								for (VariableElement parm : ee.getParameters()) {
-									String body = parm.getEnclosingElement().toString();
-									body = body.substring(body.indexOf('(') + 1, body.indexOf(')'));
-									String[] parms = body.split(",");
-									if (i == parms.length - 1) {
-										writer.print(parms[i++] + " " + parm.getSimpleName());
-									} else {
-										writer.print(parms[i++] + " " + parm.getSimpleName() + ", ");
-									}
-								}
-								writer.println(");");
-							}
-						}
-					}
-					
-					writer.println('}');
-					writer.close();
-				}
-			}
-		}
-		return true;
-	}
+    /* (non-Javadoc)
+     * @see javax.annotation.processing.AbstractProcessor#process(java.util.Set, javax.annotation.processing.RoundEnvironment)
+     */
+    @Override
+    public boolean process(Set<? extends TypeElement> annotations,
+            RoundEnvironment roundEnv) {
+        PrintWriter writer = null;
+        JavaFileObject sourceFile = null;
+        for (TypeElement typeElement : annotations) {
+            for (Element element : roundEnv.getElementsAnnotatedWith(typeElement)) {
+                if (ElementKind.CLASS == element.getKind()) {
+                    try {
+                        sourceFile = processingEnv.getFiler().createSourceFile(element.getAnnotation(ExtractInterface.class).value());
+                        writer = new PrintWriter(sourceFile.openWriter());
+                        writer.println(element.getEnclosingElement() + ";");
+                        writer.println("public interface " + element.getAnnotation(ExtractInterface.class).value() + " {");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    
+                    for (Element e : element.getEnclosedElements()) {
+                        if (ElementKind.METHOD == e.getKind()) {
+                            if (e.getModifiers().contains(Modifier.PUBLIC) && !e.getModifiers().contains(Modifier.STATIC)) {
+                                ExecutableElement ee = (ExecutableElement) e;
+                                writer.print("    public ");
+                                writer.print(ee.getReturnType() + " ");
+                                writer.print(ee.getSimpleName() + "(");
+                                int i = 0;
+                                for (VariableElement parm : ee.getParameters()) {
+                                    String body = parm.getEnclosingElement().toString();
+                                    body = body.substring(body.indexOf('(') + 1, body.indexOf(')'));
+                                    String[] parms = body.split(",");
+                                    if (i == parms.length - 1) {
+                                        writer.print(parms[i++] + " " + parm.getSimpleName());
+                                    } else {
+                                        writer.print(parms[i++] + " " + parm.getSimpleName() + ", ");
+                                    }
+                                }
+                                writer.println(");");
+                            }
+                        }
+                    }
+                    
+                    writer.println('}');
+                    writer.close();
+                }
+            }
+        }
+        return true;
+    }
 
 }

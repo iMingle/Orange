@@ -10,7 +10,7 @@ package org.mingle.orange.java.concurrent.state.util;
  * @author Mingle
  */
 public interface Sync {
-	void acquire() throws InterruptedException;
-	void release();
-	boolean attempt(long msec) throws InterruptedException;
+    void acquire() throws InterruptedException;
+    void release();
+    boolean attempt(long msec) throws InterruptedException;
 }

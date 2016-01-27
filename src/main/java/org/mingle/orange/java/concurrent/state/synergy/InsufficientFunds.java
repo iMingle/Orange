@@ -10,5 +10,5 @@ package org.mingle.orange.java.concurrent.state.synergy;
  * @author Mingle
  */
 public class InsufficientFunds extends Exception {
-	private static final long serialVersionUID = 6805473824616518954L;
+    private static final long serialVersionUID = 6805473824616518954L;
 }

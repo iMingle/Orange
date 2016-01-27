@@ -9,12 +9,12 @@ package replace.type.code.with.subclasses;
  */
 public class Employee {
 
-	private int _type;
-	static final int ENGINEER = 0;
-	static final int SALESMAN = 1;
-	static final int MANAGER = 2;
+    private int _type;
+    static final int ENGINEER = 0;
+    static final int SALESMAN = 1;
+    static final int MANAGER = 2;
 
-	Employee(int type) {
-		_type = type;
-	}
+    Employee(int type) {
+        _type = type;
+    }
 }

@@ -10,16 +10,16 @@ package org.mingle.orange.java.concurrent.state.synergy;
  * @author Mingle
  */
 public class TSBoolean {
-	private boolean value = false;
+    private boolean value = false;
 
-	// set to true; return old value
-	public synchronized boolean testAndSet() {
-		boolean oldValue = value;
-		value = true;
-		return oldValue;
-	}
+    // set to true; return old value
+    public synchronized boolean testAndSet() {
+        boolean oldValue = value;
+        value = true;
+        return oldValue;
+    }
 
-	public synchronized void clear() {
-		value = false;
-	}
+    public synchronized void clear() {
+        value = false;
+    }
 }

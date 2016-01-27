@@ -2,7 +2,7 @@ package extract.Interface;
 
 public interface Billable {
 
-	public int getRate();
+    public int getRate();
 
-	public boolean hasSpecialSkill();
+    public boolean hasSpecialSkill();
 }

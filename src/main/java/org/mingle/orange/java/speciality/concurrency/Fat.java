@@ -10,22 +10,22 @@ package org.mingle.orange.java.speciality.concurrency;
  * @author Mingle
  */
 public class Fat {
-	@SuppressWarnings("unused")
-	private volatile double d;	// 阻止优化
-	private static int counter = 0;
-	private final int id = counter++;
-	
-	public Fat() {
-		for (int i = 0; i < 10000; i++) {
-			d += (Math.PI + Math.E) / (double)i;
-		}
-	}
-	
-	public void operation() {
-		System.out.println(this);
-	}
-	
-	public String toString() {
-		return "Fat id: " + id;
-	}
+    @SuppressWarnings("unused")
+    private volatile double d;    // 阻止优化
+    private static int counter = 0;
+    private final int id = counter++;
+    
+    public Fat() {
+        for (int i = 0; i < 10000; i++) {
+            d += (Math.PI + Math.E) / (double)i;
+        }
+    }
+    
+    public void operation() {
+        System.out.println(this);
+    }
+    
+    public String toString() {
+        return "Fat id: " + id;
+    }
 }

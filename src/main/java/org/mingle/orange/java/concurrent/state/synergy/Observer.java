@@ -13,60 +13,60 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @author Mingle
  */
 public class Observer {
-	protected double cachedState; // last known state
-	protected final Subject subj; // only one allowed here
+    protected double cachedState; // last known state
+    protected final Subject subj; // only one allowed here
 
-	Observer(Subject s) {
-		subj = s;
-		cachedState = s.getValue();
-		display();
-	}
+    Observer(Subject s) {
+        subj = s;
+        cachedState = s.getValue();
+        display();
+    }
 
-	synchronized void changed(Subject s) {
-		if (s != subj)
-			return; // only one subject
+    synchronized void changed(Subject s) {
+        if (s != subj)
+            return; // only one subject
 
-		double oldState = cachedState;
-		cachedState = subj.getValue(); // probe
-		if (oldState != cachedState)
-			display();
-	}
+        double oldState = cachedState;
+        cachedState = subj.getValue(); // probe
+        if (oldState != cachedState)
+            display();
+    }
 
-	protected void display() {
-		// somehow display subject state; for example just:
-		System.out.println(cachedState);
-	}
+    protected void display() {
+        // somehow display subject state; for example just:
+        System.out.println(cachedState);
+    }
 }
 
 class Subject {
-	protected double val = 0.0; // modeled state
-	protected final CopyOnWriteArrayList<Observer> observers = new CopyOnWriteArrayList<>();
+    protected double val = 0.0; // modeled state
+    protected final CopyOnWriteArrayList<Observer> observers = new CopyOnWriteArrayList<>();
 
-	public synchronized double getValue() {
-		return val;
-	}
+    public synchronized double getValue() {
+        return val;
+    }
 
-	protected synchronized void setValue(double d) {
-		val = d;
-	}
+    protected synchronized void setValue(double d) {
+        val = d;
+    }
 
-	public void attach(Observer o) {
-		observers.add(o);
-	}
+    public void attach(Observer o) {
+        observers.add(o);
+    }
 
-	public void detach(Observer o) {
-		observers.remove(o);
-	}
+    public void detach(Observer o) {
+        observers.remove(o);
+    }
 
-	/**
-	 * 使用CopyOnWriteArrayList避免锁定观察者集合
-	 * 
-	 * @param newstate
-	 */
-	public void changeValue(double newstate) {
-		setValue(newstate);
-		for (Iterator<Observer> it = observers.iterator(); it.hasNext();)
-			it.next().changed(this);
-	}
+    /**
+     * 使用CopyOnWriteArrayList避免锁定观察者集合
+     * 
+     * @param newstate
+     */
+    public void changeValue(double newstate) {
+        setValue(newstate);
+        for (Iterator<Observer> it = observers.iterator(); it.hasNext();)
+            it.next().changed(this);
+    }
 
 }

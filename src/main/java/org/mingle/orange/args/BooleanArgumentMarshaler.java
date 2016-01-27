@@ -12,20 +12,20 @@ import java.util.Iterator;
  * @author Mingle
  */
 public class BooleanArgumentMarshaler implements ArgumentMarshaler {
-	private boolean booleanValue = false;
+    private boolean booleanValue = false;
 
-	/* (non-Javadoc)
-	 * @see org.mingle.orange.args.ArgumentMarshaler#set(java.util.Iterator)
-	 */
-	@Override
-	public void set(Iterator<String> currentArgument) throws ArgsException {
-		booleanValue = true;
-	}
+    /* (non-Javadoc)
+     * @see org.mingle.orange.args.ArgumentMarshaler#set(java.util.Iterator)
+     */
+    @Override
+    public void set(Iterator<String> currentArgument) throws ArgsException {
+        booleanValue = true;
+    }
 
-	public static boolean getValue(ArgumentMarshaler am) {
-		if (am != null && am instanceof BooleanArgumentMarshaler)
-			return ((BooleanArgumentMarshaler) am).booleanValue;
-		else
-			return false;
-	}
+    public static boolean getValue(ArgumentMarshaler am) {
+        if (am != null && am instanceof BooleanArgumentMarshaler)
+            return ((BooleanArgumentMarshaler) am).booleanValue;
+        else
+            return false;
+    }
 }

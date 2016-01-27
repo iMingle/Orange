@@ -11,15 +11,15 @@ package org.mingle.orange.java.speciality;
  */
 public class ForEachTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		int[] array = new int[] { 6, 8 };
-		
-		for (int i : array) {
-			System.out.println(i);
-		}
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        int[] array = new int[] { 6, 8 };
+        
+        for (int i : array) {
+            System.out.println(i);
+        }
+    }
 
 }

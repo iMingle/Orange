@@ -9,13 +9,13 @@ package replace.magic.number.with.symbolic.constant;
  */
 public class Refactor {
 
-	double potentialEnergy(double mass, double height) {
-		return mass * 9.81 * height;
-	}
-	
-	static final double GRAVITATIONAL_CONSTANT = 9.81;
-	
-	double potentialEnergyRF(double mass, double height) {
-		return mass * GRAVITATIONAL_CONSTANT * height;
-	}
+    double potentialEnergy(double mass, double height) {
+        return mass * 9.81 * height;
+    }
+    
+    static final double GRAVITATIONAL_CONSTANT = 9.81;
+    
+    double potentialEnergyRF(double mass, double height) {
+        return mass * GRAVITATIONAL_CONSTANT * height;
+    }
 }

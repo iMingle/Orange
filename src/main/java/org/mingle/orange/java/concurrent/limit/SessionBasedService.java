@@ -14,26 +14,26 @@ import java.io.OutputStream;
  * @author Mingle
  */
 public class SessionBasedService {
-	public void service() {
-		OutputStream output = null;
-		try {
-			output = new FileOutputStream("...");
-			doService(output);
-		} catch (IOException e) {
-			handleIOFailure();
-		} finally {
-			try {
-				if (output != null)
-					output.close();
-			} catch (IOException ignore) {
-			} // ignore exception in close
-		}
-	}
+    public void service() {
+        OutputStream output = null;
+        try {
+            output = new FileOutputStream("...");
+            doService(output);
+        } catch (IOException e) {
+            handleIOFailure();
+        } finally {
+            try {
+                if (output != null)
+                    output.close();
+            } catch (IOException ignore) {
+            } // ignore exception in close
+        }
+    }
 
-	void handleIOFailure() {}
+    void handleIOFailure() {}
 
-	void doService(OutputStream s) throws IOException {
-		s.write(0);
-		// ... possibly more handoffs ...
-	}
+    void doService(OutputStream s) throws IOException {
+        s.write(0);
+        // ... possibly more handoffs ...
+    }
 }

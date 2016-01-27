@@ -14,62 +14,62 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
  * @author Mingle
  */
 public class RWLock extends ReadWrite implements ReadWriteLock {
-	class RLock implements Sync {
-		public void acquire() throws InterruptedException {
-			beforeRead();
-		}
+    class RLock implements Sync {
+        public void acquire() throws InterruptedException {
+            beforeRead();
+        }
 
-		public void release() {
-			afterRead();
-		}
+        public void release() {
+            afterRead();
+        }
 
-		public boolean attempt(long msecs) throws InterruptedException {
-			return beforeRead(msecs);
-		}
-	}
+        public boolean attempt(long msecs) throws InterruptedException {
+            return beforeRead(msecs);
+        }
+    }
 
-	class WLock implements Sync {
-		public void acquire() throws InterruptedException {
-			beforeWrite();
-		}
+    class WLock implements Sync {
+        public void acquire() throws InterruptedException {
+            beforeWrite();
+        }
 
-		public void release() {
-			afterWrite();
-		}
+        public void release() {
+            afterWrite();
+        }
 
-		public boolean attempt(long msecs) throws InterruptedException {
-			return beforeWrite(msecs);
-		}
-	}
+        public boolean attempt(long msecs) throws InterruptedException {
+            return beforeWrite(msecs);
+        }
+    }
 
-	protected final RLock rlock = new RLock();
-	protected final WLock wlock = new WLock();
+    protected final RLock rlock = new RLock();
+    protected final WLock wlock = new WLock();
 
-	@Override
-	public Sync readLock() {
-		return rlock;
-	}
+    @Override
+    public Sync readLock() {
+        return rlock;
+    }
 
-	@Override
-	public Sync writeLock() {
-		return wlock;
-	}
+    @Override
+    public Sync writeLock() {
+        return wlock;
+    }
 
-	public boolean beforeRead(long msecs) throws InterruptedException {
-		return true;
-		// ... time-out version of beforeRead ...
-	}
+    public boolean beforeRead(long msecs) throws InterruptedException {
+        return true;
+        // ... time-out version of beforeRead ...
+    }
 
-	public boolean beforeWrite(long msecs) throws InterruptedException {
-		return true;
-		// ... time-out version of beforeWrite ...
-	}
+    public boolean beforeWrite(long msecs) throws InterruptedException {
+        return true;
+        // ... time-out version of beforeWrite ...
+    }
 
-	@Override
-	protected void doRead() {
-	}
+    @Override
+    protected void doRead() {
+    }
 
-	@Override
-	protected void doWrite() {
-	}
+    @Override
+    protected void doWrite() {
+    }
 }

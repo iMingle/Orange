@@ -10,6 +10,6 @@ package org.mingle.orange.java.concurrent.createthread.threadpermessage;
  * @author Mingle
  */
 public interface Channel<T> {
-	void put(T t) throws InterruptedException;
-	T take() throws InterruptedException;
+    void put(T t) throws InterruptedException;
+    T take() throws InterruptedException;
 }

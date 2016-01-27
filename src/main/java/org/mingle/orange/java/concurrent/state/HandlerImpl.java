@@ -11,7 +11,7 @@ package org.mingle.orange.java.concurrent.state;
  */
 public class HandlerImpl implements ServiceExceptionHandler {
 
-	@Override
-	public void handle(ServiceException e) {}
+    @Override
+    public void handle(ServiceException e) {}
 
 }

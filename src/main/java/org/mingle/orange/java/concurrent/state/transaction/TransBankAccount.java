@@ -12,11 +12,11 @@ import org.mingle.orange.java.concurrent.state.synergy.InsufficientFunds;
  * @author Mingle
  */
 public interface TransBankAccount extends Transactor {
-	public long balance(Transaction t) throws Failure;
+    public long balance(Transaction t) throws Failure;
 
-	public void deposit(Transaction t, long amount) throws InsufficientFunds,
-			Failure;
+    public void deposit(Transaction t, long amount) throws InsufficientFunds,
+            Failure;
 
-	public void withdraw(Transaction t, long amount) throws InsufficientFunds,
-			Failure;
+    public void withdraw(Transaction t, long amount) throws InsufficientFunds,
+            Failure;
 }

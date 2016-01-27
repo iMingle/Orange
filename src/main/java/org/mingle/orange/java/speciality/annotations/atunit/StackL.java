@@ -12,17 +12,17 @@ import java.util.*;
  * @author Mingle
  */
 public class StackL<T> {
-	private LinkedList<T> list = new LinkedList<T>();
+    private LinkedList<T> list = new LinkedList<T>();
 
-	public void push(T v) {
-		list.addFirst(v);
-	}
+    public void push(T v) {
+        list.addFirst(v);
+    }
 
-	public T top() {
-		return list.getFirst();
-	}
+    public T top() {
+        return list.getFirst();
+    }
 
-	public T pop() {
-		return list.removeFirst();
-	}
+    public T pop() {
+        return list.removeFirst();
+    }
 }

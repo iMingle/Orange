@@ -10,17 +10,17 @@ package org.mingle.orange.java.concurrent.state;
  * @author Mingle
  */
 public class Wait {
-	synchronized void w() throws InterruptedException {
-		before();
-		wait();
-		after();
-	}
+    synchronized void w() throws InterruptedException {
+        before();
+        wait();
+        after();
+    }
 
-	synchronized void n() {
-		notifyAll();
-	}
+    synchronized void n() {
+        notifyAll();
+    }
 
-	void before() {}
+    void before() {}
 
-	void after() {}
+    void after() {}
 }

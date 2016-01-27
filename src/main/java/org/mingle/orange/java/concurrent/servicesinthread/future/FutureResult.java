@@ -14,84 +14,84 @@ import java.util.concurrent.Callable;
  * @author Mingle
  */
 public class FutureResult {
-	protected Object value = null;
-	protected boolean ready = false;
-	protected InvocationTargetException exception = null;
+    protected Object value = null;
+    protected boolean ready = false;
+    protected InvocationTargetException exception = null;
 
-	public synchronized Object get() throws InterruptedException,
-			InvocationTargetException {
-		while (!ready)
-			wait();
-		if (exception != null)
-			throw exception;
-		else
-			return value;
-	}
+    public synchronized Object get() throws InterruptedException,
+            InvocationTargetException {
+        while (!ready)
+            wait();
+        if (exception != null)
+            throw exception;
+        else
+            return value;
+    }
 
-	public Runnable setter(final Callable<Object> function) {
-		return new Runnable() {
-			public void run() {
-				try {
-					set(function.call());
-				} catch (Throwable e) {
-					setException(e);
-				}
-			}
-		};
-	}
+    public Runnable setter(final Callable<Object> function) {
+        return new Runnable() {
+            public void run() {
+                try {
+                    set(function.call());
+                } catch (Throwable e) {
+                    setException(e);
+                }
+            }
+        };
+    }
 
-	synchronized void set(Object result) {
-		value = result;
-		ready = true;
-		notifyAll();
-	}
+    synchronized void set(Object result) {
+        value = result;
+        ready = true;
+        notifyAll();
+    }
 
-	synchronized void setException(Throwable e) {
-		exception = new InvocationTargetException(e);
-		ready = true;
-		notifyAll();
-	}
+    synchronized void setException(Throwable e) {
+        exception = new InvocationTargetException(e);
+        ready = true;
+        notifyAll();
+    }
 
-	// ... other auxiliary and convenience methods ...
+    // ... other auxiliary and convenience methods ...
 }
 
 class PictureDisplayWithFutureResult {
-	void displayBorders() {
-	}
+    void displayBorders() {
+    }
 
-	void displayCaption() {
-	}
+    void displayCaption() {
+    }
 
-	void displayImage(byte[] b) {
-	}
+    void displayImage(byte[] b) {
+    }
 
-	void cleanup() {
-	}
+    void cleanup() {
+    }
 
-	private final Renderer renderer = new StandardRenderer();
+    private final Renderer renderer = new StandardRenderer();
 
-	public void show(final URL imageSource) {
-		try {
-			FutureResult futurePic = new FutureResult();
-			Runnable command = futurePic.setter(new Callable<Object>() {
-				
-				@Override
-				public Object call() {
-					return renderer.render(imageSource);
-				}
-			});
-			new Thread(command).start();
+    public void show(final URL imageSource) {
+        try {
+            FutureResult futurePic = new FutureResult();
+            Runnable command = futurePic.setter(new Callable<Object>() {
+                
+                @Override
+                public Object call() {
+                    return renderer.render(imageSource);
+                }
+            });
+            new Thread(command).start();
 
-			displayBorders();
-			displayCaption();
+            displayBorders();
+            displayCaption();
 
-			displayImage(((Pic) (futurePic.get())).getImage());
-		} catch (InterruptedException ex) {
-			cleanup();
-			return;
-		} catch (InvocationTargetException ex) {
-			cleanup();
-			return;
-		}
-	}
+            displayImage(((Pic) (futurePic.get())).getImage());
+        } catch (InterruptedException ex) {
+            cleanup();
+            return;
+        } catch (InvocationTargetException ex) {
+            cleanup();
+            return;
+        }
+    }
 }

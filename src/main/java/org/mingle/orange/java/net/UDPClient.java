@@ -8,20 +8,20 @@ import java.net.SocketException;
 
 public class UDPClient {
 
-	public static void main(String[] args) {
-		byte[] buf = (new String("hello")).getBytes();
-		try {
-			DatagramPacket dp = new DatagramPacket(buf, buf.length, new InetSocketAddress("localhost", 5678));
-			DatagramSocket ds = new DatagramSocket(9999);
-			
-			ds.send(dp);
-			ds.close();
-		} catch (SocketException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    public static void main(String[] args) {
+        byte[] buf = (new String("hello")).getBytes();
+        try {
+            DatagramPacket dp = new DatagramPacket(buf, buf.length, new InetSocketAddress("localhost", 5678));
+            DatagramSocket ds = new DatagramSocket(9999);
+            
+            ds.send(dp);
+            ds.close();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-	}
+    }
 
 }

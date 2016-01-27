@@ -11,38 +11,38 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
  */
 public class Screener extends DualOutputPushStage implements PushStage {
 
-	protected final BoxPredicate predicate;
+    protected final BoxPredicate predicate;
 
-	public Screener(BoxPredicate p) {
-		predicate = p;
-	}
+    public Screener(BoxPredicate p) {
+        predicate = p;
+    }
 
-	@Override
-	public void putA(final Box p) {
-		if (predicate.test(p)) {
-			new Thread(new Runnable() {
-				public void run() {
-					next1().putA(p);
-				}
-			}).start();
-		} else
-			next2().putA(p);
-	}
+    @Override
+    public void putA(final Box p) {
+        if (predicate.test(p)) {
+            new Thread(new Runnable() {
+                public void run() {
+                    next1().putA(p);
+                }
+            }).start();
+        } else
+            next2().putA(p);
+    }
 }
 
 interface BoxPredicate {
-	boolean test(Box p);
+    boolean test(Box p);
 }
 
 class MaxSizePredicate implements BoxPredicate {
 
-	protected final int max; // max size to let through
+    protected final int max; // max size to let through
 
-	public MaxSizePredicate(int maximum) {
-		max = maximum;
-	}
+    public MaxSizePredicate(int maximum) {
+        max = maximum;
+    }
 
-	public boolean test(Box p) {
-		return p.size().height <= max && p.size().width <= max;
-	}
+    public boolean test(Box p) {
+        return p.size().height <= max && p.size().width <= max;
+    }
 }

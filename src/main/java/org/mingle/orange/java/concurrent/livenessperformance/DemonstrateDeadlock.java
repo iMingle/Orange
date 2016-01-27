@@ -15,7 +15,7 @@ import org.mingle.orange.java.concurrent.livenessperformance.DynamicOrderDeadloc
  * @author Mingle
  */
 public class DemonstrateDeadlock {
-	private static final int NUM_THREADS = 20;
+    private static final int NUM_THREADS = 20;
     private static final int NUM_ACCOUNTS = 5;
     private static final int NUM_ITERATIONS = 1000000;
 

@@ -13,64 +13,64 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
  * @author Mingle
  */
 public class PThreadsStyleBuffer {
-	private final Mutex mutex = new Mutex();
-	private final CondVar notFull = new CondVar(mutex);
-	private final CondVar notEmpty = new CondVar(mutex);
-	private int count = 0;
-	private int takePtr = 0;
-	private int putPtr = 0;
-	private final Object[] array;
+    private final Mutex mutex = new Mutex();
+    private final CondVar notFull = new CondVar(mutex);
+    private final CondVar notEmpty = new CondVar(mutex);
+    private int count = 0;
+    private int takePtr = 0;
+    private int putPtr = 0;
+    private final Object[] array;
 
-	public PThreadsStyleBuffer(int capacity) {
-		array = new Object[capacity];
-	}
+    public PThreadsStyleBuffer(int capacity) {
+        array = new Object[capacity];
+    }
 
-	public void put(Object x) throws InterruptedException {
-		mutex.acquire();
-		try {
-			while (count == array.length)
-				notFull.await();
+    public void put(Object x) throws InterruptedException {
+        mutex.acquire();
+        try {
+            while (count == array.length)
+                notFull.await();
 
-			array[putPtr] = x;
-			putPtr = (putPtr + 1) % array.length;
-			++count;
-			notEmpty.signal();
-		} finally {
-			mutex.release();
-		}
-	}
+            array[putPtr] = x;
+            putPtr = (putPtr + 1) % array.length;
+            ++count;
+            notEmpty.signal();
+        } finally {
+            mutex.release();
+        }
+    }
 
-	public Object take() throws InterruptedException {
-		Object x = null;
-		mutex.acquire();
-		try {
-			while (count == 0)
-				notEmpty.await();
+    public Object take() throws InterruptedException {
+        Object x = null;
+        mutex.acquire();
+        try {
+            while (count == 0)
+                notEmpty.await();
 
-			x = array[takePtr];
-			array[takePtr] = null;
-			takePtr = (takePtr + 1) % array.length;
-			--count;
-			notFull.signal();
-		} finally {
-			mutex.release();
-		}
-		return x;
-	}
+            x = array[takePtr];
+            array[takePtr] = null;
+            takePtr = (takePtr + 1) % array.length;
+            --count;
+            notFull.signal();
+        } finally {
+            mutex.release();
+        }
+        return x;
+    }
 }
 
 class CondVar {
-	protected final Sync mutex;
+    protected final Sync mutex;
 
-	public CondVar(Sync lock) {
-		mutex = lock;
-	}
-	
-	public void await() throws InterruptedException {}
-	
-	public void timewait(long ms)  throws InterruptedException {}
-	
-	public void signal() {}		// analog of notify
-	
-	public void broadcast() {}	// analog of notifyAll
+    public CondVar(Sync lock) {
+        mutex = lock;
+    }
+    
+    public void await() throws InterruptedException {}
+    
+    public void timewait(long ms)  throws InterruptedException {}
+    
+    public void signal() {}        // analog of notify
+    
+    public void broadcast() {}    // analog of notifyAll
 }

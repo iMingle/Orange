@@ -12,19 +12,19 @@ import org.mingle.orange.java.concurrent.util.Helper;
  * @author Mingle
  */
 public class ServerWithOpenCall {
-	private double state;
-	private final Helper helper = new Helper();
+    private double state;
+    private final Helper helper = new Helper();
 
-	public void service() {
-		updateState();
-		helper.operation();
-	}
+    public void service() {
+        updateState();
+        helper.operation();
+    }
 
-	public synchronized void updateState() {
-		state = 2.0f; // set to some new value
-	}
+    public synchronized void updateState() {
+        state = 2.0f; // set to some new value
+    }
 
-	public synchronized double getState() {
-		return state;
-	}
+    public synchronized double getState() {
+        return state;
+    }
 }

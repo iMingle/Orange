@@ -11,39 +11,39 @@ package org.mingle.orange.java8;
  */
 public class MethodQuote {
 
-	public static void main(String[] args) {
-		Converter<String, Integer> converter = Integer::valueOf;
-		Integer converted = converter.convert("123");
-		System.out.println(converted); // 123
+    public static void main(String[] args) {
+        Converter<String, Integer> converter = Integer::valueOf;
+        Integer converted = converter.convert("123");
+        System.out.println(converted); // 123
 
-		Converter<String, Boolean> converter1 = "JavaScript"::startsWith;
-		boolean isStartsWith = converter1.convert("Java");
-		System.out.println(isStartsWith); // true
-		
-		PersonFactory<Person> personFactory = Person::new;
-		Person person = personFactory.create("Peter", "Parker");
-		System.out.println(person); // Person: Peter Parker
-	}
+        Converter<String, Boolean> converter1 = "JavaScript"::startsWith;
+        boolean isStartsWith = converter1.convert("Java");
+        System.out.println(isStartsWith); // true
+        
+        PersonFactory<Person> personFactory = Person::new;
+        Person person = personFactory.create("Peter", "Parker");
+        System.out.println(person); // Person: Peter Parker
+    }
 
 }
 
 class Person {
-	String firstName;
-	String lastName;
+    String firstName;
+    String lastName;
 
-	Person() {}
+    Person() {}
 
-	Person(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
+    Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
-	@Override
-	public String toString() {
-		return "Person: " + firstName +  " " + lastName;
-	}
+    @Override
+    public String toString() {
+        return "Person: " + firstName +  " " + lastName;
+    }
 }
 
 interface PersonFactory<P extends Person> {
-	P create(String firstName, String lastName);
+    P create(String firstName, String lastName);
 }

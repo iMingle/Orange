@@ -10,5 +10,5 @@ package org.mingle.orange.java.concurrent.state;
  * @author Mingle
  */
 public interface ServiceExceptionHandler {
-	void handle(ServiceException e);
+    void handle(ServiceException e);
 }

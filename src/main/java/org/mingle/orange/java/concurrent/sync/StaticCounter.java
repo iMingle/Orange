@@ -10,16 +10,16 @@ package org.mingle.orange.java.concurrent.sync;
  * @author Mingle
  */
 public class StaticCounter {
-	private static final long initial = Math.abs(new java.util.Random().nextLong() / 2);
-	private static long count = initial;
+    private static final long initial = Math.abs(new java.util.Random().nextLong() / 2);
+    private static long count = initial;
 
-	private StaticCounter() {}
+    private StaticCounter() {}
 
-	public static synchronized long next() {
-		return count++;
-	}
+    public static synchronized long next() {
+        return count++;
+    }
 
-	public static synchronized void reset() {
-		count = initial;
-	}
+    public static synchronized void reset() {
+        count = initial;
+    }
 }

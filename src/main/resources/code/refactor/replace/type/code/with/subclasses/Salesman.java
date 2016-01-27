@@ -8,12 +8,12 @@ package replace.type.code.with.subclasses;
  *
  */
 public class Salesman extends EmployeeRF{
-	
-	int getType() {
-		return EmployeeRF.SALESMAN;
-	}
-	
-	public Salesman() {
-		super(EmployeeRF.SALESMAN);
-	}
+    
+    int getType() {
+        return EmployeeRF.SALESMAN;
+    }
+    
+    public Salesman() {
+        super(EmployeeRF.SALESMAN);
+    }
 }

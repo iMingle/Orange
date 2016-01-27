@@ -13,5 +13,5 @@ import java.rmi.RemoteException;
  * @author Mingle
  */
 public interface Interface extends Remote {
-	public String say() throws RemoteException;
+    public String say() throws RemoteException;
 }

@@ -6,14 +6,14 @@ package org.mingle.orange.designpattern.strategy;
  *
  */
 public class Context {
-	private Strategy strategy;
+    private Strategy strategy;
 
-	public Context(Strategy strategy) {
-		super();
-		this.strategy = strategy;
-	}
-	
-	public void operate() {
-		this.strategy.operate();
-	}
+    public Context(Strategy strategy) {
+        super();
+        this.strategy = strategy;
+    }
+    
+    public void operate() {
+        this.strategy.operate();
+    }
 }

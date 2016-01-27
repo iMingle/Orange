@@ -10,15 +10,15 @@ package org.mingle.orange.java.concurrent.beforeafter;
  * @author Mingle
  */
 public class AdaptedPerformer implements Runnable {
-	private final Performer adaptee;
+    private final Performer adaptee;
 
-	public AdaptedPerformer(Performer adaptee) {
-		this.adaptee = adaptee;
-	}
+    public AdaptedPerformer(Performer adaptee) {
+        this.adaptee = adaptee;
+    }
 
-	@Override
-	public void run() {
-		adaptee.perform();
-	}
+    @Override
+    public void run() {
+        adaptee.perform();
+    }
 
 }

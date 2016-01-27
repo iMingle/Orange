@@ -10,54 +10,54 @@ package org.mingle.orange.java.concurrent.beforeafter;
  * @author Mingle
  */
 public class TankWithMethodAdapter {
-	protected final Tank delegate;
+    protected final Tank delegate;
 
-	public TankWithMethodAdapter(Tank t) {
-		delegate = t;
-	}
+    public TankWithMethodAdapter(Tank t) {
+        delegate = t;
+    }
 
-	public float getCapacity() {
-		return delegate.getCapacity();
-	}
+    public float getCapacity() {
+        return delegate.getCapacity();
+    }
 
-	public float getVolume() {
-		return delegate.getVolume();
-	}
+    public float getVolume() {
+        return delegate.getVolume();
+    }
 
-	protected void checkVolumeInvariant() throws AssertionError {
-		float v = getVolume();
-		float c = getCapacity();
-		if (!(v >= 0.0 && v <= c))
-			throw new AssertionError();
-	}
+    protected void checkVolumeInvariant() throws AssertionError {
+        float v = getVolume();
+        float c = getCapacity();
+        if (!(v >= 0.0 && v <= c))
+            throw new AssertionError();
+    }
 
-	protected void runWithinBeforeAfterChecks(TankOp cmd)
-			throws OverflowException, UnderflowException {
-		checkVolumeInvariant(); // before-check
+    protected void runWithinBeforeAfterChecks(TankOp cmd)
+            throws OverflowException, UnderflowException {
+        checkVolumeInvariant(); // before-check
 
-		try {
-			cmd.op();
-		} catch (OverflowException e) {
-			throw e;
-		} catch (UnderflowException e) {
-			throw e;
-		} finally {
-			checkVolumeInvariant(); // after-check
-		}
-	}
+        try {
+            cmd.op();
+        } catch (OverflowException e) {
+            throw e;
+        } catch (UnderflowException e) {
+            throw e;
+        } finally {
+            checkVolumeInvariant(); // after-check
+        }
+    }
 
-	protected void doTransferWater(float amount) throws OverflowException,
-			UnderflowException {
-		// ... implementation code ...
-	}
+    protected void doTransferWater(float amount) throws OverflowException,
+            UnderflowException {
+        // ... implementation code ...
+    }
 
-	public synchronized void transferWater(final float amount)
-			throws OverflowException, UnderflowException {
+    public synchronized void transferWater(final float amount)
+            throws OverflowException, UnderflowException {
 
-		runWithinBeforeAfterChecks(new TankOp() {
-			public void op() throws OverflowException, UnderflowException {
-				doTransferWater(amount);
-			}
-		});
-	}
+        runWithinBeforeAfterChecks(new TankOp() {
+            public void op() throws OverflowException, UnderflowException {
+                doTransferWater(amount);
+            }
+        });
+    }
 }

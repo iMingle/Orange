@@ -16,12 +16,12 @@ import java.sql.SQLException;
  * @author Mingle
  */
 public class TryMultiCatch {
-	public void test() throws NoSuchMethodException, NoSuchFieldException {
-		try {
-			Connection conn = DriverManager.getConnection("");
-			conn.createStatement();
-			File file = new File("");
-			file.createNewFile();
-		} catch (SQLException | IOException ex) {}
-	}
+    public void test() throws NoSuchMethodException, NoSuchFieldException {
+        try {
+            Connection conn = DriverManager.getConnection("");
+            conn.createStatement();
+            File file = new File("");
+            file.createNewFile();
+        } catch (SQLException | IOException ex) {}
+    }
 }

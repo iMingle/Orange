@@ -10,5 +10,5 @@ package org.mingle.orange.java.util;
  * @author Mingle
  */
 public interface Generator<T> {
-	T next();
+    T next();
 }

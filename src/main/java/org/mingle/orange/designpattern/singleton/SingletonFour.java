@@ -10,5 +10,5 @@ package org.mingle.orange.designpattern.singleton;
  * @author Mingle
  */
 public enum SingletonFour {
-	INSTANCE;
+    INSTANCE;
 }

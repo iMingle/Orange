@@ -10,13 +10,13 @@ package org.mingle.orange.java.concurrent.state.transaction;
  * @author Mingle
  */
 public class ProxyAccount {
-	private TransBankAccount delegate;
+    private TransBankAccount delegate;
 
-	public boolean join(Transaction t) {
-		return delegate.join(t);
-	}
+    public boolean join(Transaction t) {
+        return delegate.join(t);
+    }
 
-	public long balance(Transaction t) throws Failure {
-		return delegate.balance(t);
-	}
+    public long balance(Transaction t) throws Failure {
+        return delegate.balance(t);
+    }
 }

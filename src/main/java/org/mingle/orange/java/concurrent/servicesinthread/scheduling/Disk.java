@@ -12,6 +12,6 @@ import org.mingle.orange.java.concurrent.state.transaction.Failure;
  * @author Mingle
  */
 public interface Disk {
-	void read(int cylinderNumber, byte[] buffer) throws Failure;
-	void write(int cylinderNumber, byte[] buffer) throws Failure;
+    void read(int cylinderNumber, byte[] buffer) throws Failure;
+    void write(int cylinderNumber, byte[] buffer) throws Failure;
 }

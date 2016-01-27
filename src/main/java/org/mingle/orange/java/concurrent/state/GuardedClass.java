@@ -10,20 +10,20 @@ package org.mingle.orange.java.concurrent.state;
  * @author Mingle
  */
 public class GuardedClass {
-	protected boolean cond = false;
+    protected boolean cond = false;
 
-	// PRE: lock held
-	protected void awaitCond() throws InterruptedException {
-		while (!cond)
-			wait();
-	}
+    // PRE: lock held
+    protected void awaitCond() throws InterruptedException {
+        while (!cond)
+            wait();
+    }
 
-	public synchronized void guardedAction() {
-		try {
-			awaitCond();
-		} catch (InterruptedException ie) {
-			// fail
-		}
-		// actions
-	}
+    public synchronized void guardedAction() {
+        try {
+            awaitCond();
+        } catch (InterruptedException ie) {
+            // fail
+        }
+        // actions
+    }
 }

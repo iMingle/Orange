@@ -42,8 +42,8 @@ public class BinarySearch {
 
     public static void main(String[] args) {
 /*        
- 		@SuppressWarnings("deprecation")
-		int[] whitelist = In.readInts(args[0]);
+         @SuppressWarnings("deprecation")
+        int[] whitelist = In.readInts(args[0]);
 
         Arrays.sort(whitelist);
 
@@ -54,20 +54,20 @@ public class BinarySearch {
                 StdOut.println(key);
         }
 */   
-    	int[] a = {1, 2, 3, 4, 4, 4, 5, 6, 6, 7, 7, 8, 9, 10};
-    	int j = 0;
-    	
-    	for (int i = 0; i < a.length; i++) {
-    		j = i;
-    		if (j == a.length - 1) break;
-    		while (a[j + 1] == a[i]) {
-    			a[j + 1] = 0;
-    			j++;
-    		}
-    	}
-    	
-    	for (int i = 0; i < a.length; i++) {
-    		System.out.println(a[i]);
- 	}
+        int[] a = {1, 2, 3, 4, 4, 4, 5, 6, 6, 7, 7, 8, 9, 10};
+        int j = 0;
+        
+        for (int i = 0; i < a.length; i++) {
+            j = i;
+            if (j == a.length - 1) break;
+            while (a[j + 1] == a[i]) {
+                a[j + 1] = 0;
+                j++;
+            }
+        }
+        
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+     }
     }
 }

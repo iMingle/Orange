@@ -10,26 +10,26 @@ package org.mingle.orange.java.speciality;
  * @author Mingle
  */
 public class FunctionTest {
-	/**
-	 * 传递的是引用，对引用的修改相当于对对象的修改
-	 * @param l
-	 */
-	public static void changeValue(Letter l) {
-		l.avg = 8.0f;
-	}
+    /**
+     * 传递的是引用，对引用的修改相当于对对象的修改
+     * @param l
+     */
+    public static void changeValue(Letter l) {
+        l.avg = 8.0f;
+    }
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Letter l = new Letter();
-		l.avg = 5.0f;
-		FunctionTest.changeValue(l);
-		System.out.println(l.avg);				// 8.0
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        Letter l = new Letter();
+        l.avg = 5.0f;
+        FunctionTest.changeValue(l);
+        System.out.println(l.avg);                // 8.0
+    }
 
 }
 
 class Letter {
-	float avg;
+    float avg;
 }

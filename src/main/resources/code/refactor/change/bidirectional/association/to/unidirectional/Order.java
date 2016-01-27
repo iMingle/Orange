@@ -9,27 +9,27 @@ package change.bidirectional.association.to.unidirectional;
  */
 public class Order {
 
-	Customer _customer;
+    Customer _customer;
 
-	public Customer getCustomer() {
-		return _customer;
-	}
+    public Customer getCustomer() {
+        return _customer;
+    }
 
-	public void setCustomer(Customer customer) {
-		if (_customer != null) {
-			_customer.friendOrders().remove(this);
-		}
-		_customer = customer;
-		if (_customer != null) {
-			_customer.friendOrders().add(this);
-		}
-	}
-	
-	double getDisCountedPrice() {
-		return getGrossPrice() * (1 - _customer.getDiscount());
-	}
-	
-	double getGrossPrice() {
-		return 1;
-	}
+    public void setCustomer(Customer customer) {
+        if (_customer != null) {
+            _customer.friendOrders().remove(this);
+        }
+        _customer = customer;
+        if (_customer != null) {
+            _customer.friendOrders().add(this);
+        }
+    }
+    
+    double getDisCountedPrice() {
+        return getGrossPrice() * (1 - _customer.getDiscount());
+    }
+    
+    double getGrossPrice() {
+        return 1;
+    }
 }

@@ -2,17 +2,17 @@ package encapsulate.downcast;
 
 public class Refactor {
 
-	// *encapsulate
+    // *encapsulate
 
-	/*
-	 * Reading lastReading = (Reading) theSite.readings().lastElement();
-	 * 
-	 * -->
-	 * 
-	 * Reading lastReading = theSite.lastReading();
-	 * 
-	 * class Site...
-	 * 
-	 * Reading lastReading() { return (Reading) readings.lastElement(); }
-	 */
+    /*
+     * Reading lastReading = (Reading) theSite.readings().lastElement();
+     * 
+     * -->
+     * 
+     * Reading lastReading = theSite.lastReading();
+     * 
+     * class Site...
+     * 
+     * Reading lastReading() { return (Reading) readings.lastElement(); }
+     */
 }

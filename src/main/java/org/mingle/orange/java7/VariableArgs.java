@@ -12,10 +12,10 @@ import java.util.List;
  * @author Mingle
  */
 public class VariableArgs {
-	@SafeVarargs
-	public static <T> void addToList(List<T> listArg, T... elements) {
-		for (T x : elements) {
-			listArg.add(x);
-		}
-	}
+    @SafeVarargs
+    public static <T> void addToList(List<T> listArg, T... elements) {
+        for (T x : elements) {
+            listArg.add(x);
+        }
+    }
 }

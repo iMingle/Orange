@@ -10,20 +10,20 @@ package org.mingle.orange.java.speciality.concurrency;
  * @author Mingle
  */
 public class EvenGenerator extends IntGenerator {
-	private int currentEvenValue = 0;
-	
-	/* (non-Javadoc)
-	 * @see org.mingle.orange.java.speciality.concurrency.IntGenerator#next()
-	 */
-	@Override
-	public int next() {
-		++currentEvenValue;
-		++currentEvenValue;
-		return currentEvenValue;
-	}
+    private int currentEvenValue = 0;
+    
+    /* (non-Javadoc)
+     * @see org.mingle.orange.java.speciality.concurrency.IntGenerator#next()
+     */
+    @Override
+    public int next() {
+        ++currentEvenValue;
+        ++currentEvenValue;
+        return currentEvenValue;
+    }
 
-	public static void main(String[] args) {
-		EvenChecker.test(new EvenGenerator());
-	}
+    public static void main(String[] args) {
+        EvenChecker.test(new EvenGenerator());
+    }
 
 }

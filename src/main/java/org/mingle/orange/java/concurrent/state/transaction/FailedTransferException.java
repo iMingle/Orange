@@ -10,5 +10,5 @@ package org.mingle.orange.java.concurrent.state.transaction;
  * @author Mingle
  */
 public class FailedTransferException extends Exception {
-	private static final long serialVersionUID = 212556834977804426L;
+    private static final long serialVersionUID = 212556834977804426L;
 }

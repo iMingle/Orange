@@ -12,19 +12,19 @@ import org.mingle.orange.java.concurrent.util.Helper;
  * @author Mingle
  */
 public class ThreadPerMessageHost {
-	protected long localState;
-	protected final Helper helper = new Helper();
+    protected long localState;
+    protected final Helper helper = new Helper();
 
-	protected synchronized void updateState() {
-		localState = 2; // ...;
-	}
+    protected synchronized void updateState() {
+        localState = 2; // ...;
+    }
 
-	public void req() {
-		updateState();
-		new Thread(new Runnable() {
-			public void run() {
-				helper.handle();
-			}
-		}).start();
-	}
+    public void req() {
+        updateState();
+        new Thread(new Runnable() {
+            public void run() {
+                helper.handle();
+            }
+        }).start();
+    }
 }

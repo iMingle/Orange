@@ -27,32 +27,32 @@ package org.mingle.orange.arithmetic.base;
 
 public class BinarySearch2 {
 
-	public static int rank(int key, int[] a) {
-		int time = 0;
-		
-		return rank(key, a, 0, a.length - 1, time);
-	}
+    public static int rank(int key, int[] a) {
+        int time = 0;
+        
+        return rank(key, a, 0, a.length - 1, time);
+    }
 
-	public static int rank(int key, int[] a, int lo, int hi, int time) {
+    public static int rank(int key, int[] a, int lo, int hi, int time) {
 System.out.println("lo = " + lo);
 System.out.println("hi = " + hi);
 time++;
 System.out.println("time = " + time);
 System.out.println("=========");
-		if (lo > hi)
-			return -1;
-		int mid = lo + (hi - lo) / 2;
-		if (key < a[mid])
-			return rank(key, a, lo, mid - 1, time);
-		else if (key > a[mid])
-			return rank(key, a, mid + 1, hi, time);
-		else
-			return mid;
-	}
+        if (lo > hi)
+            return -1;
+        int mid = lo + (hi - lo) / 2;
+        if (key < a[mid])
+            return rank(key, a, lo, mid - 1, time);
+        else if (key > a[mid])
+            return rank(key, a, mid + 1, hi, time);
+        else
+            return mid;
+    }
 
-	public static void main(String[] args) {
-		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-		
-		rank(3, array);
-	}
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        
+        rank(3, array);
+    }
 }

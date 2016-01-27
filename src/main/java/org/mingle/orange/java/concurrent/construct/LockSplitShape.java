@@ -10,30 +10,30 @@ package org.mingle.orange.java.concurrent.construct;
  * @author Mingle
  */
 public class LockSplitShape {
-	protected double x = 0.0;
-	protected double y = 0.0;
-	protected double width = 0.0;
-	protected double height = 0.0;
+    protected double x = 0.0;
+    protected double y = 0.0;
+    protected double width = 0.0;
+    protected double height = 0.0;
 
-	protected final Object locationLock = new Object();
-	protected final Object dimensionLock = new Object();
+    protected final Object locationLock = new Object();
+    protected final Object dimensionLock = new Object();
 
-	public double x() {
-		synchronized (locationLock) {
-			return x;
-		}
-	}
+    public double x() {
+        synchronized (locationLock) {
+            return x;
+        }
+    }
 
-	public double y() {
-		synchronized (locationLock) {
-			return y;
-		}
-	}
+    public double y() {
+        synchronized (locationLock) {
+            return y;
+        }
+    }
 
-	public void adjustLocation() {
-		synchronized (locationLock) {
-			x = 1; // longCalculation1();
-			y = 2; // longCalculation2();
-		}
-	}
+    public void adjustLocation() {
+        synchronized (locationLock) {
+            x = 1; // longCalculation1();
+            y = 2; // longCalculation2();
+        }
+    }
 }

@@ -8,9 +8,9 @@ package replace.conditional.with.polymorphism;
  *
  */
 class Engineer extends EmployeeType{
-	
-	int payAmount(EmployeeRF emp) {
-		return emp.get_monthlySalary();
-	}
-	
+    
+    int payAmount(EmployeeRF emp) {
+        return emp.get_monthlySalary();
+    }
+    
 }

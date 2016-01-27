@@ -10,14 +10,14 @@ package org.mingle.orange.java.concurrent.beforeafter;
  * @author Mingle
  */
 public class AssertionError extends Error {
-	private static final long serialVersionUID = 9187371163456133683L;
+    private static final long serialVersionUID = 9187371163456133683L;
 
-	public AssertionError() {
-		super();
-	}
+    public AssertionError() {
+        super();
+    }
 
-	public AssertionError(String message) {
-		super(message);
-	}
-	
+    public AssertionError(String message) {
+        super(message);
+    }
+    
 }

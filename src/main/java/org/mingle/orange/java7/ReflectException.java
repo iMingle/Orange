@@ -10,21 +10,21 @@ package org.mingle.orange.java7;
  * @author Mingle
  */
 public class ReflectException extends ReflectiveOperationException {
-	private static final long serialVersionUID = 1617286221119926091L;
-	
-	public ReflectException() {
-		super();
-	}
+    private static final long serialVersionUID = 1617286221119926091L;
+    
+    public ReflectException() {
+        super();
+    }
 
-	public ReflectException(String message, Throwable cause) {
-		super(message, cause);
-	}
+    public ReflectException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
-	public ReflectException(String message) {
-		super(message);
-	}
+    public ReflectException(String message) {
+        super(message);
+    }
 
-	public ReflectException(Throwable cause) {
-		super(cause);
-	}
+    public ReflectException(Throwable cause) {
+        super(cause);
+    }
 }

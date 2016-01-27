@@ -40,78 +40,78 @@ import java.util.concurrent.TimeUnit;
  * @author Mingle
  */
 public class CollectionStream {
-	public static void main(String[] args) {
-		List<String> stringCollection = new ArrayList<>();
-		stringCollection.add("ddd2");
-		stringCollection.add("aaa2");
-		stringCollection.add("bbb1");
-		stringCollection.add("aaa1");
-		stringCollection.add("bbb3");
-		stringCollection.add("ccc");
-		stringCollection.add("bbb2");
-		stringCollection.add("ddd1");
-		
-		stringCollection.stream()
-						.sorted()
-						.filter((s) -> s.startsWith("a"))
-						.forEach(System.out::println);
-		System.out.println("=======================");
-		
-		stringCollection.stream()
-						.map(String::toUpperCase)
-						.sorted()
-						.forEach(System.out::println);
-		System.out.println("=======================");
-		
-		boolean matched = false;
-		matched = stringCollection.stream()
-						.anyMatch((s) -> s.startsWith("a"));
-		System.out.println(matched); // true
-		System.out.println("=======================");
-		
-		matched = stringCollection.stream()
-						.allMatch((s) -> s.startsWith("a"));
-		System.out.println(matched); // false
-		System.out.println("=======================");
-		
-		matched = stringCollection.stream()
-				.noneMatch((s) -> s.startsWith("z"));
-		System.out.println(matched); // true
-		System.out.println("=======================");
-		
-		long count = 0;
-		count = stringCollection.stream()
-				.filter((s) -> s.startsWith("a"))
-				.count();
-		System.out.println(count); // 2
-		System.out.println("=======================");
-		
-		Optional<String> reduced = stringCollection
-				.stream()
-				.sorted()
-				.reduce((s1, s2) -> s1 + "#" + s2);
-		reduced.ifPresent(System.out::println); // "aaa1#aaa2#bbb1#bbb2#bbb3#ccc#ddd1#ddd2"
-		System.out.println("=======================");
-		
-		int max = 1000000;
-		List<String> values = new ArrayList<>(max);
-		for (int i = 0; i < max; i++) {
-		    UUID uuid = UUID.randomUUID();
-		    values.add(uuid.toString());
-		}
-		
-		long t0 = System.nanoTime();
-		count = values.stream().sorted().count();
-		System.out.println(count);
-		long t1 = System.nanoTime();
-		long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-		System.out.println(String.format("sequential sort took: %d ms", millis)); // 串行耗时: 2338 ms
-		
-		t0 = System.nanoTime();
-		count = values.parallelStream().sorted().count();
-		System.out.println(count);
-		t1 = System.nanoTime();
-		millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-		System.out.println(String.format("parallel sort took: %d ms", millis)); // 并行排序耗时: 2183 ms
-	}
+    public static void main(String[] args) {
+        List<String> stringCollection = new ArrayList<>();
+        stringCollection.add("ddd2");
+        stringCollection.add("aaa2");
+        stringCollection.add("bbb1");
+        stringCollection.add("aaa1");
+        stringCollection.add("bbb3");
+        stringCollection.add("ccc");
+        stringCollection.add("bbb2");
+        stringCollection.add("ddd1");
+        
+        stringCollection.stream()
+                        .sorted()
+                        .filter((s) -> s.startsWith("a"))
+                        .forEach(System.out::println);
+        System.out.println("=======================");
+        
+        stringCollection.stream()
+                        .map(String::toUpperCase)
+                        .sorted()
+                        .forEach(System.out::println);
+        System.out.println("=======================");
+        
+        boolean matched = false;
+        matched = stringCollection.stream()
+                        .anyMatch((s) -> s.startsWith("a"));
+        System.out.println(matched); // true
+        System.out.println("=======================");
+        
+        matched = stringCollection.stream()
+                        .allMatch((s) -> s.startsWith("a"));
+        System.out.println(matched); // false
+        System.out.println("=======================");
+        
+        matched = stringCollection.stream()
+                .noneMatch((s) -> s.startsWith("z"));
+        System.out.println(matched); // true
+        System.out.println("=======================");
+        
+        long count = 0;
+        count = stringCollection.stream()
+                .filter((s) -> s.startsWith("a"))
+                .count();
+        System.out.println(count); // 2
+        System.out.println("=======================");
+        
+        Optional<String> reduced = stringCollection
+                .stream()
+                .sorted()
+                .reduce((s1, s2) -> s1 + "#" + s2);
+        reduced.ifPresent(System.out::println); // "aaa1#aaa2#bbb1#bbb2#bbb3#ccc#ddd1#ddd2"
+        System.out.println("=======================");
+        
+        int max = 1000000;
+        List<String> values = new ArrayList<>(max);
+        for (int i = 0; i < max; i++) {
+            UUID uuid = UUID.randomUUID();
+            values.add(uuid.toString());
+        }
+        
+        long t0 = System.nanoTime();
+        count = values.stream().sorted().count();
+        System.out.println(count);
+        long t1 = System.nanoTime();
+        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
+        System.out.println(String.format("sequential sort took: %d ms", millis)); // 串行耗时: 2338 ms
+        
+        t0 = System.nanoTime();
+        count = values.parallelStream().sorted().count();
+        System.out.println(count);
+        t1 = System.nanoTime();
+        millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
+        System.out.println(String.format("parallel sort took: %d ms", millis)); // 并行排序耗时: 2183 ms
+    }
 }

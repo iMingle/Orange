@@ -11,21 +11,21 @@ import javax.swing.JFrame;
  * @author Mingle
  */
 class ButtonFrame extends JFrame {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5397697534999754286L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -5397697534999754286L;
 
-	public ButtonFrame() {
-		setTitle("ButtonTest");
-		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+    public ButtonFrame() {
+        setTitle("ButtonTest");
+        setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
-		// add panel to frame
+        // add panel to frame
 
-		ButtonPanel panel = new ButtonPanel();
-		add(panel);
-	}
+        ButtonPanel panel = new ButtonPanel();
+        add(panel);
+    }
 
-	public static final int DEFAULT_WIDTH = 300;
-	public static final int DEFAULT_HEIGHT = 200;
+    public static final int DEFAULT_WIDTH = 300;
+    public static final int DEFAULT_HEIGHT = 200;
 }

@@ -27,9 +27,9 @@ class MergeSort {
     private final ForkJoinPool pool;
 
     private static class MergeSortTask extends RecursiveAction {
-		private static final long serialVersionUID = -6470257404132422772L;
-		
-		private final int[] array;
+        private static final long serialVersionUID = -6470257404132422772L;
+        
+        private final int[] array;
         private final int low;
         private final int high;
         private static final int THRESHOLD = 8;

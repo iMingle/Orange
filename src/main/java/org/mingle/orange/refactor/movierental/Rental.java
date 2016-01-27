@@ -10,19 +10,19 @@ package org.mingle.orange.refactor.movierental;
  * @author Mingle
  */
 public class Rental {
-	private Movie movie;
-	private int daysRented;
-	
-	public Rental(Movie movie, int daysRented) {
-		this.movie = movie;
-		this.daysRented = daysRented;
-	}
+    private Movie movie;
+    private int daysRented;
+    
+    public Rental(Movie movie, int daysRented) {
+        this.movie = movie;
+        this.daysRented = daysRented;
+    }
 
-	public Movie getMovie() {
-		return movie;
-	}
+    public Movie getMovie() {
+        return movie;
+    }
 
-	public int getDaysRented() {
-		return daysRented;
-	}
+    public int getDaysRented() {
+        return daysRented;
+    }
 }

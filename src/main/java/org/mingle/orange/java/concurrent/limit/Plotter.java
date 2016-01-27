@@ -12,22 +12,22 @@ import java.awt.Point;
  * @author Mingle
  */
 public class Plotter {
-	public void showNextPoint() {
-		Point p = new Point();
-		p.x = computeX();
-		p.y = computeY();
-		display(p);
-	}
+    public void showNextPoint() {
+        Point p = new Point();
+        p.x = computeX();
+        p.y = computeY();
+        display(p);
+    }
 
-	int computeX() {
-		return 1;
-	}
+    int computeX() {
+        return 1;
+    }
 
-	int computeY() {
-		return 1;
-	}
+    int computeY() {
+        return 1;
+    }
 
-	protected void display(Point p) {
-		// somehow arrange to show p.
-	}
+    protected void display(Point p) {
+        // somehow arrange to show p.
+    }
 }

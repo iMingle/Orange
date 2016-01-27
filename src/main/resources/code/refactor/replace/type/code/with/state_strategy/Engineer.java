@@ -8,9 +8,9 @@ package replace.type.code.with.state_strategy;
  *
  */
 class Engineer extends EmployeeType{
-	
-	int getTypeCode() {
-		return ENGINEER;
-	}
-	
+    
+    int getTypeCode() {
+        return ENGINEER;
+    }
+    
 }

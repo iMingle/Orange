@@ -10,58 +10,58 @@ package org.mingle.orange.java.concurrent.construct;
  * @author Mingle
  */
 public class Optimistic {
-	private State state; // reference to representation object
+    private State state; // reference to representation object
 
-	@SuppressWarnings("unused")
-	private synchronized State getState() {
-		return state;
-	}
+    @SuppressWarnings("unused")
+    private synchronized State getState() {
+        return state;
+    }
 
-	@SuppressWarnings("unused")
-	private synchronized boolean commit(State assumed, State next) {
-		if (state == assumed) {
-			state = next;
-			return true;
-		} else
-			return false;
-	}
+    @SuppressWarnings("unused")
+    private synchronized boolean commit(State assumed, State next) {
+        if (state == assumed) {
+            state = next;
+            return true;
+        } else
+            return false;
+    }
 }
 
 class State {
 }
 
 class OptimisticDot {
-	protected ImmutablePoint loc;
+    protected ImmutablePoint loc;
 
-	public OptimisticDot(int x, int y) {
-		loc = new ImmutablePoint(x, y);
-	}
+    public OptimisticDot(int x, int y) {
+        loc = new ImmutablePoint(x, y);
+    }
 
-	public synchronized ImmutablePoint location() {
-		return loc;
-	}
+    public synchronized ImmutablePoint location() {
+        return loc;
+    }
 
-	protected synchronized boolean commit(ImmutablePoint assumed,
-			ImmutablePoint next) {
-		if (loc == assumed) {
-			loc = next;
-			return true;
-		} else
-			return false;
-	}
+    protected synchronized boolean commit(ImmutablePoint assumed,
+            ImmutablePoint next) {
+        if (loc == assumed) {
+            loc = next;
+            return true;
+        } else
+            return false;
+    }
 
-	public synchronized void moveTo(int x, int y) {
-		// bypass commit since unconditional
-		loc = new ImmutablePoint(x, y);
-	}
+    public synchronized void moveTo(int x, int y) {
+        // bypass commit since unconditional
+        loc = new ImmutablePoint(x, y);
+    }
 
-	public void shiftX(int delta) {
-		boolean success = false;
-		do {
-			ImmutablePoint old = location();
-			ImmutablePoint next = new ImmutablePoint(old.x() + delta, old.y());
-			success = commit(old, next);
-		} while (!success);
-	}
+    public void shiftX(int delta) {
+        boolean success = false;
+        do {
+            ImmutablePoint old = location();
+            ImmutablePoint next = new ImmutablePoint(old.x() + delta, old.y());
+            success = commit(old, next);
+        } while (!success);
+    }
 
 }

@@ -13,14 +13,14 @@ import java.util.List;
  */
 public class PersonListRF {
 
-	private List<Course> _courses = new ArrayList<Course>();
-	
-	void setCourse(int index, Course newCourse) {
-		_courses.set(index, newCourse);
-	}
-	
-	Course[] getCourses() {
-		return (Course[]) _courses.toArray(new Course[0]);
-	}
+    private List<Course> _courses = new ArrayList<Course>();
+    
+    void setCourse(int index, Course newCourse) {
+        _courses.set(index, newCourse);
+    }
+    
+    Course[] getCourses() {
+        return (Course[]) _courses.toArray(new Course[0]);
+    }
 
 }

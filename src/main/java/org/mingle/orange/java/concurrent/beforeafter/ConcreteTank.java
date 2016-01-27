@@ -10,23 +10,23 @@ package org.mingle.orange.java.concurrent.beforeafter;
  * @author Mingle
  */
 public class ConcreteTank extends AbstractTank {
-	protected final float capacity = 10.f;
-	protected float volume;
+    protected final float capacity = 10.f;
+    protected float volume;
 
-	@Override
-	public float getCapacity() {
-		return capacity;
-	}
+    @Override
+    public float getCapacity() {
+        return capacity;
+    }
 
-	@Override
-	public float getVolume() {
-		return volume;
-	}
+    @Override
+    public float getVolume() {
+        return volume;
+    }
 
-	@Override
-	protected void doTransferWater(float amount) throws OverflowException,
-			UnderflowException {
-		// ... implementation code ...
-	}
+    @Override
+    protected void doTransferWater(float amount) throws OverflowException,
+            UnderflowException {
+        // ... implementation code ...
+    }
 
 }

@@ -12,15 +12,15 @@ import org.mingle.orange.java.concurrent.util.Helper;
  * @author Mingle
  */
 public class OpenCallHost {
-	protected long localState;
-	protected final Helper helper = new Helper();
+    protected long localState;
+    protected final Helper helper = new Helper();
 
-	protected synchronized void updateState() {
-		localState = 2; // ...;
-	}
+    protected synchronized void updateState() {
+        localState = 2; // ...;
+    }
 
-	public void req() {
-		updateState();
-		helper.handle();
-	}
+    public void req() {
+        updateState();
+        helper.handle();
+    }
 }

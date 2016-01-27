@@ -4,10 +4,10 @@ import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class InfixToPostfix {
-	
-	public static void main(String[] args) {
-		Stack<String> stack = new Stack<String>();
-		while (!StdIn.isEmpty()) {
+    
+    public static void main(String[] args) {
+        Stack<String> stack = new Stack<String>();
+        while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
             if      (s.equals("+")) stack.push(s);
             else if (s.equals("*")) stack.push(s);
@@ -18,6 +18,6 @@ public class InfixToPostfix {
         }
         StdOut.println();
         
-	}
+    }
 
 }

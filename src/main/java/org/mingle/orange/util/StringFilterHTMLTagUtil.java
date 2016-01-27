@@ -13,21 +13,21 @@ import java.util.regex.Pattern;
  */
 public class StringFilterHTMLTagUtil {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		String html = "<div>123<span>456</span>789</div>";
-		
-		System.out.println(StringFilterHTMLTagUtil.removeHTMLTag(html));
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        String html = "<div>123<span>456</span>789</div>";
+        
+        System.out.println(StringFilterHTMLTagUtil.removeHTMLTag(html));
+    }
 
-	public static String removeHTMLTag(String in) {
-		String regular = "<[^>]+>";
+    public static String removeHTMLTag(String in) {
+        String regular = "<[^>]+>";
 
-		Pattern pattern = Pattern.compile(regular);
-		Matcher matcher = pattern.matcher(in);
-		
-		return matcher.replaceAll("");
-	}
+        Pattern pattern = Pattern.compile(regular);
+        Matcher matcher = pattern.matcher(in);
+        
+        return matcher.replaceAll("");
+    }
 }

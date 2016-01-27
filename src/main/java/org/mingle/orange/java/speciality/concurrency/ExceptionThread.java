@@ -13,22 +13,22 @@ import java.util.concurrent.Executors;
  * @author Mingle
  */
 public class ExceptionThread implements Runnable {
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Runnable#run()
-	 */
-	@Override
-	public void run() {
-		throw new RuntimeException();
-	}
+    
+    /* (non-Javadoc)
+     * @see java.lang.Runnable#run()
+     */
+    @Override
+    public void run() {
+        throw new RuntimeException();
+    }
 
-	public static void main(String[] args) {
-		try {
-			ExecutorService exec = Executors.newCachedThreadPool();
-			exec.execute(new ExceptionThread());
-		} catch (RuntimeException e) {
-			System.out.println("Exception has been handled!");
-		}
-	}
+    public static void main(String[] args) {
+        try {
+            ExecutorService exec = Executors.newCachedThreadPool();
+            exec.execute(new ExceptionThread());
+        } catch (RuntimeException e) {
+            System.out.println("Exception has been handled!");
+        }
+    }
 
 }

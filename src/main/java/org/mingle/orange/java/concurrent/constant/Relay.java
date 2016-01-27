@@ -10,13 +10,13 @@ package org.mingle.orange.java.concurrent.constant;
  * @author Mingle
  */
 public class Relay {
-	protected final Server server;
+    protected final Server server;
 
-	public Relay(Server server) {
-		this.server = server;
-	}
-	
-	public void doIt() {
-		server.doIt();
-	}
+    public Relay(Server server) {
+        this.server = server;
+    }
+    
+    public void doIt() {
+        server.doIt();
+    }
 }

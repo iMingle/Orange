@@ -13,22 +13,22 @@ import org.junit.Test;
  * @author Mingle
  */
 public class StringMoveContainTests {
-	@Test
-	public void isContain1() {
-		assertThat(StringMoveContain.isContain1("AABCD", "CDAA")).isTrue();
-		assertThat(StringMoveContain.isContain1("AABCD", "AAB")).isTrue();
-		assertThat(StringMoveContain.isContain1("AABCD", "A")).isTrue();
-		assertThat(StringMoveContain.isContain1("AABCD", "D")).isTrue();
-		assertThat(StringMoveContain.isContain1("AABCD", "DAA")).isTrue();
-		assertThat(StringMoveContain.isContain1("AABCD", "CDB")).isFalse();
-		assertThat(StringMoveContain.isContain1("AABCD", "CB")).isFalse();
-		
-		assertThat(StringMoveContain.isContain2("AABCD", "CDAA")).isTrue();
-		assertThat(StringMoveContain.isContain2("AABCD", "AAB")).isTrue();
-		assertThat(StringMoveContain.isContain2("AABCD", "A")).isTrue();
-		assertThat(StringMoveContain.isContain2("AABCD", "D")).isTrue();
-		assertThat(StringMoveContain.isContain2("AABCD", "DAA")).isTrue();
-		assertThat(StringMoveContain.isContain2("AABCD", "CDB")).isFalse();
-		assertThat(StringMoveContain.isContain2("AABCD", "CB")).isFalse();
-	}
+    @Test
+    public void isContain1() {
+        assertThat(StringMoveContain.isContain1("AABCD", "CDAA")).isTrue();
+        assertThat(StringMoveContain.isContain1("AABCD", "AAB")).isTrue();
+        assertThat(StringMoveContain.isContain1("AABCD", "A")).isTrue();
+        assertThat(StringMoveContain.isContain1("AABCD", "D")).isTrue();
+        assertThat(StringMoveContain.isContain1("AABCD", "DAA")).isTrue();
+        assertThat(StringMoveContain.isContain1("AABCD", "CDB")).isFalse();
+        assertThat(StringMoveContain.isContain1("AABCD", "CB")).isFalse();
+        
+        assertThat(StringMoveContain.isContain2("AABCD", "CDAA")).isTrue();
+        assertThat(StringMoveContain.isContain2("AABCD", "AAB")).isTrue();
+        assertThat(StringMoveContain.isContain2("AABCD", "A")).isTrue();
+        assertThat(StringMoveContain.isContain2("AABCD", "D")).isTrue();
+        assertThat(StringMoveContain.isContain2("AABCD", "DAA")).isTrue();
+        assertThat(StringMoveContain.isContain2("AABCD", "CDB")).isFalse();
+        assertThat(StringMoveContain.isContain2("AABCD", "CB")).isFalse();
+    }
 }

@@ -10,13 +10,13 @@ package org.mingle.orange.java.exception;
  */
 public class AssertTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		int a = 3;
-		assert a > 3;
-		assert a > 3 : "assert test";
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        int a = 3;
+        assert a > 3;
+        assert a > 3 : "assert test";
+    }
 
 }

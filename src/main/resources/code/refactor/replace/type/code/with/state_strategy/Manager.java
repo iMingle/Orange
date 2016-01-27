@@ -8,8 +8,8 @@ package replace.type.code.with.state_strategy;
  *
  */
 public class Manager extends EmployeeType{
-	
-	int getTypeCode() {
-		return MANAGER;
-	}
+    
+    int getTypeCode() {
+        return MANAGER;
+    }
 }

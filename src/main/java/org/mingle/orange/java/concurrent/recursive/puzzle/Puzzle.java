@@ -13,8 +13,8 @@ import java.util.Set;
  * @author Mingle
  */
 public interface Puzzle<P, M> {
-	P initialPosition();
-	boolean isGoal(P position);
-	Set<M> legalMoves(P position);
-	P move(P position, M move);
+    P initialPosition();
+    boolean isGoal(P position);
+    Set<M> legalMoves(P position);
+    P move(P position, M move);
 }

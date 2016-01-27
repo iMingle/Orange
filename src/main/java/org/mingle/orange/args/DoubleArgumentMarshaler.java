@@ -15,29 +15,29 @@ import static org.mingle.orange.args.ArgsException.ErrorCode.*;
  * @author Mingle
  */
 public class DoubleArgumentMarshaler implements ArgumentMarshaler {
-	private double doubleValue = 0;
+    private double doubleValue = 0;
 
-	/* (non-Javadoc)
-	 * @see org.mingle.orange.args.ArgumentMarshaler#set(java.util.Iterator)
-	 */
-	@Override
-	public void set(Iterator<String> currentArgument) throws ArgsException {
-		String parameter = null;
-		
-		try {
-			parameter = currentArgument.next();
-			doubleValue = Double.parseDouble(parameter);
-		} catch (NoSuchElementException e) {
-			throw new ArgsException(MISSING_DOUBLE);
-		} catch (NumberFormatException e) {
-			throw new ArgsException(INVALID_DOUBLE, parameter);
-		}
-	}
+    /* (non-Javadoc)
+     * @see org.mingle.orange.args.ArgumentMarshaler#set(java.util.Iterator)
+     */
+    @Override
+    public void set(Iterator<String> currentArgument) throws ArgsException {
+        String parameter = null;
+        
+        try {
+            parameter = currentArgument.next();
+            doubleValue = Double.parseDouble(parameter);
+        } catch (NoSuchElementException e) {
+            throw new ArgsException(MISSING_DOUBLE);
+        } catch (NumberFormatException e) {
+            throw new ArgsException(INVALID_DOUBLE, parameter);
+        }
+    }
 
-	public static double getValue(ArgumentMarshaler am) {
-		if (am != null && am instanceof DoubleArgumentMarshaler)
-			return ((DoubleArgumentMarshaler) am).doubleValue;
-		else
-			return 0;
-	}
+    public static double getValue(ArgumentMarshaler am) {
+        if (am != null && am instanceof DoubleArgumentMarshaler)
+            return ((DoubleArgumentMarshaler) am).doubleValue;
+        else
+            return 0;
+    }
 }

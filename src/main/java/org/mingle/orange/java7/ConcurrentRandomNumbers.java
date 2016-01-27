@@ -16,8 +16,8 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Mingle
  */
 public class ConcurrentRandomNumbers {
-	public static void main(String[] args) {
-		int rand = ThreadLocalRandom.current().nextInt(1, 100);
-		System.out.println(rand);
-	}
+    public static void main(String[] args) {
+        int rand = ThreadLocalRandom.current().nextInt(1, 100);
+        System.out.println(rand);
+    }
 }

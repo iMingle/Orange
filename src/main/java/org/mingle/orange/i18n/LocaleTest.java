@@ -11,18 +11,18 @@ import java.util.Locale;
  */
 public class LocaleTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Locale locale = Locale.CHINA;
-		System.out.println("country: " + locale.getDisplayCountry());
-		System.out.println("language: " + locale.getDisplayLanguage());
-		System.out.println("name: " + locale.getDisplayName());
-		System.out.println("script: " + locale.getDisplayScript());
-		System.out.println("variant: " + locale.getDisplayVariant());
-		System.out.println("lang: " + locale.getLanguage());
-		System.out.println("country: " + locale.getCountry());
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        Locale locale = Locale.CHINA;
+        System.out.println("country: " + locale.getDisplayCountry());
+        System.out.println("language: " + locale.getDisplayLanguage());
+        System.out.println("name: " + locale.getDisplayName());
+        System.out.println("script: " + locale.getDisplayScript());
+        System.out.println("variant: " + locale.getDisplayVariant());
+        System.out.println("lang: " + locale.getLanguage());
+        System.out.println("country: " + locale.getCountry());
+    }
 
 }

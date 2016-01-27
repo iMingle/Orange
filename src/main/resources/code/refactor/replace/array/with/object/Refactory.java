@@ -9,16 +9,16 @@ package replace.array.with.object;
  */
 public class Refactory {
 
-	public static void main(String[] args) {
-		
-		String[] row = new String[3];
-		row[0] = "Livepool";
-		row[1] = "15";
-		
-		/*-->
-		 * 
-		Performance row = new Performance();
-		row.setName("Livepool");
-		row.setWins("15");*/
-	}
+    public static void main(String[] args) {
+        
+        String[] row = new String[3];
+        row[0] = "Livepool";
+        row[1] = "15";
+        
+        /*-->
+         * 
+        Performance row = new Performance();
+        row.setName("Livepool");
+        row.setWins("15");*/
+    }
 }

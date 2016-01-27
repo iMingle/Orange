@@ -12,7 +12,7 @@ package org.mingle.orange.java.concurrent.state.fail;
  */
 public class HandlerImpl implements ServiceExceptionHandler {
 
-	@Override
-	public void handle(ServiceException e) {}
+    @Override
+    public void handle(ServiceException e) {}
 
 }

@@ -10,13 +10,13 @@ package org.mingle.orange.java.speciality;
  */
 public class DownCastTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Son s = (Son) new Father(48);			// cannot be cast
-		s.getAge();
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        Son s = (Son) new Father(48);            // cannot be cast
+        s.getAge();
+    }
 
 }
 

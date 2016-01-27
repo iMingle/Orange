@@ -12,5 +12,5 @@ import java.util.Iterator;
  * @author Mingle
  */
 public interface ArgumentMarshaler {
-	void set(Iterator<String> currentArgument) throws ArgsException;
+    void set(Iterator<String> currentArgument) throws ArgsException;
 }

@@ -14,21 +14,21 @@ import java.io.OutputStream;
  * @author Mingle
  */
 public class ServiceUsingThreadWithOutputStream {
-	public void service() throws IOException {
-		OutputStream output = new FileOutputStream("...");
-		Runnable r = new Runnable() {
-			public void run() {
-				try {
-					doService();
-				} catch (IOException e) {
-				}
-			}
-		};
-		new ThreadWithOutputStream(r, output).start();
-	}
+    public void service() throws IOException {
+        OutputStream output = new FileOutputStream("...");
+        Runnable r = new Runnable() {
+            public void run() {
+                try {
+                    doService();
+                } catch (IOException e) {
+                }
+            }
+        };
+        new ThreadWithOutputStream(r, output).start();
+    }
 
-	@SuppressWarnings("static-access")
-	void doService() throws IOException {
-		ThreadWithOutputStream.current().getOutput().write(0);
-	}
+    @SuppressWarnings("static-access")
+    void doService() throws IOException {
+        ThreadWithOutputStream.current().getOutput().write(0);
+    }
 }

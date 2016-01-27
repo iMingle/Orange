@@ -18,26 +18,26 @@ import com.google.common.collect.Lists;
  */
 public class PredicateTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// filter even number
-		Predicate<Integer> evenFilter = new Predicate<Integer>() {
-			
-			@Override
-			public boolean apply(Integer input) {
-				return 0 != input % 2;
-			}
-		};
-		
-		List<Integer> numbers = Lists.newArrayList();
-		for (int i = 0; i < 100; i++) {
-			numbers.add(i);
-		}
-		
-		Collection<Integer> odd = Collections2.filter(numbers, evenFilter);
-		
-		System.out.println(odd);
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // filter even number
+        Predicate<Integer> evenFilter = new Predicate<Integer>() {
+            
+            @Override
+            public boolean apply(Integer input) {
+                return 0 != input % 2;
+            }
+        };
+        
+        List<Integer> numbers = Lists.newArrayList();
+        for (int i = 0; i < 100; i++) {
+            numbers.add(i);
+        }
+        
+        Collection<Integer> odd = Collections2.filter(numbers, evenFilter);
+        
+        System.out.println(odd);
+    }
 }

@@ -12,85 +12,85 @@ import java.util.Date;
  * @author Mingle
  */
 public class TimerDaemon {
-	static class TimerTask implements Comparable<TimerTask> {
-		final Runnable command;
-		final long execTime; // time to run at
+    static class TimerTask implements Comparable<TimerTask> {
+        final Runnable command;
+        final long execTime; // time to run at
 
-		public int compareTo(TimerTask x) {
-			long otherExecTime = x.execTime;
-			return (execTime < otherExecTime) ? -1
-					: (execTime == otherExecTime) ? 0 : 1;
-		}
+        public int compareTo(TimerTask x) {
+            long otherExecTime = x.execTime;
+            return (execTime < otherExecTime) ? -1
+                    : (execTime == otherExecTime) ? 0 : 1;
+        }
 
-		TimerTask(Runnable r, long t) {
-			command = r;
-			execTime = t;
-		}
-	}
+        TimerTask(Runnable r, long t) {
+            command = r;
+            execTime = t;
+        }
+    }
 
-	// a heap or list with methods that preserve
-	// ordering with respect to TimerTask.compareTo
-	static class PriorityQueue {
-		void put(TimerTask t) {
-		}
+    // a heap or list with methods that preserve
+    // ordering with respect to TimerTask.compareTo
+    static class PriorityQueue {
+        void put(TimerTask t) {
+        }
 
-		TimerTask least() {
-			return null;
-		}
+        TimerTask least() {
+            return null;
+        }
 
-		void removeLeast() {
-		}
+        void removeLeast() {
+        }
 
-		boolean isEmpty() {
-			return true;
-		}
-	}
+        boolean isEmpty() {
+            return true;
+        }
+    }
 
-	protected final PriorityQueue pq = new PriorityQueue();
+    protected final PriorityQueue pq = new PriorityQueue();
 
-	public synchronized void executeAfterDelay(Runnable r, long t) {
-		pq.put(new TimerTask(r, t + System.currentTimeMillis()));
-		notifyAll();
-	}
+    public synchronized void executeAfterDelay(Runnable r, long t) {
+        pq.put(new TimerTask(r, t + System.currentTimeMillis()));
+        notifyAll();
+    }
 
-	public synchronized void executeAt(Runnable r, Date time) {
-		pq.put(new TimerTask(r, time.getTime()));
-		notifyAll();
-	}
+    public synchronized void executeAt(Runnable r, Date time) {
+        pq.put(new TimerTask(r, time.getTime()));
+        notifyAll();
+    }
 
-	// wait for and then return next task to run
-	protected synchronized Runnable take() throws InterruptedException {
-		for (;;) {
-			while (pq.isEmpty())
-				wait();
-			TimerTask t = pq.least();
-			long now = System.currentTimeMillis();
-			long waitTime = now - t.execTime;
-			if (waitTime <= 0) {
-				pq.removeLeast();
-				return t.command;
-			} else
-				wait(waitTime);
-		}
-	}
+    // wait for and then return next task to run
+    protected synchronized Runnable take() throws InterruptedException {
+        for (;;) {
+            while (pq.isEmpty())
+                wait();
+            TimerTask t = pq.least();
+            long now = System.currentTimeMillis();
+            long waitTime = now - t.execTime;
+            if (waitTime <= 0) {
+                pq.removeLeast();
+                return t.command;
+            } else
+                wait(waitTime);
+        }
+    }
 
-	public TimerDaemon() {
-		activate();
-	} // only one
+    public TimerDaemon() {
+        activate();
+    } // only one
 
-	void activate() {
-		// same as PlainWorkerThread except using above take method
-		Runnable runLoop = new Runnable() {
-			public void run() {
-				try {
-					for (;;) {
-						Runnable r = take();
-						r.run();
-					}
-				} catch (InterruptedException ie) {
-				} // die
-			}
-		};
-		new Thread(runLoop).start();
-	}
+    void activate() {
+        // same as PlainWorkerThread except using above take method
+        Runnable runLoop = new Runnable() {
+            public void run() {
+                try {
+                    for (;;) {
+                        Runnable r = take();
+                        r.run();
+                    }
+                } catch (InterruptedException ie) {
+                } // die
+            }
+        };
+        new Thread(runLoop).start();
+    }
 }

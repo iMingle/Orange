@@ -10,9 +10,9 @@ package org.mingle.orange.java.concurrent.util;
  * @author Mingle
  */
 public class Helper {
-	public void handle() {
-	}
+    public void handle() {
+    }
 
-	public void operation() {
-	}
+    public void operation() {
+    }
 }

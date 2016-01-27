@@ -15,26 +15,26 @@ import java.util.Locale;
  * @author Mingle
  */
 public class CalendarTest {
-	/**
-	 * @param args
-	 */
-	@SuppressWarnings("unused")
-	public static void main(String[] args) {
-		Locale.setDefault(Locale.US);
-		Calendar calendar = new GregorianCalendar(Locale.UK);
-		System.out.println(calendar.toString());
-		int month = calendar.get(Calendar.MONTH);
-		
-		Date date = calendar.getTime();
-		
-		System.out.println(date);
-		
-		DateFormatSymbols dfs = new DateFormatSymbols();
-		
-		for (String s : dfs.getMonths()) {
-			System.out.println(s);
-		}
-		
-	}
+    /**
+     * @param args
+     */
+    @SuppressWarnings("unused")
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Calendar calendar = new GregorianCalendar(Locale.UK);
+        System.out.println(calendar.toString());
+        int month = calendar.get(Calendar.MONTH);
+        
+        Date date = calendar.getTime();
+        
+        System.out.println(date);
+        
+        DateFormatSymbols dfs = new DateFormatSymbols();
+        
+        for (String s : dfs.getMonths()) {
+            System.out.println(s);
+        }
+        
+    }
 
 }

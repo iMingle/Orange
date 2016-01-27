@@ -12,79 +12,79 @@ import java.util.Arrays;
  * @author Mingle
  */
 public class NQueens extends NullFJTask {
-	static int boardSize; // fixed after initialization in main
+    static int boardSize; // fixed after initialization in main
 
-	static final Result result = new Result();
+    static final Result result = new Result();
 
-	public static void main(String[] args) {
-		try {
-			boardSize = 8;
-			FJTaskRunnerGroup tasks = new FJTaskRunnerGroup(4);
-			int[] initialBoard = new int[0]; // start with empty board
-			tasks.execute(new NQueens(initialBoard));
-			int[] board = result.await();
-			System.out.println(Arrays.toString(board));
-		} catch (InterruptedException ie) {}
-	}
+    public static void main(String[] args) {
+        try {
+            boardSize = 8;
+            FJTaskRunnerGroup tasks = new FJTaskRunnerGroup(4);
+            int[] initialBoard = new int[0]; // start with empty board
+            tasks.execute(new NQueens(initialBoard));
+            int[] board = result.await();
+            System.out.println(Arrays.toString(board));
+        } catch (InterruptedException ie) {}
+    }
 
-	final int[] sofar; // initial configuration
+    final int[] sofar; // initial configuration
 
-	NQueens(int[] board) {
-		this.sofar = board;
-	}
+    NQueens(int[] board) {
+        this.sofar = board;
+    }
 
-	public void run() {
-		if (!result.solved()) { // skip if already solved
-			int row = sofar.length;
+    public void run() {
+        if (!result.solved()) { // skip if already solved
+            int row = sofar.length;
 
-			if (row >= boardSize) // done
-				result.set(sofar);
-			else { // try all expansions
-				for (int q = 0; q < boardSize; ++q) {
-					// Check if queen can be placed in column q of next row
-					boolean attacked = false;
-					for (int i = 0; i < row; ++i) {
-						int p = sofar[i];
-						if (q == p || q == p - (row - i) || q == p + (row - i)) {
-							attacked = true;
-							break;
-						}
-					}
+            if (row >= boardSize) // done
+                result.set(sofar);
+            else { // try all expansions
+                for (int q = 0; q < boardSize; ++q) {
+                    // Check if queen can be placed in column q of next row
+                    boolean attacked = false;
+                    for (int i = 0; i < row; ++i) {
+                        int p = sofar[i];
+                        if (q == p || q == p - (row - i) || q == p + (row - i)) {
+                            attacked = true;
+                            break;
+                        }
+                    }
 
-					// If so, fork to explore moves from new configuration
-					if (!attacked) {
-						// build extended board representation
-						int[] next = new int[row + 1];
-						for (int k = 0; k < row; ++k)
-							next[k] = sofar[k];
-						next[row] = q;
-						new NQueens(next).fork();
-					}
-				}
-			}
-		}
-	}
-	
-	// Boards are arrays where each cell represents a row,
-	// and holds the column number of the queen in that row
-	static class Result { // holder for ultimate result
-		private int[] board = null; // non-null when solved
+                    // If so, fork to explore moves from new configuration
+                    if (!attacked) {
+                        // build extended board representation
+                        int[] next = new int[row + 1];
+                        for (int k = 0; k < row; ++k)
+                            next[k] = sofar[k];
+                        next[row] = q;
+                        new NQueens(next).fork();
+                    }
+                }
+            }
+        }
+    }
+    
+    // Boards are arrays where each cell represents a row,
+    // and holds the column number of the queen in that row
+    static class Result { // holder for ultimate result
+        private int[] board = null; // non-null when solved
 
-		synchronized boolean solved() {
-			return board != null;
-		}
+        synchronized boolean solved() {
+            return board != null;
+        }
 
-		synchronized void set(int[] b) { // Support use by non-Tasks
-			if (board == null) {
-				board = b;
-				notifyAll();
-			}
-		}
+        synchronized void set(int[] b) { // Support use by non-Tasks
+            if (board == null) {
+                board = b;
+                notifyAll();
+            }
+        }
 
-		synchronized int[] await() throws InterruptedException {
-			while (board == null)
-				wait();
-			return board;
-		}
-	}
+        synchronized int[] await() throws InterruptedException {
+            while (board == null)
+                wait();
+            return board;
+        }
+    }
 }

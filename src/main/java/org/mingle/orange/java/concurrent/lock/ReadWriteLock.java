@@ -12,6 +12,6 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
  * @author Mingle
  */
 public interface ReadWriteLock {
-	Sync readLock();
-	Sync writeLock();
+    Sync readLock();
+    Sync writeLock();
 }

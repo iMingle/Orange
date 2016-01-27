@@ -11,17 +11,17 @@ package org.mingle.orange.arithmetic.util;
  * @author Mingle
  */
 public class DeleteRandomNode {
-	public static class Node<E> {
-		E data;
-		Node<E> next;
-	}
-	
-	public static void deleteRandomNode(Node<String> current) {
-		Node<String> next = current.next;
-		if (next != null) {
-			current.next = next.next;
-			current.data = next.data;
-			next = null;
-		}
-	}
+    public static class Node<E> {
+        E data;
+        Node<E> next;
+    }
+    
+    public static void deleteRandomNode(Node<String> current) {
+        Node<String> next = current.next;
+        if (next != null) {
+            current.next = next.next;
+            current.data = next.data;
+            next = null;
+        }
+    }
 }

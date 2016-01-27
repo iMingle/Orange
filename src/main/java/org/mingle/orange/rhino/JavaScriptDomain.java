@@ -9,9 +9,9 @@ package org.mingle.orange.rhino;
  * @author Mingle
  */
 public class JavaScriptDomain {
-	private String name = "JavaScript";
-	
-	public String say() {
-		return this.name;
-	}
+    private String name = "JavaScript";
+    
+    public String say() {
+        return this.name;
+    }
 }

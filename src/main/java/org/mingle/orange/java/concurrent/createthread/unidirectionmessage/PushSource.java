@@ -10,19 +10,19 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
  * @author Mingle
  */
 public interface PushSource {
-	Box produce();
+    Box produce();
 }
 
 /**
  * 推动的阶段
  */
 interface PushStage {
-	void putA(Box p);
+    void putA(Box p);
 }
 
 /**
  * 双输入推动的阶段
  */
 interface DualInputPushStage extends PushStage {
-	void putB(Box p);
+    void putB(Box p);
 }

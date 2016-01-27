@@ -10,5 +10,5 @@ package org.mingle.orange.java.concurrent.sync;
  * @author Mingle
  */
 public interface Procedure {
-	void apply(Object obj);
+    void apply(Object obj);
 }

@@ -10,5 +10,5 @@ package org.mingle.orange.java.concurrent.beforeafter;
  * @author Mingle
  */
 public interface TankOp {
-	void op() throws OverflowException, UnderflowException;
+    void op() throws OverflowException, UnderflowException;
 }

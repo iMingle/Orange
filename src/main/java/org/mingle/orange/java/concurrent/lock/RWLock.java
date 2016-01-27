@@ -13,16 +13,16 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
  */
 public class RWLock implements ReadWriteLock {
 
-	@Override
-	public Sync readLock() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Sync readLock() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Sync writeLock() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Sync writeLock() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

@@ -9,11 +9,11 @@ package encapsulate.collection;
  */
 public class Course {
 
-	public boolean isAdvanced() {
-		return true;
-	}
+    public boolean isAdvanced() {
+        return true;
+    }
 
-	public Course(String name, boolean isAdvanced) {
+    public Course(String name, boolean isAdvanced) {
 
-	}
+    }
 }

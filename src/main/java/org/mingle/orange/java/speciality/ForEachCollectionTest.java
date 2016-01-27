@@ -14,17 +14,17 @@ import java.util.Collection;
  */
 public class ForEachCollectionTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Collection<Integer> array = new ArrayList<Integer>();
-		array.add(6);
-		array.add(8);
-		
-		for (Integer i : array) {
-			System.out.println(i);
-		}
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        Collection<Integer> array = new ArrayList<Integer>();
+        array.add(6);
+        array.add(8);
+        
+        for (Integer i : array) {
+            System.out.println(i);
+        }
+    }
 
 }

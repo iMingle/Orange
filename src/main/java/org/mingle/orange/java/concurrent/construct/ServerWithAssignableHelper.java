@@ -12,30 +12,30 @@ import org.mingle.orange.java.concurrent.util.Helper;
  * @author Mingle
  */
 public class ServerWithAssignableHelper {
-	private double state;
-	private Helper helper = new Helper();
+    private double state;
+    private Helper helper = new Helper();
 
-	synchronized void setHelper(Helper h) {
-		helper = h;
-	}
+    synchronized void setHelper(Helper h) {
+        helper = h;
+    }
 
-	public void service() {
-		Helper h;
-		synchronized (this) {
-			state = 2.0f;
-			h = helper;
-		}
-		h.operation();
-	}
+    public void service() {
+        Helper h;
+        synchronized (this) {
+            state = 2.0f;
+            h = helper;
+        }
+        h.operation();
+    }
 
-	/**
-	 * 会锁定整个service()方法
-	 */
-	public synchronized void synchedService() { // see below
-		service();
-	}
-	
-	public synchronized double getState() {
-		return state;
-	}
+    /**
+     * 会锁定整个service()方法
+     */
+    public synchronized void synchedService() { // see below
+        service();
+    }
+    
+    public synchronized double getState() {
+        return state;
+    }
 }

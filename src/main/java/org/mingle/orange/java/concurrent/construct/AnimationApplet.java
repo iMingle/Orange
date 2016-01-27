@@ -10,25 +10,25 @@ package org.mingle.orange.java.concurrent.construct;
  * @author Mingle
  */
 public class AnimationApplet {
-	int framesPerSecond; // default zero is illegal value
+    int framesPerSecond; // default zero is illegal value
 
-	void animate() {
-		try {
-			if (framesPerSecond == 0) { // the unsynchronized check
-				synchronized (this) {
-					if (framesPerSecond == 0) { // the double-check
-						String param = getParameter("fps");
-						framesPerSecond = Integer.parseInt(param);
-					}
-				}
-			}
-		} catch (Exception e) {
-		}
+    void animate() {
+        try {
+            if (framesPerSecond == 0) { // the unsynchronized check
+                synchronized (this) {
+                    if (framesPerSecond == 0) { // the double-check
+                        String param = getParameter("fps");
+                        framesPerSecond = Integer.parseInt(param);
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
 
-		// ... actions using framesPerSecond ...
-	}
+        // ... actions using framesPerSecond ...
+    }
 
-	private String getParameter(String string) {
-		return "60";
-	}
+    private String getParameter(String string) {
+        return "60";
+    }
 }

@@ -15,27 +15,27 @@ import java.util.Map;
  * @author Mingle
  */
 public class WarehouseImpl extends UnicastRemoteObject implements Warehouse {
-	private static final long serialVersionUID = -2465759340903040538L;
-	
-	private Map<String, Double> prices;
+    private static final long serialVersionUID = -2465759340903040538L;
+    
+    private Map<String, Double> prices;
 
-	/**
-	 * @throws RemoteException
-	 */
-	protected WarehouseImpl() throws RemoteException {
-		super(8888);
-		prices = new HashMap<>();
-		prices.put("Orange", 2.95);
-		prices.put("Apple", 4.99);
-	}
+    /**
+     * @throws RemoteException
+     */
+    protected WarehouseImpl() throws RemoteException {
+        super(8888);
+        prices = new HashMap<>();
+        prices.put("Orange", 2.95);
+        prices.put("Apple", 4.99);
+    }
 
-	/* (non-Javadoc)
-	 * @see org.mingle.orange.distributed.Warehouse#getPrice(java.lang.String)
-	 */
-	@Override
-	public double getPrice(String description) throws RemoteException {
-		Double price = prices.get(description);
-		return price == null ? 0 : price;
-	}
+    /* (non-Javadoc)
+     * @see org.mingle.orange.distributed.Warehouse#getPrice(java.lang.String)
+     */
+    @Override
+    public double getPrice(String description) throws RemoteException {
+        Double price = prices.get(description);
+        return price == null ? 0 : price;
+    }
 
 }

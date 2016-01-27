@@ -13,8 +13,8 @@ import java.util.List;
  * @author Mingle
  */
 public class GenericSimplify {
-	public static void main(String[] args) {
-		@SuppressWarnings("unused")
-		List<String> array = new ArrayList<>();
-	}
+    public static void main(String[] args) {
+        @SuppressWarnings("unused")
+        List<String> array = new ArrayList<>();
+    }
 }

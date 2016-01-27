@@ -24,28 +24,28 @@ import javax.swing.JTextArea;
  */
 public class GridBagTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
 
-			@Override
-			public void run() {
-				String filename = ".";
-				try {
-					filename = new File(GridBagTest.class.getResource(
-							"/documents/xml/fontdialog-schema.xml").toURI()).getPath();
-				} catch (URISyntaxException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				JFrame frame = new FontFrame(filename);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-			}
-		});
-	}
+            @Override
+            public void run() {
+                String filename = ".";
+                try {
+                    filename = new File(GridBagTest.class.getResource(
+                            "/documents/xml/fontdialog-schema.xml").toURI()).getPath();
+                } catch (URISyntaxException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                JFrame frame = new FontFrame(filename);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
 
 }
 
@@ -55,64 +55,64 @@ public class GridBagTest {
  */
 class FontFrame extends JFrame {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1326443867812163843L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1326443867812163843L;
 
-	private GridBagPane gridbag;
-	private JComboBox<String> face;
-	private JComboBox<String> size;
-	private JCheckBox bold;
-	private JCheckBox italic;
-	private static final int DEFAULT_WIDTH = 400;
-	private static final int DEFAULT_HEIGHT = 400;
+    private GridBagPane gridbag;
+    private JComboBox<String> face;
+    private JComboBox<String> size;
+    private JCheckBox bold;
+    private JCheckBox italic;
+    private static final int DEFAULT_WIDTH = 400;
+    private static final int DEFAULT_HEIGHT = 400;
 
-	@SuppressWarnings("unchecked")
-	public FontFrame(String filename) {
-		this.setTitle("GridBagTest");
-		this.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+    @SuppressWarnings("unchecked")
+    public FontFrame(String filename) {
+        this.setTitle("GridBagTest");
+        this.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
-		gridbag = new GridBagPane(filename);
-		this.add(gridbag);
+        gridbag = new GridBagPane(filename);
+        this.add(gridbag);
 
-		face = (JComboBox<String>) gridbag.get("face");
-		size = (JComboBox<String>) gridbag.get("size");
-		bold = (JCheckBox) gridbag.get("bold");
-		italic = (JCheckBox) gridbag.get("italic");
+        face = (JComboBox<String>) gridbag.get("face");
+        size = (JComboBox<String>) gridbag.get("size");
+        bold = (JCheckBox) gridbag.get("bold");
+        italic = (JCheckBox) gridbag.get("italic");
 
-		face.setModel(new DefaultComboBoxModel<String>(new String[] { "Serif",
-				"SansSerif", "Monospaced", "Dialog", "DialogInput" }));
-		size.setModel(new DefaultComboBoxModel<String>(new String[] { "8",
-				"10", "12", "15", "18", "24", "36", "48" }));
+        face.setModel(new DefaultComboBoxModel<String>(new String[] { "Serif",
+                "SansSerif", "Monospaced", "Dialog", "DialogInput" }));
+        size.setModel(new DefaultComboBoxModel<String>(new String[] { "8",
+                "10", "12", "15", "18", "24", "36", "48" }));
 
-		ActionListener listener = new ActionListener() {
+        ActionListener listener = new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				setSample();
-			}
-		};
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setSample();
+            }
+        };
 
-		face.addActionListener(listener);
-		size.addActionListener(listener);
-		bold.addActionListener(listener);
-		italic.addActionListener(listener);
+        face.addActionListener(listener);
+        size.addActionListener(listener);
+        bold.addActionListener(listener);
+        italic.addActionListener(listener);
 
-		this.setSample();
-	}
+        this.setSample();
+    }
 
-	/**
-	 * This method sets the text sample to the selected font.
-	 */
-	public void setSample() {
-		String fontFace = (String) face.getSelectedItem();
-		int fontSize = Integer.parseInt((String) size.getSelectedItem());
-		JTextArea sample = (JTextArea) gridbag.get("sample");
-		int fontStyle = (bold.isSelected() ? Font.BOLD : 0)
-				+ (italic.isSelected() ? Font.ITALIC : 0);
+    /**
+     * This method sets the text sample to the selected font.
+     */
+    public void setSample() {
+        String fontFace = (String) face.getSelectedItem();
+        int fontSize = Integer.parseInt((String) size.getSelectedItem());
+        JTextArea sample = (JTextArea) gridbag.get("sample");
+        int fontStyle = (bold.isSelected() ? Font.BOLD : 0)
+                + (italic.isSelected() ? Font.ITALIC : 0);
 
-		sample.setFont(new Font(fontFace, fontStyle, fontSize));
-		sample.repaint();
-	}
+        sample.setFont(new Font(fontFace, fontStyle, fontSize));
+        sample.repaint();
+    }
 }

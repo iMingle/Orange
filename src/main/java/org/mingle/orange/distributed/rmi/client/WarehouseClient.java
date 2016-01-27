@@ -19,16 +19,16 @@ import javax.naming.NamingException;
  */
 public class WarehouseClient {
 
-	public static void main(String[] args) throws NamingException, RemoteException {
-		Context namingContext = new InitialContext();
-		
-		System.out.println("RMI registry bindings:");
-		Enumeration<NameClassPair> e = namingContext.list("rmi://localhost/");
-		while (e.hasMoreElements())
-			System.out.println(e.nextElement().getName());
-		String url = "rmi://localhost/central_warehouse";
-		Warehouse centralWarehouse = (Warehouse) namingContext.lookup(url);
-		System.out.println(centralWarehouse.getPrice("Apple"));
-	}
+    public static void main(String[] args) throws NamingException, RemoteException {
+        Context namingContext = new InitialContext();
+        
+        System.out.println("RMI registry bindings:");
+        Enumeration<NameClassPair> e = namingContext.list("rmi://localhost/");
+        while (e.hasMoreElements())
+            System.out.println(e.nextElement().getName());
+        String url = "rmi://localhost/central_warehouse";
+        Warehouse centralWarehouse = (Warehouse) namingContext.lookup(url);
+        System.out.println(centralWarehouse.getPrice("Apple"));
+    }
 
 }

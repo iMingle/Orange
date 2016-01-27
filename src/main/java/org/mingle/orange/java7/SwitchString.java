@@ -13,12 +13,12 @@ package org.mingle.orange.java7;
  * @author Mingle
  */
 public class SwitchString {
-	public static void switchString(String str) {
-		switch (str) {
-		case "a":
-			break;
-		default:
-			break;
-		}
-	}
+    public static void switchString(String str) {
+        switch (str) {
+        case "a":
+            break;
+        default:
+            break;
+        }
+    }
 }

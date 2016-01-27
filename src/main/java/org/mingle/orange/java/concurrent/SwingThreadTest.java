@@ -22,18 +22,18 @@ import javax.swing.JPanel;
  */
 public class SwingThreadTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				SwingThreadFrame frame = new SwingThreadFrame();
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-			}
-		});
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                SwingThreadFrame frame = new SwingThreadFrame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
 
 }
 
@@ -43,40 +43,40 @@ public class SwingThreadTest {
  * directly.
  */
 class SwingThreadFrame extends JFrame {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8917255486159489807L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 8917255486159489807L;
 
-	public SwingThreadFrame() {
-		setTitle("SwingThreadTest");
+    public SwingThreadFrame() {
+        setTitle("SwingThreadTest");
 
-		final JComboBox<Integer> combo = new JComboBox<Integer>();
-		combo.insertItemAt(Integer.MAX_VALUE, 0);
-		combo.setPrototypeDisplayValue(combo.getItemAt(0));
-		combo.setSelectedIndex(0);
+        final JComboBox<Integer> combo = new JComboBox<Integer>();
+        combo.insertItemAt(Integer.MAX_VALUE, 0);
+        combo.setPrototypeDisplayValue(combo.getItemAt(0));
+        combo.setSelectedIndex(0);
 
-		JPanel panel = new JPanel();
+        JPanel panel = new JPanel();
 
-		JButton goodButton = new JButton("Good");
-		goodButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				new Thread(new GoodWorkerRunnable(combo)).start();
-			}
-		});
-		panel.add(goodButton);
-		JButton badButton = new JButton("Bad");
-		badButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				new Thread(new BadWorkerRunnable(combo)).start();
-			}
-		});
-		panel.add(badButton);
+        JButton goodButton = new JButton("Good");
+        goodButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                new Thread(new GoodWorkerRunnable(combo)).start();
+            }
+        });
+        panel.add(goodButton);
+        JButton badButton = new JButton("Bad");
+        badButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                new Thread(new BadWorkerRunnable(combo)).start();
+            }
+        });
+        panel.add(badButton);
 
-		panel.add(combo);
-		add(panel);
-		pack();
-	}
+        panel.add(combo);
+        add(panel);
+        pack();
+    }
 }
 
 /**
@@ -86,27 +86,27 @@ class SwingThreadFrame extends JFrame {
  * box.
  */
 class BadWorkerRunnable implements Runnable {
-	private JComboBox<Integer> combo;
-	private Random generator;
+    private JComboBox<Integer> combo;
+    private Random generator;
 
-	public BadWorkerRunnable(JComboBox<Integer> aCombo) {
-		combo = aCombo;
-		generator = new Random();
-	}
+    public BadWorkerRunnable(JComboBox<Integer> aCombo) {
+        combo = aCombo;
+        generator = new Random();
+    }
 
-	public void run() {
-		try {
-			while (true) {
-				int i = Math.abs(generator.nextInt());
-				if (i % 2 == 0)
-					combo.insertItemAt(i, 0);
-				else if (combo.getItemCount() > 0)
-					combo.removeItemAt(i % combo.getItemCount());
-				Thread.sleep(1);
-			}
-		} catch (InterruptedException e) {
-		}
-	}
+    public void run() {
+        try {
+            while (true) {
+                int i = Math.abs(generator.nextInt());
+                if (i % 2 == 0)
+                    combo.insertItemAt(i, 0);
+                else if (combo.getItemCount() > 0)
+                    combo.removeItemAt(i % combo.getItemCount());
+                Thread.sleep(1);
+            }
+        } catch (InterruptedException e) {
+        }
+    }
 
 }
 
@@ -116,30 +116,30 @@ class BadWorkerRunnable implements Runnable {
  * operations are forwarded to the event dispatch thread.
  */
 class GoodWorkerRunnable implements Runnable {
-	private JComboBox<Integer> combo;
-	private Random generator;
+    private JComboBox<Integer> combo;
+    private Random generator;
 
-	public GoodWorkerRunnable(JComboBox<Integer> aCombo) {
-		combo = aCombo;
-		generator = new Random();
-	}
+    public GoodWorkerRunnable(JComboBox<Integer> aCombo) {
+        combo = aCombo;
+        generator = new Random();
+    }
 
-	public void run() {
-		try {
-			while (true) {
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						int i = Math.abs(generator.nextInt());
-						if (i % 2 == 0)
-							combo.insertItemAt(i, 0);
-						else if (combo.getItemCount() > 0)
-							combo.removeItemAt(i % combo.getItemCount());
-					}
-				});
-				Thread.sleep(1);
-			}
-		} catch (InterruptedException e) {
-		}
-	}
+    public void run() {
+        try {
+            while (true) {
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        int i = Math.abs(generator.nextInt());
+                        if (i % 2 == 0)
+                            combo.insertItemAt(i, 0);
+                        else if (combo.getItemCount() > 0)
+                            combo.removeItemAt(i % combo.getItemCount());
+                    }
+                });
+                Thread.sleep(1);
+            }
+        } catch (InterruptedException e) {
+        }
+    }
 
 }

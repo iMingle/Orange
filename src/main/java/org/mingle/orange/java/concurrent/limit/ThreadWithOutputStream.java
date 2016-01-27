@@ -12,22 +12,22 @@ import java.io.OutputStream;
  * @author Mingle
  */
 public class ThreadWithOutputStream extends Thread {
-	private OutputStream output;
-	
-	public ThreadWithOutputStream(Runnable r, OutputStream s) {
-		super(r);
-		output = s;
-	}
-	
-	public static ThreadWithOutputStream current() {
-		return (ThreadWithOutputStream) currentThread();
-	}
+    private OutputStream output;
+    
+    public ThreadWithOutputStream(Runnable r, OutputStream s) {
+        super(r);
+        output = s;
+    }
+    
+    public static ThreadWithOutputStream current() {
+        return (ThreadWithOutputStream) currentThread();
+    }
 
-	public static OutputStream getOutput() {
-		return current().output;
-	}
+    public static OutputStream getOutput() {
+        return current().output;
+    }
 
-	public static void setOutput(OutputStream output) {
-		current().output = output;
-	}
+    public static void setOutput(OutputStream output) {
+        current().output = output;
+    }
 }

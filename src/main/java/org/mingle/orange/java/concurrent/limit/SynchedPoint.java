@@ -10,26 +10,26 @@ package org.mingle.orange.java.concurrent.limit;
  * @author Mingle
  */
 public class SynchedPoint {
-	protected final BarePoint delegate = new BarePoint();
+    protected final BarePoint delegate = new BarePoint();
 
-	public synchronized double getX() {
-		return delegate.x;
-	}
+    public synchronized double getX() {
+        return delegate.x;
+    }
 
-	public synchronized double getY() {
-		return delegate.y;
-	}
+    public synchronized double getY() {
+        return delegate.y;
+    }
 
-	public synchronized void setX(double v) {
-		delegate.x = v;
-	}
+    public synchronized void setX(double v) {
+        delegate.x = v;
+    }
 
-	public synchronized void setY(double v) {
-		delegate.y = v;
-	}
+    public synchronized void setY(double v) {
+        delegate.y = v;
+    }
 }
 
 class BarePoint {
-	public double x;
-	public double y;
+    public double x;
+    public double y;
 }

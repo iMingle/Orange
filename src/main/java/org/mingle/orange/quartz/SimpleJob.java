@@ -15,13 +15,13 @@ import org.quartz.JobExecutionException;
  */
 public class SimpleJob implements Job {
 
-	/* (non-Javadoc)
-	 * @see org.quartz.Job#execute(org.quartz.JobExecutionContext)
-	 */
-	@Override
-	public void execute(JobExecutionContext context)
-			throws JobExecutionException {
-		System.out.println(context.getTrigger().getJobKey() + ":" + context.getTrigger().getKey());
-	}
+    /* (non-Javadoc)
+     * @see org.quartz.Job#execute(org.quartz.JobExecutionContext)
+     */
+    @Override
+    public void execute(JobExecutionContext context)
+            throws JobExecutionException {
+        System.out.println(context.getTrigger().getJobKey() + ":" + context.getTrigger().getKey());
+    }
 
 }

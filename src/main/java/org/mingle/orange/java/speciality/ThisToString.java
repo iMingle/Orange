@@ -11,20 +11,20 @@ package org.mingle.orange.java.speciality;
  */
 public class ThisToString {
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "ThisToString [toString()=" + this.toString() + "]";
-//		return "ThisToString [toString()=" + super.toString() + "]";
-	}
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "ThisToString [toString()=" + this.toString() + "]";
+//        return "ThisToString [toString()=" + super.toString() + "]";
+    }
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		System.out.println(new ThisToString());		// 递归错误
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        System.out.println(new ThisToString());        // 递归错误
+    }
 
 }

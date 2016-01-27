@@ -11,14 +11,14 @@ import java.util.Set;
  *
  */
 public class Customer {
-	
-	private Set<OrderRF> _orders = new HashSet<OrderRF>();
-	
-	Set<OrderRF> friendOrders() {
-		return _orders;
-	}
-	
-	void addOrder(Order order) {
-		order.setCustomer(this);
-	}
+    
+    private Set<OrderRF> _orders = new HashSet<OrderRF>();
+    
+    Set<OrderRF> friendOrders() {
+        return _orders;
+    }
+    
+    void addOrder(Order order) {
+        order.setCustomer(this);
+    }
 }

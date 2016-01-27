@@ -46,20 +46,20 @@ import org.xml.sax.SAXException;
  */
 public class XPathTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
 
-			@Override
-			public void run() {
-				JFrame frame = new XPathFrame();
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-			}
-		});
-	}
+            @Override
+            public void run() {
+                JFrame frame = new XPathFrame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
 
 }
 
@@ -69,150 +69,150 @@ public class XPathTest {
  */
 class XPathFrame extends JFrame {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4118430781650583410L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 4118430781650583410L;
 
-	private DocumentBuilder builder;
-	private Document doc;
-	private XPath path;
-	private JTextField expression;
-	private JTextField result;
-	private JTextArea docText;
-	private JComboBox<String> typeCombo;
+    private DocumentBuilder builder;
+    private Document doc;
+    private XPath path;
+    private JTextField expression;
+    private JTextField result;
+    private JTextArea docText;
+    private JComboBox<String> typeCombo;
 
-	/**
-	 * 
-	 */
-	public XPathFrame() {
-		this.setTitle("XPathTest");
+    /**
+     * 
+     */
+    public XPathFrame() {
+        this.setTitle("XPathTest");
 
-		JMenu fileMenu = new JMenu("File");
-		JMenuItem openItem = new JMenuItem("Open");
-		openItem.addActionListener(new ActionListener() {
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem openItem = new JMenuItem("Open");
+        openItem.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				openFile();
-			}
-		});
-		fileMenu.add(openItem);
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openFile();
+            }
+        });
+        fileMenu.add(openItem);
 
-		JMenuItem exitItem = new JMenuItem("Exit");
-		exitItem.addActionListener(new ActionListener() {
+        JMenuItem exitItem = new JMenuItem("Exit");
+        exitItem.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		fileMenu.add(exitItem);
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        fileMenu.add(exitItem);
 
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.add(fileMenu);
-		this.setJMenuBar(menuBar);
+        JMenuBar menuBar = new JMenuBar();
+        menuBar.add(fileMenu);
+        this.setJMenuBar(menuBar);
 
-		ActionListener listener = new ActionListener() {
+        ActionListener listener = new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				evaluate();
-			}
-		};
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                evaluate();
+            }
+        };
 
-		expression = new JTextField(20);
-		expression.addActionListener(listener);
-		JButton evaluateButton = new JButton("Evaluate");
-		evaluateButton.addActionListener(listener);
+        expression = new JTextField(20);
+        expression.addActionListener(listener);
+        JButton evaluateButton = new JButton("Evaluate");
+        evaluateButton.addActionListener(listener);
 
-		typeCombo = new JComboBox<String>(new String[] { "STRING", "NODE",
-				"NODESET", "NUMBER", "BOOLEAN" });
-		typeCombo.setSelectedItem("STRING");
+        typeCombo = new JComboBox<String>(new String[] { "STRING", "NODE",
+                "NODESET", "NUMBER", "BOOLEAN" });
+        typeCombo.setSelectedItem("STRING");
 
-		JPanel panel = new JPanel();
-		panel.add(expression);
-		panel.add(typeCombo);
-		panel.add(evaluateButton);
+        JPanel panel = new JPanel();
+        panel.add(expression);
+        panel.add(typeCombo);
+        panel.add(evaluateButton);
 
-		docText = new JTextArea(10, 40);
-		result = new JTextField();
-		result.setBorder(new TitledBorder("Result"));
+        docText = new JTextArea(10, 40);
+        result = new JTextField();
+        result.setBorder(new TitledBorder("Result"));
 
-		this.add(panel, BorderLayout.NORTH);
-		this.add(new JScrollPane(docText), BorderLayout.CENTER);
-		this.add(result, BorderLayout.SOUTH);
+        this.add(panel, BorderLayout.NORTH);
+        this.add(new JScrollPane(docText), BorderLayout.CENTER);
+        this.add(result, BorderLayout.SOUTH);
 
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory
-					.newInstance();
-			builder = factory.newDocumentBuilder();
-		} catch (ParserConfigurationException e) {
-			JOptionPane.showMessageDialog(this, e);
-		}
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory
+                    .newInstance();
+            builder = factory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
 
-		XPathFactory xpfactory = XPathFactory.newInstance();
-		path = xpfactory.newXPath();
-		this.pack();
-	}
+        XPathFactory xpfactory = XPathFactory.newInstance();
+        path = xpfactory.newXPath();
+        this.pack();
+    }
 
-	/**
-	 * Open a file and load the document.
-	 */
-	public void openFile() {
-		JFileChooser chooser = new JFileChooser(new File("."));
-		chooser.setFileFilter(new FileFilter() {
+    /**
+     * Open a file and load the document.
+     */
+    public void openFile() {
+        JFileChooser chooser = new JFileChooser(new File("."));
+        chooser.setFileFilter(new FileFilter() {
 
-			@Override
-			public String getDescription() {
-				return "XML files";
-			}
+            @Override
+            public String getDescription() {
+                return "XML files";
+            }
 
-			@Override
-			public boolean accept(File f) {
-				return f.isDirectory()
-						|| f.getName().toLowerCase().endsWith("xml");
-			}
-		});
+            @Override
+            public boolean accept(File f) {
+                return f.isDirectory()
+                        || f.getName().toLowerCase().endsWith("xml");
+            }
+        });
 
-		int r = chooser.showOpenDialog(this);
-		if (r != JFileChooser.APPROVE_OPTION)
-			return;
-		File f = chooser.getSelectedFile();
-		byte[] bytes = new byte[(int) f.length()];
-		try {
-			new FileInputStream(f).read(bytes);
-			docText.setText(new String(bytes));
-			doc = builder.parse(f);
-		} catch (IOException | SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+        int r = chooser.showOpenDialog(this);
+        if (r != JFileChooser.APPROVE_OPTION)
+            return;
+        File f = chooser.getSelectedFile();
+        byte[] bytes = new byte[(int) f.length()];
+        try {
+            new FileInputStream(f).read(bytes);
+            docText.setText(new String(bytes));
+            doc = builder.parse(f);
+        } catch (IOException | SAXException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
-	public void evaluate() {
-		try {
-			String typeName = (String) typeCombo.getSelectedItem();
-			QName returnType = (QName) XPathConstants.class.getField(typeName).get(null);
-			Object evalResult = path.evaluate(expression.getText(), doc, returnType);
-			
-			if (typeName.equals("NODESET")) {
-				NodeList list = (NodeList) evalResult;
-				StringBuilder builder = new StringBuilder();
-				builder.append("{");
-				for (int i = 0; i < list.getLength(); i++) {
-					if (i > 0) builder.append(", ");
-					builder.append("" + list.item(i));
-				}
-				builder.append("}");
-				result.setText("" + builder);
-			} else {
-				result.setText("" + evalResult);
-			}
-		} catch (IllegalArgumentException | IllegalAccessException
-				| NoSuchFieldException | SecurityException | XPathExpressionException e) {
-			result.setText("" + e);
-			e.printStackTrace();
-		}
-	}
+    public void evaluate() {
+        try {
+            String typeName = (String) typeCombo.getSelectedItem();
+            QName returnType = (QName) XPathConstants.class.getField(typeName).get(null);
+            Object evalResult = path.evaluate(expression.getText(), doc, returnType);
+            
+            if (typeName.equals("NODESET")) {
+                NodeList list = (NodeList) evalResult;
+                StringBuilder builder = new StringBuilder();
+                builder.append("{");
+                for (int i = 0; i < list.getLength(); i++) {
+                    if (i > 0) builder.append(", ");
+                    builder.append("" + list.item(i));
+                }
+                builder.append("}");
+                result.setText("" + builder);
+            } else {
+                result.setText("" + evalResult);
+            }
+        } catch (IllegalArgumentException | IllegalAccessException
+                | NoSuchFieldException | SecurityException | XPathExpressionException e) {
+            result.setText("" + e);
+            e.printStackTrace();
+        }
+    }
 }

@@ -16,10 +16,10 @@ import java.nio.file.Paths;
  * @author Mingle
  */
 public class NIO {
-	public static void main(String[] args) throws URISyntaxException {
-		Path path = Paths.get(new URI("file:///foo/bar"));
-		path = FileSystems.getDefault().getPath("logs", "access.log");
+    public static void main(String[] args) throws URISyntaxException {
+        Path path = Paths.get(new URI("file:///foo/bar"));
+        path = FileSystems.getDefault().getPath("logs", "access.log");
 
-		System.out.println(path.toUri());
-	}
+        System.out.println(path.toUri());
+    }
 }

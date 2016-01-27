@@ -13,13 +13,13 @@ import java.text.DecimalFormat;
  */
 public class DecimalFormatTest {
 
-	public static void main(String[] args) {
-		double d = 190.000;
-		DecimalFormat format = new DecimalFormat("#.##");
-		System.out.println(format.format(d));		// 190
-		format.applyPattern("0.00");
-		System.out.println(format.format(d));		// 190.00
-		
-	}
+    public static void main(String[] args) {
+        double d = 190.000;
+        DecimalFormat format = new DecimalFormat("#.##");
+        System.out.println(format.format(d));        // 190
+        format.applyPattern("0.00");
+        System.out.println(format.format(d));        // 190.00
+        
+    }
 
 }

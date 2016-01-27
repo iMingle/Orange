@@ -14,11 +14,11 @@ import java.util.concurrent.Executors;
  */
 public class SingleThreadExecutor {
 
-	public static void main(String[] args) {
-		ExecutorService exec = Executors.newSingleThreadExecutor();
-		for (int i = 0; i < 5; i++)
-			exec.execute(new LiftOff());
-		exec.shutdown();	// 防止新任务提交给这个Executor
-	}
+    public static void main(String[] args) {
+        ExecutorService exec = Executors.newSingleThreadExecutor();
+        for (int i = 0; i < 5; i++)
+            exec.execute(new LiftOff());
+        exec.shutdown();    // 防止新任务提交给这个Executor
+    }
 
 }

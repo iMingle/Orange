@@ -13,21 +13,21 @@ import java.util.ListResourceBundle;
  * @author Mingle
  */
 public class RetireResources_en extends ListResourceBundle {
-	static final Object[][] contents = {
-			// BEGIN LOCALIZE
-			{ "colorPre", Color.blue }, { "colorGain", Color.white },
-			{ "colorLoss", Color.red }
-	// END LOCALIZE
-	};
+    static final Object[][] contents = {
+            // BEGIN LOCALIZE
+            { "colorPre", Color.blue }, { "colorGain", Color.white },
+            { "colorLoss", Color.red }
+    // END LOCALIZE
+    };
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.ListResourceBundle#getContents()
-	 */
-	@Override
-	protected Object[][] getContents() {
-		return contents;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.util.ListResourceBundle#getContents()
+     */
+    @Override
+    protected Object[][] getContents() {
+        return contents;
+    }
 
 }

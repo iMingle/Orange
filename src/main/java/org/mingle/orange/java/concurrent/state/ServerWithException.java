@@ -10,5 +10,5 @@ package org.mingle.orange.java.concurrent.state;
  * @author Mingle
  */
 public interface ServerWithException {
-	void service() throws ServiceException;
+    void service() throws ServiceException;
 }

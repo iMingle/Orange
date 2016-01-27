@@ -1369,7 +1369,7 @@ class ParticleUsingMutex {
 
 
 class WithMutex {
-  private final Mutex mutex;	 
+  private final Mutex mutex;     
   public WithMutex(Mutex m) { mutex = m; }
 
   public void perform(Runnable r) throws InterruptedException {

@@ -11,9 +11,9 @@ package org.mingle.orange.java.speciality.concurrency;
  */
 public class MainThread {
 
-	public static void main(String[] args) {
-		LiftOff launch = new LiftOff();
-		launch.run();
-	}
+    public static void main(String[] args) {
+        LiftOff launch = new LiftOff();
+        launch.run();
+    }
 
 }

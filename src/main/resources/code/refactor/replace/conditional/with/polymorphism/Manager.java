@@ -8,8 +8,8 @@ package replace.conditional.with.polymorphism;
  *
  */
 public class Manager extends EmployeeType{
-	
-	int payAmount(EmployeeRF emp) {
-		return emp.get_monthlySalary() + emp.get_bonus();
-	}
+    
+    int payAmount(EmployeeRF emp) {
+        return emp.get_monthlySalary() + emp.get_bonus();
+    }
 }

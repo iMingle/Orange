@@ -10,10 +10,10 @@ package org.mingle.orange.java.speciality.concurrency;
  * @author Mingle
  */
 public class SerialNumberGenerator {
-	private static volatile int serialNumber = 0;
-	
-	public static int nextSerialNumber() {
-		return serialNumber++;	// 非线程安全的
-	}
+    private static volatile int serialNumber = 0;
+    
+    public static int nextSerialNumber() {
+        return serialNumber++;    // 非线程安全的
+    }
 
 }

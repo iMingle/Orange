@@ -13,18 +13,18 @@ import java.util.concurrent.Executors;
  * @author Mingle
  */
 public class FJTaskRunnerGroup {
-	private final ExecutorService exec;
+    private final ExecutorService exec;
 
-	public FJTaskRunnerGroup(int groupSize) {
-		exec = Executors.newFixedThreadPool(groupSize);
-	}
+    public FJTaskRunnerGroup(int groupSize) {
+        exec = Executors.newFixedThreadPool(groupSize);
+    }
 
-	public void invoke(Fib f) throws InterruptedException {
-		exec.execute(f);
-	}
+    public void invoke(Fib f) throws InterruptedException {
+        exec.execute(f);
+    }
 
-	public void execute(NQueens nQueens) {
-		exec.execute(nQueens);
-	}
+    public void execute(NQueens nQueens) {
+        exec.execute(nQueens);
+    }
 
 }

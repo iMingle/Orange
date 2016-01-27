@@ -17,30 +17,30 @@ import javax.swing.JPanel;
  */
 public class BallComponent extends JPanel {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -541334173689699317L;
-	
-	private ArrayList<Ball> balls = new ArrayList<Ball>();
-	
-	/**
-	 * add a ball to the component.
-	 * @param b
-	 */
-	public void add(Ball b) {
-		balls.add(b);
-	}
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -541334173689699317L;
+    
+    private ArrayList<Ball> balls = new ArrayList<Ball>();
+    
+    /**
+     * add a ball to the component.
+     * @param b
+     */
+    public void add(Ball b) {
+        balls.add(b);
+    }
 
-	/* (non-Javadoc)
-	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
-	 */
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		Graphics2D g2 = (Graphics2D) g;
-		for (Ball b : balls) {
-			g2.fill(b.getShape());
-		}
-	}
+    /* (non-Javadoc)
+     * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+     */
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for (Ball b : balls) {
+            g2.fill(b.getShape());
+        }
+    }
 }
