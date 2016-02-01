@@ -1,8 +1,17 @@
+/**
+ * Copyright (c) 2016, Mingle. All rights reserved.
+ */
 package org.mingle.orange.arithmetic.base;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * 动态数组实现
+ * 
+ * @since 1.8
+ * @author Mingle
+ */
 public class ResizingArrayQueue<Item> implements Iterable<Item> {
     private Item[] queue;
     private int first = 0;

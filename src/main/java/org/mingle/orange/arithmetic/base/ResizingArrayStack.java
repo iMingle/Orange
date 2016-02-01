@@ -1,7 +1,16 @@
+/**
+ * Copyright (c) 2016, Mingle. All rights reserved.
+ */
 package org.mingle.orange.arithmetic.base;
 
 import java.util.Iterator;
 
+/**
+ * 下压栈-可以动态调整数组大小的实现
+ * 
+ * @since 1.8
+ * @author Mingle
+ */
 public class ResizingArrayStack<Item> implements Iterable<Item> {
     @SuppressWarnings("unchecked")
     private Item[] a = (Item[]) new Object();

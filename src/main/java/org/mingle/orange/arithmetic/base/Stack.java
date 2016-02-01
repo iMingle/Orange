@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2016, Mingle. All rights reserved.
+ */
 package org.mingle.orange.arithmetic.base;
 
 import java.util.Iterator;
@@ -6,6 +9,12 @@ import java.util.NoSuchElementException;
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
+/**
+ * 链表实现Stack
+ * 
+ * @since 1.8
+ * @author Mingle
+ */
 public class Stack<Item> implements Iterable<Item> {
     private Node first;
     private int N;

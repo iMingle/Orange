@@ -1,8 +1,17 @@
+/**
+ * Copyright (c) 2016, Mingle. All rights reserved.
+ */
 package org.mingle.orange.arithmetic.base;
 
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
+/**
+ * 后序求值
+ * 
+ * @since 1.8
+ * @author Mingle
+ */
 public class EvaluatePostfix {
 
     public static void main(String[] args) {

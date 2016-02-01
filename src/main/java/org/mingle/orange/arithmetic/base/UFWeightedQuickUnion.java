@@ -1,5 +1,14 @@
+/**
+ * Copyright (c) 2016, Mingle. All rights reserved.
+ */
 package org.mingle.orange.arithmetic.base;
 
+/**
+ * 动态连通性问题求解
+ * 
+ * @since 1.8
+ * @author Mingle
+ */
 public class UFWeightedQuickUnion {
     private int[] id;    //分量数量，触点数
     private int[] sz;    //各个根节点对应的的分量的大小

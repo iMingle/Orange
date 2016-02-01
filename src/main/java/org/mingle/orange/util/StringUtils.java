@@ -48,12 +48,25 @@ public class StringUtils {
     }
 
     /**
-     * @param args
+     * 递归实现reverse
+     * 
+     * @param s
+     * @return
      */
+    public static String reverseRecursion(String s) {
+        int N = s.length();
+        if (N <= 1)
+            return s;
+        String a = s.substring(0, N / 2);
+        String b = s.substring(N / 2, N);
+        return reverseRecursion(b) + reverseRecursion(a);
+    }
+
     public static void main(String[] args) {
         String seq = "Hello";
         System.out.println(StringUtils.reverse("I  love the game"));
         System.out.println(seq);
+        System.out.println(StringUtils.reverseRecursion(seq));
     }
 
 }

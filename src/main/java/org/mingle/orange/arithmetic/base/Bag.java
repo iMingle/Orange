@@ -1,7 +1,16 @@
+/**
+ * Copyright (c) 2016, Mingle. All rights reserved.
+ */
 package org.mingle.orange.arithmetic.base;
 
 import java.util.Iterator;
 
+/**
+ * 链表实现Bag
+ * 
+ * @since 1.8
+ * @author Mingle
+ */
 public class Bag<Item> implements Iterable<Item> {
     private Node first;
     private int N;

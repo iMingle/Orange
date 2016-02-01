@@ -1,7 +1,16 @@
+/**
+ * Copyright (c) 2016, Mingle. All rights reserved.
+ */
 package org.mingle.orange.arithmetic.base;
 
 import edu.princeton.cs.introcs.StdIn;
 
+/**
+ * 最小公倍数
+ * 
+ * @since 1.8
+ * @author Mingle
+ */
 public class Gcd {
 
     public static int gcd(int p, int q) {
