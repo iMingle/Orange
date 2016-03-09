@@ -6,7 +6,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 自管理的线程
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SelfManaged implements Runnable {

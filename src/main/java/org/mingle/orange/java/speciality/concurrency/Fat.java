@@ -6,7 +6,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 构造代码高昂的对象
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Fat {

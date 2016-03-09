@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * Jacobi算法,计算树
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Jacobi extends NullFJTask {

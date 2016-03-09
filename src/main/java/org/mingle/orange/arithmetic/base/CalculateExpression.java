@@ -6,7 +6,7 @@ package org.mingle.orange.arithmetic.base;
 /**
  * 用stack实现计算公式
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class CalculateExpression {

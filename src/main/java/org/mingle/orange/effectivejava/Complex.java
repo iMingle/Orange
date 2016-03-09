@@ -6,7 +6,7 @@ package org.mingle.orange.effectivejava;
 /**
  * 复数,不可变类
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Complex {

@@ -31,7 +31,7 @@ import com.google.common.collect.Maps;
 /**
  * json测试
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class JacksonTest {

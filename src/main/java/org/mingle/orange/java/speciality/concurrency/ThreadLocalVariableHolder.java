@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 线程本地存储,为使用相同变量的不同线程都创建不同的存储
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class Accessor implements Runnable {

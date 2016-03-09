@@ -9,7 +9,7 @@ import edu.princeton.cs.introcs.StdOut;
 /**
  * 后序求值
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class EvaluatePostfix {

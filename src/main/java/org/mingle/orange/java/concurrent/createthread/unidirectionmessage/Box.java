@@ -11,7 +11,7 @@ import java.awt.Point;
 /**
  * 消息表现,盒子的抽象类
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public abstract class Box {

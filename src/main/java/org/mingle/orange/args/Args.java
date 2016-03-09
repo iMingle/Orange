@@ -17,7 +17,7 @@ import static org.mingle.orange.args.ArgsException.ErrorCode.*;
  * 命令行解析
  * b,i#,s*,d##,a[*] -b true -i 5 -s string -d 1.0 -a a,b,c
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Args {

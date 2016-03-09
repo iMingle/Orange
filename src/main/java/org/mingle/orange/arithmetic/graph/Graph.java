@@ -12,7 +12,7 @@ import edu.princeton.cs.introcs.StdOut;
 /**
  * 无向图
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Graph {

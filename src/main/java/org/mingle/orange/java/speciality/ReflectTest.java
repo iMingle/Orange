@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /**
  * 反射测试类
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ReflectTest {

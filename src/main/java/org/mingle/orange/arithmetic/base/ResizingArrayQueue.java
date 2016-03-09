@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 /**
  * 动态数组实现
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ResizingArrayQueue<Item> implements Iterable<Item> {

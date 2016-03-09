@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 /**
  * Callable接口的实现原理
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class FutureResult {

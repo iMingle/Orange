@@ -5,7 +5,7 @@ package org.mingle.orange.java.speciality.annotations;
 
 /**
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 @ExtractInterface("IMultiply")

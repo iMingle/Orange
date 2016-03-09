@@ -13,7 +13,7 @@ import junit.framework.TestCase;
 /**
  * Producer-consumer test program for BoundedBuffer
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class PutTakeTest extends TestCase {

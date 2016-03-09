@@ -63,7 +63,7 @@ import nu.xom.ValidityException;
 /**
  * Java I/O测试
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class IOTest {

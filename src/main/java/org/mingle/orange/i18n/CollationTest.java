@@ -26,7 +26,7 @@ import javax.swing.JTextField;
 /**
  * This program demonstrates collating strings under various locales.
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class CollationTest {

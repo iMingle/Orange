@@ -4,7 +4,7 @@
 package org.mingle.orange.java.speciality;
 /**
  * 接口冲突
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 interface I1 {

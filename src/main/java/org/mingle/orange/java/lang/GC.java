@@ -7,7 +7,7 @@ package org.mingle.orange.java.lang;
  * VM参数
  * -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class GC {

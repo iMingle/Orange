@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.state.util;
 /**
  * 委托操作-分解类
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public final class BoundedBufferWithDelegates {

@@ -9,7 +9,7 @@ import com.google.inject.Injector;
 /**
  * 
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class GuiceTest {

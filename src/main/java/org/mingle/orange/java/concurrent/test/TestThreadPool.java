@@ -17,7 +17,7 @@ import junit.framework.TestCase;
 /**
  * 测试线程池
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class TestThreadPool extends TestCase {

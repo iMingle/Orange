@@ -6,7 +6,7 @@ package org.mingle.orange.java.speciality;
 /**
  * 继承与清理测试
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class Characteristic {

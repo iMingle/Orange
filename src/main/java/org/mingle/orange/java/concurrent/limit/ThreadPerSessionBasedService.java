@@ -10,7 +10,7 @@ import java.io.OutputStream;
 /**
  * 线程内限制,每线程一个会话
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ThreadPerSessionBasedService {

@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 有界缓冲区
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class BoundedBufferWithSemaphores {

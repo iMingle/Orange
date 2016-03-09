@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 使用ScheduledExecutor的温室控制器
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class GreenhouseScheduler {

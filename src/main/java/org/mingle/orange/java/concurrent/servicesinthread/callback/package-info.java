@@ -4,7 +4,7 @@
 /**
  * 完成回调
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 package org.mingle.orange.java.concurrent.servicesinthread.callback;

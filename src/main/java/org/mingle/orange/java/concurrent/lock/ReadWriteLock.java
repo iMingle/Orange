@@ -8,7 +8,7 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
 /**
  * 
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public interface ReadWriteLock {

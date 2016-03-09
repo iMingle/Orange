@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * 回调计数器方式
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class FibVCB extends NullFJTask {

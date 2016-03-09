@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadFactory;
 /**
  * 捕获线程异常
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class ExceptionThread2 implements Runnable {

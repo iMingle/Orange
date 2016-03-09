@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 /**
  * 原子操作
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class AtomicityTest implements Runnable {

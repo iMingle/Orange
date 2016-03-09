@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * 斐波那契数列算法
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Fib extends NullFJTask {

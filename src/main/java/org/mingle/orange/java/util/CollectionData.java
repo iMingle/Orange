@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * 集合容器
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class CollectionData<T> extends ArrayList<T> {

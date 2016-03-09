@@ -18,7 +18,7 @@ import static java.lang.Integer.parseInt;
  *   split my work into two pieces
  *   invoke the two pieces and wait for the results
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ForkJoin {}

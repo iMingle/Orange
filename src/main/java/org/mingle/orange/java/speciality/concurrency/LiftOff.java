@@ -6,7 +6,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 火箭发射前的倒计时
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class LiftOff implements Runnable {

@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 忙等待的替换类
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SpinLock { // Avoid needing to use this

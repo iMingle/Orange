@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 搜索引擎最短摘要的生成
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SearchDigestGenerate {

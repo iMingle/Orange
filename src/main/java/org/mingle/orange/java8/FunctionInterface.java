@@ -6,7 +6,7 @@ package org.mingle.orange.java8;
 /**
  * 函数式接口
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class FunctionInterface {

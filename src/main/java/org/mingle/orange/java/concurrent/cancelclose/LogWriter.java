@@ -10,7 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * 不支持关闭的生产者-消费者日志服务
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class LogWriter {

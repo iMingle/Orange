@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 子类化
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SubclassedTank extends TankImpl {

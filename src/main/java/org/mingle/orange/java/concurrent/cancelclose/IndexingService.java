@@ -11,7 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * 用毒丸对象关闭服务,必须生产者消费者数量已知的情况下,才可以使用毒丸对象
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class IndexingService {

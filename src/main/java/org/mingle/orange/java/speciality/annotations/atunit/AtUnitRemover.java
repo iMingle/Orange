@@ -20,7 +20,7 @@ import org.mingle.orange.java.util.ProcessFiles;
 /**
  * 移除@Unit测试代码工具
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class AtUnitRemover implements ProcessFiles.Strategy {

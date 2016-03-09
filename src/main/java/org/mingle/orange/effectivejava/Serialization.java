@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * 序列化
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Serialization implements Serializable {

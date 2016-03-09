@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 /**
  * 格式化带变量的文本
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class MessageFormatTest {

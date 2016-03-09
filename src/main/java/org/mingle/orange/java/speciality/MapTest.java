@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * Map测试类
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class MapTest {

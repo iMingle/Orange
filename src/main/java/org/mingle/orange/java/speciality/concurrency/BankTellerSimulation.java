@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 银行出纳员仿真
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 // 只读对象,不需要同步

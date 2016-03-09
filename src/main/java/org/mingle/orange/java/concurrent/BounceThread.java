@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 /**
  * shows animated bouncing ball.
  * 
- * @since 1.8
+ * @since 1.0
  * @date 2014年9月13日
  * @author Mingle
  */

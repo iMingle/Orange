@@ -24,7 +24,7 @@ import javax.swing.JTextField;
 /**
  * This program demonstrates formatting dates under various locales.
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class DateFormatTest {

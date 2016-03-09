@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 /**
  * 接口与类型信息，使用类型信息，耦合性还是会传播出去
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class InterfaceViolation {

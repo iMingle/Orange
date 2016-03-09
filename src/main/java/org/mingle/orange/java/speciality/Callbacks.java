@@ -66,7 +66,7 @@ class Caller {
 /**
  * java实现回掉函数的作用
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Callbacks {

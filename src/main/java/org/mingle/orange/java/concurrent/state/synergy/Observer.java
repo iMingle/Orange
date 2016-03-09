@@ -9,7 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * 协同处理-分离观察者
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Observer {

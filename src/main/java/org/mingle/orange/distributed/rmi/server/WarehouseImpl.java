@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * 仓库的实现类
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class WarehouseImpl extends UnicastRemoteObject implements Warehouse {

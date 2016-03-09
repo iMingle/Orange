@@ -14,7 +14,7 @@ import com.google.common.collect.Maps;
 
 /**
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class GenericTest<T> {

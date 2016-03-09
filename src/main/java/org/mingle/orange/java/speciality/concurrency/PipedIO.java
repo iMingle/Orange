@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 任务间使用管道进行输入输出
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class Sender implements Runnable {

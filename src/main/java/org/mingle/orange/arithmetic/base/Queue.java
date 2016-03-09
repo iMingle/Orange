@@ -8,7 +8,7 @@ import java.util.Iterator;
 /**
  * 链表实现Queue
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Queue<Item> implements Iterable<Item> {

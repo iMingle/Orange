@@ -8,7 +8,7 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 开放调用
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class OpenCallHost {

@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * 任务取消后子任务也取消,N皇后,在N*N的国际象棋棋盘上查找放置N个互相不会攻击的皇后的位置
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class NQueens extends NullFJTask {

@@ -36,7 +36,7 @@ import java.util.concurrent.TimeUnit;
  * findFirst():返回第一个匹配的元素;
  * anyMatch():是否有匹配的元素等.
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class CollectionStream {

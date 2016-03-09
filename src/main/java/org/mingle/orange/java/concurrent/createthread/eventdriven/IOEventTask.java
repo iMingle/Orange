@@ -10,7 +10,7 @@ import java.net.Socket;
 /**
  * 事件驱动的任务
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class IOEventTask implements Runnable {

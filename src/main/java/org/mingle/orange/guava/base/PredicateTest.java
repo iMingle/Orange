@@ -13,7 +13,7 @@ import com.google.common.collect.Lists;
 /**
  * most common use: filtering collections (view)
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class PredicateTest {

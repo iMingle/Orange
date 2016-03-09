@@ -5,7 +5,7 @@ package org.mingle.orange.java.concurrent;
 
 /**
  * a runnable that transfers money form an account to other accounts in bank.
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class TransferRunnable implements Runnable {

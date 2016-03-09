@@ -12,7 +12,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * 阻塞队列
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class BlockingQueueTest {

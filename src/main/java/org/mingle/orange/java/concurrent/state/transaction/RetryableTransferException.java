@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.state.transaction;
 /**
  * 可重试的转移异常
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class RetryableTransferException extends Exception {

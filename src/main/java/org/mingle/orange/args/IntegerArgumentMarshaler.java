@@ -11,7 +11,7 @@ import static org.mingle.orange.args.ArgsException.ErrorCode.*;
 /**
  * 
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class IntegerArgumentMarshaler implements ArgumentMarshaler {

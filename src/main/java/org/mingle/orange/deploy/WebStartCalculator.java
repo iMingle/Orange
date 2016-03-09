@@ -12,7 +12,7 @@ import javax.jnlp.*;
  * A calculator with a calculation history that can be deployed as a Java Web
  * Start application.
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class WebStartCalculator {

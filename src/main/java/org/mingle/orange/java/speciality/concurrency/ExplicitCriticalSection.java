@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 使用显式的Lock对象创建临界区
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class ExplicitPairManager1 extends PairManager {

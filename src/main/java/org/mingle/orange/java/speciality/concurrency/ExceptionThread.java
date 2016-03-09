@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 /**
  * try catch无法捕获线程异常
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ExceptionThread implements Runnable {

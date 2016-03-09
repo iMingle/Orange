@@ -8,7 +8,7 @@ import org.mvel2.ParserContext;
 
 /**
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class MvelTest {

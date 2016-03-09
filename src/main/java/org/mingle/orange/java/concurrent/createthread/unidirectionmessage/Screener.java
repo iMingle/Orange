@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 筛选阶段
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Screener extends DualOutputPushStage implements PushStage {

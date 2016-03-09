@@ -6,7 +6,7 @@ package org.mingle.orange.arithmetic.base;
 /**
  * 动态连通性问题求解
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class UFWeightedQuickUnion {

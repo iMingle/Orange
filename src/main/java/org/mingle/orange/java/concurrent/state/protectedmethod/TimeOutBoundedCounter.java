@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * 定时等待
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class TimeOutBoundedCounter {

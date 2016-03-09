@@ -45,7 +45,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 /**
  * 容器深入
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class CollectionTest {

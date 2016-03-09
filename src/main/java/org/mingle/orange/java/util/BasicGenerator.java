@@ -6,7 +6,7 @@ package org.mingle.orange.java.util;
 /**
  * 基本对象生成器
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class BasicGenerator<T> implements Generator<T> {

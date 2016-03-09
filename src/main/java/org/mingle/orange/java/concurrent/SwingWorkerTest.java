@@ -29,7 +29,7 @@ import javax.swing.SwingWorker;
  * This program demonstrates a worker thread that runs a potentially
  * time-consuming task.
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SwingWorkerTest {

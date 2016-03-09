@@ -13,7 +13,7 @@ import org.mozilla.javascript.Scriptable;
 /**
  * JavaScript脚本引擎测试
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class RhinoTest {

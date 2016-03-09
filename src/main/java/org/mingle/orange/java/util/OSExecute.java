@@ -8,7 +8,7 @@ import java.io.*;
 /**
  * Run an operating system command and send the output to the console.
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class OSExecute {

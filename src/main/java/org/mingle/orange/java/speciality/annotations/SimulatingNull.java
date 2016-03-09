@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 /**
  * 注解处理null值的方法: 给出默认值
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 @Target(ElementType.METHOD)

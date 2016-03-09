@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.limit;
 /**
  * 组策略-环(多个相互交互的对象一起限制一个资源的情况下)
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class PrintService {

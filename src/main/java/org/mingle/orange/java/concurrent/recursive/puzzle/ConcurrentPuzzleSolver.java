@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 并行解决方案
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ConcurrentPuzzleSolver<P, M> {

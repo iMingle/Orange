@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 接口,基于推动的单向流
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public interface PushSource {

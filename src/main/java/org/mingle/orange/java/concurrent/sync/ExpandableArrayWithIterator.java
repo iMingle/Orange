@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 /**
  * 遍历-版本化迭代变量,适合集合类
  * 
- * @since 1.8
+ * @since 1.0
  * @author Minele
  */
 public class ExpandableArrayWithIterator extends ExpandableArray {

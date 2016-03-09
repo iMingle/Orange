@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.limit;
 /**
  * 代理非同步对象
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SynchedPoint {

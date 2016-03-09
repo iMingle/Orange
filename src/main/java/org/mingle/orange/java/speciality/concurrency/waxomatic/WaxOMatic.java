@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 涂蜡抛光
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class Car {

@@ -6,7 +6,7 @@ package org.mingle.orange.designpattern.singleton;
 /**
  * 静态内部类实现的单例模式
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SingletonThree {

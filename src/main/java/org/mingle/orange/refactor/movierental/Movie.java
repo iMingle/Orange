@@ -6,7 +6,7 @@ package org.mingle.orange.refactor.movierental;
 /**
  * 影片
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Movie {

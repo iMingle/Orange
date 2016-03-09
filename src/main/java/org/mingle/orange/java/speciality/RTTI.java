@@ -31,7 +31,7 @@ class MoreUseful extends Useful {
 /**
  * Run-Time Type Information 运行时类型识别
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class RTTI {

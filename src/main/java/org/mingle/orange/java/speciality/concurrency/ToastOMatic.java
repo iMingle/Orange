@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 阻塞队列测试,一台机器有三个任务:一个制作土司,一个给土司抹黄油,另一个在抹过黄油的土司上涂果酱
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class Toast {

@@ -6,7 +6,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 多个基本线程同时运行
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class MoreBasicThreads {

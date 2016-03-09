@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Table创建注解处理器
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class TableCreator {

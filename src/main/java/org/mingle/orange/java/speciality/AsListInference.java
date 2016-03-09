@@ -23,7 +23,7 @@ class Slush extends Snow {
 /**
  * Arrays.asList方法测试
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 @SuppressWarnings("unused")

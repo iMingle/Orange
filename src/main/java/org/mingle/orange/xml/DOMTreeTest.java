@@ -44,7 +44,7 @@ import org.w3c.dom.Text;
 /**
  * This program displays an XML document as a tree.
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class DOMTreeTest {

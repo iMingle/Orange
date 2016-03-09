@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 只有一个工作者线程
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class TimerDaemon {

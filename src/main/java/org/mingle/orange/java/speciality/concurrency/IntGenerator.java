@@ -6,7 +6,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 数字产生器
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public abstract class IntGenerator {

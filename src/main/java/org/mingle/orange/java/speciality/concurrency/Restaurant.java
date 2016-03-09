@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 生产者与消费者
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class Meal {

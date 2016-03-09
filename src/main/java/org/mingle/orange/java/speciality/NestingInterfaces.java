@@ -77,7 +77,7 @@ interface E {
 /**
  * 嵌套接口测试
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class NestingInterfaces {

@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 同步控制块
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class Pair {    // 非线程安全

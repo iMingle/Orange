@@ -6,7 +6,7 @@ package org.mingle.orange.java.generic;
 /**
  * generic class pair
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Pair<T> {

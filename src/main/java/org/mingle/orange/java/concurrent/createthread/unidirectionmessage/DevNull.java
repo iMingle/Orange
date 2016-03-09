@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 接收器
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class DevNull implements PushStage {

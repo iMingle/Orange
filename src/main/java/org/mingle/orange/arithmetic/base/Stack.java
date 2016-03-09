@@ -12,7 +12,7 @@ import edu.princeton.cs.introcs.StdOut;
 /**
  * 链表实现Stack
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Stack<Item> implements Iterable<Item> {

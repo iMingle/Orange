@@ -8,7 +8,7 @@ import java.util.LinkedList;
 /**
  * 二叉树的遍历
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class BinaryTree {

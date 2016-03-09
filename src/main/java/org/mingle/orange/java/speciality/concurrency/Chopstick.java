@@ -6,7 +6,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 筷子,哲学家就餐问题
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Chopstick {

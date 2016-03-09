@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  * 注册工厂，将对象的创建工作交给类自己去完成
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class RegisteredFactories {

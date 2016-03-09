@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 /**
  * 清理对象
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 @Target(ElementType.METHOD)

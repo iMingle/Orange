@@ -6,7 +6,7 @@ package org.mingle.orange.effectivejava;
 /**
  * 创建和销毁对象
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class CreateAndDestroyObject {

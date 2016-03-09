@@ -6,7 +6,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 方向
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public enum Direction {

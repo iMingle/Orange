@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.state.util;
 /**
  * 信号量的实现
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Semaphore implements Sync {

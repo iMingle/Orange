@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * 链接子任务
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class FibVL extends NullFJTask {

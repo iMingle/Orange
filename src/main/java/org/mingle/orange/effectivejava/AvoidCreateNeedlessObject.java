@@ -10,7 +10,7 @@ import java.util.TimeZone;
 /**
  * 避免创建不必要的对象
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class AvoidCreateNeedlessObject {

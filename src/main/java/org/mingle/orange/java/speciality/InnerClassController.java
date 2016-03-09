@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 内部类实现控制框架
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class InnerClassController {

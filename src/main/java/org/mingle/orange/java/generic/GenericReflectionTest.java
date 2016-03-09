@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class GenericReflectionTest {

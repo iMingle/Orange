@@ -13,7 +13,7 @@ import java.util.TreeSet;
 /**
  * 复合设计
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Composition {

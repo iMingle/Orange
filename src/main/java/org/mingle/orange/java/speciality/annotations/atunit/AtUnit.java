@@ -16,7 +16,7 @@ import org.mingle.orange.java.util.ProcessFiles;
 /**
  * 单元测试框架@Unit
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class AtUnit implements ProcessFiles.Strategy {

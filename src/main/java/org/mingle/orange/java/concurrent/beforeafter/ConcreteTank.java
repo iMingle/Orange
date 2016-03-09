@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 具体的水槽
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ConcreteTank extends AbstractTank {

@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.util;
 /**
  * Bounded buffer using crude blocking
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SleepyBoundedBuffer<V> extends BaseBoundedBuffer<V> {

@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * Enter a pattern and strings to match, or hit Cancel
  * to exit. If the pattern contains groups, the group
  * boundaries are displayed in the match.
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class RegExTest {

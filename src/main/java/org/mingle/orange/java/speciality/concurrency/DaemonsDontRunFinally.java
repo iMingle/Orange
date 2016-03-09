@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 后台线程不运行finally子句
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class DaemonsDontRunFinally {

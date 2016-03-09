@@ -16,7 +16,7 @@ import com.google.common.collect.Lists;
 /**
  * 实现类似mysql的主键自增操作，线程安全
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class AutoIncrement {

@@ -12,7 +12,7 @@ import javax.naming.NamingException;
 /**
  * 服务端
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class WarehouseServer {

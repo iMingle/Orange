@@ -14,7 +14,7 @@ import org.mingle.orange.java.util.MapData;
 /**
  * Map测试
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 abstract class MapTest extends Tester<Map<Integer, Integer>> {

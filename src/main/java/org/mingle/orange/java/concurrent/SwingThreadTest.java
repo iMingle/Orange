@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  * This program demonstrates that a thread that runs in parallel with the event
  * dispatch thread can cause errors in Swing components.
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SwingThreadTest {

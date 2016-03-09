@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 用内部类创建线程
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 class InnerThread1 {

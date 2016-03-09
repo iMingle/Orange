@@ -26,7 +26,7 @@ import org.apache.lucene.util.Version;
 
 /**
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class LuceneTest {

@@ -10,7 +10,7 @@ import java.net.Socket;
 /**
  * 处理不可中断的阻塞
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ReaderThread extends Thread {

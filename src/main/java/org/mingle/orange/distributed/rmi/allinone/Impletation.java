@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 /**
  * 
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Impletation implements Interface, Serializable {

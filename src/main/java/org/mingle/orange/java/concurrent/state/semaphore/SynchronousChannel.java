@@ -8,7 +8,7 @@ import java.util.concurrent.Semaphore;
 /**
  * 同步通道
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class SynchronousChannel {

@@ -4,7 +4,7 @@
 /**
  * 解析命令行
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 package org.mingle.orange.args;

@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 /**
  * 目录实用工具,打印所有的目录和文件
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public final class Directory {

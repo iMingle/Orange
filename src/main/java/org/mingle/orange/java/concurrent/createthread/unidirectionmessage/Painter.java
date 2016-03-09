@@ -9,7 +9,7 @@ import java.awt.Dimension;
 /**
  * 线性阶段
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class Painter extends SingleOutputPushStage implements PushStage {

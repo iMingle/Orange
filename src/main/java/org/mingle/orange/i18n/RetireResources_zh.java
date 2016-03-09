@@ -9,7 +9,7 @@ import java.util.ListResourceBundle;
 /**
  * These are the Chinese non-string resources for the retirement calculator.
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class RetireResources_zh extends ListResourceBundle {

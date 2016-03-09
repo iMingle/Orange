@@ -8,7 +8,7 @@ package org.mingle.orange.arithmetic.util;
 /**
  * 电话号码对应英文单词
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class PhoneNumberAsChar {

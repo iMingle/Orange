@@ -4,7 +4,7 @@
 /**
  * java8新特性
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 package org.mingle.orange.java8;

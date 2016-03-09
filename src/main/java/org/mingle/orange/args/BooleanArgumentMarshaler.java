@@ -8,7 +8,7 @@ import java.util.Iterator;
 /**
  * 
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class BooleanArgumentMarshaler implements ArgumentMarshaler {

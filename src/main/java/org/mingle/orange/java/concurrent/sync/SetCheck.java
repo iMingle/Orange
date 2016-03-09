@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.sync;
 /**
  * 不用同步机制的类
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public final class SetCheck {

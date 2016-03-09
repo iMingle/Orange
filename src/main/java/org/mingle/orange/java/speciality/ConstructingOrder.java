@@ -42,7 +42,7 @@ class PortableLunch extends Lunch {
 @SuppressWarnings("unused")
 /**
  * 构造顺序测试
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class ConstructingOrder extends PortableLunch {

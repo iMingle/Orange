@@ -8,7 +8,7 @@ import org.mingle.orange.java.util.OSExecute;
 /**
  * Applying @Unit to generics.
  *
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class StackLStringTest extends StackL<String> {

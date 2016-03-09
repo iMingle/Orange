@@ -6,7 +6,7 @@ package org.mingle.orange.java.concurrent.state.synergy;
 /**
  * boolean检查设置类
  * 
- * @since 1.8
+ * @since 1.0
  * @author Mingle
  */
 public class TSBoolean {
