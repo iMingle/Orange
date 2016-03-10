@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2016, Mingle. All rights reserved.
  */
-package org.mingle.orange.designpattern.factory;
+package org.mingle.orange.designpattern.creational.factory;
 
 /**
  * 用匿名内部类实现的工厂方法
