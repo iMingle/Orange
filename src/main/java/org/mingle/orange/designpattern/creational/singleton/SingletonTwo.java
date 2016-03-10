@@ -1,4 +1,4 @@
-package org.mingle.orange.designpattern.singleton;
+package org.mingle.orange.designpattern.creational.singleton;
 
 public class SingletonTwo {
     

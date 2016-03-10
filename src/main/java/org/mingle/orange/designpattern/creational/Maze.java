@@ -9,12 +9,17 @@ package org.mingle.orange.designpattern.creational;
  * @since 1.0
  * @author Mingle
  */
-public class Maze {
+public class Maze  implements Cloneable {
     public void addRoom(Room room) {
         
     }
     
     public Room getRoom(int roomNo) {
         return new Room(roomNo);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

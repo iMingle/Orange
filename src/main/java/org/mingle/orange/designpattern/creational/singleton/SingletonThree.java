@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2016, Mingle. All rights reserved.
  */
-package org.mingle.orange.designpattern.singleton;
+package org.mingle.orange.designpattern.creational.singleton;
 
 /**
  * 静态内部类实现的单例模式

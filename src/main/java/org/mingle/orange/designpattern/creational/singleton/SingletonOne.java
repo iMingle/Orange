@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2016, Mingle. All rights reserved.
  */
-package org.mingle.orange.designpattern.singleton;
+package org.mingle.orange.designpattern.creational.singleton;
 
 import java.io.Serializable;
 

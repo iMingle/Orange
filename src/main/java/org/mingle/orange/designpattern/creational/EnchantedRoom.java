@@ -9,7 +9,7 @@ package org.mingle.orange.designpattern.creational;
  * @since 1.0
  * @author Mingle
  */
-public class EnchantedRoom extends Room {
+public class EnchantedRoom extends Room implements Cloneable {
     @SuppressWarnings("unused")
     private final Spell spell;
     
@@ -18,4 +18,7 @@ public class EnchantedRoom extends Room {
         this.spell = spell;
     }
 
+    @Override public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

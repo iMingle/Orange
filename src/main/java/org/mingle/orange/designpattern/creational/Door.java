@@ -9,7 +9,7 @@ package org.mingle.orange.designpattern.creational;
  * @since 1.0
  * @author Mingle
  */
-public class Door extends MapSite {
+public class Door extends MapSite implements Cloneable {
     @SuppressWarnings("unused")
     private final Room room1;
     @SuppressWarnings("unused")
@@ -26,6 +26,11 @@ public class Door extends MapSite {
     @Override
     public void enter() {
         
+    }
+    
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public Room otherSideFrom(Room from) {

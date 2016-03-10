@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2016, Mingle. All rights reserved.
  */
-package org.mingle.orange.designpattern.creational.abstractfactory;
+package org.mingle.orange.designpattern.creational.factory;
 
 import org.mingle.orange.designpattern.creational.Door;
 import org.mingle.orange.designpattern.creational.DoorNeedingSpell;
@@ -15,19 +15,20 @@ import org.mingle.orange.designpattern.creational.Spell;
  * @since 1.0
  * @author Mingle
  */
-public class EnchantedMazeFactory extends MazeFactory {
+public class EnchantedMazeGame extends MazeGame {
     private final Spell spell;
     
-    public EnchantedMazeFactory(Spell spell) {
+    public EnchantedMazeGame(Spell spell) {
         super();
         this.spell = spell;
     }
-    
+
     @Override public Room makeRoom(int no) {
         return new EnchantedRoom(no, spell);
     }
-    
+
     @Override public Door makeDoor(Room r1, Room r2) {
         return new DoorNeedingSpell(r1, r2);
     }
+    
 }
