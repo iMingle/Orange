@@ -10,6 +10,8 @@ package org.mingle.orange.designpattern.structural;
  * @author Mingle
  */
 public class Point {
+    public static final Point ZERO = new Point(0, 0);
+    
     private final int x;
     private final int y;
     
