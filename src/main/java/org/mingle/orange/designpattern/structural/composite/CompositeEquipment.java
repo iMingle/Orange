@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
+
 /**
  * 
  * 
@@ -48,6 +50,12 @@ public class CompositeEquipment extends Equipment {
 
     @Override public Iterator<Equipment> iterator() {
         return equipments.iterator();
+    }
+
+    @Override public void accept(EquipmentVisitor visitor) {
+        Iterator<Equipment> it = iterator();
+        while (it.hasNext())
+            it.next().accept(visitor);
     }
 
 }

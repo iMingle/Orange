@@ -3,6 +3,8 @@
  */
 package org.mingle.orange.designpattern.structural.composite;
 
+import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
+
 /**
  * 底盘
  * 
@@ -25,5 +27,9 @@ public class Chassis extends CompositeEquipment {
 
     @Override public double discountPrice() {
         return 5;
+    }
+    
+    @Override public void accept(EquipmentVisitor visitor) {
+        visitor.visitChassis(this);
     }
 }

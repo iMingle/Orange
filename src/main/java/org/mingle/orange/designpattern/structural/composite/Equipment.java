@@ -6,6 +6,8 @@ package org.mingle.orange.designpattern.structural.composite;
 import java.util.Collections;
 import java.util.Iterator;
 
+import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
+
 /**
  * 设备
  * 
@@ -29,6 +31,13 @@ public abstract class Equipment {
     
     public abstract double discountPrice();
     
+    /**
+     * 访问者模式
+     * 
+     * @param visitor
+     */
+    public abstract void accept(EquipmentVisitor visitor);
+    
     public void add(Equipment equipment) {
         throw new UnsupportedOperationException();
     }
@@ -40,4 +49,6 @@ public abstract class Equipment {
     @SuppressWarnings("unchecked") public Iterator<Equipment> iterator() {
         return Collections.EMPTY_LIST.iterator();
     }
+
+    public void inventory() {}
 }

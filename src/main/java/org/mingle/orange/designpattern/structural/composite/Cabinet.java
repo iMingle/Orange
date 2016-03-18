@@ -3,6 +3,8 @@
  */
 package org.mingle.orange.designpattern.structural.composite;
 
+import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
+
 /**
  * 柜子
  * 
@@ -25,5 +27,9 @@ public class Cabinet extends CompositeEquipment {
 
     @Override public double discountPrice() {
         return 2;
+    }
+    
+    @Override public void accept(EquipmentVisitor visitor) {
+        visitor.visitCabinet(this);
     }
 }

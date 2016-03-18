@@ -3,6 +3,8 @@
  */
 package org.mingle.orange.designpattern.structural.composite;
 
+import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
+
 /**
  * 总线
  * 
@@ -25,5 +27,9 @@ public class Bus extends CompositeEquipment {
 
     @Override public double discountPrice() {
         return 10;
+    }
+
+    @Override public void accept(EquipmentVisitor visitor) {
+        visitor.visitBus(this);
     }
 }

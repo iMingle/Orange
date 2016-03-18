@@ -3,6 +3,8 @@
  */
 package org.mingle.orange.designpattern.structural.composite;
 
+import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
+
 /**
  * 磁盘
  * 
@@ -27,4 +29,7 @@ public class FloppyDisk extends Equipment {
         return 3;
     }
 
+    @Override public void accept(EquipmentVisitor visitor) {
+        visitor.visitFloppyDisk(this);
+    }
 }

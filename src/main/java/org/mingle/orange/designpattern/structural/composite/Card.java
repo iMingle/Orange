@@ -3,6 +3,8 @@
  */
 package org.mingle.orange.designpattern.structural.composite;
 
+import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
+
 /**
  * 内存卡
  * 
@@ -25,6 +27,10 @@ public class Card extends Equipment {
 
     @Override public double discountPrice() {
         return 5;
+    }
+
+    @Override public void accept(EquipmentVisitor visitor) {
+        visitor.visitCard(this);
     }
 
 }
