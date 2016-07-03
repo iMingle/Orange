@@ -28,12 +28,14 @@ public class DeadCode {
     }
 
     private static void doTest(int iterations) {
+        int answer = 0;
         long startTime = System.nanoTime();
 
         for (double i = 0; i < iterations; i++)
-            calcFibonacci(NUMBER); // no-op(操作或操作序列对程序的输出状态没有任何影响)无效代码
+            answer = calcFibonacci(NUMBER);
 
         long elapsedTime = System.nanoTime() - startTime;
+        System.out.println("    Answer -> " + answer); // 打印结果JIT则不会标记为无效代码
         System.out.println("    Elapsed nanoseconds -> " + elapsedTime);
 
         float millis = elapsedTime / NANOS_PER_MS;
