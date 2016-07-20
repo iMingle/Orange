@@ -80,7 +80,7 @@ public class GenerateSign {
     }
 
     /**
-     * 验证大客户返回结果的签名
+     * 验证返回结果的签名
      * 
      * @return
      * @throws Exception
@@ -90,13 +90,11 @@ public class GenerateSign {
         arr.add(1);
         arr.add(2);
         arr.add(2);
-        String responseStr = "{\"name\":\"lijianfei\",\"gender\":\"male\",\"item\":[1,2,2],\"sign\":\"dqNAVzHw1vilyLSrakyAm2wxYuTmps77gDio+WiAc6hV7J3ZWXJHFeP88sQl6f9/84l8neleF8e7GC6Y635Ych5IiLBlXc8SK/OKZOEHL80ZYcUXXsoUbz0/jtodMpEfWSlgL/5W290+e7/SK+kQ8KzLbA4dRGnXkcNcrpiFjcU=\",\"sign_type\":\"md5\"}";
-        JSONObject json = JSONObject.parseObject(responseStr);
-        boolean validate = valid(json);
-        System.out.println("validate=" + validate);
-        if (validate) {
-            // TODO 验证成功，处理业务逻辑
-        }
+        String responseStr = "{\"name\":\"mingle\",\"gender\":\"male\",\"item\":[1,2,2],\"sign\":\"dqNAVzHw1vilyLSrakyAm2wxYuTmps77gDio+WiAc6hV7J3ZWXJHFeP88sQl6f9/84l8neleF8e7GC6Y635Ych5IiLBlXc8SK/OKZOEHL80ZYcUXXsoUbz0/jtodMpEfWSlgL/5W290+e7/SK+kQ8KzLbA4dRGnXkcNcrpiFjcU=\",\"sign_type\":\"md5\"}";
+        JSONObject data = JSONObject.parseObject(responseStr);
+        boolean validate = valid(data);
+        System.out.println("validate = " + validate);
+        
         return validate;
     }
 
@@ -117,8 +115,7 @@ public class GenerateSign {
         if ("md5".equalsIgnoreCase(signType)) {
             return md5Verify(specialStr, json.getString("sign"), dmallRsaPubKey);
         } else if ("sha1".equalsIgnoreCase(signType)) {
-            return sha1Verify(specialStr, json.getString("sign"),
-                    dmallRsaPubKey);
+            return sha1Verify(specialStr, json.getString("sign"), dmallRsaPubKey);
         }
 
         return false;
@@ -130,7 +127,7 @@ public class GenerateSign {
      * @param content
      *            待签名数据
      * @param privateKey
-     *            大客户私钥
+     *            私钥
      * @return 签名值
      */
     private static String md5Sign(String content, String privateKey) {
@@ -143,7 +140,7 @@ public class GenerateSign {
      * @param content
      *            待签名数据
      * @param privateKey
-     *            大客户私钥
+     *            私钥
      * @return 签名值
      */
     private static String sha1Sign(String content, String privateKey) {
@@ -156,7 +153,7 @@ public class GenerateSign {
      * @param content
      *            待签名数据
      * @param privateKey
-     *            大客户私钥
+     *            私钥
      * @param signAlgorithms
      *            签名方式
      * @return 签名值
@@ -164,7 +161,6 @@ public class GenerateSign {
     private static String sign(String content, String privateKey,
             String signAlgorithms) {
         try {
-
             PKCS8EncodedKeySpec priPKCS8 = new PKCS8EncodedKeySpec(Base64
                     .getDecoder().decode(privateKey));
             KeyFactory keyf = KeyFactory.getInstance("RSA");
@@ -361,9 +357,9 @@ public class GenerateSign {
         keys.remove("sign_type");
         keys.remove("sign");
         Collections.sort(keys);
-        Iterator<String> keyIter = keys.iterator();
-        while (keyIter.hasNext()) {
-            String key = (String) keyIter.next();
+        Iterator<String> it = keys.iterator();
+        while (it.hasNext()) {
+            String key = (String) it.next();
             String value = mergeValues(kvs.get(key));
             if (value != null && !"".equals(value))
                 builder.append(key).append("=").append(value).append("&");
