@@ -21,8 +21,8 @@
   
   <!-- 属性 -->
   <properties>
-      <compiler.version>1.8</compiler.version>
-      <!-- encoding -->
+    <compiler.version>1.8</compiler.version>
+    <!-- encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     
@@ -53,6 +53,7 @@
     <jasypt.version>1.9.2</jasypt.version>
     <activemq.version>5.7.0</activemq.version>
     <guice.version>4.0</guice.version>
+    <fastjson.version>1.2.14</fastjson.version>
   </properties>
   
   <dependencies>
@@ -284,6 +285,13 @@
         <artifactId>guice</artifactId>
         <version>${guice.version}</version>
     </dependency>
+    
+    <!-- Fastjson is a JSON processor (JSON parser + JSON generator) written in Java -->
+    <dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>fastjson</artifactId>
+	    <version>1.2.14</version>
+	</dependency>
   </dependencies>
   
   <build>
