@@ -1,6 +1,6 @@
 package org.mingle.orange.arithmetic.sort;
 
-import edu.princeton.cs.introcs.In;
+import edu.princeton.cs.algs4.In;
 
 public class Example {
     

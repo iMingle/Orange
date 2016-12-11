@@ -1,6 +1,6 @@
 package org.mingle.orange.arithmetic.base;
 
-import edu.princeton.cs.introcs.StdRandom;
+import edu.princeton.cs.algs4.StdRandom;
 
 public class Stopwatch {
     private final long start;

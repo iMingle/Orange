@@ -1,8 +1,8 @@
 package org.mingle.orange.arithmetic.base;
 
-import java.util.Arrays;
+import edu.princeton.cs.algs4.In;
 
-import edu.princeton.cs.introcs.In;
+import java.util.Arrays;
 
 public class ThreeSum {
     public static int count(int[] a) { // Count triples that sum to 0.

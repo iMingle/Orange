@@ -3,7 +3,7 @@
  */
 package org.mingle.orange.arithmetic.base;
 
-import edu.princeton.cs.introcs.StdIn;
+import edu.princeton.cs.algs4.StdIn;
 
 /**
  * 最小公倍数

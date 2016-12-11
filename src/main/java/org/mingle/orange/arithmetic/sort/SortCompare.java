@@ -1,8 +1,7 @@
 package org.mingle.orange.arithmetic.sort;
 
+import edu.princeton.cs.algs4.StdRandom;
 import org.mingle.orange.arithmetic.base.Stopwatch;
-
-import edu.princeton.cs.introcs.StdRandom;
 
 public class SortCompare {
     

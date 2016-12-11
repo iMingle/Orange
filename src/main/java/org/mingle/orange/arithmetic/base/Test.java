@@ -1,12 +1,12 @@
 package org.mingle.orange.arithmetic.base;
 
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdIn;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
-import edu.princeton.cs.introcs.In;
-import edu.princeton.cs.introcs.StdIn;
 
 public class Test {
 

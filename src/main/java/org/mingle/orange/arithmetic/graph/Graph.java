@@ -3,11 +3,7 @@
  */
 package org.mingle.orange.arithmetic.graph;
 
-import edu.princeton.cs.algs4.Bag;
-import edu.princeton.cs.algs4.DepthFirstSearch;
-import edu.princeton.cs.algs4.Stack;
-import edu.princeton.cs.introcs.In;
-import edu.princeton.cs.introcs.StdOut;
+import edu.princeton.cs.algs4.*;
 
 /**
  * 无向图

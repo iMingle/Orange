@@ -1,6 +1,6 @@
 package org.mingle.orange.arithmetic.sort;
 
-import edu.princeton.cs.introcs.StdRandom;
+import edu.princeton.cs.algs4.StdRandom;
 
 public class Quick {
     @SuppressWarnings("rawtypes")

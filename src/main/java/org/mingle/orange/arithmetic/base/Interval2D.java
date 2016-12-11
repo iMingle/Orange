@@ -1,6 +1,6 @@
 package org.mingle.orange.arithmetic.base;
 
-import edu.princeton.cs.introcs.StdDraw;
+import edu.princeton.cs.algs4.StdDraw;
 
 public class Interval2D {
     private final Interval1D x;
