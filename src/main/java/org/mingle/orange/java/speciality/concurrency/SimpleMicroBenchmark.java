@@ -24,7 +24,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 简单的互斥技术比较
  * 
- * @author Mingle
+ * @author mingle
  */
 abstract class Incrementable {
     protected long counter = 0;

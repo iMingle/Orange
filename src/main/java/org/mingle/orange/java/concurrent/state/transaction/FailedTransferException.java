@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.transaction;
 /**
  * 无法转移错误
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FailedTransferException extends Exception {
     private static final long serialVersionUID = 212556834977804426L;

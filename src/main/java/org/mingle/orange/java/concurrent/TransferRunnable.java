@@ -20,7 +20,7 @@ package org.mingle.orange.java.concurrent;
 
 /**
  * a runnable that transfers money form an account to other accounts in bank.
- * @author Mingle
+ * @author mingle
  */
 public class TransferRunnable implements Runnable {
     private Bank bank;

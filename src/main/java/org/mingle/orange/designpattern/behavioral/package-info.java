@@ -19,6 +19,6 @@
 /**
  * 行为型模式
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.designpattern.behavioral;

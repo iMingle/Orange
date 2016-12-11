@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.util;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Helper {
     public void handle() {

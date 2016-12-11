@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.iterator;
 /**
  * 迭代器
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Iterator<T> {
     void first();

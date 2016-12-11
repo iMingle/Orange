@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 检查中断
  *
- * @author Mingle
+ * @author mingle
  */
 class NeedsCleanup {
     private final int id;

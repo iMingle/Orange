@@ -44,7 +44,7 @@ import javax.swing.SwingWorker;
  * This program demonstrates a worker thread that runs a potentially
  * time-consuming task.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SwingWorkerTest {
     public static void main(String[] args) throws Exception {

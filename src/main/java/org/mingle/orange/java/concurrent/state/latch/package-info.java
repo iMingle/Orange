@@ -19,6 +19,6 @@
 /**
  * 闭锁
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.state.latch;

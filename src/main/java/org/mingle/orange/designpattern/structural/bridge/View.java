@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.bridge;
 /**
  * 窗口的内容
  * 
- * @author Mingle
+ * @author mingle
  */
 public class View {
 

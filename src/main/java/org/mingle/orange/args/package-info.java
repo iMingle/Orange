@@ -19,6 +19,6 @@
 /**
  * 解析命令行
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.args;

@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 适配器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DualInputAdapter implements PushStage {
     protected final DualInputPushStage stage;

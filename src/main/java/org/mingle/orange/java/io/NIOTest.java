@@ -34,7 +34,7 @@ import java.util.zip.CRC32;
  * This program computes the CRC checksum of a file. <br>
  * Usage: java NIOTest filename
  * 
- * @author Mingle
+ * @author mingle
  */
 public class NIOTest {
 

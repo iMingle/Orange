@@ -19,6 +19,6 @@
 /**
  * 并行分解
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.servicesinthread.parallel;

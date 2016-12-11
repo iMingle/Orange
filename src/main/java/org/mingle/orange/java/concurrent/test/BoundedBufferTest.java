@@ -23,7 +23,7 @@ import junit.framework.TestCase;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BoundedBufferTest extends TestCase {
     private static final long LOCKUP_DETECT_TIMEOUT = 1000;

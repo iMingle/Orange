@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.command;
 /**
  * 打开命令
  * 
- * @author Mingle
+ * @author mingle
  */
 public class OpenCommand implements Command {
     private final Application application;

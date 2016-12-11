@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 任务间使用管道进行输入输出
  *
- * @author Mingle
+ * @author mingle
  */
 class Sender implements Runnable {
     private Random rand = new Random(47);

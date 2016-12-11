@@ -27,7 +27,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CompositeEquipment extends Equipment {
     private List<Equipment> equipments = new ArrayList<>();

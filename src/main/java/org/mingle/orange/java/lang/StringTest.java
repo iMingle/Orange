@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 /**
  * String测试类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StringTest {
     private static String sta = "static";

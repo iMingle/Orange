@@ -19,6 +19,6 @@
 /**
  * 完成回调
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.servicesinthread.callback;

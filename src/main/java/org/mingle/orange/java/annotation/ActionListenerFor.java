@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

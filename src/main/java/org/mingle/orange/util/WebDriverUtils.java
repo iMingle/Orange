@@ -29,7 +29,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 /**
  *
  *
- * @author Mingle
+ * @author mingle
  */
 public abstract class WebDriverUtils {
 

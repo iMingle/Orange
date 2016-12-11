@@ -19,6 +19,6 @@
 /**
  * 重构
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.refactor;

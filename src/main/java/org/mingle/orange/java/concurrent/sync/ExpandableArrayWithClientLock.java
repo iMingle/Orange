@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.sync;
 /**
  * 索引化遍历和客户端锁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ExpandableArrayWithClientLock extends ExpandableArray {
 

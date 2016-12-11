@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 素数生成器的取消
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PrimeGenerator implements Runnable {
     private final List<BigInteger> primes = new ArrayList<>();

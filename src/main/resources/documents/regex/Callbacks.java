@@ -83,7 +83,7 @@ class Caller {
 /**
  * java实现回掉函数的作用
  *
- * @author Mingle
+ * @author mingle
  */
 public class Callbacks {
     public static void main(String[] args) {

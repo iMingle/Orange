@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 具体的水槽
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ConcreteTank extends AbstractTank {
     protected final float capacity = 10.f;

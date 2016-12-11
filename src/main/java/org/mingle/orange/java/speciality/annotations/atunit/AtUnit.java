@@ -31,7 +31,7 @@ import org.mingle.orange.java.util.ProcessFiles;
 /**
  * 单元测试框架@Unit
  *
- * @author Mingle
+ * @author mingle
  */
 public class AtUnit implements ProcessFiles.Strategy {
     static Class<?> testClass;

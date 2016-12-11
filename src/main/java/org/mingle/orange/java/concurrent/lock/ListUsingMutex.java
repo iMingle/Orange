@@ -23,7 +23,7 @@ import com.sun.corba.se.impl.orbutil.concurrent.Mutex;
 /**
  * 非阻塞结构的锁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ListUsingMutex {
     static class Node {

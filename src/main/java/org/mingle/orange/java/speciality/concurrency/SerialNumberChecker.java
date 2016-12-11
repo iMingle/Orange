@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 class CircularSet {
     private int[] array;

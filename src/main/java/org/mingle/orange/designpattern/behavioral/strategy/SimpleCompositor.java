@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.strategy;
 /**
  * 一次检查一行Component,并决定在那儿换行
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SimpleCompositor implements Compositor {
 

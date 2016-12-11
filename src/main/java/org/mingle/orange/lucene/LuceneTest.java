@@ -41,7 +41,7 @@ import org.apache.lucene.util.Version;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class LuceneTest {
 

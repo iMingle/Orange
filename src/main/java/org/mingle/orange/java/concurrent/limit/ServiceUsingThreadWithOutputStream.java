@@ -25,7 +25,7 @@ import java.io.OutputStream;
 /**
  * 使用线程私有成员变量类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ServiceUsingThreadWithOutputStream {
     public void service() throws IOException {

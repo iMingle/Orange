@@ -41,7 +41,7 @@ import java.util.List;
  * 
  * Lambda表达式中无法访问到函数式接口的默认方法
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Lambda {
     public static void main(String[] args) {

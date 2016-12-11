@@ -24,7 +24,7 @@ import java.util.LinkedList;
 /**
  * LinkedList实现的Stack数据结构
  *
- * @author Mingle
+ * @author mingle
  */
 public class LinkedListStack<T> {
     private LinkedList<T> storage = new LinkedList<>();

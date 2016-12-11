@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.util;
 /**
  * 可重新关闭的阀门
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ThreadGate {
     // CONDITION-PREDICATE: opened-since(n) (isOpen || generation>n)

@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.transaction;
 /**
  * 参与者实现的接口
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Transactor {
     // Enter a new transaction and return true, if can do so

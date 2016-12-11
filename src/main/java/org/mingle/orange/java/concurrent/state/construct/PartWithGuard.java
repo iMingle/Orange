@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.construct;
 /**
  * 同步方法
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PartWithGuard {
     protected boolean cond = false;

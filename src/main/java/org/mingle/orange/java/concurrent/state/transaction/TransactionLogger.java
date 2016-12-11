@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.transaction;
 /**
  * 事务日志
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TransactionLogger {
     void cancelLogEntry(Transaction t, long amount, TransBankAccount src,

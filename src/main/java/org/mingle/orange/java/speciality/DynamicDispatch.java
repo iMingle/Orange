@@ -22,7 +22,7 @@ package org.mingle.orange.java.speciality;
 /**
  * 动态分派
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DynamicDispatch {
     

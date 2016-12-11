@@ -36,7 +36,7 @@ import java.util.Locale;
 /**
  * 新Date API
  * 
- * @author Mingle
+ * @author mingle
  */
 public class NewDate {
 

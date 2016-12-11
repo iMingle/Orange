@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 子类化
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SubclassedTank extends TankImpl {
     protected void checkVolumeInvariant() throws AssertionError {

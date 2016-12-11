@@ -3,7 +3,7 @@ package org.mingle.orange.java.base;
 /**
  * This program demonstrates the use of static inner classes.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StaticInnerClassTest
 {

@@ -23,7 +23,7 @@ import java.applet.Applet;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ParticleApplet extends Applet {
     private static final long serialVersionUID = -8285243665638624935L;

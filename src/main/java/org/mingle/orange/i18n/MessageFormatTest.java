@@ -24,7 +24,7 @@ import java.util.GregorianCalendar;
 /**
  * 格式化带变量的文本
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MessageFormatTest {
 

@@ -23,7 +23,7 @@ import java.util.Collection;
 /**
  * 用接口模拟可伸缩的枚举
  * 
- * @author Mingle
+ * @author mingle
  */
 public class EnumExtensible {
     interface Operation {

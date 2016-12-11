@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 活动对象测试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ActiveObjectDemo {
     private ExecutorService exec = Executors.newSingleThreadExecutor();

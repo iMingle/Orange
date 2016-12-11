@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.flyweight;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BTree<K, V> {
 

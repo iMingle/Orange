@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LinkedQueue {
     protected Node head = new Node(null);

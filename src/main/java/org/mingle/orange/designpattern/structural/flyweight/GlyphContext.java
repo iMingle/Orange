@@ -23,7 +23,7 @@ import java.awt.Font;
 /**
  * 图形上下文,用于存储外部状态(字体)
  * 
- * @author Mingle
+ * @author mingle
  */
 public class GlyphContext {
     @SuppressWarnings("unused") private int index;

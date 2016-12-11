@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.memento;
 /**
  * 原发器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Originator {
     private State state;

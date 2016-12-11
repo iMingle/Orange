@@ -19,6 +19,6 @@
 /**
  * 同步
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.sync;

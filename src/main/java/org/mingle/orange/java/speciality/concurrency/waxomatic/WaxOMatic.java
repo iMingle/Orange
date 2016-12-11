@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 涂蜡抛光
  *
- * @author Mingle
+ * @author mingle
  */
 class Car {
     private boolean waxOn = false;

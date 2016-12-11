@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.adapter;
 /**
  * 操作
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Manipulator {
 

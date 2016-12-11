@@ -23,7 +23,7 @@ import java.util.*;
 /**
  * Pretty-printer for collections
  *
- * @author Mingle
+ * @author mingle
  */
 public class PPrint {
     public static String pformat(Collection<?> c) {

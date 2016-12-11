@@ -24,7 +24,7 @@ import java.net.Socket;
 /**
  * 失败重试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ClientUsingSocket {
     int portnumber = 1234;

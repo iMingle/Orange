@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * 界限计数器
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface BoundedCounter {
     static final long MIN = 0; // minimum allowed value

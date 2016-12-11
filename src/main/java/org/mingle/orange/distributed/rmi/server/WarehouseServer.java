@@ -27,7 +27,7 @@ import javax.naming.NamingException;
 /**
  * 服务端
  * 
- * @author Mingle
+ * @author mingle
  */
 public class WarehouseServer {
 

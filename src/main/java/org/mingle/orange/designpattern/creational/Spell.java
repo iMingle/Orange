@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 符咒
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Spell {
 

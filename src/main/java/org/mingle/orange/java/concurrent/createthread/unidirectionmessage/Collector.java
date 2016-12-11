@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 收集器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Collector extends SingleOutputPushStage implements
         DualInputPushStage {

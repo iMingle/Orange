@@ -30,7 +30,7 @@ import javax.swing.JTextArea;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ResourceTest {
 

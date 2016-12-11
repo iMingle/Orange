@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.constant;
 /**
  * 抽象数据类型ADT,分数
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Fraction {
     protected final long numerator;

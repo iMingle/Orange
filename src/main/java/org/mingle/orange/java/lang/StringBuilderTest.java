@@ -21,7 +21,7 @@ package org.mingle.orange.java.lang;
 /**
  * StringBuilder测试类
  *
- * @author Mingle
+ * @author mingle
  */
 public class StringBuilderTest {
 

@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 有界缓冲区
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BoundedBufferWithSemaphores {
     protected final BufferArray buff;

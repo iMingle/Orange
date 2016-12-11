@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.templatemethod;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class View {
     public void display() {

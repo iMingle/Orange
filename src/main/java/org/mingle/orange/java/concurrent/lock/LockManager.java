@@ -23,7 +23,7 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
 /**
  * 锁的顺序化管理器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LockManager {
     protected void sortLocks(Sync[] locks) {}

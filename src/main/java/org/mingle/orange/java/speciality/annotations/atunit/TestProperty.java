@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
 /**
  * 标记为测试属性
  *
- * @author Mingle
+ * @author mingle
  */
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

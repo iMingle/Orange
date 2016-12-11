@@ -19,6 +19,6 @@
 /**
  * 加密
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.encryption;

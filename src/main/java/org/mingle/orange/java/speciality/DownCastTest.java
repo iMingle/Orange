@@ -20,7 +20,7 @@ package org.mingle.orange.java.speciality;
 
 /**
  * 向下转型测试
- * @author Mingle
+ * @author mingle
  */
 public class DownCastTest {
 

@@ -28,7 +28,7 @@ import org.mingle.orange.java.util.CountingIntegerList;
 /**
  * List测试
  * 
- * @author Mingle
+ * @author mingle
  */
 abstract class ListTest extends Tester<List<Integer>> {
 

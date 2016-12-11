@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.livenessperformance;
 /**
  * 通过锁顺序来避免死锁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class InduceLockOrder {
     private static final Object tieLock = new Object();

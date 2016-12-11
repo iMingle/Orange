@@ -25,7 +25,7 @@ import java.util.Random;
 /**
  * 注册工厂，将对象的创建工作交给类自己去完成
  *
- * @author Mingle
+ * @author mingle
  */
 public class RegisteredFactories {
     public static void main(String[] args) {

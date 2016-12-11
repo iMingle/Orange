@@ -24,7 +24,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 使用显式的Lock对象创建临界区
  *
- * @author Mingle
+ * @author mingle
  */
 class ExplicitPairManager1 extends PairManager {
     private Lock lock = new ReentrantLock();

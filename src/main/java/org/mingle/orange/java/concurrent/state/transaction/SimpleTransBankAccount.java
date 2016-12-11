@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.state.synergy.InsufficientFunds;
 /**
  * 转账的事务控制
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SimpleTransBankAccount implements TransBankAccount {
 

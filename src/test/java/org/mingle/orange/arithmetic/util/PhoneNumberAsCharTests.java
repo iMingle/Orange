@@ -23,7 +23,7 @@ import org.junit.Test;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PhoneNumberAsCharTests {
     @Test

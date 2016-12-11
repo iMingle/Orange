@@ -27,7 +27,7 @@ import java.lang.invoke.MethodType;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class InvokeDynamicTest {
 

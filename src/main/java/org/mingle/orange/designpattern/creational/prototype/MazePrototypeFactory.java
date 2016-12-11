@@ -27,7 +27,7 @@ import org.mingle.orange.designpattern.creational.abstractfactory.MazeFactory;
 /**
  * 迷宫原型工厂
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MazePrototypeFactory extends MazeFactory {
     /**

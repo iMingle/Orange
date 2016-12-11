@@ -27,7 +27,7 @@ import org.mingle.orange.designpattern.creational.Wall;
 /**
  * 炸弹迷宫工厂
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BombedMazeGame extends MazeGame {
     private final Bomb bomb;

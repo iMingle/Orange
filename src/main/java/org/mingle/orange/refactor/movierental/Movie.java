@@ -21,7 +21,7 @@ package org.mingle.orange.refactor.movierental;
 /**
  * 影片
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Movie {
     public static final int CHILDRENS = 2;

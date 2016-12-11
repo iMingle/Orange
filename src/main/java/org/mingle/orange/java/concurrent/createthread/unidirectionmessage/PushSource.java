@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 接口,基于推动的单向流
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface PushSource {
     Box produce();

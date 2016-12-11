@@ -20,7 +20,7 @@ package org.mingle.orange.java.lang;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class IntegerTest {
 

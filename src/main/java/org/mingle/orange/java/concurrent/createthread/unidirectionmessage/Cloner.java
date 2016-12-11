@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 复制阶段
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Cloner extends DualOutputPushStage implements PushStage {
 

@@ -92,7 +92,7 @@ interface E {
 /**
  * 嵌套接口测试
  *
- * @author Mingle
+ * @author mingle
  */
 public class NestingInterfaces {
     public class BImp implements A.B {

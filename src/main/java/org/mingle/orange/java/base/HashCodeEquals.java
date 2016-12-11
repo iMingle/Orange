@@ -21,7 +21,7 @@ package org.mingle.orange.java.base;
 /**
  * hashCode和equals方法如何写
  * 
- * @author Mingle
+ * @author mingle
  */
 public class HashCodeEquals {
     private int age;

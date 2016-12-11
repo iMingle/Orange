@@ -23,7 +23,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class FindDirectories {
 

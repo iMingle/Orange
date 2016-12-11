@@ -19,6 +19,6 @@
 /**
  * 影片出租
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.refactor.movierental;

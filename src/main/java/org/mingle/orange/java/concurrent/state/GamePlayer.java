@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 通知
  * 
- * @author Mingle
+ * @author mingle
  */
 public class GamePlayer implements Runnable {
     protected GamePlayer other;

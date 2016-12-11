@@ -22,7 +22,7 @@ package org.mingle.orange.java.concurrent.state.fail;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class HandlerImpl implements ServiceExceptionHandler {
 

@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * Map增加的操作
  * 
- * @author Mingle
+ * @author mingle
  */
 public class EnhanceMap {
 

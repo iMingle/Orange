@@ -23,7 +23,7 @@ package org.mingle.orange.arithmetic.util;
 /**
  * 电话号码对应英文单词
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PhoneNumberAsChar {
     private static final String[] NUMBER_CHAR = {"", "", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"};

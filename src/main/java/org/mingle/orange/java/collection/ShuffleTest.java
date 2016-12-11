@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ShuffleTest {
 

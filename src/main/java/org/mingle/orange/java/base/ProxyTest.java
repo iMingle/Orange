@@ -27,7 +27,7 @@ import java.util.Random;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ProxyTest {
 

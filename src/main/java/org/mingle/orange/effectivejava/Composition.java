@@ -28,7 +28,7 @@ import java.util.TreeSet;
 /**
  * 复合设计
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Composition {
 

@@ -24,7 +24,7 @@ import edu.princeton.cs.algs4.StdOut;
 /**
  * 后序求值
  * 
- * @author Mingle
+ * @author mingle
  */
 public class EvaluatePostfix {
 

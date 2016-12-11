@@ -29,7 +29,7 @@ import javax.naming.NamingException;
 /**
  * 客户端
  * 
- * @author Mingle
+ * @author mingle
  */
 public class WarehouseClient {
 

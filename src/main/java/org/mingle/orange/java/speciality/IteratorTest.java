@@ -26,7 +26,7 @@ import java.util.ListIterator;
 /**
  * 迭代器测试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class IteratorTest {
 

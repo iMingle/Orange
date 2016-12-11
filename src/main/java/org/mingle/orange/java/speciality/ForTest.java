@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality;
 /**
  * for测试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ForTest {
 

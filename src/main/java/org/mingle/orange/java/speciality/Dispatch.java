@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality;
 /**
  * 单分派,多分派
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Dispatch {
     

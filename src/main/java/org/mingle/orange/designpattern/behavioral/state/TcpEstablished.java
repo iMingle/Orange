@@ -22,7 +22,7 @@ package org.mingle.orange.designpattern.behavioral.state;
 /**
  * TCP已建立
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TcpEstablished extends TcpState {
     private static TcpEstablished instance;

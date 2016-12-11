@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * 列表框
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ListBox extends Widget {
     @SuppressWarnings("unused") private List<String> items;

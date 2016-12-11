@@ -36,7 +36,7 @@ import javax.swing.KeyStroke;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ActionTest {
 

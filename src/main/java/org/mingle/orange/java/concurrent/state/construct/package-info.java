@@ -19,6 +19,6 @@
 /**
  * 类的构建与重构
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.state.construct;

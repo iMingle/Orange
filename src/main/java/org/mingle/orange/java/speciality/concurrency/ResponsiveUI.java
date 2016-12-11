@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 有响应的用户界面
  *
- * @author Mingle
+ * @author mingle
  */
 class UnresponsiveUI {
     private volatile double d = 1;

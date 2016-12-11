@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 只读适配器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AccountHolder {
     private UpdatableAccount acct = new UpdatableAccountImpl(0);

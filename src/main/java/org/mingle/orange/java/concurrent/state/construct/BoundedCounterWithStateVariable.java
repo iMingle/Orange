@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.construct;
 /**
  * 状态变量
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BoundedCounterWithStateVariable {
     static final long MIN = 0; // minimum allowed value

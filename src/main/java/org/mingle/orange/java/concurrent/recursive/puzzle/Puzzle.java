@@ -24,7 +24,7 @@ import java.util.Set;
  * 表示"搬箱子"之类谜题的抽象类
  * P表示位置类,M表示移动类
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Puzzle<P, M> {
     P initialPosition();

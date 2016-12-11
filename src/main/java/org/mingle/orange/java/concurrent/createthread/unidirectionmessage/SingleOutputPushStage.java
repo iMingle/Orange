@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 只有一个后继的阶段
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SingleOutputPushStage {
     private PushStage next1 = null;

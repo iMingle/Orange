@@ -23,7 +23,7 @@ import java.util.Hashtable;
 /**
  * 冲突集合
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Inventory {
     protected final Hashtable<String, Object> items = new Hashtable<>();

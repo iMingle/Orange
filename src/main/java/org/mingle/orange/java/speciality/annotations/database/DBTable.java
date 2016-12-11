@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
 /**
  * 生成数据库表
  * 
- * @author Mingle
+ * @author mingle
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

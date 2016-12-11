@@ -22,7 +22,7 @@ package org.mingle.orange.designpattern.behavioral.state;
 /**
  * TCP关闭
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TcpClosed extends TcpState {
     private static TcpClosed instance;

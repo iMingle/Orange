@@ -22,7 +22,7 @@ import java.util.Locale;
 
 /**
  * @author <a href="mailto:jinminglei@yeah.net">Mingle</a>
- * @author Mingle
+ * @author mingle
  */
 public class LocaleTest {
 

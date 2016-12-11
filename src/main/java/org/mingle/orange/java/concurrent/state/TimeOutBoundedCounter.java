@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 定时等待
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TimeOutBoundedCounter {
     static final long MIN = 0; // minimum allowed value

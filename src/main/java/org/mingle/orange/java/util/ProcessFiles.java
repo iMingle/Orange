@@ -24,7 +24,7 @@ import java.io.IOException;
 /**
  * 根据Strategy对象处理目录中的文件
  *
- * @author Mingle
+ * @author mingle
  */
 public class ProcessFiles {
     public interface Strategy {

@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 /**
  * 优先级
  *
- * @author Mingle
+ * @author mingle
  */
 public class SimplePriorities implements Runnable {
     private int countDown = 5;

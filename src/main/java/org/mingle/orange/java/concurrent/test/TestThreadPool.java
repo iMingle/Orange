@@ -32,7 +32,7 @@ import junit.framework.TestCase;
 /**
  * 测试线程池
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TestThreadPool extends TestCase {
     private final TestingThreadFactory threadFactory = new TestingThreadFactory();

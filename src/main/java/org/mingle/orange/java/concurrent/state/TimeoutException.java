@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TimeoutException extends InterruptedException {
     private static final long serialVersionUID = -6354763818990858746L;

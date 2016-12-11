@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.state.synergy.InsufficientFunds;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface TransBankAccount extends Transactor {
     public long balance(Transaction t) throws Failure;

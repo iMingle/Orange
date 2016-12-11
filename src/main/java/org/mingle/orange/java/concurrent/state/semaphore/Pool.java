@@ -25,7 +25,7 @@ import java.util.concurrent.Semaphore;
 /**
  * 资源池
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Pool {
     protected java.util.ArrayList<Object> items = new ArrayList<>();

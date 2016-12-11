@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FJTaskRunnerGroup {
     private final ExecutorService exec;

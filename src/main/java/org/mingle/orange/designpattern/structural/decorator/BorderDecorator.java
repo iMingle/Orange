@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.decorator;
 /**
  * 装饰边框
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BorderDecorator extends Decorator {
     private final int width;

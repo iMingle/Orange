@@ -23,7 +23,7 @@ import java.io.InputStream;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class InputOutputStreamTest {
 

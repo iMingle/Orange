@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.composite;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Client {
 

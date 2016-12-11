@@ -19,6 +19,6 @@
 /**
  * 协同操作
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.state.synergy;

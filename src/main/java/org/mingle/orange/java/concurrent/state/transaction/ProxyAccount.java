@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.transaction;
 /**
  * 代理账户
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ProxyAccount {
     private TransBankAccount delegate;

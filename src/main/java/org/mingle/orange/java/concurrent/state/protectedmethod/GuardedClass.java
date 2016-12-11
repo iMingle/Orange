@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * 受保护的等待
  * 
- * @author Mingle
+ * @author mingle
  */
 public class GuardedClass {
     protected boolean cond = false;

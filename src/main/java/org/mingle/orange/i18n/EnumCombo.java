@@ -26,7 +26,7 @@ import javax.swing.JComboBox;
 /**
  * A combo box that lets users choose from among static field
  * values whose names are given in the constructor.
- * @author Mingle
+ * @author mingle
  */
 public class EnumCombo extends JComboBox<String> {
     private static final long serialVersionUID = -7321373208563123189L;

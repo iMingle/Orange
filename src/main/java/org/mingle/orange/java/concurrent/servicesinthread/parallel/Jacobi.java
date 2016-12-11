@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * Jacobi算法,计算树
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Jacobi extends NullFJTask {
     static final double EPSILON = 0.001; // convergence criterion

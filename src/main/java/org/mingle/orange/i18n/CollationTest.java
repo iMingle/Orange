@@ -41,7 +41,7 @@ import javax.swing.JTextField;
 /**
  * This program demonstrates collating strings under various locales.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CollationTest {
 

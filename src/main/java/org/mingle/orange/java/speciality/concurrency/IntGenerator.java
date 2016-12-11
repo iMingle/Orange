@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 数字产生器
  *
- * @author Mingle
+ * @author mingle
  */
 public abstract class IntGenerator {
     private volatile boolean canceled = false;

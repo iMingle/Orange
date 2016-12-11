@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.facade;
 /**
  * 条件表达式节点
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ConditionNode extends ProgramNode {
     private final ProgramNode condition;

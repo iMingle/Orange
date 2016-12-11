@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.sync;
 /**
  * 静态计数器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StaticCounter {
     private static final long initial = Math.abs(new java.util.Random().nextLong() / 2);

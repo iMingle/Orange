@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality;
 /**
  * 静态分派
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StaticDispatch {
     

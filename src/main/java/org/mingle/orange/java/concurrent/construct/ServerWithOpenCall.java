@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 开放调用(非同步发送消息)
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ServerWithOpenCall {
     private double state;

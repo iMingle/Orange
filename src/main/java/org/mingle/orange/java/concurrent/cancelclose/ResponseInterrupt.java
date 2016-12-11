@@ -31,7 +31,7 @@ import org.mingle.orange.util.LaunderThrowable;
 /**
  * 响应中断
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ResponseInterrupt {
     private static final ScheduledExecutorService cancelExec = Executors.newScheduledThreadPool(2);

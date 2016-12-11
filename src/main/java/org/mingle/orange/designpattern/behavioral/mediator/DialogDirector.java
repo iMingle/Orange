@@ -22,7 +22,7 @@ package org.mingle.orange.designpattern.behavioral.mediator;
  * 负责对话框管理
  * 中介者
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class DialogDirector {
     public void showDialog() {}

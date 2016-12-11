@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.livenessperformance;
 /**
  * 简单的锁顺序死锁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LeftRightDeadLock {
     private final Object left = new Object();

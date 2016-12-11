@@ -26,7 +26,7 @@ import java.awt.Point;
 /**
  * 消息表现,盒子的抽象类
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class Box {
     protected Color color = Color.white;

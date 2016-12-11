@@ -27,7 +27,7 @@ import java.lang.reflect.Proxy;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ActionListenerInstaller {
 

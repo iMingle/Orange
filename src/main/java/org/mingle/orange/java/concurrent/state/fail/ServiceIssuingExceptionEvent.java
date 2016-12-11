@@ -25,7 +25,7 @@ import org.mingle.orange.java.concurrent.construct.CopyOnWriteArrayList;
 /**
  * 转换消息类型
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ServiceIssuingExceptionEvent {
     private final CopyOnWriteArrayList handlers = new CopyOnWriteArrayList();

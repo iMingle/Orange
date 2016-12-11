@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 网络爬虫
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class WebCrawler {
     private static final long TIMEOUT = 1;

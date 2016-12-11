@@ -26,7 +26,7 @@ import java.util.concurrent.Semaphore;
  * Semaphore测试,计数信号量允许n个任务同时访问一个资源
  * 对象池,管理数量有限的对象
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Pool<T> {
     private int size;

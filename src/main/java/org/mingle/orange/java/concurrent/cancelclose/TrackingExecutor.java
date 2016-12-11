@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 记录关闭之后取消的任务,可能出现误报问题
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TrackingExecutor extends AbstractExecutorService {
     private final ExecutorService exec;

@@ -25,7 +25,7 @@ import java.io.IOException;
  * ①Throwable类增加addSuppressed方法和getSuppressed方法，支持原始异常中加入被抑制的异常。
  * 异常抑制：在try和finally中同时抛出异常时，finally中抛出的异常会在异常栈中向上传递，而try中产生的原始异常会消失。
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ThrowableSuppressed {
     public void read(String filename) throws Exception {

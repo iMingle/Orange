@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.transaction;
 /**
  * 事务类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Transaction {
 

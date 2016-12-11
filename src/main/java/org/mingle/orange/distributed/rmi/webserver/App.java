@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class App extends NanoHTTPD {
 

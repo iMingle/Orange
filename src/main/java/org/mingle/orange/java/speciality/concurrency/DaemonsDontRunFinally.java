@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 后台线程不运行finally子句
  *
- * @author Mingle
+ * @author mingle
  */
 public class DaemonsDontRunFinally {
     public static void main(String[] args) {

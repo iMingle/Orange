@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StringFilterHTMLTagUtil {
 

@@ -24,7 +24,7 @@ import java.util.Iterator;
 /**
  * 程序节点
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class ProgramNode {
     public void getSourcePosition(Integer line, Integer index) {

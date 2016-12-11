@@ -31,7 +31,7 @@ import java.util.zip.ZipFile;
 /**
  * The try-with-resources Statement
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TryWithResources {
     public static void writeToFileZipFileContents(String zipFileName,

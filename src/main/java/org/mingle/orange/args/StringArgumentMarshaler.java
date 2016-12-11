@@ -24,7 +24,7 @@ import static org.mingle.orange.args.ArgsException.ErrorCode.*;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StringArgumentMarshaler implements ArgumentMarshaler {
     private String stringValue = "";

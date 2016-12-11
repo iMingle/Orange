@@ -21,7 +21,7 @@ package org.mingle.orange.arithmetic.util;
 /**
  * 单链表反转
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LinkedListReverse {
     private static class Node<E> {

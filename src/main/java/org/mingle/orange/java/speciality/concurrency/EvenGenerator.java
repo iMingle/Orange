@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 偶数产生器
  *
- * @author Mingle
+ * @author mingle
  */
 public class EvenGenerator extends IntGenerator {
     private int currentEvenValue = 0;

@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.construct;
 /**
  * 等待版本栈
  * 
- * @author Mingle
+ * @author mingle
  */
 public class WaitingStack extends Stack {
     public synchronized void push(Object x) {

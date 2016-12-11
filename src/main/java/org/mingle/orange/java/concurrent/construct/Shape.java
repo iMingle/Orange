@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 可以进行同步分解
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Shape {
     protected double x = 0.0;

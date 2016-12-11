@@ -24,7 +24,7 @@ import org.mingle.orange.java.concurrent.createthread.threadpermessage.Executor;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PlainWorkerPool implements Executor {
     protected final Channel<Runnable> workQueue;

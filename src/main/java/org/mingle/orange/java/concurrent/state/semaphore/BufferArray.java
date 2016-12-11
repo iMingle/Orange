@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.semaphore;
 /**
  * 有界缓冲区
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BufferArray {
     protected final Object[] array; // the elements

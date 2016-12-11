@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.command;
 /**
  * 接收者
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Receiver {
 

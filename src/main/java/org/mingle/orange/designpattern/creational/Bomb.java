@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 炸弹
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Bomb {
 

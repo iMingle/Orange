@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Table创建注解处理器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TableCreator {
 

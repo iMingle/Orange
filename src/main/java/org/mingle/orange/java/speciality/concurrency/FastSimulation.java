@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 乐观加锁测试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FastSimulation {
     static final int N_ELEMENTS = 100000;

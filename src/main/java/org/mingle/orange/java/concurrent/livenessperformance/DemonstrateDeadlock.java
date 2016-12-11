@@ -26,7 +26,7 @@ import org.mingle.orange.java.concurrent.livenessperformance.DynamicOrderDeadloc
 /**
  * 循环产生死锁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DemonstrateDeadlock {
     private static final int NUM_THREADS = 20;

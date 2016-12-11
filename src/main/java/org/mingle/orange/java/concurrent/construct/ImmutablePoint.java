@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 不变类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ImmutablePoint {
     private final int x;

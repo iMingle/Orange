@@ -34,7 +34,7 @@ import javax.swing.JTextArea;
 /**
  * This program shows how to use an XML file to describe a gridbag layout.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class GridBagTest {
 

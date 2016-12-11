@@ -31,7 +31,7 @@ import org.mapdb.Pump;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MapDbTest {
 

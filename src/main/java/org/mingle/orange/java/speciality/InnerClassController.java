@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * 内部类实现控制框架
  * 
- * @author Mingle
+ * @author mingle
  */
 public class InnerClassController {
     // hold Event objects:

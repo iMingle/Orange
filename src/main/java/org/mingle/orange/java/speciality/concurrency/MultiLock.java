@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 被互斥所阻塞
  *
- * @author Mingle
+ * @author mingle
  */
 public class MultiLock {
     public synchronized void f1(int count) {

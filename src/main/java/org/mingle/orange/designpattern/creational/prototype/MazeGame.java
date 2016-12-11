@@ -26,7 +26,7 @@ import org.mingle.orange.designpattern.creational.Room;
 /**
  * 迷宫游戏,用于创建迷宫
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MazeGame {
     

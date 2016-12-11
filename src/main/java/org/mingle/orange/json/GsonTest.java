@@ -32,7 +32,7 @@ import java.util.Collection;
 /**
  * Gson测试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class GsonTest {
 

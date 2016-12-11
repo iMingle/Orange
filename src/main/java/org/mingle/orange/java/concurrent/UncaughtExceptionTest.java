@@ -20,7 +20,7 @@ package org.mingle.orange.java.concurrent;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class UncaughtExceptionTest {
     private static int count = 0;

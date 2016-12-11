@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 哲学家就餐死锁问题
  *
- * @author Mingle
+ * @author mingle
  */
 public class Philosopher implements Runnable {
     private Chopstick left;

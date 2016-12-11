@@ -24,7 +24,7 @@ import java.rmi.RemoteException;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Impletation implements Interface, Serializable {
     private static final long serialVersionUID = -2645048100632268327L;

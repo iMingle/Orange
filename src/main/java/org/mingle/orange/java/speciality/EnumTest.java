@@ -39,7 +39,7 @@ import org.mingle.orange.java.util.TextFile;
 /**
  * 枚举测试
  *
- * @author Mingle
+ * @author mingle
  */
 public class EnumTest {
 

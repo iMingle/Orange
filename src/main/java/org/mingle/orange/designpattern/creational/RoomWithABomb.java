@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class RoomWithABomb extends Room implements Cloneable {
     @SuppressWarnings("unused")

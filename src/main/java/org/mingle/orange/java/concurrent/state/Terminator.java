@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 多阶段取消
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Terminator {
     // Try to kill; return true if known to be dead

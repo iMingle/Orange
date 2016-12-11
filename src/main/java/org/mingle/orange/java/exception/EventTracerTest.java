@@ -9,7 +9,7 @@ import javax.swing.JSlider;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class EventTracerTest {
     public static void main(String[] args) {

@@ -22,7 +22,7 @@ import java.util.Date;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Student extends Person implements Cloneable {
     

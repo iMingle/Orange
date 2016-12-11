@@ -29,7 +29,7 @@ import org.mingle.orange.designpattern.structural.Point;
  * 图形对象
  * Subject
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Graphic {
     void draw(Point position);

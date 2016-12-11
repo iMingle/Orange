@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ServerImpl implements ServerWithException {
 

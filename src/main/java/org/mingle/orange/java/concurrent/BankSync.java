@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent;
 /**
  * a bank with a number of bank accounts that uses synchronization primitives.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BankSync {
     private final double[] accounts;

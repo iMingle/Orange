@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * 用EnumMap代替序数索引
  * 
- * @author Mingle
+ * @author mingle
  */
 public class EnumMap {
     enum Phase {

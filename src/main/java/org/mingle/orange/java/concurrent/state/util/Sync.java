@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.util;
 /**
  * 获得-释放协议
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Sync {
     void acquire() throws InterruptedException;

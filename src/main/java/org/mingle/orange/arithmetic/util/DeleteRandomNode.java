@@ -22,7 +22,7 @@ package org.mingle.orange.arithmetic.util;
 /**
  * 从无头单链表中删除节点
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DeleteRandomNode {
     public static class Node<E> {

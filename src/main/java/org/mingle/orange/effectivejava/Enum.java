@@ -21,7 +21,7 @@ package org.mingle.orange.effectivejava;
 /**
  * 枚举类型
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Enum {
     /**

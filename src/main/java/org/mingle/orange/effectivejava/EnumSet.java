@@ -23,7 +23,7 @@ import java.util.Set;
 /**
  * 用EnumSet代替位域
  * 
- * @author Mingle
+ * @author mingle
  */
 public class EnumSet {
     class Text {

@@ -34,7 +34,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * This program demonstrates how to use a SAX parser. The program prints all hyperlinks links of an
  * XHTML web page. <br>
  * Usage: java SAXTest url
- * @author Mingle
+ * @author mingle
  */
 public class SAXTest {
 

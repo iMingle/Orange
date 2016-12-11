@@ -23,7 +23,7 @@ import java.util.IdentityHashMap;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class IdentityHashMapTest {
 

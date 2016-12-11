@@ -28,7 +28,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 涂蜡抛光
  *
- * @author Mingle
+ * @author mingle
  */
 class Car {
     private Lock lock = new ReentrantLock();

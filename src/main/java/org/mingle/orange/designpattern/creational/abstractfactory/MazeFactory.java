@@ -26,7 +26,7 @@ import org.mingle.orange.designpattern.creational.Wall;
 /**
  * 迷宫工厂
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MazeFactory implements AbstractMazeFactory {
     @Override public Maze makeMaze() {

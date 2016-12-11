@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Client {
 

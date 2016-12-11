@@ -30,7 +30,7 @@ import java.util.logging.Logger;
 /**
  * 异常测试类
  *
- * @author Mingle
+ * @author mingle
  */
 public class ExceptionTest {
     

@@ -20,7 +20,7 @@ package org.mingle.orange.java.generic;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class PairTest1 {
 

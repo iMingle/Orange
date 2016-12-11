@@ -24,7 +24,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * A bank with a number of bank accounts.
- * @author Mingle
+ * @author mingle
  */
 public class Bank {
     private final double[] accounts;

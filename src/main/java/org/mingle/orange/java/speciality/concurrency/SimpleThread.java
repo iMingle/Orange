@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 继承Thread的线程
  *
- * @author Mingle
+ * @author mingle
  */
 public class SimpleThread extends Thread {
     private int countDown = 5;

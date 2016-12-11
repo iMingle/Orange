@@ -1,5 +1,5 @@
 /**
- * @author Mingle 2014年6月25日
+ * @author mingle 2014年6月25日
  * @author mingle
  */
 package org.mingle.orange.itext;
@@ -23,7 +23,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ImportImage {
 

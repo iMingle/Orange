@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
 /**
  * 清理对象
  *
- * @author Mingle
+ * @author mingle
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

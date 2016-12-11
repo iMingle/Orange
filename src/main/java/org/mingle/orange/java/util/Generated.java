@@ -21,7 +21,7 @@ package org.mingle.orange.java.util;
 /**
  * 生成集合容器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Generated {
     // Fill an existing array:

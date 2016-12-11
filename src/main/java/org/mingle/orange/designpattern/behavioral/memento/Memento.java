@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.memento;
 /**
  * 备忘录
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Memento {
     private State state;

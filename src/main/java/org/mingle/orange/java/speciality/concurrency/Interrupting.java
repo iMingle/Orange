@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 线程中断
  *
- * @author Mingle
+ * @author mingle
  */
 class SleepBlocked implements Runnable {
 

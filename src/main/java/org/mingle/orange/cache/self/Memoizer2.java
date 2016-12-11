@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 缓存
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Memoizer2<A, V> implements Computable<A, V> {
     private final Map<A, V> cache = new ConcurrentHashMap<A, V>();

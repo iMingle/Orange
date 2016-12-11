@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 组合器
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class Joiner extends SingleOutputPushStage implements
         DualInputPushStage {

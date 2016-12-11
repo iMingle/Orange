@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Wait {
     synchronized void w() throws InterruptedException {

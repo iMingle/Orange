@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.facade;
 /**
  * 字节码流
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BytecodeStream {
 

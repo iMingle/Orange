@@ -23,7 +23,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 /**
  * 总线
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Bus extends CompositeEquipment {
 

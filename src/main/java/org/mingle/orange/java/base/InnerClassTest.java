@@ -22,7 +22,7 @@ import java.util.Date;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class InnerClassTest {
     private static int age;

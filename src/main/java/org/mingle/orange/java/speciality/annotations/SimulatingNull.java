@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
 /**
  * 注解处理null值的方法: 给出默认值
  * 
- * @author Mingle
+ * @author mingle
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

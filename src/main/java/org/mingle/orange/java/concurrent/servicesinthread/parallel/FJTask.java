@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * fork/join
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class FJTask implements Runnable {
     abstract boolean isDone();                    // True after task is run

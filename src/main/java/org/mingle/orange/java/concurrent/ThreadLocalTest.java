@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ThreadLocalTest {
 

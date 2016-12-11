@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 /**
  * 原子操作
  *
- * @author Mingle
+ * @author mingle
  */
 public class AtomicityTest implements Runnable {
     private int i = 0;

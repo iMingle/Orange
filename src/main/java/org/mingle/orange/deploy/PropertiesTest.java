@@ -33,7 +33,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class PropertiesTest {
 

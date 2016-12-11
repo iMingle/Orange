@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 缓冲区
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BoundedBufferWithStateTracking {
     protected final Object[] array; // the elements

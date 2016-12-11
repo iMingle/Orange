@@ -27,7 +27,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * 阻塞队列
- * @author Mingle
+ * @author mingle
  */
 public class BlockingQueueTest {
 

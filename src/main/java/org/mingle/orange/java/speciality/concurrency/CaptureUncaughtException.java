@@ -25,7 +25,7 @@ import java.util.concurrent.ThreadFactory;
 /**
  * 捕获线程异常
  *
- * @author Mingle
+ * @author mingle
  */
 class ExceptionThread2 implements Runnable {
 

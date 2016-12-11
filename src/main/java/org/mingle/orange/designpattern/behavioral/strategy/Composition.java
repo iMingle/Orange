@@ -23,7 +23,7 @@ import java.awt.Component;
 /**
  * 文档(包含正文和图形)
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Composition {
     @SuppressWarnings("unused") private final Compositor compositor;

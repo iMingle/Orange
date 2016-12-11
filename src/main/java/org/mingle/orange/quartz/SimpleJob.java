@@ -25,7 +25,7 @@ import org.quartz.JobExecutionException;
 /**
  * a job
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SimpleJob implements Job {
 

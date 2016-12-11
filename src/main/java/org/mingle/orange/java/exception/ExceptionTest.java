@@ -22,7 +22,7 @@ import java.io.FileNotFoundException;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ExceptionTest {
     

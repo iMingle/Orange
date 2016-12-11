@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.observer;
 /**
  * 观察者
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Observer {
     void update(Subject subject);

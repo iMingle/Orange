@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 搜索引擎最短摘要的生成
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SearchDigestGenerate {
     /**

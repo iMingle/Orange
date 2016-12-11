@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 线程本地存储,为使用相同变量的不同线程都创建不同的存储
  *
- * @author Mingle
+ * @author mingle
  */
 class Accessor implements Runnable {
     private final int id;

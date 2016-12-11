@@ -35,7 +35,7 @@ import org.mingle.orange.java.util.ProcessFiles;
 /**
  * 移除@Unit测试代码工具
  *
- * @author Mingle
+ * @author mingle
  */
 public class AtUnitRemover implements ProcessFiles.Strategy {
     private static boolean remove = false;

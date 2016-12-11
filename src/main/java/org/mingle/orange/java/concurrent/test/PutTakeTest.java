@@ -28,7 +28,7 @@ import junit.framework.TestCase;
 /**
  * Producer-consumer test program for BoundedBuffer
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PutTakeTest extends TestCase {
     protected static final ExecutorService pool = Executors

@@ -21,7 +21,7 @@ package org.mingle.orange.java8;
 /**
  * 方法与构造函数引用
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MethodQuote {
 

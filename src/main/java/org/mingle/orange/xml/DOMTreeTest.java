@@ -59,7 +59,7 @@ import org.w3c.dom.Text;
 /**
  * This program displays an XML document as a tree.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DOMTreeTest {
 

@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.latch;
 /**
  * 闭锁变量,类中所有相关的变量都被定义为volatile或者它们的读写都在同步下执行
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LatchingThermometer {
     private volatile boolean ready; // latching

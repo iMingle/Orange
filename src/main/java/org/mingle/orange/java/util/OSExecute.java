@@ -23,7 +23,7 @@ import java.io.*;
 /**
  * Run an operating system command and send the output to the console.
  *
- * @author Mingle
+ * @author mingle
  */
 public class OSExecute {
     public static void command(String command) {

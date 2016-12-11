@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 每消息一线程
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ThreadPerMessageHost {
     protected long localState;

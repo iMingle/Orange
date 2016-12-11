@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 终结任务,装饰性花园
  *
- * @author Mingle
+ * @author mingle
  */
 class Count {
     private int count = 0;

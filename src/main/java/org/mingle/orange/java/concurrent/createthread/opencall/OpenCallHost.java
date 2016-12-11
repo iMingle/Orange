@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 开放调用
  * 
- * @author Mingle
+ * @author mingle
  */
 public class OpenCallHost {
     protected long localState;

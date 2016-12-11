@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 异常处理器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class HandledService implements ServerWithException {
     final ServerWithException server = new ServerImpl();

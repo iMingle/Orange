@@ -22,7 +22,7 @@ package org.mingle.orange.benchmark;
  * 内联优化
  * java -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining -XX:MaxInlineSize=100 Inline
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Inline {
     private static final long ITERATIONS = 5000000000L;

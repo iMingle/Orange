@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 饭店仿真
  * 
- * @author Mingle
+ * @author mingle
  */
 class Order {
     private static int counter = 0;

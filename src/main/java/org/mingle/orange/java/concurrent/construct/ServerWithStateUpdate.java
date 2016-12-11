@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ServerWithStateUpdate {
     private double state;

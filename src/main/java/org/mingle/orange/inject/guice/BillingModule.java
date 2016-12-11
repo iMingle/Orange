@@ -23,7 +23,7 @@ import com.google.inject.AbstractModule;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BillingModule extends AbstractModule {
 

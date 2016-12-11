@@ -23,7 +23,7 @@ import org.mingle.orange.designpattern.creational.Maze;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DefaultMazeBuilder implements MazeBuilder<Maze> {
 

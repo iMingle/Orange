@@ -25,7 +25,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * 不支持关闭的生产者-消费者日志服务
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LogWriter {
     private static final int CAPACITY = 100;

@@ -21,7 +21,7 @@ package org.mingle.orange.arithmetic.base;
 /**
  * 用stack实现计算公式
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CalculateExpression {
     public static double getVal(String str) {

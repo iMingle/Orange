@@ -21,7 +21,7 @@ package org.mingle.orange.benchmark;
 /**
  * 剔除无效代码
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DeadCode {
     private static final long NANOS_PER_MS = 1000000;

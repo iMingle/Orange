@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 银行出纳员仿真
  *
- * @author Mingle
+ * @author mingle
  */
 // 只读对象,不需要同步
 class Customer {

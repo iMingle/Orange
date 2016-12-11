@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ListIterator<T> implements Iterator<T> {
     private final List<T> list;

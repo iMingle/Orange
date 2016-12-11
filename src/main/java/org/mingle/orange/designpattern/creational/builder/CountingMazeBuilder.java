@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational.builder;
 /**
  * 迷宫构件计数器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CountingMazeBuilder extends DefaultMazeBuilder {
     private int doors;

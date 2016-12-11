@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
 /**
  * 测试的注解
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AnnotationTest {
     static class RunTests {

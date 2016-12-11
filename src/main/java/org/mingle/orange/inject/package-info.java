@@ -19,6 +19,6 @@
 /**
  * 依赖注入
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.inject;

@@ -57,7 +57,7 @@ class PortableLunch extends Lunch {
 @SuppressWarnings("unused")
 /**
  * 构造顺序测试
- * @author Mingle
+ * @author mingle
  */
 public class ConstructingOrder extends PortableLunch {
     private Bread b = new Bread();

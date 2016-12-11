@@ -24,7 +24,7 @@ import java.util.Date;
 /**
  * 所有对象都通用的方法
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ObjectGeneralMethod implements Comparable<ObjectGeneralMethod> {
     private byte b;

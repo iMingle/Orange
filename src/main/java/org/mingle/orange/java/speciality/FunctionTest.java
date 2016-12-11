@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality;
 /**
  * 方法的测试
  * @author <a href="mailto:jinml@legendsec.com">靳明雷</a>
- * @author Mingle
+ * @author mingle
  */
 public class FunctionTest {
     /**

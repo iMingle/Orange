@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 生产者与消费者
  *
- * @author Mingle
+ * @author mingle
  */
 class Meal {
     private final int orderNum;

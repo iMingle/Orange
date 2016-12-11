@@ -21,7 +21,7 @@ package org.mingle.orange.arithmetic.base;
 /**
  * 动态连通性问题求解
  * 
- * @author Mingle
+ * @author mingle
  */
 public class UFWeightedQuickUnion {
     private int[] id;    //分量数量，触点数

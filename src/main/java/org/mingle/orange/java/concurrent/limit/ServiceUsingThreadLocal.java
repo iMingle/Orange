@@ -25,7 +25,7 @@ import java.io.OutputStream;
 /**
  * 使用ThreadLocal
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ServiceUsingThreadLocal {
     static ThreadLocal<OutputStream> output = new ThreadLocal<>();

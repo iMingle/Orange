@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.observer;
 /**
  * 用于存储和维护一天时间的具体目标
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ClockTimer extends Subject {
     public int hour() {

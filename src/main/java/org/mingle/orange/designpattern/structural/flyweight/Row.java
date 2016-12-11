@@ -22,7 +22,7 @@ package org.mingle.orange.designpattern.structural.flyweight;
  * 行
  * UnsharedConcreteFlyweight
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Row extends Glyph {
 

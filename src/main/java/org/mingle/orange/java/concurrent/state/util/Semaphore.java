@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.util;
 /**
  * 信号量的实现
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Semaphore implements Sync {
     protected long permits; // current number of available permits

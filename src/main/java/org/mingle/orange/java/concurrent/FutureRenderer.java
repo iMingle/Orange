@@ -31,7 +31,7 @@ import org.mingle.orange.util.LaunderThrowable;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class FutureRenderer {
     private final ExecutorService executor = Executors.newCachedThreadPool();

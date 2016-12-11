@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 迷宫组件的抽象类
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class MapSite {
     public abstract void enter();

@@ -23,7 +23,7 @@ import java.util.*;
 /**
  * 集合容器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CollectionData<T> extends ArrayList<T> {
     private static final long serialVersionUID = 520586597408683553L;

@@ -65,7 +65,7 @@ class Composing {
 /**
  * 引用计数类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ReferenceCounting {
     public static void main(String[] args) {

@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * 序列化
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Serialization implements Serializable {
     private static final long serialVersionUID = 1339037634067378632L;

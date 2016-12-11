@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 构造代码高昂的对象
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Fat {
     @SuppressWarnings("unused")

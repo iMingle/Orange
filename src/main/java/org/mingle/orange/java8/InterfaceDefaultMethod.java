@@ -21,7 +21,7 @@ package org.mingle.orange.java8;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class InterfaceDefaultMethod {
     public static void main(String[] args) {

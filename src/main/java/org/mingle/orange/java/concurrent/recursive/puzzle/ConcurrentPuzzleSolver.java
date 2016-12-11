@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 并行解决方案
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ConcurrentPuzzleSolver<P, M> {
     private final Puzzle<P, M> puzzle;

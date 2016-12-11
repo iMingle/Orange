@@ -46,7 +46,7 @@ class MoreUseful extends Useful {
 /**
  * Run-Time Type Information 运行时类型识别
  * 
- * @author Mingle
+ * @author mingle
  */
 public class RTTI {
     public static void main(String[] args) {

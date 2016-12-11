@@ -21,7 +21,7 @@ package org.mingle.orange.java8;
 /**
  * 函数式接口
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FunctionInterface {
     public static void main(String[] args) {

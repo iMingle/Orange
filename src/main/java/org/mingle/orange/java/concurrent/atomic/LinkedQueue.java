@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * 非阻塞的链表
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LinkedQueue<E> {
     private static class Node<E> {

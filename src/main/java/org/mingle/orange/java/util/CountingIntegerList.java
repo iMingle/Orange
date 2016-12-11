@@ -23,7 +23,7 @@ import java.util.*;
 /**
  * List of any length, containing sample data.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CountingIntegerList extends AbstractList<Integer> {
     private int size;

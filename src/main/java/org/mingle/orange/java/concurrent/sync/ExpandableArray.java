@@ -23,7 +23,7 @@ import java.util.NoSuchElementException;
 /**
  * 完全同步对象,简化版本的java.util.Vector
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ExpandableArray {
     protected Object[] data; // the elements

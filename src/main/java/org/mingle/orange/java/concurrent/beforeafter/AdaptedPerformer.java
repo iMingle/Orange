@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 适配Performer
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AdaptedPerformer implements Runnable {
     private final Performer adaptee;

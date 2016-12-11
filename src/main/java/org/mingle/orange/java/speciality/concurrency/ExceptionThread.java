@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 /**
  * try catch无法捕获线程异常
  *
- * @author Mingle
+ * @author mingle
  */
 public class ExceptionThread implements Runnable {
     

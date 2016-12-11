@@ -19,6 +19,6 @@
 /**
  * 自动化测试
  *
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.autotest;

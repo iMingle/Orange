@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 /**
  * 偶数检查器
  *
- * @author Mingle
+ * @author mingle
  */
 public class EvenChecker implements Runnable {
     private IntGenerator generator;

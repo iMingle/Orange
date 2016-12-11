@@ -35,7 +35,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class MouseTest {
     /**

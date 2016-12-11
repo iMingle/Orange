@@ -23,7 +23,7 @@ import java.awt.Dimension;
 /**
  * 发送源
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BasicBoxSource extends SingleOutputPushStage implements
         PushSource, Runnable {

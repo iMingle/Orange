@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.facade;
 /**
  * 标识符
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Token {
 

@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.constant;
 /**
  * 共享
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Relay {
     protected final Server server;

@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * 回调计数器方式
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FibVCB extends NullFJTask {
     static final int sequentialThreshold = 13; // for tuning

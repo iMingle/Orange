@@ -21,7 +21,7 @@ package org.mingle.orange.cache.self;
 /**
  * 可计算
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Computable<A, V> {
     V compute(A arg) throws InterruptedException;

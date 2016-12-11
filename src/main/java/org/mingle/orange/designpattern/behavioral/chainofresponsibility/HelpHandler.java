@@ -22,7 +22,7 @@ package org.mingle.orange.designpattern.behavioral.chainofresponsibility;
  * 图形用户界面的帮助处理器
  * Handler
  * 
- * @author Mingle
+ * @author mingle
  */
 public class HelpHandler {
     public static final int NO_HELP_TOPIC = -1;

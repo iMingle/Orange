@@ -23,7 +23,7 @@ import java.util.Random;
 /**
  * 懒加载单例模式
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LazySingletonCounter {
     private final long initial;

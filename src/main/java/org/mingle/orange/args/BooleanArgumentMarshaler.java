@@ -23,7 +23,7 @@ import java.util.Iterator;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BooleanArgumentMarshaler implements ArgumentMarshaler {
     private boolean booleanValue = false;

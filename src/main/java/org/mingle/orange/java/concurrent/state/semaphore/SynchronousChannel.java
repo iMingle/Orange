@@ -23,7 +23,7 @@ import java.util.concurrent.Semaphore;
 /**
  * 同步通道
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SynchronousChannel {
     protected Object item = null; // to hold while in transit

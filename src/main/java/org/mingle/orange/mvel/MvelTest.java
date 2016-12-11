@@ -23,7 +23,7 @@ import org.mvel2.ParserContext;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class MvelTest {
 

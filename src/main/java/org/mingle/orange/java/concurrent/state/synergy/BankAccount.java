@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.synergy;
 /**
  * 协同处理通用解决方案
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BankAccount {
     protected long balance = 0;

@@ -42,7 +42,7 @@ import javax.swing.SwingWorker;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ZipTest {
 

@@ -23,7 +23,7 @@ import java.util.LinkedList;
 /**
  * LinkedList测试
  *
- * @author Mingle
+ * @author mingle
  */
 public class LinkedListTest {
     public static void main(String[] args) {

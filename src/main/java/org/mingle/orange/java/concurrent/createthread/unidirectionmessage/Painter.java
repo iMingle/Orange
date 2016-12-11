@@ -24,7 +24,7 @@ import java.awt.Dimension;
 /**
  * 线性阶段
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Painter extends SingleOutputPushStage implements PushStage {
     protected final Color color; // the color to paint things

@@ -19,6 +19,6 @@
 /**
  * 自实现的缓存
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.cache.self;

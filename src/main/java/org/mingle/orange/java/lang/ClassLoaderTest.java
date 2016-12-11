@@ -24,7 +24,7 @@ import java.net.URL;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ClassLoaderTest {
 

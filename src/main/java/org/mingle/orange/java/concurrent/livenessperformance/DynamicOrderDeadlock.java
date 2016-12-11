@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 动态的锁顺序死锁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DynamicOrderDeadlock {
 

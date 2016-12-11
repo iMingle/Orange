@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality;
 /**
  * this.toString()造成递归
  *
- * @author Mingle
+ * @author mingle
  */
 public class ThisToString {
 

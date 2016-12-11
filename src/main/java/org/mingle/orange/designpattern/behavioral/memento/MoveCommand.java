@@ -24,7 +24,7 @@ import java.awt.Point;
  * 图像移动命令
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MoveCommand {
     private ConstraintSolverMemento state;

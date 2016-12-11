@@ -24,7 +24,7 @@ import java.util.NoSuchElementException;
 /**
  * 动态数组实现
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ResizingArrayQueue<Item> implements Iterable<Item> {
     private Item[] queue;

@@ -31,7 +31,7 @@ import org.mingle.orange.util.LaunderThrowable;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class CompletionServiceTest {
     private final ExecutorService executor;

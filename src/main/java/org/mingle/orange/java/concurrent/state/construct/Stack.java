@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.construct;
 /**
  * 保障分层
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Stack {
     public synchronized boolean isEmpty() {

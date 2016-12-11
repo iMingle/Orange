@@ -21,7 +21,7 @@ package org.mingle.orange.java7;
 /**
  * 为所有的reflect操作异常找了个新爸爸 - ReflectiveOperationException
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ReflectException extends ReflectiveOperationException {
     private static final long serialVersionUID = 1617286221119926091L;

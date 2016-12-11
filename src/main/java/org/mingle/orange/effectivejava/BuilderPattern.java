@@ -21,7 +21,7 @@ package org.mingle.orange.effectivejava;
 /**
  * Builder模式创建对象
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BuilderPattern {
     public static void main(String[] args) {

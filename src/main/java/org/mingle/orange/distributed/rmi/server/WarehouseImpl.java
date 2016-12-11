@@ -26,7 +26,7 @@ import java.util.Map;
 /**
  * 仓库的实现类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class WarehouseImpl extends UnicastRemoteObject implements Warehouse {
     private static final long serialVersionUID = -2465759340903040538L;

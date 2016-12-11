@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.atomic;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SimulatedCAS {
     private int value;

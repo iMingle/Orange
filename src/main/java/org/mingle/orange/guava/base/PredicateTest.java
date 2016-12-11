@@ -28,7 +28,7 @@ import com.google.common.collect.Lists;
 /**
  * most common use: filtering collections (view)
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PredicateTest {
 

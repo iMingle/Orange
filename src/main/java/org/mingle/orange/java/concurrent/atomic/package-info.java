@@ -19,6 +19,6 @@
 /**
  * 原子变量与非阻塞同步机制
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.atomic;

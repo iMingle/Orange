@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 类分解
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PassThroughShape {
     protected final AdjustableLoc loc = new AdjustableLoc(0, 0);

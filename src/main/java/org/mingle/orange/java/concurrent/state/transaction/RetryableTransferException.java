@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.transaction;
 /**
  * 可重试的转移异常
  * 
- * @author Mingle
+ * @author mingle
  */
 public class RetryableTransferException extends Exception {
     private static final long serialVersionUID = -8108538285598502332L;

@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational.builder;
 /**
  * 迷宫构建器接口
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface MazeBuilder<T> {
     void buildMaze();

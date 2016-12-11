@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.util;
 /**
  * Bounded buffer using crude blocking
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SleepyBoundedBuffer<V> extends BaseBoundedBuffer<V> {
     int SLEEP_GRANULARITY = 60;

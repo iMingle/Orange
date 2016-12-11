@@ -23,7 +23,7 @@ import java.net.URL;
 /**
  * Future接口实现原理
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PicturAppWithFuture {
     private final Renderer renderer = new AsynchRenderer();

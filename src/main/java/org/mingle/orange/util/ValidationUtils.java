@@ -31,7 +31,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Validation工具类
  *
- * @author Mingle
+ * @author mingle
  */
 public class ValidationUtils {
     public static void main(String[] args) {

@@ -19,6 +19,6 @@
 /**
  * 创建线程
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.createthread;

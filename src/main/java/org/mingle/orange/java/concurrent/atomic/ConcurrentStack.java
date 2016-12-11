@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * 非阻塞的栈
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ConcurrentStack<E> {
     AtomicReference<Node<E>> top = new AtomicReference<Node<E>>();

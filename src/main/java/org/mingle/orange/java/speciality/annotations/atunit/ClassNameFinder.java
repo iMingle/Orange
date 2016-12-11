@@ -31,7 +31,7 @@ import org.mingle.orange.java.util.Directory;
 /**
  * 从class文件中读取文件名称
  *
- * @author Mingle
+ * @author mingle
  */
 public class ClassNameFinder {
     @SuppressWarnings("unused")

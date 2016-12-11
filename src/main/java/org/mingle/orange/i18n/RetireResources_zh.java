@@ -24,7 +24,7 @@ import java.util.ListResourceBundle;
 /**
  * These are the Chinese non-string resources for the retirement calculator.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class RetireResources_zh extends ListResourceBundle {
     static final Object[][] contents = {

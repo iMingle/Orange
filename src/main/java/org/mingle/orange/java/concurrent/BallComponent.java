@@ -27,7 +27,7 @@ import javax.swing.JPanel;
 /**
  * The component that draws the balls.
  * @date 2014年9月13日
- * @author Mingle
+ * @author mingle
  */
 public class BallComponent extends JPanel {
 

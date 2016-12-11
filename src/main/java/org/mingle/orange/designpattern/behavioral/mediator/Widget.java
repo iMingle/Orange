@@ -24,7 +24,7 @@ import java.awt.event.MouseEvent;
  * 窗口小组件
  * 同事类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Widget {
     private final DialogDirector director;

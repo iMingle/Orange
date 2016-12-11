@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 用执行器处理请求
  * 
- * @author Mingle
+ * @author mingle
  */
 public class HostWithExecutor {
     protected long localState;

@@ -24,7 +24,7 @@ import java.io.IOException;
 /**
  * 完成回调
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FileReaderApp implements FileReaderClient {
     protected FileReader reader = new AFileReader();

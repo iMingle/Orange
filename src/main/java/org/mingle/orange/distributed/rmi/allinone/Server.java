@@ -24,7 +24,7 @@ import java.rmi.registry.LocateRegistry;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Server {
     /**

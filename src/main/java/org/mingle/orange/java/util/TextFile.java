@@ -29,7 +29,7 @@ import java.util.TreeSet;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class TextFile extends ArrayList<String> {
     private static final long serialVersionUID = 7843082198953737529L;

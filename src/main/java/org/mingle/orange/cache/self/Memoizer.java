@@ -33,7 +33,7 @@ import org.mingle.orange.util.LaunderThrowable;
  * 问题2:缓存逾期问题,可以通过FutureTask的子类来解决
  * 问题3:缓存清理问题,即移除旧的计算结果以便为新的计算结果腾出空间,从而使缓存不会消耗过多的内存
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Memoizer<A, V> implements Computable<A, V> {
     private final Map<A, Future<V>> cache = new ConcurrentHashMap<A, Future<V>>();

@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 墙
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Wall extends MapSite implements Cloneable {
 

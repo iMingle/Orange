@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * IO不可中断,采取关闭资源的方式
  *
- * @author Mingle
+ * @author mingle
  */
 public class CloseResource {
 

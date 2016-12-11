@@ -19,6 +19,6 @@
 /**
  * 算法的工具类
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.arithmetic.util;

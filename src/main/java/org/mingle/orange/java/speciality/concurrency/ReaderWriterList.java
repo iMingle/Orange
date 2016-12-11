@@ -31,7 +31,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * ReadWriteLock允许同时有多个读取者,只要他们都不试图写入.
  * 如果写锁已经被其他任务持有,那么任何读取者都不能访问,直至这个写锁被释放为止.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ReaderWriterList<T> {
     private ArrayList<T> lockedList;

@@ -26,7 +26,7 @@ import java.util.Locale;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CalendarTest {
     /**

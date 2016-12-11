@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 火箭发射前的倒计时
  *
- * @author Mingle
+ * @author mingle
  */
 public class LiftOff implements Runnable {
     protected int countDown = 10;

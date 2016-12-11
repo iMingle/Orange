@@ -23,7 +23,7 @@ import org.mingle.orange.designpattern.structural.Point;
 /**
  * 窗口
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class Window {
     private final View view;

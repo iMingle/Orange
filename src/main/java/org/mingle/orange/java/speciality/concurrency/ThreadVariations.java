@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 用内部类创建线程
  *
- * @author Mingle
+ * @author mingle
  */
 class InnerThread1 {
     private int countDown = 5;

@@ -24,7 +24,7 @@ import java.util.concurrent.BlockingQueue;
 /**
  * 素数生成器的取消
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PrimeProducer extends Thread {
     private final BlockingQueue<BigInteger> queue;

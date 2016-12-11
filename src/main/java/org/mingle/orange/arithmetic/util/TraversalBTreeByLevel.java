@@ -23,7 +23,7 @@ import java.util.ArrayList;
 /**
  * 分层遍历二叉树
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TraversalBTreeByLevel<E> {
     public static class Node<E> {

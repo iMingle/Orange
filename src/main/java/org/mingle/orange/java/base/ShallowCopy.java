@@ -20,7 +20,7 @@ package org.mingle.orange.java.base;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 class Professor0 implements Cloneable {
     String name;

@@ -25,7 +25,7 @@ import java.net.Socket;
 /**
  * 处理不可中断的阻塞
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ReaderThread extends Thread {
     private final Socket socket;

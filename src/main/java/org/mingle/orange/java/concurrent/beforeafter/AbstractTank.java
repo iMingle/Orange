@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 模板方法
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class AbstractTank implements Tank {
     protected void checkVolumeInvariant() throws AssertionError {

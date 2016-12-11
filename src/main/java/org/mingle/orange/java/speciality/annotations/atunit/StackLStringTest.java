@@ -23,7 +23,7 @@ import org.mingle.orange.java.util.OSExecute;
 /**
  * Applying @Unit to generics.
  *
- * @author Mingle
+ * @author mingle
  */
 public class StackLStringTest extends StackL<String> {
     @Test

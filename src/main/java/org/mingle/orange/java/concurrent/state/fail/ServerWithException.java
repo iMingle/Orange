@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.fail;
 /**
  * 服务异常
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface ServerWithException {
     void service() throws ServiceException;

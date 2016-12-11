@@ -32,7 +32,7 @@ import com.google.common.collect.Maps;
 /**
  * Class测试
  *
- * @author Mingle
+ * @author mingle
  */
 public class ClassTest {
 

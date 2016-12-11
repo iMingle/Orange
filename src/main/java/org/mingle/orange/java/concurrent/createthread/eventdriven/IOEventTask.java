@@ -25,7 +25,7 @@ import java.net.Socket;
 /**
  * 事件驱动的任务
  * 
- * @author Mingle
+ * @author mingle
  */
 public class IOEventTask implements Runnable {
     static final int BUFFSIZE = 1024;

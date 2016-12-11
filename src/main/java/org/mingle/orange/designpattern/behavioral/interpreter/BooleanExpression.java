@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 /**
  * 对布尔表达式进行操作和求值
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface BooleanExpression {
     boolean evaluate(Context context);

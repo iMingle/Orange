@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * notify()和notifyAll()测试
  *
- * @author Mingle
+ * @author mingle
  */
 class Blocker {
     synchronized void waitingCall() {

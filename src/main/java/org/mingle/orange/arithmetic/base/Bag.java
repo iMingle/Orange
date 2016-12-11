@@ -23,7 +23,7 @@ import java.util.Iterator;
 /**
  * 链表实现Bag
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Bag<Item> implements Iterable<Item> {
     private Node first;

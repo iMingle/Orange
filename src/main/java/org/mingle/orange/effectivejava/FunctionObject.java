@@ -25,7 +25,7 @@ import java.io.Serializable;
 /**
  * 函数对象
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FunctionObject {
     private static class StrLenCmp implements Comparator<String>, Serializable {

@@ -27,7 +27,7 @@ import org.mingle.orange.designpattern.structural.composite.FloppyDisk;
 /**
  * 设备访问者
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface EquipmentVisitor {
     void visitFloppyDisk(FloppyDisk floppyDisk);

@@ -29,7 +29,7 @@ import com.google.common.collect.Maps;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class GenericTest<T> {
 

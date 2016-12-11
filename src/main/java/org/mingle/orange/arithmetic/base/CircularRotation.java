@@ -22,7 +22,7 @@ package org.mingle.orange.arithmetic.base;
  * Circular Rotation(回环变位)-字符串s中的字符循环移动任意位置之后得到另一个字符串t,
  * 那么s就被称为t的回环变位
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CircularRotation {
     

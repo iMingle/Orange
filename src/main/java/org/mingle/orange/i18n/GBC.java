@@ -25,7 +25,7 @@ import java.awt.Insets;
  * This class simplifies the use of the GridBagConstraints class.
  * 
  * @author <a href="mailto:jinminglei@yeah.net">Mingle</a>
- * @author Mingle
+ * @author mingle
  */
 public class GBC extends GridBagConstraints {
 

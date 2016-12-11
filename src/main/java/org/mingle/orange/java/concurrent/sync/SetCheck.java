@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.sync;
 /**
  * 不用同步机制的类
  * 
- * @author Mingle
+ * @author mingle
  */
 public final class SetCheck {
     private int a = 0;

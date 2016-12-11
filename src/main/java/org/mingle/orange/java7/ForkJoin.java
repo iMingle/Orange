@@ -33,7 +33,7 @@ import static java.lang.Integer.parseInt;
  *   split my work into two pieces
  *   invoke the two pieces and wait for the results
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ForkJoin {}
 

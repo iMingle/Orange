@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.decorator;
 /**
  * 虚拟画图组件
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface VisualComponent {
     void draw();

@@ -21,7 +21,7 @@ package org.mingle.orange.mvel;
 /**
  * mvel测试实体类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MvelDomain {
     private String name;

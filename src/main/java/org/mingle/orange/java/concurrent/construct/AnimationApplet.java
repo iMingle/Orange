@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 双重检查
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AnimationApplet {
     int framesPerSecond; // default zero is illegal value

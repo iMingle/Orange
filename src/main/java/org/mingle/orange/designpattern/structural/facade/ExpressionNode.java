@@ -23,7 +23,7 @@ import java.util.Iterator;
 /**
  * 表达式节点
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ExpressionNode extends ProgramNode {
 

@@ -25,7 +25,7 @@ import java.io.OutputStream;
 /**
  * 线程内限制,每线程一个会话
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ThreadPerSessionBasedService {
     public void service() {

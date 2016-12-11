@@ -25,7 +25,7 @@ import java.util.Set;
 /**
  * Set测试类
  *
- * @author Mingle
+ * @author mingle
  */
 public class SetTest {
 

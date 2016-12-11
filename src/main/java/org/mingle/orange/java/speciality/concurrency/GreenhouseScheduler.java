@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 使用ScheduledExecutor的温室控制器
  *
- * @author Mingle
+ * @author mingle
  */
 public class GreenhouseScheduler {
     @SuppressWarnings("unused")

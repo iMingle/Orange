@@ -20,7 +20,7 @@ package org.mingle.orange.java.speciality.annotations;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 @ExtractInterface("IMultiply")
 public class Multiply {

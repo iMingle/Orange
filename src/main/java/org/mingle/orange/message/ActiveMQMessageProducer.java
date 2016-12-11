@@ -31,7 +31,7 @@ import org.apache.activemq.spring.ActiveMQConnectionFactory;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ActiveMQMessageProducer {
 

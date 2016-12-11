@@ -21,7 +21,7 @@ package org.mingle.orange.java.generic;
 /**
  * generic class pair
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Pair<T> {
     private T first;

@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.facade;
 /**
  * RISC机器代码生成器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class RISCCodeGenerator extends CodeGenerator {
 

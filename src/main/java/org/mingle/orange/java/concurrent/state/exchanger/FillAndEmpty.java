@@ -23,7 +23,7 @@ import java.util.concurrent.Exchanger;
 /**
  * 交换器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FillAndEmpty {
     static final int SIZE = 1024; // buffer size, for demo

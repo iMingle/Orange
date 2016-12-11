@@ -23,7 +23,7 @@ import java.util.*;
 /**
  * This program demonstrates cloning.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CloneTest {
     public static void main(String[] args) {

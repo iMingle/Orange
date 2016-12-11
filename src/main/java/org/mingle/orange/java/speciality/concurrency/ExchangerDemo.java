@@ -31,7 +31,7 @@ import org.mingle.orange.java.util.Generator;
 /**
  * 在两个任务之间交换对象
  * 
- * @author Mingle
+ * @author mingle
  */
 class ExchangerProducer<T> implements Runnable {
     private Generator<T> generator;

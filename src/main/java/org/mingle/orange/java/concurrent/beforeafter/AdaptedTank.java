@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 适配器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AdaptedTank implements Tank {
     protected final Tank delegate;

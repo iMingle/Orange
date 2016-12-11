@@ -24,7 +24,7 @@ import java.util.Deque;
 /**
  * 算法的解法
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Solution {
     /**

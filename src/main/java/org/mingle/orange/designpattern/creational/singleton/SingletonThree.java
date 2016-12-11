@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational.singleton;
 /**
  * 静态内部类实现的单例模式
  *
- * @author Mingle
+ * @author mingle
  */
 public class SingletonThree {
     private SingletonThree() {}

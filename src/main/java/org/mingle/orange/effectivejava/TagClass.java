@@ -21,7 +21,7 @@ package org.mingle.orange.effectivejava;
 /**
  * 类层次优于标签类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TagClass {}
 

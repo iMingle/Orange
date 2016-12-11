@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 /**
  * 反射测试类
  *
- * @author Mingle
+ * @author mingle
  */
 public class ReflectTest {
     private static String usage = 

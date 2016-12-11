@@ -23,7 +23,7 @@ import java.awt.event.MouseEvent;
 /**
  * 按键
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Button extends Widget {
 

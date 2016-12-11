@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * 触发任务
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PollingWorker implements Runnable {
     private List<IOEventTask> tasks = new LinkedList<>();

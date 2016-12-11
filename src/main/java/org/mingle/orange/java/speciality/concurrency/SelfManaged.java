@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 自管理的线程
  *
- * @author Mingle
+ * @author mingle
  */
 public class SelfManaged implements Runnable {
     private int countDown = 5;

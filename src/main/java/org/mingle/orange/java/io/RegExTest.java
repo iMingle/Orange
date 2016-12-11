@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
  * Enter a pattern and strings to match, or hit Cancel
  * to exit. If the pattern contains groups, the group
  * boundaries are displayed in the match.
- * @author Mingle
+ * @author mingle
  */
 public class RegExTest {
 

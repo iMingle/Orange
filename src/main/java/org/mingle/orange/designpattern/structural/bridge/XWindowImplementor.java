@@ -23,7 +23,7 @@ import org.mingle.orange.designpattern.structural.Point;
 /**
  * 生成X窗口
  * 
- * @author Mingle
+ * @author mingle
  */
 public class XWindowImplementor implements WindowImplementor {
 

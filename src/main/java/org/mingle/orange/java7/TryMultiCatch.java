@@ -27,7 +27,7 @@ import java.sql.SQLException;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TryMultiCatch {
     public void test() throws NoSuchMethodException, NoSuchFieldException {

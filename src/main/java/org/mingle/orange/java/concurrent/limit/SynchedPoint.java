@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.limit;
 /**
  * 代理非同步对象
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SynchedPoint {
     protected final BarePoint delegate = new BarePoint();

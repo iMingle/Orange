@@ -32,7 +32,7 @@ import javax.xml.stream.XMLStreamReader;
  * XHTML web page. <br>
  * Usage: java StAXTest url
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StAXTest {
 

@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 解决哲学家就餐死锁问题
  *
- * @author Mingle
+ * @author mingle
  */
 public class FixedDiningPhilosophers {
 

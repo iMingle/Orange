@@ -25,7 +25,7 @@ import java.util.concurrent.Phaser;
  * A reusable synchronization barrier, similar in functionality to 
  * CyclicBarrier and CountDownLatch but supporting more flexible usage.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ConcurrentPhaser {
     /**

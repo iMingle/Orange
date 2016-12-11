@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.observer;
 /**
  * 数字时钟
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DigitalClock implements Observer, Widget {
     private final ClockTimer subject;

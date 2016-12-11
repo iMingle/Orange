@@ -21,7 +21,7 @@ package org.mingle.orange.arithmetic.util;
 /**
  * 字符串的相似度,把s->t所需要的操作次数定义为距离,则相似度为'距离+1'的倒数
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StringSimilarity {
     private static int[][] distances;

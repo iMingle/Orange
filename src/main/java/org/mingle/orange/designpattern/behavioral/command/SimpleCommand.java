@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.command;
 /**
  * 简单的不能取消和不需要参数的命令
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SimpleCommand implements Command {
     private final Action action;

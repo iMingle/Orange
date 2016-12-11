@@ -26,7 +26,7 @@ import java.util.Set;
 /**
  * 串行解决方案
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SequentialPuzzleSolver<P, M> {
     private final Puzzle<P, M> puzzle;

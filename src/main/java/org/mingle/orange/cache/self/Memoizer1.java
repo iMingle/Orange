@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * 缓存
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Memoizer1<A, V> implements Computable<A, V> {
     private final Map<A, V> cache = new HashMap<A, V>();

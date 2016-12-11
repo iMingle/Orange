@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * javap -c Atomicity
  *
- * @author Mingle
+ * @author mingle
  */
 public class Atomicity {
     int i;

@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 魔法房间
  * 
- * @author Mingle
+ * @author mingle
  */
 public class EnchantedRoom extends Room implements Cloneable {
     @SuppressWarnings("unused")

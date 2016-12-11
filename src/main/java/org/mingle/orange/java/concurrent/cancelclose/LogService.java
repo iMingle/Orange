@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 支持关闭的生产者-消费者日志服务
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LogService {
     private static final int CAPACITY = 100;

@@ -25,7 +25,7 @@ import java.util.TimeZone;
 /**
  * 避免创建不必要的对象
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AvoidCreateNeedlessObject {
     @SuppressWarnings("unused")

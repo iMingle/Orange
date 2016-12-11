@@ -45,7 +45,7 @@ import com.alibaba.fastjson.JSONObject;
 /**
  * 生成签名
  * 
- * @author Mingle
+ * @author mingle
  */
 public class GenerateSign {
     /**

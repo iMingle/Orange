@@ -33,7 +33,7 @@ import javax.swing.JPanel;
  * shows animated bouncing ball.
  * 
  * @date 2014年9月13日
- * @author Mingle
+ * @author mingle
  */
 public class BounceThread {
 

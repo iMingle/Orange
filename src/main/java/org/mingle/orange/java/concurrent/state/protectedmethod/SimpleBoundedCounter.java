@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * 通知
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SimpleBoundedCounter {
     static final long MIN = 0; // minimum allowed value

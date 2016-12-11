@@ -30,7 +30,7 @@ import java.util.concurrent.FutureTask;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class FutureTest {
 

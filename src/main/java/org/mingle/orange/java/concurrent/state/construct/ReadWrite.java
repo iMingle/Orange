@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.construct;
 /**
  * 读入者写入者
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class ReadWrite {
     protected int activeReaders = 0; // threads executing read

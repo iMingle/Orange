@@ -24,7 +24,7 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
 /**
  * 一把锁的多个条件变量
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PThreadsStyleBuffer {
     private final Mutex mutex = new Mutex();

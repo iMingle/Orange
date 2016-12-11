@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * 忙等待的替换类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SpinLock { // Avoid needing to use this
     private volatile boolean busy = false;

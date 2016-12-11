@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 原子性提交
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Optimistic {
     private State state; // reference to representation object

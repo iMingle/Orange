@@ -21,7 +21,7 @@ package org.mingle.orange.java.util;
 /**
  * 对象生成器
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Generator<T> {
     T next();

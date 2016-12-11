@@ -24,7 +24,7 @@ import java.awt.geom.Rectangle2D;
 /**
  * A ball that moves and bounces off the edges of a rectangle.
  * @date 2014年9月13日
- * @author Mingle
+ * @author mingle
  */
 public class Ball {
     private static final int XSIZE = 15;

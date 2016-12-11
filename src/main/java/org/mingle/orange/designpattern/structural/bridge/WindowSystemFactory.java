@@ -22,7 +22,7 @@ package org.mingle.orange.designpattern.structural.bridge;
 /**
  * 负责构建WindowImplementor
  * 
- * @author Mingle
+ * @author mingle
  */
 public class WindowSystemFactory {
     private static WindowSystemFactory instance;

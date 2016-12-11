@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 基本的线程调用
  *
- * @author Mingle
+ * @author mingle
  */
 public class BasicThreads {
 

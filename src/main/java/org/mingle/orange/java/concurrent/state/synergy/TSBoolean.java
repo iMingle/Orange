@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.synergy;
 /**
  * boolean检查设置类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TSBoolean {
     private boolean value = false;

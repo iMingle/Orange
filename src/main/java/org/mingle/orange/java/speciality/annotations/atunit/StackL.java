@@ -23,7 +23,7 @@ import java.util.*;
 /**
  * 被测试类
  *
- * @author Mingle
+ * @author mingle
  */
 public class StackL<T> {
     private LinkedList<T> list = new LinkedList<T>();

@@ -30,7 +30,7 @@ import org.mingle.orange.util.LaunderThrowable;
 /**
  * 缓存
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Memoizer3<A, V> implements Computable<A, V> {
     private final Map<A, Future<V>> cache = new ConcurrentHashMap<A, Future<V>>();

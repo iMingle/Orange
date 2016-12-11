@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.limit;
 /**
  * 打印机
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Printer {
     public void printDocument(byte[] doc) { /* ... */ }

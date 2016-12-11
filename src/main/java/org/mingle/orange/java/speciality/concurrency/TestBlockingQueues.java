@@ -29,7 +29,7 @@ import java.util.concurrent.SynchronousQueue;
 /**
  * 阻塞队列测试
  *
- * @author Mingle
+ * @author mingle
  */
 class LiftOffRunner implements Runnable {
     private BlockingQueue<LiftOff> rockets;

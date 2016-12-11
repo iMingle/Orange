@@ -20,7 +20,7 @@ package org.mingle.orange.rhino;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class JavaScriptDomain {
     private String name = "JavaScript";

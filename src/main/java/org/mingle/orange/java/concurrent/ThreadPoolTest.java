@@ -32,7 +32,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ThreadPoolTest {
 

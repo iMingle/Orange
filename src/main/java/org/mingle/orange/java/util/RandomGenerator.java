@@ -23,7 +23,7 @@ import java.util.*;
 /**
  * Generators that produce random values.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class RandomGenerator {
     private static Random r = new Random(47);

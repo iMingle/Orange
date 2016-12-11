@@ -32,7 +32,7 @@ import static org.mingle.orange.args.ArgsException.ErrorCode.*;
  * 命令行解析
  * b,i#,s*,d##,a[*] -b true -i 5 -s string -d 1.0 -a a,b,c
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Args {
     private Map<Character, ArgumentMarshaler> marshalers;

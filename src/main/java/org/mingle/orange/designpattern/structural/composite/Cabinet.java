@@ -23,7 +23,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 /**
  * 柜子
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Cabinet extends CompositeEquipment {
 

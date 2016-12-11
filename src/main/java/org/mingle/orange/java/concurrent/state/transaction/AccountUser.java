@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.state.synergy.InsufficientFunds;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AccountUser {
     TransactionLogger log; // a made-up class

@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
  * <a href=...> HTML tag. Start the program as <br>
  * java HrefMatch URL
  * 
- * @author Mingle
+ * @author mingle
  */
 public class HrefMatch {
 

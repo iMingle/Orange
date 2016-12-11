@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.facade;
 /**
  * 程序节点构建器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ProgramNodeBuilder {
     private ProgramNode node;

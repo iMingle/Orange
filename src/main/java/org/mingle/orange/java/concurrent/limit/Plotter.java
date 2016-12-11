@@ -23,7 +23,7 @@ import java.awt.Point;
 /**
  * 跨方法的限制
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Plotter {
     public void showNextPoint() {

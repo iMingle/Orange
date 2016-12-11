@@ -25,7 +25,7 @@ import com.sun.corba.se.impl.orbutil.concurrent.Mutex;
 /**
  * 方法适配器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ParticleUsingWrapper {
     protected int x;

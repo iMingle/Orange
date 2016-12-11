@@ -23,7 +23,7 @@ import java.util.Date;
 /**
  * 只有一个工作者线程
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TimerDaemon {
     static class TimerTask implements Comparable<TimerTask> {

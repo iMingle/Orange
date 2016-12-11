@@ -21,7 +21,7 @@ package org.mingle.orange.java.util;
 /**
  * Simple generator implementations.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CountingGenerator {
     public static class Boolean implements Generator<java.lang.Boolean> {

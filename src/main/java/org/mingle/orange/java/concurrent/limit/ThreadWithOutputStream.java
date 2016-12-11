@@ -23,7 +23,7 @@ import java.io.OutputStream;
 /**
  * 线程私有成员变量
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ThreadWithOutputStream extends Thread {
     private OutputStream output;

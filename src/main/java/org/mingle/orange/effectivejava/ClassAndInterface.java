@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * 类和接口
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ClassAndInterface {
     // 基本数据类型或不可变类

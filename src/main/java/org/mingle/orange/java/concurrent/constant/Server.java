@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.constant;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Server {
     public void doIt() {}

@@ -23,7 +23,7 @@ import java.util.Iterator;
 /**
  * 链表实现Queue
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Queue<Item> implements Iterable<Item> {
     private Node first;

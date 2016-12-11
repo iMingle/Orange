@@ -29,7 +29,7 @@ import org.mingle.orange.designpattern.structural.Point;
  * 图片代理
  * Proxy
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ImageProxy implements Graphic {
     private Image image;

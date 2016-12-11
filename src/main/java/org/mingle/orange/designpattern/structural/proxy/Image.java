@@ -28,7 +28,7 @@ import org.mingle.orange.designpattern.structural.Point;
  * 图片
  * RealSubject
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Image implements Graphic {
     private final String filepath;

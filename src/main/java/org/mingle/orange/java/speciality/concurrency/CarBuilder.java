@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
  * 分发工作,多个任务一起工作
  * 组装车子包括创建底盘,安装发送机,车厢和轮子
  * 
- * @author Mingle
+ * @author mingle
  */
 class Car {
     private final int id;

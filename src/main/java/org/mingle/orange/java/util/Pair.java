@@ -21,7 +21,7 @@ package org.mingle.orange.java.util;
 /**
  * 对值
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Pair<K, V> {
     public final K key;

@@ -51,7 +51,7 @@ import java.util.concurrent.TimeUnit;
  * findFirst():返回第一个匹配的元素;
  * anyMatch():是否有匹配的元素等.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CollectionStream {
     public static void main(String[] args) {

@@ -28,7 +28,7 @@ import java.util.concurrent.Future;
 /**
  * 从任务中产生返回值
  *
- * @author Mingle
+ * @author mingle
  */
 public class CallableDemo {
 

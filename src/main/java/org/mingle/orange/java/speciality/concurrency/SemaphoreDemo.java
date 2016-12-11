@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 信号量测试
  * 
- * @author Mingle
+ * @author mingle
  */
 class CheckoutTask<T> implements Runnable {
     private static int counter = 0;

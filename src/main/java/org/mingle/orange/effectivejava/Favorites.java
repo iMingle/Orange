@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * 优先考虑类型安全的异构容器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Favorites {
     private Map<Class<?>, Object> favorites = new HashMap<>();

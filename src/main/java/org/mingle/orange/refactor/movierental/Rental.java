@@ -21,7 +21,7 @@ package org.mingle.orange.refactor.movierental;
 /**
  * 租赁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Rental {
     private Movie movie;

@@ -46,7 +46,7 @@ import com.google.common.collect.Maps;
 /**
  * json测试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class JacksonTest {
     public static void main(String[] args) throws IOException {

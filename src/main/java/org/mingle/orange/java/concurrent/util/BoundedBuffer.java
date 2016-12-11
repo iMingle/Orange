@@ -22,7 +22,7 @@ package org.mingle.orange.java.concurrent.util;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BoundedBuffer<V> extends BaseBoundedBuffer<V> {
     // CONDITION PREDICATE: not-full (!isFull())

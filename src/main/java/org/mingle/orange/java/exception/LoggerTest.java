@@ -33,7 +33,7 @@ import java.util.logging.StreamHandler;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class LoggerTest {
 

@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.atomic;
 /**
  * 非阻塞的计数器
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CasCounter {
     private SimulatedCAS value;

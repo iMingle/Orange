@@ -25,7 +25,7 @@ import java.io.IOException;
 /**
  * IO和资源失效
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CancellableReader {
     private Thread readerThread; // only one at a time supported

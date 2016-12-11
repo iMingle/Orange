@@ -19,6 +19,6 @@
 /**
  * 享元模式: 运用共享技术有效地支持大量细粒度的对象.
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.designpattern.structural.flyweight;

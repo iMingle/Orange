@@ -23,7 +23,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 /**
  * 底盘
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Chassis extends CompositeEquipment {
 

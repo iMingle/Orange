@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.strategy;
 /**
  * 排版策略
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Compositor {
     /**

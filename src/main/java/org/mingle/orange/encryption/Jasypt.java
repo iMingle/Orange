@@ -37,7 +37,7 @@ import org.jasypt.util.text.StrongTextEncryptor;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Jasypt {
 

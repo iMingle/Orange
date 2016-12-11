@@ -27,7 +27,7 @@ import java.net.Socket;
 /**
  * 处理web请求服务
  * 
- * @author Mingle
+ * @author mingle
  */
 public class WebService implements Runnable {
     static final int PORT = 8080; // just for demo

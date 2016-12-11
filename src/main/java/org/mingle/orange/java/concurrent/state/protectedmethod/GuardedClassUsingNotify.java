@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * notify方法模拟notifyAll方法
  * 
- * @author Mingle
+ * @author mingle
  */
 public class GuardedClassUsingNotify {
     protected boolean cond = false;

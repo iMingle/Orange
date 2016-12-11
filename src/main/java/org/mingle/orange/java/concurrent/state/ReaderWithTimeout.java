@@ -24,7 +24,7 @@ import java.io.InputStream;
 /**
  * 定时让步重试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ReaderWithTimeout {
     void process(int b) {

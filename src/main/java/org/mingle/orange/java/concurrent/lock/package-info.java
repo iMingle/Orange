@@ -19,6 +19,6 @@
 /**
  * 锁工具
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.lock;

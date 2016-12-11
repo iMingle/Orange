@@ -27,7 +27,7 @@ import java.util.*;
  * Comparing the performance of explicit Locks and Atomics versus the
  * synchronized keyword.
  * 
- * @author Mingle
+ * @author mingle
  */
 abstract class Accumulator {
     public static long cycles = 50000L;

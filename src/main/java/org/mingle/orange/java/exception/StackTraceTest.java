@@ -22,7 +22,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class StackTraceTest {
     

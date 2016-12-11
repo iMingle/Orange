@@ -27,7 +27,7 @@ import org.mingle.orange.designpattern.creational.Spell;
 /**
  * 魔法迷宫工厂
  * 
- * @author Mingle
+ * @author mingle
  */
 public class EnchantedMazeGame extends MazeGame {
     private final Spell spell;

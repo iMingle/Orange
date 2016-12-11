@@ -20,7 +20,7 @@ package org.mingle.orange.java.exception;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class AssertTest {
 

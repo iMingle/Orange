@@ -39,7 +39,7 @@ import javax.swing.JTextField;
 /**
  * This program demonstrates formatting dates under various locales.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DateFormatTest {
 

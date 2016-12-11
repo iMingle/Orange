@@ -27,7 +27,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ButtonPanel extends JPanel {
     /**

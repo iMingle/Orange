@@ -21,7 +21,7 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 筷子,哲学家就餐问题
  *
- * @author Mingle
+ * @author mingle
  */
 public class Chopstick {
     private boolean taken = false;

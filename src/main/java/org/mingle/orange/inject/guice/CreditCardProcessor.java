@@ -21,7 +21,7 @@ package org.mingle.orange.inject.guice;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface CreditCardProcessor {
 

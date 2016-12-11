@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 房间集合
  *
- * @author Mingle
+ * @author mingle
  */
 public class Maze implements Cloneable {
     public void addRoom(Room room) {

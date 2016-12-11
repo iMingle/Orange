@@ -25,7 +25,7 @@ import java.util.Map.Entry;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CollectionTest {
     

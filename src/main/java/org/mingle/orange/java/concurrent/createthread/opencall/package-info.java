@@ -19,6 +19,6 @@
 /**
  * 开放调用
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.createthread.opencall;

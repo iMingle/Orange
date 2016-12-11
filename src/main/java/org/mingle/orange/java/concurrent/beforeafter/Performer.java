@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 执行者
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Performer {
     public void perform() {}

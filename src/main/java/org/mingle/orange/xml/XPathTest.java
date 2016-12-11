@@ -56,7 +56,7 @@ import org.xml.sax.SAXException;
 /**
  * This program evaluates XPath expressions.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class XPathTest {
 

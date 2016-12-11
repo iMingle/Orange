@@ -23,7 +23,7 @@ import java.util.LinkedList;
 /**
  * 二叉树的遍历
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BinaryTree {
     // 根节点

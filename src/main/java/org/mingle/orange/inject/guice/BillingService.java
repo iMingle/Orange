@@ -23,7 +23,7 @@ import javax.inject.Inject;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class BillingService {
     @SuppressWarnings("unused")

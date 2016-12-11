@@ -25,7 +25,7 @@ import java.util.concurrent.Callable;
 /**
  * Callable接口的实现原理
  * 
- * @author Mingle
+ * @author mingle
  */
 public class FutureResult {
     protected Object value = null;

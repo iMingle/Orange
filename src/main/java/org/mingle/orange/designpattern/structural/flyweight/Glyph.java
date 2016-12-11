@@ -26,7 +26,7 @@ import org.mingle.orange.designpattern.structural.bridge.Window;
  * 图形基类
  * Flyweight
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class Glyph {
     public void draw(Window window, GlyphContext context) {

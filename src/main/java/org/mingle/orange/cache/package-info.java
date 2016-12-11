@@ -19,6 +19,6 @@
 /**
  * 缓存
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.cache;

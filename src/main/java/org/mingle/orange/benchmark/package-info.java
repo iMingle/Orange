@@ -19,6 +19,6 @@
 /**
  * 基准测试
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.benchmark;

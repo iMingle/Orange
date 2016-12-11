@@ -26,7 +26,7 @@ import java.util.Set;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class CharsetTest {
 

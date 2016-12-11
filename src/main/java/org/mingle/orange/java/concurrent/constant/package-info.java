@@ -19,6 +19,6 @@
 /**
  * 不变性
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.constant;

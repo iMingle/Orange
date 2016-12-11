@@ -21,7 +21,7 @@ package org.mingle.orange.effectivejava;
 /**
  * 复数,不可变类
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Complex {
     private final double re;

@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.util;
 /**
  * 委托操作-分解类
  * 
- * @author Mingle
+ * @author mingle
  */
 public final class BoundedBufferWithDelegates {
     private Object[] array;

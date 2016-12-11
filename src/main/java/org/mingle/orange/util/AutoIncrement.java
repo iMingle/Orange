@@ -31,7 +31,7 @@ import com.google.common.collect.Lists;
 /**
  * 实现类似mysql的主键自增操作，线程安全
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AutoIncrement {
     /**

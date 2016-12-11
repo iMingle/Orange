@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 下溢异常
  * 
- * @author Mingle
+ * @author mingle
  */
 public class UnderflowException extends Exception {
     private static final long serialVersionUID = -7295164458131414838L;

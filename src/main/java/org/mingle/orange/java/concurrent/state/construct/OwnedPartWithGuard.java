@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.state.construct;
 /**
  * 自管理的同步
  * 
- * @author Mingle
+ * @author mingle
  */
 public class OwnedPartWithGuard {
     protected boolean cond = false;

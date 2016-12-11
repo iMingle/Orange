@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 优先级阻塞队列测试
  *
- * @author Mingle
+ * @author mingle
  */
 class PrioritizedTask implements Runnable, Comparable<PrioritizedTask> {
     private Random rand = new Random(47);

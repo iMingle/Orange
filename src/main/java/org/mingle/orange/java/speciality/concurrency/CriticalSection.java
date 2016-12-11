@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 同步控制块
  *
- * @author Mingle
+ * @author mingle
  */
 class Pair {    // 非线程安全
     private int x, y;

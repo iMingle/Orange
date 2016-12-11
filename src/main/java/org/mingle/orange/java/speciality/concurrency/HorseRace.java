@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 赛马游戏,用CyclicBarrier实现
  *
- * @author Mingle
+ * @author mingle
  */
 class Horse implements Runnable {
     private static int counter = 0;

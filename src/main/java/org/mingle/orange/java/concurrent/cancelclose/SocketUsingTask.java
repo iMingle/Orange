@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class SocketUsingTask<V> implements CancellableTask<V> {
     private Socket socket;

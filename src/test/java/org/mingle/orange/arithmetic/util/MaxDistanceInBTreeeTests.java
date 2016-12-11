@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MaxDistanceInBTreeeTests {
     @Test

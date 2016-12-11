@@ -23,7 +23,7 @@ import java.util.*;
 /**
  * A Map filled with data using a generator object.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class MapData<K, V> extends LinkedHashMap<K, V> {
     private static final long serialVersionUID = -2564389024344043642L;

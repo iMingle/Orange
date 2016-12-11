@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 水槽
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Tank {
     float getCapacity();

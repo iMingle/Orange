@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 延迟队列测试
  *
- * @author Mingle
+ * @author mingle
  */
 class DelayedTask implements Runnable, Delayed {
     private static int counter = 0;

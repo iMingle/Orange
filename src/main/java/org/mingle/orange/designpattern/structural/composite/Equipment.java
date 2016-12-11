@@ -26,7 +26,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 /**
  * 设备
  * 
- * @author Mingle
+ * @author mingle
  */
 public abstract class Equipment {
     private final String name;

@@ -23,7 +23,7 @@ class Slush extends Snow {
 /**
  * Arrays.asList方法测试
  *
- * @author Mingle
+ * @author mingle
  */
 @SuppressWarnings("unused")
 public class AsListInference {

@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.state;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class TcpState {
     public void transmit(TcpConnection connection, TcpOctetStream stream) {}

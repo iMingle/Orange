@@ -23,7 +23,7 @@ import java.util.Iterator;
 /**
  * 下压栈-可以动态调整数组大小的实现
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ResizingArrayStack<Item> implements Iterable<Item> {
     @SuppressWarnings("unchecked")

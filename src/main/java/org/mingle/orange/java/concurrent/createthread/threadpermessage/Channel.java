@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.threadpermessage;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Channel<T> {
     void put(T t) throws InterruptedException;

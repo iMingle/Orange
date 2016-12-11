@@ -21,7 +21,7 @@ package org.mingle.orange.util;
 /**
  * 静态方法
  * 
- * @author Mingle
+ * @author mingle
  */
 public class LaunderThrowable {
 

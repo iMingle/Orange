@@ -27,7 +27,7 @@ import java.nio.file.Paths;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class NIO {
     public static void main(String[] args) throws URISyntaxException {

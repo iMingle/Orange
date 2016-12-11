@@ -41,7 +41,7 @@ import javax.swing.JTextField;
  * This program demonstrates formatting numbers under various locales.
  * 
  * @author <a href="mailto:jinminglei@yeah.net">Mingle</a>
- * @author Mingle
+ * @author mingle
  */
 public class NumberFormatTest {
 

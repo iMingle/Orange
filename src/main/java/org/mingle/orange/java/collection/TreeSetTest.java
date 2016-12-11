@@ -24,7 +24,7 @@ import java.util.TreeSet;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class TreeSetTest {
 

@@ -25,7 +25,7 @@ import java.io.OutputStream;
 /**
  * 会话
  * 
- * @author Mingle
+ * @author mingle
  */
 public class SessionBasedService {
     public void service() {

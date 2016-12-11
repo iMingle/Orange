@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational.singleton;
 /**
  * 用单元素枚举实现的单例模式,推荐
  *
- * @author Mingle
+ * @author mingle
  */
 public enum SingletonFour {
     INSTANCE;

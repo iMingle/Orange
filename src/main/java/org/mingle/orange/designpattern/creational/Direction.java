@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 方向
  * 
- * @author Mingle
+ * @author mingle
  */
 public enum Direction {
     NORTH, SOUTH, EAST, WEST;

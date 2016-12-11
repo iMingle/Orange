@@ -19,6 +19,6 @@
 /**
  * 并发程序的测试
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.test;

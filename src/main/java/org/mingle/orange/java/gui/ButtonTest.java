@@ -29,7 +29,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ButtonTest {
 

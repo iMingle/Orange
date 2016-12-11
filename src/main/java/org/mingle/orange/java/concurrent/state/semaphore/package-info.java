@@ -19,6 +19,6 @@
 /**
  * 信号量
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.state.semaphore;

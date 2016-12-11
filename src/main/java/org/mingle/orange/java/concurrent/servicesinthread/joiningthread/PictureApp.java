@@ -23,7 +23,7 @@ import java.net.URL;
 /**
  * 协作线程
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PictureApp {
     private final Renderer renderer = new StandardRenderer();

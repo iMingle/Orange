@@ -23,7 +23,7 @@ import java.rmi.Naming;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Client {
     /**

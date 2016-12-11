@@ -19,6 +19,6 @@
 /**
  * 处理失败
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.state.fail;

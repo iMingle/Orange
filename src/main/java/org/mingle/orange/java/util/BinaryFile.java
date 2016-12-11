@@ -23,7 +23,7 @@ import java.io.*;
 /**
  * 二进制文件
  *
- * @author Mingle
+ * @author mingle
  */
 public class BinaryFile {
     public static byte[] read(File bFile) throws IOException {

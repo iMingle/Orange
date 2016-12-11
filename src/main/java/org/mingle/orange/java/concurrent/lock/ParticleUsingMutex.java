@@ -26,7 +26,7 @@ import com.sun.corba.se.impl.orbutil.concurrent.Mutex;
 /**
  * 互斥锁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ParticleUsingMutex {
     protected int x;

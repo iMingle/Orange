@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.composite;
 /**
  * 瓦特
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Watt {
 

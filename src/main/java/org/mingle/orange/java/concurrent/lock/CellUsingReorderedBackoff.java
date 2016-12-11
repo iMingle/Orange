@@ -23,7 +23,7 @@ import com.sun.corba.se.impl.orbutil.concurrent.Mutex;
 /**
  * 重新排序
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CellUsingReorderedBackoff {
     private long value;

@@ -24,7 +24,7 @@ import java.util.NoSuchElementException;
 /**
  * 写拷贝数组
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CopyOnWriteArrayList {
     protected Object[] array = new Object[0];

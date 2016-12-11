@@ -23,7 +23,7 @@ package org.mingle.orange.java.speciality;
  * 1. 作为安全网
  * 2. 为了终止非关键的本地资源
  *
- * @author Mingle
+ * @author mingle
  */
 public class FinalizeTest {
     @SuppressWarnings("unused")

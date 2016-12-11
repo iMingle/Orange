@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.flyweight;
 /**
  * 图形工厂,负责创建Glyph并确保对它们进行合理共享.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class GlyphFactory {
     private static final int NCHARCODES = 128;

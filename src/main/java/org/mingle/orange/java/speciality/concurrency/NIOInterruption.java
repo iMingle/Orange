@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * NOI中断
  *
- * @author Mingle
+ * @author mingle
  */
 class NIOBlocked implements Runnable {
     private final SocketChannel sc;

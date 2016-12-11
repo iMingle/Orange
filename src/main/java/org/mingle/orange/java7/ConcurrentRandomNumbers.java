@@ -27,7 +27,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * For concurrent access, using ThreadLocalRandom instead of Math.random() 
  * results in less contention and, ultimately, better performance.
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ConcurrentRandomNumbers {
     public static void main(String[] args) {

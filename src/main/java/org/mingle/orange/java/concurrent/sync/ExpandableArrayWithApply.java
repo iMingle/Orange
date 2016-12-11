@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.sync;
 /**
  * 遍历-同步聚合操作
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ExpandableArrayWithApply extends ExpandableArray {
 

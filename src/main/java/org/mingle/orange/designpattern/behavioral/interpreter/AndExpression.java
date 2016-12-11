@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 /**
  * and表达式
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AndExpression implements BooleanExpression {
     private final BooleanExpression operand1;

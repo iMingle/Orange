@@ -23,7 +23,7 @@ import org.mingle.orange.java.concurrent.state.transaction.Failure;
 /**
  * 磁盘抽象
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Disk {
     void read(int cylinderNumber, byte[] buffer) throws Failure;

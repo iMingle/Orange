@@ -23,7 +23,7 @@ import java.util.Arrays;
 /**
  * 任务取消后子任务也取消,N皇后,在N*N的国际象棋棋盘上查找放置N个互相不会攻击的皇后的位置
  * 
- * @author Mingle
+ * @author mingle
  */
 public class NQueens extends NullFJTask {
     static int boardSize; // fixed after initialization in main

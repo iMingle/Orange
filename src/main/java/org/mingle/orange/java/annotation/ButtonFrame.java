@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 
 /**
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ButtonFrame extends JFrame {
     private static final long serialVersionUID = 9035834462481324499L;

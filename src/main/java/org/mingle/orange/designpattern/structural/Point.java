@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural;
 /**
  * 点
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Point {
     public static final Point ZERO = new Point(0, 0);

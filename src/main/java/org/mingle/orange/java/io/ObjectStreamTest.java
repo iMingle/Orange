@@ -31,7 +31,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ObjectStreamTest {
 

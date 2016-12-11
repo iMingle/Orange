@@ -23,7 +23,7 @@ import java.util.concurrent.ThreadFactory;
 /**
  * 后台线程创建工程
  *
- * @author Mingle
+ * @author mingle
  */
 public class DaemonThreadFactory implements ThreadFactory {
 

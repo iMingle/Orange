@@ -60,7 +60,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 /**
  * 容器深入
  *
- * @author Mingle
+ * @author mingle
  */
 public class CollectionTest {
 

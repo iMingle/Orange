@@ -20,7 +20,7 @@ package org.mingle.orange.java.speciality;
 
 /**
  * 内部类测试
- * @author Mingle
+ * @author mingle
  */
 @SuppressWarnings("unused")
 public class InnerClassTest {

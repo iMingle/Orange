@@ -19,6 +19,6 @@
 /**
  * 活跃性与性能
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.livenessperformance;

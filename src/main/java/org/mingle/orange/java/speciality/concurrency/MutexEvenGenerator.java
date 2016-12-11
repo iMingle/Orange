@@ -24,7 +24,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 互斥Lock偶数产生器
  *
- * @author Mingle
+ * @author mingle
  */
 public class MutexEvenGenerator extends IntGenerator {
     private int currentEvenValue = 0;

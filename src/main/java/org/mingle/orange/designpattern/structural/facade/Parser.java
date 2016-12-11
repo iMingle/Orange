@@ -21,7 +21,7 @@ package org.mingle.orange.designpattern.structural.facade;
 /**
  * 语法分析器
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Parser {
     /**

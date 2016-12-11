@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.threadpermessage;
 /**
  * 执行器
  * 
- * @author Mingle
+ * @author mingle
  */
 public interface Executor {
     void execute(Runnable r);

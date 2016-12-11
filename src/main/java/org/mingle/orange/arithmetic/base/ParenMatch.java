@@ -21,7 +21,7 @@ package org.mingle.orange.arithmetic.base;
 /**
  * 括号匹配
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ParenMatch {
     private static final char LEFT_PAREN = '(';

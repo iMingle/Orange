@@ -25,7 +25,7 @@ import java.util.Set;
 /**
  * 通过开放调用使协作对象之间不发生死锁
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CooperatingNoDeadlock {
     class Taxi {

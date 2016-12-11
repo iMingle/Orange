@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 /**
  * 目录实用工具,打印所有的目录和文件
  *
- * @author Mingle
+ * @author mingle
  */
 public final class Directory {
     public static File[] local(File dir, final String regex) {

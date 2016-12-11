@@ -22,7 +22,7 @@ package org.mingle.orange.designpattern.behavioral.command;
  * 应用
  * 接受者
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Application {
 

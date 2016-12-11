@@ -21,7 +21,7 @@ package org.mingle.orange.benchmark;
 /**
  * 逆优化
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Deoptimization {
     private static final long ITERATIONS = 5000000000L;

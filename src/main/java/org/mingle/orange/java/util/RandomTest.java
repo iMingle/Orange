@@ -22,7 +22,7 @@ import java.util.Random;
 
 /**
  * 随机数类Random测试
- * @author Mingle
+ * @author mingle
  */
 public class RandomTest {
     public static void main(String[] args) {

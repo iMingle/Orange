@@ -19,7 +19,7 @@
 package org.mingle.orange.java.speciality;
 /**
  * 接口冲突
- * @author Mingle
+ * @author mingle
  */
 interface I1 {
     void f();

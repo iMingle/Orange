@@ -24,7 +24,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * 协同处理-分离观察者
  * 
- * @author Mingle
+ * @author mingle
  */
 public class Observer {
     protected double cachedState; // last known state

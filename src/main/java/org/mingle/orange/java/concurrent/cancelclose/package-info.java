@@ -19,6 +19,6 @@
 /**
  * 取消与关闭
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.cancelclose;

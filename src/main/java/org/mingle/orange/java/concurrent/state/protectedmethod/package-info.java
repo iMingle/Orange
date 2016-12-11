@@ -19,6 +19,6 @@
 /**
  * 受保护方法
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.state.protectedmethod;

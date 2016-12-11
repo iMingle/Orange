@@ -19,6 +19,6 @@
 /**
  * java7新特性
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java7;

@@ -26,7 +26,7 @@ import java.util.Arrays;
 /**
  * 动态代理测试类
  *
- * @author Mingle
+ * @author mingle
  */
 public class DynamicProxyTest {
     public static void consumer(Interface iface) {

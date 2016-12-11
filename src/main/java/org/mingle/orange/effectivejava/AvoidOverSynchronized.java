@@ -31,7 +31,7 @@ import java.util.concurrent.Executors;
 /**
  * 避免过度同步
  * 
- * @author Mingle
+ * @author mingle
  */
 public class AvoidOverSynchronized {
 

@@ -19,6 +19,6 @@
 /**
  * 递归的并行化
  * 
- * @author Mingle
+ * @author mingle
  */
 package org.mingle.orange.java.concurrent.recursive;

@@ -28,7 +28,7 @@ import org.mozilla.javascript.Scriptable;
 /**
  * JavaScript脚本引擎测试
  * 
- * @author Mingle
+ * @author mingle
  */
 public class RhinoTest {
 

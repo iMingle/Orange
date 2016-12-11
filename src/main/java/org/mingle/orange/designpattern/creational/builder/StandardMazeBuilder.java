@@ -27,7 +27,7 @@ import org.mingle.orange.designpattern.creational.Wall;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class StandardMazeBuilder implements MazeBuilder<Maze> {
     private Maze current;

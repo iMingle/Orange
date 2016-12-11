@@ -24,7 +24,7 @@ import java.awt.Graphics;
 /**
  * 粒子绘制区域
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ParticleCanvas extends Canvas {
     private static final long serialVersionUID = -4834861050300977216L;

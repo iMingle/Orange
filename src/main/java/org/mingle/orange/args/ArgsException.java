@@ -26,7 +26,7 @@ import static org.mingle.orange.args.ArgsException.ErrorCode.OK;
 /**
  * 
  * 
- * @author Mingle
+ * @author mingle
  */
 public class ArgsException extends Exception {
     private static final long serialVersionUID = -6370329612238075513L;

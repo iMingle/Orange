@@ -25,7 +25,7 @@ import java.util.Random;
 
 /**
  * 数组测试类
- * @author Mingle
+ * @author mingle
  */
 public class ArrayTest {
 

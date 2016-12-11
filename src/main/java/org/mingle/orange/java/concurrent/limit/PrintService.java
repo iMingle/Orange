@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.limit;
 /**
  * 组策略-环(多个相互交互的对象一起限制一个资源的情况下)
  * 
- * @author Mingle
+ * @author mingle
  */
 public class PrintService {
     protected PrintService neighbor = null; // node to take from

@@ -28,7 +28,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ComponentTest {
     public static void main(String[] args) {

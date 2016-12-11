@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * 关卡
  * 
- * @author Mingle
+ * @author mingle
  */
 public class CyclicBarrier {
     protected final int parties;

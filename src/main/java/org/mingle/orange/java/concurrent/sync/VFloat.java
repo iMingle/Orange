@@ -21,7 +21,7 @@ package org.mingle.orange.java.concurrent.sync;
 /**
  * volatile类似此类
  * 
- * @author Mingle
+ * @author mingle
  */
 public final class VFloat {
     private float value;

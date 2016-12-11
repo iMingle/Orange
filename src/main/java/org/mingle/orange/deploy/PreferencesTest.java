@@ -28,7 +28,7 @@ import java.util.prefs.Preferences;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class PreferencesTest {
 

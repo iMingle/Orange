@@ -28,7 +28,7 @@ import javax.swing.JTextArea;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class ConsoleWindow {
     private static final int DEFAULT_WIDTH = 300;

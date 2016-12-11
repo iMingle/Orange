@@ -27,7 +27,7 @@ import javax.script.ScriptException;
 
 /**
  *
- * @author Mingle
+ * @author mingle
  */
 public class RunJavaScript {
 

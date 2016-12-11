@@ -23,7 +23,7 @@ import java.util.Date;
 /**
  * 保护性拷贝
  * 
- * @author Mingle
+ * @author mingle
  */
 public class DefensiveCopy {
 
