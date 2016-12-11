@@ -27,7 +27,6 @@ import java.util.NoSuchElementException;
 /**
  * 链表实现Stack
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Stack<Item> implements Iterable<Item> {

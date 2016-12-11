@@ -34,7 +34,6 @@ import java.util.regex.Pattern;
 /**
  * String测试类
  * 
- * @since 1.0
  * @author Mingle
  */
 public class StringTest {

@@ -20,7 +20,6 @@ package org.mingle.orange.java.concurrent;
 
 /**
  * This program shows data corruption when multiple threads access a data structure.
- * @since 1.0
  * @author Mingle
  */
 public class UnsynchBankTest {

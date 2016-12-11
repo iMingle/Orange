@@ -32,7 +32,6 @@ import javax.swing.JFrame;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class FontTest {

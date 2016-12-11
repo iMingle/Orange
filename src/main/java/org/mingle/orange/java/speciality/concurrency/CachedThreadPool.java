@@ -24,7 +24,6 @@ import java.util.concurrent.Executors;
 /**
  * 用Executor管理Thread,需要时就创建新的线程
  *
- * @since 1.0
  * @author Mingle
  */
 public class CachedThreadPool {

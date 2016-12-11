@@ -24,7 +24,6 @@ import java.util.Map;
 /**
  * 上下文,定义变量到布尔值的映射
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Context {

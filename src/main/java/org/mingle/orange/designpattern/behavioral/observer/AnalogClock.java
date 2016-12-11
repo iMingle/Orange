@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.behavioral.observer;
 /**
  * 模拟时钟
  * 
- * @since 1.0
  * @author Mingle
  */
 public class AnalogClock implements Observer, Widget {

@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * 哲学家就餐死锁问题
  *
- * @since 1.0
  * @author Mingle
  */
 public class Philosopher implements Runnable {

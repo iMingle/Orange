@@ -23,7 +23,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * 后台线程
  *
- * @since 1.0
  * @author Mingle
  */
 public class SimpleDaemons implements Runnable {

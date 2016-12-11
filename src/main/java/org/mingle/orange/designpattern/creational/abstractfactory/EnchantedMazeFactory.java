@@ -27,7 +27,6 @@ import org.mingle.orange.designpattern.creational.Spell;
 /**
  * 魔法迷宫工厂
  * 
- * @since 1.0
  * @author Mingle
  */
 public class EnchantedMazeFactory extends MazeFactory {

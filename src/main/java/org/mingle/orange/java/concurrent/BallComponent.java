@@ -26,7 +26,6 @@ import javax.swing.JPanel;
 
 /**
  * The component that draws the balls.
- * @since 1.0
  * @date 2014年9月13日
  * @author Mingle
  */

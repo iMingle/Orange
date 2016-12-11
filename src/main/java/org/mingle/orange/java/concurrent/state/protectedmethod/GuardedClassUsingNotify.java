@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * notify方法模拟notifyAll方法
  * 
- * @since 1.0
  * @author Mingle
  */
 public class GuardedClassUsingNotify {

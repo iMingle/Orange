@@ -21,7 +21,6 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 产生序列数字
  *
- * @since 1.0
  * @author Mingle
  */
 public class SerialNumberGenerator {

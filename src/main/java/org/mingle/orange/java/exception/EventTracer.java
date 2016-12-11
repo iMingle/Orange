@@ -30,7 +30,6 @@ import java.lang.reflect.Proxy;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class EventTracer {

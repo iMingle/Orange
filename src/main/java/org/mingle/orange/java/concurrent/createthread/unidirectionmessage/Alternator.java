@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 /**
  * 双输出阶段
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Alternator extends DualOutputPushStage implements PushStage {

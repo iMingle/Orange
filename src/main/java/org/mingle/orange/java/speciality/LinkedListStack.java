@@ -24,7 +24,6 @@ import java.util.LinkedList;
 /**
  * LinkedList实现的Stack数据结构
  *
- * @since 1.0
  * @author Mingle
  */
 public class LinkedListStack<T> {

@@ -21,7 +21,6 @@ package org.mingle.orange.benchmark;
 /**
  * 剔除无效代码
  * 
- * @since 1.0
  * @author Mingle
  */
 public class DeadCode {

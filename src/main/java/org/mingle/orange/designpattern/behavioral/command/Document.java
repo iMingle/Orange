@@ -22,7 +22,6 @@ package org.mingle.orange.designpattern.behavioral.command;
  * 文档
  * 接受者
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Document {

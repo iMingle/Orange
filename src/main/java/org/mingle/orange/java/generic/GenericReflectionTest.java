@@ -30,7 +30,6 @@ import java.util.Scanner;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class GenericReflectionTest {

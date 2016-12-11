@@ -23,7 +23,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 /**
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ImportImage {

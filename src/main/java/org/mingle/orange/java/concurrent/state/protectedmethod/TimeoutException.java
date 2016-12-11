@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.protectedmethod;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TimeoutException extends InterruptedException {

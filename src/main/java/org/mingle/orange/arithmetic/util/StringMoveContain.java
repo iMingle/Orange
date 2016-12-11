@@ -22,7 +22,6 @@ package org.mingle.orange.arithmetic.util;
 /**
  * 字符串移位包含的问题
  * 
- * @since 1.0
  * @author Mingle
  */
 public class StringMoveContain {

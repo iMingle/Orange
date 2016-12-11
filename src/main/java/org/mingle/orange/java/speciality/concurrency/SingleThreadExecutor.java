@@ -24,7 +24,6 @@ import java.util.concurrent.Executors;
 /**
  * 一个Thread
  *
- * @since 1.0
  * @author Mingle
  */
 public class SingleThreadExecutor {

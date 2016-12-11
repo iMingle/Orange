@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 /**
  * 常量
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Constant implements BooleanExpression {

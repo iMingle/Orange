@@ -34,7 +34,6 @@ import java.util.Set;
 /**
  * 泛型的测试类
  *
- * @since 1.0
  * @author Mingle
  */
 public class GenericTest {

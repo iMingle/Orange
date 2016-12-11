@@ -23,7 +23,6 @@ import java.awt.event.MouseEvent;
 /**
  * 输入域
  * 
- * @since 1.0
  * @author Mingle
  */
 public class EntryField extends Widget {

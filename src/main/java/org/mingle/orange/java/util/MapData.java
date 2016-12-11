@@ -23,7 +23,6 @@ import java.util.*;
 /**
  * A Map filled with data using a generator object.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class MapData<K, V> extends LinkedHashMap<K, V> {

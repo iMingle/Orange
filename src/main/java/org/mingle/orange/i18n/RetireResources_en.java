@@ -24,7 +24,6 @@ import java.util.ListResourceBundle;
 /**
  * These are the English non-string resources for the retirement calculator.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class RetireResources_en extends ListResourceBundle {

@@ -30,7 +30,6 @@ import org.openqa.selenium.interactions.Actions;
 /**
  *
  *
- * @since 1.0
  * @author Mingle
  */
 public class MouseOperation {

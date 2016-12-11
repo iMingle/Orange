@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 /**
  * not表达式
  * 
- * @since 1.0
  * @author Mingle
  */
 public class NotExpression implements BooleanExpression {

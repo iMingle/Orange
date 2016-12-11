@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.construct;
 /**
  * 状态变量
  * 
- * @since 1.0
  * @author Mingle
  */
 public class BoundedCounterWithStateVariable {

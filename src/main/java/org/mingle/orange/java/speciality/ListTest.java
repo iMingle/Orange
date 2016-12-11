@@ -26,7 +26,6 @@ import java.util.List;
 /**
  * List测试
  *
- * @since 1.0
  * @author Mingle
  */
 public class ListTest {

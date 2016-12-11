@@ -23,7 +23,6 @@ import edu.princeton.cs.algs4.*;
 /**
  * 无向图
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Graph {

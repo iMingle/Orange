@@ -24,7 +24,6 @@ import java.util.concurrent.Executors;
 /**
  * 固定数量的Thread
  *
- * @since 1.0
  * @author Mingle
  */
 public class FixedThreadPool {

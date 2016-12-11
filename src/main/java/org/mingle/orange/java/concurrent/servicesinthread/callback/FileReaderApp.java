@@ -24,7 +24,6 @@ import java.io.IOException;
 /**
  * 完成回调
  * 
- * @since 1.0
  * @author Mingle
  */
 public class FileReaderApp implements FileReaderClient {

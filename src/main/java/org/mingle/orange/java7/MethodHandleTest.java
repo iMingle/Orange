@@ -25,7 +25,6 @@ import java.lang.invoke.MethodType;
 /**
  * 动态类型语言
  * 
- * @since 1.0
  * @author Mingle
  */
 public class MethodHandleTest {

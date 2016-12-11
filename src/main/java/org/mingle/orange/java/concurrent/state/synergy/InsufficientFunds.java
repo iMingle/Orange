@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.synergy;
 /**
  * 资金不足
  * 
- * @since 1.0
  * @author Mingle
  */
 public class InsufficientFunds extends Exception {

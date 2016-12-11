@@ -25,7 +25,6 @@ import java.util.Set;
 /**
  * 协作对象之间发生的死锁
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CooperatingDeadlock {

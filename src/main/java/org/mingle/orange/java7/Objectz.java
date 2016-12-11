@@ -23,7 +23,6 @@ import java.util.Objects;
 /**
  * utility methods for operating on objects
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Objectz {

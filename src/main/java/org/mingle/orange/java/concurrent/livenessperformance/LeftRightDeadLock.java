@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.livenessperformance;
 /**
  * 简单的锁顺序死锁
  * 
- * @since 1.0
  * @author Mingle
  */
 public class LeftRightDeadLock {

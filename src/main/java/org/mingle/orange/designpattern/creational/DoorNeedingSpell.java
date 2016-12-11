@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 魔法门
  * 
- * @since 1.0
  * @author Mingle
  */
 public class DoorNeedingSpell extends Door implements Cloneable {

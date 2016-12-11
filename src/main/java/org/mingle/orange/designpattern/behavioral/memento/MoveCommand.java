@@ -24,7 +24,6 @@ import java.awt.Point;
  * 图像移动命令
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class MoveCommand {

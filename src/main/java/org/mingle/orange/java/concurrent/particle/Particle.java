@@ -24,7 +24,6 @@ import java.util.Random;
 /**
  * 粒子
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Particle {

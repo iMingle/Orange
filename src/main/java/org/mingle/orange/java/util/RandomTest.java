@@ -22,7 +22,6 @@ import java.util.Random;
 
 /**
  * 随机数类Random测试
- * @since 1.0
  * @author Mingle
  */
 public class RandomTest {

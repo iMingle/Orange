@@ -19,7 +19,6 @@
 /**
  * 线程中的服务
  * 
- * @since 1.0
  * @author Mingle
  */
 package org.mingle.orange.java.concurrent.servicesinthread;

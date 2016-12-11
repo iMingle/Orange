@@ -27,7 +27,6 @@ import java.net.Socket;
 /**
  * 处理web请求服务
  * 
- * @since 1.0
  * @author Mingle
  */
 public class WebService implements Runnable {

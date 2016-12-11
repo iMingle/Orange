@@ -22,7 +22,6 @@ package org.mingle.orange.java.concurrent.util;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class BoundedBuffer<V> extends BaseBoundedBuffer<V> {

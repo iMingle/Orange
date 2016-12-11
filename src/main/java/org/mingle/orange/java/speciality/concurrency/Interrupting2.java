@@ -25,7 +25,6 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 线程中断通过ReentrantLock的中断能力
  *
- * @since 1.0
  * @author Mingle
  */
 class BlockedMutex {

@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.behavioral.templatemethod;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class SubView extends View {

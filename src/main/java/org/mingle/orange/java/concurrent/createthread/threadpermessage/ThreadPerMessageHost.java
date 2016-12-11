@@ -23,7 +23,6 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 每消息一线程
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ThreadPerMessageHost {

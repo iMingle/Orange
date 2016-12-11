@@ -23,7 +23,6 @@ import java.util.concurrent.Exchanger;
 /**
  * 交换器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class FillAndEmpty {

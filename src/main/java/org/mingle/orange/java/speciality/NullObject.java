@@ -29,7 +29,6 @@ import java.util.List;
 /**
  * 空对象处理
  *
- * @since 1.0
  * @author Mingle
  */
 public class NullObject {

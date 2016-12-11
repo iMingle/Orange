@@ -23,7 +23,6 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CasNumberRange {

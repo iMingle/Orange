@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.constant;
 /**
  * 共享
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Relay {

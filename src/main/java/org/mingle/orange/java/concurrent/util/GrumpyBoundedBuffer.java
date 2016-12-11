@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.util;
 /**
  * Bounded buffer that balks when preconditions are not met
  * 
- * @since 1.0
  * @author Mingle
  */
 public class GrumpyBoundedBuffer<V> extends BaseBoundedBuffer<V> {

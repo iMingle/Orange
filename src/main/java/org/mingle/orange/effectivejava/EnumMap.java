@@ -23,7 +23,6 @@ import java.util.Map;
 /**
  * 用EnumMap代替序数索引
  * 
- * @since 1.0
  * @author Mingle
  */
 public class EnumMap {

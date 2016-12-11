@@ -27,7 +27,6 @@ import java.util.List;
  * 字体对话框
  * 具体中介者
  * 
- * @since 1.0
  * @author Mingle
  */
 public class FontDialogDirector extends DialogDirector {

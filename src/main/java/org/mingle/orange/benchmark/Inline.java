@@ -22,7 +22,6 @@ package org.mingle.orange.benchmark;
  * 内联优化
  * java -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining -XX:MaxInlineSize=100 Inline
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Inline {

@@ -24,7 +24,6 @@ import java.util.NoSuchElementException;
 /**
  * 写拷贝数组
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CopyOnWriteArrayList {

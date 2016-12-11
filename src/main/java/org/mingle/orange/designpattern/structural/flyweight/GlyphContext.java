@@ -23,7 +23,6 @@ import java.awt.Font;
 /**
  * 图形上下文,用于存储外部状态(字体)
  * 
- * @since 1.0
  * @author Mingle
  */
 public class GlyphContext {

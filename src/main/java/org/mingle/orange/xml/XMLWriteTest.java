@@ -60,7 +60,6 @@ import org.w3c.dom.Element;
  * This program shows how to write an XML file. It saves a file describing a
  * modern drawing in SVG format.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class XMLWriteTest {

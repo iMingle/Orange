@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.structural.bridge;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class IconWindow extends Window {

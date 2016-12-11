@@ -24,7 +24,6 @@ import java.util.Iterator;
 /**
  * 程序节点
  * 
- * @since 1.0
  * @author Mingle
  */
 public abstract class ProgramNode {

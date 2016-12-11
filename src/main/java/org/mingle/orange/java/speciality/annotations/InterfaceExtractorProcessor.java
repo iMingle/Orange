@@ -37,7 +37,6 @@ import javax.tools.JavaFileObject;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 @SupportedAnnotationTypes({"org.mingle.orange.java.speciality.annotations.ExtractInterface"})

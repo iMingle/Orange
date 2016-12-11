@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.sync;
 /**
  * 静态计数器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class StaticCounter {

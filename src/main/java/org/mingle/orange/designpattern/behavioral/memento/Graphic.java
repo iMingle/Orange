@@ -23,7 +23,6 @@ import java.awt.Point;
 /**
  * 图形
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface Graphic {

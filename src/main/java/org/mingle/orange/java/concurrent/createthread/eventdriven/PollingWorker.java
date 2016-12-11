@@ -26,7 +26,6 @@ import java.util.List;
 /**
  * 触发任务
  * 
- * @since 1.0
  * @author Mingle
  */
 public class PollingWorker implements Runnable {

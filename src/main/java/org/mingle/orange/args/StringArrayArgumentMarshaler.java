@@ -27,7 +27,6 @@ import java.util.NoSuchElementException;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class StringArrayArgumentMarshaler implements ArgumentMarshaler {

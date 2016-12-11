@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.structural.adapter;
 /**
  * 文本视图,由原点,宽度,高度定义
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface TextView {

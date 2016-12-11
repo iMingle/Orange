@@ -22,7 +22,6 @@ import javax.swing.JFrame;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 class ButtonFrame extends JFrame {

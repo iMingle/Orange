@@ -23,7 +23,6 @@ import java.io.InputStream;
 /**
  * 接受字符串并产生一个标识符流,一次产生一个标识符(Token)
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Scanner {

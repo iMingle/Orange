@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.synergy;
 /**
  * 协同处理通用解决方案
  * 
- * @since 1.0
  * @author Mingle
  */
 public class BankAccount {

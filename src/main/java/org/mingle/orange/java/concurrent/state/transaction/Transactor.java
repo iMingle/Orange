@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.transaction;
 /**
  * 参与者实现的接口
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface Transactor {

@@ -24,7 +24,6 @@ import com.google.inject.Injector;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class GuiceTest {

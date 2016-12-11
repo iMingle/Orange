@@ -27,7 +27,6 @@ import org.mingle.orange.designpattern.structural.composite.FloppyDisk;
 /**
  * 设备访问者
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface EquipmentVisitor {

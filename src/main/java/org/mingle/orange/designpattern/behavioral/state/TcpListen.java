@@ -22,7 +22,6 @@ package org.mingle.orange.designpattern.behavioral.state;
 /**
  * TCP监听
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TcpListen extends TcpState {

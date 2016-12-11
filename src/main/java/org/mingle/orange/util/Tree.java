@@ -25,7 +25,6 @@ import java.util.List;
 /**
  * 实现Tree结构
  *
- * @since 1.0
  * @author Mingle
  */
 public class Tree {

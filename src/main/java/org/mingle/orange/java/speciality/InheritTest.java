@@ -20,7 +20,6 @@ package org.mingle.orange.java.speciality;
 
 /**
  * 继承特性的测试
- * @since 1.0
  * @author Mingle
  */
 public class InheritTest {

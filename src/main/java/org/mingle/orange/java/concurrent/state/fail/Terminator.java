@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.fail;
 /**
  * 多阶段取消
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Terminator {

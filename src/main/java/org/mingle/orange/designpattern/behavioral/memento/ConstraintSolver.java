@@ -22,7 +22,6 @@ package org.mingle.orange.designpattern.behavioral.memento;
  * 连接约束
  * 原发器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ConstraintSolver {

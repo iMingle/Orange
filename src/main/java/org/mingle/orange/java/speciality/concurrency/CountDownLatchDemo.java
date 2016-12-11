@@ -27,7 +27,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * 测试CountDownLatch,它被用来同步一个或多个任务,强制它们等待由其他任务执行的一组操作完成.
  *
- * @since 1.0
  * @author Mingle
  */
 /**

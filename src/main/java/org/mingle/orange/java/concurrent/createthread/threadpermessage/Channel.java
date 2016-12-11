@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.createthread.threadpermessage;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface Channel<T> {

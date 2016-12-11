@@ -23,7 +23,6 @@ import org.mingle.orange.java.concurrent.state.transaction.Failure;
 /**
  * 磁盘抽象
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface Disk {

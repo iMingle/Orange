@@ -26,7 +26,6 @@ import java.lang.annotation.Target;
 /**
  * 抽取类中的public方法构成一个新的接口
  *
- * @since 1.0
  * @author Mingle
  */
 @Target(ElementType.TYPE)

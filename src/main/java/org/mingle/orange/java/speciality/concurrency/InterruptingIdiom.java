@@ -23,7 +23,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * 检查中断
  *
- * @since 1.0
  * @author Mingle
  */
 class NeedsCleanup {

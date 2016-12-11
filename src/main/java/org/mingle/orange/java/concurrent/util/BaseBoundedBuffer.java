@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.util;
 /**
  * Base class for bounded buffer implementations
  * 
- * @since 1.0
  * @author Mingle
  */
 public class BaseBoundedBuffer<V> {

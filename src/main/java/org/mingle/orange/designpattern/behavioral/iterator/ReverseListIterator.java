@@ -23,7 +23,6 @@ import java.util.List;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ReverseListIterator<T> implements Iterator<T> {

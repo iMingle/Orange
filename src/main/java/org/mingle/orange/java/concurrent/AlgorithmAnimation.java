@@ -37,7 +37,6 @@ import javax.swing.JPanel;
 /**
  * This program animates a sort algorithm.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class AlgorithmAnimation {

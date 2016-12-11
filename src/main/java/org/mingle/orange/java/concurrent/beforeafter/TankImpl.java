@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 水槽实现类
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TankImpl implements Tank {

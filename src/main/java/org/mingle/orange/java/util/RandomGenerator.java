@@ -23,7 +23,6 @@ import java.util.*;
 /**
  * Generators that produce random values.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class RandomGenerator {

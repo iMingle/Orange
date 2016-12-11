@@ -20,7 +20,6 @@ package org.mingle.orange.java.speciality;
 
 /**
  * 内部类测试
- * @since 1.0
  * @author Mingle
  */
 @SuppressWarnings("unused")

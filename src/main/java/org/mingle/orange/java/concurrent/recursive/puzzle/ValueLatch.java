@@ -26,7 +26,6 @@ import java.util.concurrent.CountDownLatch;
  * <p/>
  * Result-bearing latch used by ConcurrentPuzzleSolver
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ValueLatch <T> {

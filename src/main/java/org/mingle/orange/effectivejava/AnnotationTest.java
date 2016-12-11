@@ -28,7 +28,6 @@ import java.lang.reflect.Method;
 /**
  * 测试的注解
  * 
- * @since 1.0
  * @author Mingle
  */
 public class AnnotationTest {

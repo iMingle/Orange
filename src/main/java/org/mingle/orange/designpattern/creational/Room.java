@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 房间
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Room extends MapSite implements Cloneable {

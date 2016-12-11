@@ -19,7 +19,6 @@
 /**
  * 限制
  * 
- * @since 1.0
  * @author Mingle
  */
 package org.mingle.orange.java.concurrent.limit;

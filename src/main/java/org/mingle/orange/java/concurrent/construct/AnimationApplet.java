@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 双重检查
  * 
- * @since 1.0
  * @author Mingle
  */
 public class AnimationApplet {

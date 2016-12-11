@@ -22,7 +22,6 @@ package org.mingle.orange.designpattern.behavioral.chainofresponsibility;
  * 图形用户界面的帮助处理器
  * Handler
  * 
- * @since 1.0
  * @author Mingle
  */
 public class HelpHandler {

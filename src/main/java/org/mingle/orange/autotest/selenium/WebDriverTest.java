@@ -31,7 +31,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  *
  *
- * @since 1.0
  * @author Mingle
  */
 public class WebDriverTest {

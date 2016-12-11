@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 /**
  * 有名变量
  * 
- * @since 1.0
  * @author Mingle
  */
 public class VariableExpression implements BooleanExpression {

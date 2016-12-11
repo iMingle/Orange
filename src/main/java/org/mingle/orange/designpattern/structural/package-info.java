@@ -19,7 +19,6 @@
 /**
  * 结构型模式
  * 
- * @since 1.0
  * @author Mingle
  */
 package org.mingle.orange.designpattern.structural;

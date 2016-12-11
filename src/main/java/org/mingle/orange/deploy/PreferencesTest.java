@@ -28,7 +28,6 @@ import java.util.prefs.Preferences;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class PreferencesTest {

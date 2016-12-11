@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * 关卡
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CyclicBarrier {

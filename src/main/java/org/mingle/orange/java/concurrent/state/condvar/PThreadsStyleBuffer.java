@@ -24,7 +24,6 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
 /**
  * 一把锁的多个条件变量
  * 
- * @since 1.0
  * @author Mingle
  */
 public class PThreadsStyleBuffer {

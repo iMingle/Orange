@@ -26,7 +26,6 @@ import java.lang.annotation.Target;
 /**
  * 生成数据库表
  * 
- * @since 1.0
  * @author Mingle
  */
 @Target(ElementType.TYPE)

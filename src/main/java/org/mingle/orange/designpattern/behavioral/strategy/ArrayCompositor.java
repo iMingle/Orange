@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.behavioral.strategy;
 /**
  * 用规则的间距将构件分割成行
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ArrayCompositor implements Compositor {

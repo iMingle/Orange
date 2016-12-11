@@ -26,7 +26,6 @@ import org.mingle.orange.java.speciality.concurrency.DaemonThreadFactory;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class DaemonThreadPoolExecutor extends ThreadPoolExecutor {

@@ -23,7 +23,6 @@ import com.sun.corba.se.impl.orbutil.concurrent.Mutex;
 /**
  * 回退
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CellUsingBackoff {

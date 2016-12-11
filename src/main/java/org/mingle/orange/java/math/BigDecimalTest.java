@@ -23,7 +23,6 @@ import java.math.BigDecimal;
 /**
  *
  *
- * @since 1.0
  * @author Mingle
  */
 public class BigDecimalTest {

@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 水槽方法适配器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TankWithMethodAdapter {

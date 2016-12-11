@@ -25,7 +25,6 @@ import java.util.concurrent.Semaphore;
 /**
  * 资源池
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Pool {

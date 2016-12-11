@@ -24,7 +24,6 @@ import java.util.concurrent.Executors;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class FJTaskRunnerGroup {

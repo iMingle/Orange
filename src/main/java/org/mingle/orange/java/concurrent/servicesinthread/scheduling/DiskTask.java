@@ -25,7 +25,6 @@ import org.mingle.orange.java.concurrent.state.transaction.Failure;
 /**
  * 磁盘读写任务
  * 
- * @since 1.0
  * @author Mingle
  */
 public abstract class DiskTask implements Runnable {

@@ -29,7 +29,6 @@ import org.mingle.orange.designpattern.structural.Point;
  * 图形对象
  * Subject
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface Graphic {

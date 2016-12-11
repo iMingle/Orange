@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.behavioral.memento;
 /**
  * 备忘录
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Memento {

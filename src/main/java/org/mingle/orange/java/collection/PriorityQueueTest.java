@@ -25,7 +25,6 @@ import java.util.PriorityQueue;
 /**
  * tree structure
  * 
- * @since 1.0
  * @author Mingle
  */
 public class PriorityQueueTest {

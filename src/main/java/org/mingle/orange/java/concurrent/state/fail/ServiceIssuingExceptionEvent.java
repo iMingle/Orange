@@ -25,7 +25,6 @@ import org.mingle.orange.java.concurrent.construct.CopyOnWriteArrayList;
 /**
  * 转换消息类型
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ServiceIssuingExceptionEvent {

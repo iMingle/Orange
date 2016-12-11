@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 只读适配器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class AccountHolder {

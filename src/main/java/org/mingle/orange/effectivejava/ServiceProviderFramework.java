@@ -25,7 +25,6 @@ import net.sf.ehcache.util.concurrent.ConcurrentHashMap;
 /**
  * 服务提供者框架
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ServiceProviderFramework {}

@@ -23,7 +23,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * 根据前序和中序遍历结果重建二叉树
  * 
- * @since 1.0
  * @author Mingle
  */
 public class RebuildBTree<E> {

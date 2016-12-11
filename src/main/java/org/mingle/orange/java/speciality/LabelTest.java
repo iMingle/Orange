@@ -20,7 +20,6 @@ package org.mingle.orange.java.speciality;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class LabelTest {

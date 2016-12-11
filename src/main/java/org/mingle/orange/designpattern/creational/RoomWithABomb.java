@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class RoomWithABomb extends Room implements Cloneable {

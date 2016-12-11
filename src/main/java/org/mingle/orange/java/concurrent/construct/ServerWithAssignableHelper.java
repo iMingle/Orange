@@ -23,7 +23,6 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 开放调用(非同步发送消息)弱点,会锁定整个service()方法
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ServerWithAssignableHelper {

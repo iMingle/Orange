@@ -21,7 +21,6 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 继承Thread的线程
  *
- * @since 1.0
  * @author Mingle
  */
 public class SimpleThread extends Thread {

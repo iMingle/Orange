@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.construct;
 /**
  * 读入者写入者
  * 
- * @since 1.0
  * @author Mingle
  */
 public abstract class ReadWrite {

@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.structural.flyweight;
 /**
  * 图形工厂,负责创建Glyph并确保对它们进行合理共享.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class GlyphFactory {

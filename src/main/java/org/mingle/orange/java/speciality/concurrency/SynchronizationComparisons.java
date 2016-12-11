@@ -27,7 +27,6 @@ import java.util.*;
  * Comparing the performance of explicit Locks and Atomics versus the
  * synchronized keyword.
  * 
- * @since 1.0
  * @author Mingle
  */
 abstract class Accumulator {

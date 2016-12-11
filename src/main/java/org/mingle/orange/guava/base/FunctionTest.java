@@ -28,7 +28,6 @@ import com.google.common.collect.Lists;
 /**
  * most common use: transforming collections (view)
  * 
- * @since 1.0
  * @author Mingle
  */
 public class FunctionTest {

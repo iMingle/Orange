@@ -21,7 +21,6 @@ package org.mingle.orange.java.base;
 /**
  * hashCode和equals方法如何写
  * 
- * @since 1.0
  * @author Mingle
  */
 public class HashCodeEquals {

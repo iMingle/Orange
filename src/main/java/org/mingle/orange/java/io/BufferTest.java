@@ -22,7 +22,6 @@ import java.nio.CharBuffer;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class BufferTest {

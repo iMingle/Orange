@@ -21,7 +21,6 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 线程挂起
  *
- * @since 1.0
  * @author Mingle
  */
 class Sleeper extends Thread {

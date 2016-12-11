@@ -27,7 +27,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 原子类测试
  *
- * @since 1.0
  * @author Mingle
  */
 public class AtomicIntegerTest implements Runnable {

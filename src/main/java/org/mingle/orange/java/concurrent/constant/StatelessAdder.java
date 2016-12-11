@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.constant;
 /**
  * 具有不变性的最简单对象
  * 
- * @since 1.0
  * @author Mingle
  */
 public class StatelessAdder {

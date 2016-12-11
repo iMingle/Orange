@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.sync;
 /**
  * 死锁
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Cell {

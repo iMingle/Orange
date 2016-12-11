@@ -26,7 +26,6 @@ import static org.mingle.orange.args.ArgsException.ErrorCode.OK;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ArgsException extends Exception {

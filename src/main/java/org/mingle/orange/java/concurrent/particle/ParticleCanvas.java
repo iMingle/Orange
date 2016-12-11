@@ -24,7 +24,6 @@ import java.awt.Graphics;
 /**
  * 粒子绘制区域
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ParticleCanvas extends Canvas {

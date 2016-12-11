@@ -23,7 +23,6 @@ import edu.princeton.cs.algs4.StdIn;
 /**
  * 最小公倍数
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Gcd {

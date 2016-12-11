@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 界限计数器
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface BoundedCounter {

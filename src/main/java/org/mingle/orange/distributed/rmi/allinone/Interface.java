@@ -24,7 +24,6 @@ import java.rmi.RemoteException;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface Interface extends Remote {

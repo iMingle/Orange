@@ -23,7 +23,6 @@ import org.mingle.orange.designpattern.structural.Point;
 /**
  * 窗口的实现接口
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface WindowImplementor {

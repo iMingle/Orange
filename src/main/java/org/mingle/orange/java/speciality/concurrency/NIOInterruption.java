@@ -33,7 +33,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * NOI中断
  *
- * @since 1.0
  * @author Mingle
  */
 class NIOBlocked implements Runnable {

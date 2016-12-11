@@ -31,7 +31,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * 饭店仿真
  * 
- * @since 1.0
  * @author Mingle
  */
 class Order {

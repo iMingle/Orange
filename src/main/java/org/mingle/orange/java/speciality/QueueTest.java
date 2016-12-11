@@ -27,7 +27,6 @@ import java.util.Random;
 /**
  * Queue测试类
  *
- * @since 1.0
  * @author Mingle
  */
 public class QueueTest {

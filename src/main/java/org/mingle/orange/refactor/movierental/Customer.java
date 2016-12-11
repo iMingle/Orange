@@ -24,7 +24,6 @@ import java.util.Vector;
 /**
  * 顾客
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Customer {

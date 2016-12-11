@@ -35,7 +35,6 @@ import javax.swing.event.ListDataListener;
  * locale of the combo box, and sorted according to the collator of the display
  * locale.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class LocaleCombo extends JComboBox<Object> {

@@ -41,7 +41,6 @@ import java.util.List;
  * 
  * Lambda表达式中无法访问到函数式接口的默认方法
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Lambda {

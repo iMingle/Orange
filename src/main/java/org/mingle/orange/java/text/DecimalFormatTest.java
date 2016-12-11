@@ -23,7 +23,6 @@ import java.text.DecimalFormat;
 /**
  * 格式化浮点数
  * 
- * @since 1.0
  * @author Mingle
  */
 public class DecimalFormatTest {

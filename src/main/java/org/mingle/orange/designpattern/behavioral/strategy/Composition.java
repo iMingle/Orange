@@ -23,7 +23,6 @@ import java.awt.Component;
 /**
  * 文档(包含正文和图形)
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Composition {

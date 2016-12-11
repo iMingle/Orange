@@ -21,7 +21,6 @@ package org.mingle.orange.java7;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class BinaryIntegerLiteral {

@@ -23,7 +23,6 @@ import java.util.Hashtable;
 /**
  * 冲突集合
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Inventory {

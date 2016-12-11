@@ -21,7 +21,6 @@ package org.mingle.orange.benchmark;
 /**
  * 逆优化
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Deoptimization {

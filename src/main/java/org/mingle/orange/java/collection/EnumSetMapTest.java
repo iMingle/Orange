@@ -23,7 +23,6 @@ import java.util.EnumSet;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class EnumSetMapTest {

@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.structural;
 /**
  * 点
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Point {

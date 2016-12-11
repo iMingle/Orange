@@ -21,7 +21,6 @@ package org.mingle.orange.arithmetic.util;
 /**
  * 二叉树中节点的最大距离
  * 
- * @since 1.0
  * @author Mingle
  */
 public class MaxDistanceInBTreee<E> {

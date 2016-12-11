@@ -22,7 +22,6 @@ package org.mingle.orange.arithmetic.util;
 /**
  * 队列中取最大值
  * 
- * @since 1.0
  * @author Mingle
  */
 public class MaxValueInQueue<E extends Comparable<E>> {

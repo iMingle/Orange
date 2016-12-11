@@ -23,7 +23,6 @@ import java.util.Random;
 /**
  * 非懒加载单例模式
  * 
- * @since 1.0
  * @author Mingle
  */
 public class EagerSingletonCounter {

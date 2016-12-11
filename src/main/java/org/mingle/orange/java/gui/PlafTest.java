@@ -30,7 +30,6 @@ import javax.swing.UIManager;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class PlafTest {

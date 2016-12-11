@@ -23,7 +23,6 @@ import java.io.OutputStream;
 /**
  * 子类化非同步对象
  * 
- * @since 1.0
  * @author Mingle
  */
 public class SynchronizedAddress extends Address {

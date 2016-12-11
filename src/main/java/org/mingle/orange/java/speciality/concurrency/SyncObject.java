@@ -21,7 +21,6 @@ package org.mingle.orange.java.speciality.concurrency;
 /**
  * 在其他对象上同步
  *
- * @since 1.0
  * @author Mingle
  */
 class DualSynch {

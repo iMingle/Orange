@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.creational.singleton;
 /**
  * 单例迷宫工厂
  * 
- * @since 1.0
  * @author Mingle
  */
 public class MazeFactory {

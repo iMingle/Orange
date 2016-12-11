@@ -24,7 +24,6 @@ import java.util.Map;
 /**
  * 优先考虑类型安全的异构容器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Favorites {

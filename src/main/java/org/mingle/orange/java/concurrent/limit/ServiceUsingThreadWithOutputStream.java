@@ -25,7 +25,6 @@ import java.io.OutputStream;
 /**
  * 使用线程私有成员变量类
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ServiceUsingThreadWithOutputStream {

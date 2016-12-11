@@ -24,7 +24,6 @@ import java.net.Socket;
 /**
  * 失败重试
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ClientUsingSocket {

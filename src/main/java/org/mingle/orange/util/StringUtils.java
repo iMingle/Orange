@@ -23,7 +23,6 @@ import java.util.LinkedList;
 /**
  * String工具类
  * 
- * @since 1.0
  * @author Mingle
  */
 public class StringUtils {

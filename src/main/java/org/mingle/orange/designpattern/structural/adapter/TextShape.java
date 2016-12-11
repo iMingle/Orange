@@ -23,7 +23,6 @@ import org.mingle.orange.designpattern.structural.Point;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TextShape implements Shape, TextView {

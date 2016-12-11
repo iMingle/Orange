@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.beforeafter;
 /**
  * 溢出异常
  * 
- * @since 1.0
  * @author Mingle
  */
 public class OverflowException extends Exception {

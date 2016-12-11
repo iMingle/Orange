@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class DaemonFromFactory implements Runnable {

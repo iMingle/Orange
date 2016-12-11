@@ -23,7 +23,6 @@ import java.util.concurrent.Semaphore;
 /**
  * 基于信号量的有界缓存
  * 
- * @since 1.0
  * @author Mingle
  */
 public class SemaphoreBoundedBuffer<E> {

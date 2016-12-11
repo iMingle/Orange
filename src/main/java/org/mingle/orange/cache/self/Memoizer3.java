@@ -30,7 +30,6 @@ import org.mingle.orange.util.LaunderThrowable;
 /**
  * 缓存
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Memoizer3<A, V> implements Computable<A, V> {

@@ -23,7 +23,6 @@ import org.mingle.orange.java.concurrent.util.Helper;
 /**
  * 用执行器处理请求
  * 
- * @since 1.0
  * @author Mingle
  */
 public class HostWithExecutor {

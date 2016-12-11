@@ -24,7 +24,6 @@ import java.awt.event.MouseEvent;
  * 窗口小组件
  * 同事类
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Widget {

@@ -24,7 +24,6 @@ import java.util.BitSet;
  * This program runs the Sieve of Erathostenes benchmark. It computes all primes
  * up to 2,000,000.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Sieve {

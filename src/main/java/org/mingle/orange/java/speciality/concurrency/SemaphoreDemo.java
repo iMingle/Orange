@@ -28,7 +28,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * 信号量测试
  * 
- * @since 1.0
  * @author Mingle
  */
 class CheckoutTask<T> implements Runnable {

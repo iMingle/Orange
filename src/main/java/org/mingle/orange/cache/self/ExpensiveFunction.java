@@ -23,7 +23,6 @@ import java.math.BigInteger;
 /**
  * 耗时操作
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ExpensiveFunction implements Computable<String, BigInteger> {

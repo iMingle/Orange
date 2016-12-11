@@ -19,7 +19,6 @@
 /**
  * Future
  * 
- * @since 1.0
  * @author Mingle
  */
 package org.mingle.orange.java.concurrent.servicesinthread.future;

@@ -27,7 +27,6 @@ import org.mingle.orange.designpattern.structural.composite.FloppyDisk;
 /**
  * 存货清单
  * 
- * @since 1.0
  * @author Mingle
  */
 public class InventoryVisitor implements EquipmentVisitor {

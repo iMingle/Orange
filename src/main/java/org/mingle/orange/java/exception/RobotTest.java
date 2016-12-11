@@ -35,7 +35,6 @@ import javax.swing.JLabel;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class RobotTest {

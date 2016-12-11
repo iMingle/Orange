@@ -26,7 +26,6 @@ import java.util.ListIterator;
 /**
  * This program demonstrates operations on linked lists.
  * 
- * @since 1.0
  * @author Mingle
  */
 public class LinkedListTest {

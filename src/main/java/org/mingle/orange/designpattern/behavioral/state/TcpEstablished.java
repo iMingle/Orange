@@ -22,7 +22,6 @@ package org.mingle.orange.designpattern.behavioral.state;
 /**
  * TCP已建立
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TcpEstablished extends TcpState {

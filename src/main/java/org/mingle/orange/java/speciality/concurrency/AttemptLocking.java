@@ -24,7 +24,6 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 尝试获取锁
  *
- * @since 1.0
  * @author Mingle
  */
 public class AttemptLocking {

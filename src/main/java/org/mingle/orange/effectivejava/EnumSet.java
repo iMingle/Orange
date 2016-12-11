@@ -23,7 +23,6 @@ import java.util.Set;
 /**
  * 用EnumSet代替位域
  * 
- * @since 1.0
  * @author Mingle
  */
 public class EnumSet {

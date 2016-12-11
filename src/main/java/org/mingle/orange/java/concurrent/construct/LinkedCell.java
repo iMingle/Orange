@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.construct;
 /**
  * 不变引用连接的数据结构,当synchronized方法调用非同步方法时,非同步方法依然处于同步状态
  * 
- * @since 1.0
  * @author Mingle
  */
 public class LinkedCell {

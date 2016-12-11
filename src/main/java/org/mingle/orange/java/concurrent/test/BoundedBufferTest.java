@@ -23,7 +23,6 @@ import junit.framework.TestCase;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class BoundedBufferTest extends TestCase {

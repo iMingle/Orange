@@ -29,7 +29,6 @@ import org.quartz.impl.StdSchedulerFactory;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class QuartzTest {

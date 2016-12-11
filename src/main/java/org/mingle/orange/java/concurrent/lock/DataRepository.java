@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.lock;
 /**
  * 大型数据集合一般使用读写锁
  * 
- * @since 1.0
  * @author Mingle
  */
 public class DataRepository {

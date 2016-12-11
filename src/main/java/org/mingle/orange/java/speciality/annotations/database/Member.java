@@ -20,7 +20,6 @@ package org.mingle.orange.java.speciality.annotations.database;
 
 /**
  * 
- * @since 1.0
  * @author Mingle
  */
 @DBTable(name = "MEMBER")

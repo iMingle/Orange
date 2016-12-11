@@ -30,7 +30,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * 优先级阻塞队列测试
  *
- * @since 1.0
  * @author Mingle
  */
 class PrioritizedTask implements Runnable, Comparable<PrioritizedTask> {

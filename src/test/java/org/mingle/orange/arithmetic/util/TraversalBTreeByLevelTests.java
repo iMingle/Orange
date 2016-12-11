@@ -24,7 +24,6 @@ import org.mingle.orange.arithmetic.util.TraversalBTreeByLevel.Node;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TraversalBTreeByLevelTests {

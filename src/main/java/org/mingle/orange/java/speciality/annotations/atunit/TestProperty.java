@@ -26,7 +26,6 @@ import java.lang.annotation.Target;
 /**
  * 标记为测试属性
  *
- * @since 1.0
  * @author Mingle
  */
 @Target({ElementType.FIELD, ElementType.METHOD})

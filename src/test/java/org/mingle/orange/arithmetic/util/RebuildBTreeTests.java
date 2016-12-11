@@ -25,7 +25,6 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class RebuildBTreeTests {

@@ -22,7 +22,6 @@ package org.mingle.orange.java.concurrent.state.fail;
 /**
  * 异常处理器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class HandledService implements ServerWithException {

@@ -26,7 +26,6 @@ import java.lang.annotation.Target;
 /**
  * 创建对象
  *
- * @since 1.0
  * @author Mingle
  */
 @Target(ElementType.METHOD)

@@ -28,7 +28,6 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class SerialCloneTest {

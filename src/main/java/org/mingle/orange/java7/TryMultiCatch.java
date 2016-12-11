@@ -27,7 +27,6 @@ import java.sql.SQLException;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TryMultiCatch {

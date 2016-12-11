@@ -28,7 +28,6 @@ import org.mingle.orange.java.util.RandomGenerator;
 /**
  * 容器测试框架
  * 
- * @since 1.0
  * @author Mingle
  */
 public abstract class Tester<C> {

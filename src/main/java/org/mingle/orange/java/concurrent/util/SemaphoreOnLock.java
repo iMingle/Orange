@@ -25,7 +25,6 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 使用Lock来实现信号量
  * 
- * @since 1.0
  * @author Mingle
  */
 public class SemaphoreOnLock {

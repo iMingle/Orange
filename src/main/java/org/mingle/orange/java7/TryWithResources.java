@@ -31,7 +31,6 @@ import java.util.zip.ZipFile;
 /**
  * The try-with-resources Statement
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TryWithResources {

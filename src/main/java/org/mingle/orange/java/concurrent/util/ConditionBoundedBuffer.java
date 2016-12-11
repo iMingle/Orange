@@ -25,7 +25,6 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Bounded buffer using explicit condition variables
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ConditionBoundedBuffer<T> {

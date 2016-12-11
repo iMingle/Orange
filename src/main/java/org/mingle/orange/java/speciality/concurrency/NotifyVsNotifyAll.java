@@ -27,7 +27,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * notify()和notifyAll()测试
  *
- * @since 1.0
  * @author Mingle
  */
 class Blocker {

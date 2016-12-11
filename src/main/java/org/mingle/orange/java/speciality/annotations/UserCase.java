@@ -25,7 +25,6 @@ import java.lang.annotation.Target;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 @Target(ElementType.METHOD)

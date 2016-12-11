@@ -27,7 +27,6 @@ import org.mockito.Mockito;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CustomerTests {

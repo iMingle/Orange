@@ -24,7 +24,6 @@ import java.util.List;
 /**
  * 列表框
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ListBox extends Widget {

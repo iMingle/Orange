@@ -22,7 +22,6 @@ package org.mingle.orange.designpattern.behavioral.chainofresponsibility;
  * 按钮
  * ConcreteHandler
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Button extends Widget {

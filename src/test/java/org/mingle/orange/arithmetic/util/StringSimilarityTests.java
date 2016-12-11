@@ -25,7 +25,6 @@ import org.junit.Test;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class StringSimilarityTests {

@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state.util;
 /**
  * 基于FIFO的信号量
  * 
- * @since 1.0
  * @author Mingle
  */
 public class FIFOSemaphore extends Semaphore {

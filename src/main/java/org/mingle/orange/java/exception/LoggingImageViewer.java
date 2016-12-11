@@ -44,7 +44,6 @@ import javax.swing.filechooser.FileFilter;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class LoggingImageViewer {

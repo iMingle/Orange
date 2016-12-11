@@ -23,7 +23,6 @@ import org.mingle.orange.java.concurrent.state.synergy.InsufficientFunds;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface TransBankAccount extends Transactor {

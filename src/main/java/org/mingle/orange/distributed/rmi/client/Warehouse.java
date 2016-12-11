@@ -24,7 +24,6 @@ import java.rmi.RemoteException;
 /**
  * 仓库
  * 
- * @since 1.0
  * @author Mingle
  */
 public interface Warehouse extends Remote {

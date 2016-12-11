@@ -23,7 +23,6 @@ import java.util.*;
 /**
  * 被测试类
  *
- * @since 1.0
  * @author Mingle
  */
 public class StackL<T> {

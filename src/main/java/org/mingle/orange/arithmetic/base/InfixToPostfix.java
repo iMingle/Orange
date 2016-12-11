@@ -24,7 +24,6 @@ import edu.princeton.cs.algs4.StdOut;
 /**
  * 中序转后序
  * 
- * @since 1.0
  * @author Mingle
  */
 public class InfixToPostfix {

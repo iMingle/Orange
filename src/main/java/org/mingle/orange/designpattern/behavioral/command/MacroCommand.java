@@ -25,7 +25,6 @@ import java.util.List;
 /**
  * 子命令序列
  * 
- * @since 1.0
  * @author Mingle
  */
 public class MacroCommand implements Command {

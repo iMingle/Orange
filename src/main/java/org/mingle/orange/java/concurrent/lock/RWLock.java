@@ -23,7 +23,6 @@ import com.sun.corba.se.impl.orbutil.concurrent.Sync;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class RWLock implements ReadWriteLock {

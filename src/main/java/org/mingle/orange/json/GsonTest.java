@@ -18,22 +18,20 @@
 
 package org.mingle.orange.json;
 
-import java.lang.reflect.Type;
-import java.util.Arrays;
-import java.util.Collection;
-
-import lombok.ToString;
-
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import lombok.ToString;
+
+import java.lang.reflect.Type;
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * Gson测试
  * 
- * @since 1.0
  * @author Mingle
  */
 public class GsonTest {

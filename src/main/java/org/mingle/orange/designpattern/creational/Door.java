@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.creational;
 /**
  * 门
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Door extends MapSite implements Cloneable {

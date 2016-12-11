@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.state;
 /**
  * 受保护的等待
  * 
- * @since 1.0
  * @author Mingle
  */
 public class GuardedClass {

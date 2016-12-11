@@ -27,7 +27,6 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CompositeEquipment extends Equipment {

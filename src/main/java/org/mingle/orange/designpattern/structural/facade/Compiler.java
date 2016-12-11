@@ -23,7 +23,6 @@ import java.io.InputStream;
 /**
  * 门面编译器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class Compiler {

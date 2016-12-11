@@ -21,7 +21,6 @@ package org.mingle.orange.java.speciality;
 /**
  * foreach测试
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ForEachTest {

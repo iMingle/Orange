@@ -21,7 +21,6 @@ package org.mingle.orange.effectivejava;
 /**
  * 工具类
  * 
- * @since 1.0
  * @author Mingle
  */
 public class UtilityClass {

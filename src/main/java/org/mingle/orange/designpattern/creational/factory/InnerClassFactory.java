@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.creational.factory;
 /**
  * 用匿名内部类实现的工厂方法
  * 
- * @since 1.0
  * @author Mingle
  */
 public class InnerClassFactory {

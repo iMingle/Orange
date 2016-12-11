@@ -28,7 +28,6 @@ import javax.swing.JTextArea;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class ConsoleWindow {

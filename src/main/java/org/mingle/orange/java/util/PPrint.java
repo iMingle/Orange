@@ -23,7 +23,6 @@ import java.util.*;
 /**
  * Pretty-printer for collections
  *
- * @since 1.0
  * @author Mingle
  */
 public class PPrint {

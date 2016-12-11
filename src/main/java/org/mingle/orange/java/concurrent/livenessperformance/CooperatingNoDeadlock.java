@@ -25,7 +25,6 @@ import java.util.Set;
 /**
  * 通过开放调用使协作对象之间不发生死锁
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CooperatingNoDeadlock {

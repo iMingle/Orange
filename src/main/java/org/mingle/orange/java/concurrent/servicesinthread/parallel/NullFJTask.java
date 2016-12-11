@@ -21,7 +21,6 @@ package org.mingle.orange.java.concurrent.servicesinthread.parallel;
 /**
  * FJTask的空实现
  * 
- * @since 1.0
  * @author Mingle
  */
 public class NullFJTask extends FJTask {

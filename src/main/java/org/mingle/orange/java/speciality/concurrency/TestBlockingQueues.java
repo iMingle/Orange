@@ -29,7 +29,6 @@ import java.util.concurrent.SynchronousQueue;
 /**
  * 阻塞队列测试
  *
- * @since 1.0
  * @author Mingle
  */
 class LiftOffRunner implements Runnable {

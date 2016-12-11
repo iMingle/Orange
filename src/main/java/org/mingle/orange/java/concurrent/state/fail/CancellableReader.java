@@ -25,7 +25,6 @@ import java.io.IOException;
 /**
  * IO和资源失效
  * 
- * @since 1.0
  * @author Mingle
  */
 public class CancellableReader {

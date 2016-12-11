@@ -24,7 +24,6 @@ import java.util.Collection;
 /**
  * foreach List测试
  * 
- * @since 1.0
  * @author Mingle
  */
 public class ForEachCollectionTest {

@@ -22,7 +22,6 @@ import java.io.FileNotFoundException;
 
 /**
  *
- * @since 1.0
  * @author Mingle
  */
 public class ExceptionTest {

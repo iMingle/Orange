@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.structural.adapter;
 /**
  * 
  * 
- * @since 1.0
  * @author Mingle
  */
 public class TextManipulator extends Manipulator {

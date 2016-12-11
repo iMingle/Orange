@@ -21,7 +21,6 @@ package org.mingle.orange.designpattern.structural.facade;
 /**
  * StackMachine机器代码生成器
  * 
- * @since 1.0
  * @author Mingle
  */
 public class StackMachineCodeGenerator extends CodeGenerator {
