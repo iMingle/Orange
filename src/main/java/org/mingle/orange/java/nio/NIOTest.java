@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.java.io;
+package org.mingle.orange.java.nio;
 
 import java.io.BufferedInputStream;
 import java.io.File;

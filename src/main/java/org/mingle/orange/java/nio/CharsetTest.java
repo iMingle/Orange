@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.java.io;
+package org.mingle.orange.java.nio;
 
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
@@ -44,7 +44,7 @@ public class CharsetTest {
         }
         
         // encode and decode
-        String str = "靳明雷";
+        String str = "重构";
         ByteBuffer buffer = cset.encode(str);
         System.out.println("after encode : " + buffer.toString());
         byte[] bytes = buffer.array();
