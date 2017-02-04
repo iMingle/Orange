@@ -28,9 +28,6 @@ import java.util.Set;
  */
 public class CharsetTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Charset cset = Charset.forName("UTF-8");
         System.out.println(cset);
@@ -55,8 +52,8 @@ public class CharsetTest {
         ByteBuffer bbuf = ByteBuffer.wrap(bytes, 0, bytes.length);
         CharBuffer cbuf = cset.decode(bbuf);
         System.out.println("after decode : " + cbuf.toString());
-        
-        
+
+        System.out.println((int) ((char) '重'));
     }
 
 }
