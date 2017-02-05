@@ -125,7 +125,7 @@ public class TimeClient {
     }
 
     protected void parseArgs(String[] argv) {
-        remoteHosts = new LinkedList();
+        remoteHosts = new LinkedList<>();
         for (int i = 0; i < argv.length; i++) {
             String arg = argv[i];
             // Send client requests to the given port

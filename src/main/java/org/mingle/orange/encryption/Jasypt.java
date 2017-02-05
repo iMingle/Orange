@@ -16,10 +16,6 @@
 
 package org.mingle.orange.encryption;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Arrays;
-
 import org.jasypt.util.binary.BasicBinaryEncryptor;
 import org.jasypt.util.digest.Digester;
 import org.jasypt.util.numeric.BasicDecimalNumberEncryptor;
@@ -31,6 +27,10 @@ import org.jasypt.util.password.PasswordEncryptor;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.jasypt.util.text.BasicTextEncryptor;
 import org.jasypt.util.text.StrongTextEncryptor;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Arrays;
 
 /**
  * 
@@ -95,7 +95,7 @@ public class Jasypt {
         binaryEncryptor.setPassword("password");
         byte[] myEncryptedBinary = binaryEncryptor.encrypt(binary);
         byte[] plainBinary = binaryEncryptor.decrypt(myEncryptedBinary);
-        System.out.println(plainBinary.equals(binary));
+        System.out.println(Arrays.equals(plainBinary, binary));
     }
 
 }

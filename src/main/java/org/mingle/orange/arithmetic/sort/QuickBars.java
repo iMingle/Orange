@@ -118,7 +118,7 @@ public class QuickBars {
         }
 
         // precompute the number of rows
-        StdDraw.show(0);
+        StdDraw.show();
         ROWS = 0;
         sort(b);
         ROWS = row;
@@ -126,12 +126,12 @@ public class QuickBars {
         StdDraw.clear();
 
         StdDraw.setCanvasSize(800, ROWS * VERTICAL);
-        StdDraw.show(0);
+        StdDraw.show();
         StdDraw.square(.5, .5, .5);
         StdDraw.setXscale(-1, N);
         StdDraw.setYscale(-0.5, ROWS);
-        StdDraw.show(0);
+        StdDraw.show();
         sort(a);
-        StdDraw.show(0);
+        StdDraw.show();
     }
 }
