@@ -16,18 +16,12 @@
 
 package org.mingle.orange.java8;
 
-import java.time.Clock;
-import java.time.DayOfWeek;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.IsoFields;
 import java.util.Date;
 import java.util.Locale;
 
@@ -38,7 +32,7 @@ import java.util.Locale;
  */
 public class NewDate {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         /**
          * Clock类提供了访问当前日期和时间的方法,Clock是时区敏感的,
          * 可以用来取代 System.currentTimeMillis() 来获取当前的微秒数.
@@ -47,8 +41,28 @@ public class NewDate {
         Clock clock = Clock.systemDefaultZone();
         long millis = clock.millis();
         System.out.println(millis);
+        clock = Clock.systemUTC();
+        System.out.println(clock.millis());
+        clock = Clock.system(ZoneId.of("Europe/Paris")); //巴黎时区
+        System.out.println(clock.millis());
+        clock = Clock.system(ZoneId.of("Asia/Shanghai")); //上海时区
+        System.out.println(clock.millis());
+        clock = Clock.fixed(Instant.now(), ZoneId.of("Asia/Shanghai"));//固定上海时区时钟
+        System.out.println(clock.millis());
+        Thread.sleep(500);
+        System.out.println(clock.millis()); //不变 即时钟时钟在那一个点不动
+        clock = Clock.offset(Clock.systemUTC(), Duration.ofSeconds(20));
+        System.out.println(clock.millis());
 
+        clock = Clock.systemUTC();
         Instant instant = clock.instant();
+        System.out.println(instant);
+        instant = Instant.now();
+        System.out.println(instant);
+        System.out.println(instant.getEpochSecond()); //精确到秒 得到相对于1970-01-01 00:00:00 UTC的一个时间
+        System.out.println(instant.toEpochMilli()); //精确到毫秒
+        instant = Instant.now(clock);
+        System.out.println(instant);
         Date legacyDate = Date.from(instant);   // legacy java.util.Date
         
         /**
@@ -88,9 +102,7 @@ public class NewDate {
         LocalTime late = LocalTime.of(23, 59, 59);
         System.out.println(late);       // 23:59:59
 
-        DateTimeFormatter germanFormatter = DateTimeFormatter
-                .ofLocalizedTime(FormatStyle.SHORT)
-                .withLocale(Locale.GERMAN);
+        DateTimeFormatter germanFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).withLocale(Locale.GERMAN);
 
         LocalTime leetTime = LocalTime.parse("13:37", germanFormatter);
         System.out.println(leetTime);   // 13:37
@@ -113,9 +125,7 @@ public class NewDate {
         /**
          * 从字符串解析一个LocalDate类型和解析LocalTime一样简单
          */
-        germanFormatter = DateTimeFormatter
-                    .ofLocalizedDate(FormatStyle.MEDIUM)
-                    .withLocale(Locale.GERMAN);
+        germanFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Locale.GERMAN);
 
         LocalDate xmas = LocalDate.parse("24.12.2014", germanFormatter);
         System.out.println(xmas);   // 2014-12-24
@@ -136,7 +146,48 @@ public class NewDate {
 
         long minuteOfDay = sylvester.getLong(ChronoField.MINUTE_OF_DAY);
         System.out.println(minuteOfDay);    // 1439
-        
+
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now);
+        //自定义时区
+        LocalDateTime now3 = LocalDateTime.now(ZoneId.of("Europe/Paris"));
+        System.out.println(now3);//会以相应的时区显示日期
+        //自定义时钟
+        clock = Clock.system(ZoneId.of("Asia/Dhaka"));
+        LocalDateTime now4 = LocalDateTime.now(clock);
+        System.out.println(now4);//会以相应的时区显示日期
+        //不需要写什么相对时间 如java.util.Date 年是相对于1900 月是从0开始
+        //2013-12-31 23:59
+        LocalDateTime d1 = LocalDateTime.of(2013, 12, 31, 23, 59);
+        //年月日 时分秒 纳秒
+        LocalDateTime d2 = LocalDateTime.of(2013, 12, 31, 23, 59, 59, 11);
+        //使用瞬时时间 + 时区
+        instant = Instant.now();
+        LocalDateTime d3 = LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault());
+        System.out.println(d3);
+        //解析String--->LocalDateTime
+        LocalDateTime d4 = LocalDateTime.parse("2013-12-31T23:59");
+        System.out.println(d4);
+        LocalDateTime d5 = LocalDateTime.parse("2013-12-31T23:59:59.999");//999毫秒 等价于999000000纳秒
+        System.out.println(d5);
+        //使用DateTimeFormatter API 解析 和 格式化
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime d6 = LocalDateTime.parse("2013/12/31 23:59:59", formatter);
+        System.out.println(formatter.format(d6));
+        //时间获取
+        System.out.println(d6.getYear());
+        System.out.println(d6.getMonth());
+        System.out.println(d6.getDayOfYear());
+        System.out.println(d6.getDayOfMonth());
+        System.out.println(d6.getDayOfWeek());
+        System.out.println(d6.getHour());
+        System.out.println(d6.getMinute());
+        System.out.println(d6.getSecond());
+        System.out.println(d6.getNano());
+        //时间增减
+        LocalDateTime d7 = d6.minusDays(1);
+        LocalDateTime d8 = d7.plus(1, IsoFields.QUARTER_YEARS);
+
         /**
          * 只要附加上时区信息,就可以将其转换为一个时间点Instant对象,Instant时间点对象可以很容易的转换为老式的java.util.Date
          */
@@ -149,10 +200,10 @@ public class NewDate {
          * 格式化LocalDateTime和格式化时间和日期一样的,除了使用预定义好的格式外,我们也可以自己定义格式
          * DateTimeFormatter是不可变的,所以它是线程安全的
          */
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd, yyyy - HH:mm");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM dd, yyyy - HH:mm");
 
-        LocalDateTime parsed = LocalDateTime.parse("11 03, 2014 - 07:13", formatter);
-        String string = formatter.format(parsed);
+        LocalDateTime parsed = LocalDateTime.parse("11 03, 2014 - 07:13", dateTimeFormatter);
+        String string = dateTimeFormatter.format(parsed);
         System.out.println(string);     // Nov 03, 2014 - 07:13
     }
 
