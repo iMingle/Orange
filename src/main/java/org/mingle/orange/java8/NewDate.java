@@ -17,6 +17,9 @@
 package org.mingle.orange.java8;
 
 import java.time.*;
+import java.time.chrono.ChronoLocalDateTime;
+import java.time.chrono.Chronology;
+import java.time.chrono.HijrahChronology;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
@@ -27,7 +30,7 @@ import java.util.Locale;
 
 /**
  * 新Date API
- * 
+ *
  * @author mingle
  */
 public class NewDate {
@@ -64,7 +67,7 @@ public class NewDate {
         instant = Instant.now(clock);
         System.out.println(instant);
         Date legacyDate = Date.from(instant);   // legacy java.util.Date
-        
+
         /**
          * Timezones 时区
          *
@@ -80,8 +83,48 @@ public class NewDate {
         System.out.println(zone2.getRules()); // ZoneRules[currentStandardOffset=-03:00]
 
         /**
+         * 带有时区的date-time 存储纳秒、时区和时差（避免与本地date-time歧义）。
+         * API和LocalDateTime类似，只是多了时差(如2013-12-20T10:35:50.711+08:00[Asia/Shanghai])
+         */
+        ZonedDateTime zoneNnow = ZonedDateTime.now();
+        System.out.println(zoneNnow);
+        ZonedDateTime zonedNow2 = ZonedDateTime.now(ZoneId.of("Europe/Paris"));
+        System.out.println(zonedNow2);
+        ZonedDateTime z1 = ZonedDateTime.parse("2015-11-20T23:59:59Z[Europe/Paris]");
+        System.out.println(z1);
+
+        /**
+         * 两个瞬时时间的时间段
+         */
+        Duration duration1 = Duration.between(Instant.ofEpochMilli(System.currentTimeMillis() - 12323123), Instant.now());
+        //得到相应的时差
+        System.out.println(duration1.toDays());
+        System.out.println(duration1.toHours());
+        System.out.println(duration1.toMinutes());
+        System.out.println(duration1.toMillis());
+        System.out.println(duration1.toNanos());
+        //1天时差 类似的还有如ofHours()
+        Duration duration2 = Duration.ofDays(1);
+        System.out.println(duration2.toDays());
+
+        /**
+         * 提供对java.util.Calendar的替换，提供对年历系统的支持
+         */
+        Chronology c = HijrahChronology.INSTANCE;
+        ChronoLocalDateTime d = c.localDateTime(LocalDateTime.now());
+        System.out.println(d);
+
+        /**
+         * 新旧日期转换
+         */
+        Instant toInstant = new Date().toInstant();
+        Date date = Date.from(toInstant);
+        System.out.println(toInstant);
+        System.out.println(date);
+
+        /**
          * LocalTime 本地时间
-         * 
+         *
          * LocalTime 定义了一个没有时区信息的时间,例如 晚上10点,或者 17:30:15.
          * 下面的例子使用前面代码创建的时区创建了两个本地时间.之后比较时间并以小时和分钟为单位计算两个时间的时间差
          */
@@ -95,7 +138,7 @@ public class NewDate {
 
         System.out.println(hoursBetween);       // -3
         System.out.println(minutesBetween);     // -239
-        
+
         /**
          * LocalTime 提供了多种工厂方法来简化对象的创建,包括解析时间字符串
          */
@@ -106,10 +149,10 @@ public class NewDate {
 
         LocalTime leetTime = LocalTime.parse("13:37", germanFormatter);
         System.out.println(leetTime);   // 13:37
-        
+
         /**
          * LocalDate 本地日期
-         * 
+         *
          * LocalDate 表示了一个确切的日期,比如 2014-03-11.该对象值是不可变的,用起来和LocalTime基本一致.
          * 下面的例子展示了如何给Date对象加减天/月/年.另外要注意的是这些对象是不可变的,操作返回的总是一个新实例
          */
@@ -121,7 +164,7 @@ public class NewDate {
         DayOfWeek dayOfWeek = independenceDay.getDayOfWeek();
         System.out.println(dayOfWeek);    // FRIDAY
         System.out.println(yesterday);
-        
+
         /**
          * 从字符串解析一个LocalDate类型和解析LocalTime一样简单
          */
@@ -129,10 +172,10 @@ public class NewDate {
 
         LocalDate xmas = LocalDate.parse("24.12.2014", germanFormatter);
         System.out.println(xmas);   // 2014-12-24
-        
+
         /**
          * LocalDateTime 本地日期时间
-         * 
+         *
          * LocalDateTime 同时表示了时间和日期,相当于前两节内容合并到一个对象上了.
          * LocalDateTime和LocalTime还有LocalDate一样,都是不可变的.LocalDateTime提供了一些能访问具体字段的方法
          */
@@ -162,7 +205,7 @@ public class NewDate {
         //年月日 时分秒 纳秒
         LocalDateTime d2 = LocalDateTime.of(2013, 12, 31, 23, 59, 59, 11);
         //使用瞬时时间 + 时区
-        instant = Instant.now();
+        toInstant = Instant.now();
         LocalDateTime d3 = LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault());
         System.out.println(d3);
         //解析String--->LocalDateTime
@@ -191,11 +234,11 @@ public class NewDate {
         /**
          * 只要附加上时区信息,就可以将其转换为一个时间点Instant对象,Instant时间点对象可以很容易的转换为老式的java.util.Date
          */
-        instant = sylvester.atZone(ZoneId.systemDefault()).toInstant();
+        toInstant = sylvester.atZone(ZoneId.systemDefault()).toInstant();
 
-        legacyDate = Date.from(instant);
+        legacyDate = Date.from(toInstant);
         System.out.println(legacyDate);     // Wed Dec 31 23:59:59 CET 2014
-        
+
         /**
          * 格式化LocalDateTime和格式化时间和日期一样的,除了使用预定义好的格式外,我们也可以自己定义格式
          * DateTimeFormatter是不可变的,所以它是线程安全的
