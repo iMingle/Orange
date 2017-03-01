@@ -27,35 +27,31 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 记录关闭之后取消的任务,可能出现误报问题
- * 
+ *
  * @author mingle
  */
 public class TrackingExecutor extends AbstractExecutorService {
     private final ExecutorService exec;
     private final Set<Runnable> tasksCanceledAtShutdown = Collections.synchronizedSet(new HashSet<>());
-    
+
     public TrackingExecutor(ExecutorService exec) {
         this.exec = exec;
     }
-    
+
     public List<Runnable> getCancelledTasks() {
         if (!exec.isTerminated())
             throw new IllegalStateException("not shutdown");
         return new ArrayList<>(tasksCanceledAtShutdown);
     }
-    
+
     @Override
     public void execute(Runnable runnable) {
-        exec.execute(new Runnable() {
-            
-            @Override
-            public void run() {
-                try {
-                    runnable.run();
-                } finally {
-                    if (isShutdown() && Thread.currentThread().isInterrupted())
-                        tasksCanceledAtShutdown.add(runnable);
-                }
+        exec.execute(() -> {
+            try {
+                runnable.run();
+            } finally {
+                if (isShutdown() && Thread.currentThread().isInterrupted())
+                    tasksCanceledAtShutdown.add(runnable);
             }
         });
     }
@@ -81,8 +77,7 @@ public class TrackingExecutor extends AbstractExecutorService {
     }
 
     @Override
-    public boolean awaitTermination(long timeout, TimeUnit unit)
-            throws InterruptedException {
+    public boolean awaitTermination(long timeout, TimeUnit unit) throws InterruptedException {
         return exec.awaitTermination(timeout, unit);
     }
 

@@ -19,32 +19,30 @@ package org.mingle.orange.java.concurrent.atomic;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class CasNumberRange {
     private static class IntPair {
         final int lower;
         final int upper;
-        
+
         public IntPair(int lower, int upper) {
             super();
             this.lower = lower;
             this.upper = upper;
         }
     }
-    
+
     private final AtomicReference<IntPair> values = new AtomicReference<>(new IntPair(0, 0));
-    
+
     public int getLower() {
         return values.get().lower;
     }
-    
+
     public int getUpper() {
         return values.get().upper;
     }
-    
+
     public void setLower(int i) {
         while (true) {
             IntPair oldv = values.get();
@@ -55,7 +53,7 @@ public class CasNumberRange {
                 return;
         }
     }
-    
+
     public void setUpper(int i) {
         while (true) {
             IntPair oldv = values.get();

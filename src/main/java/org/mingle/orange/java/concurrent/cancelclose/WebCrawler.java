@@ -25,23 +25,23 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 网络爬虫
- * 
+ *
  * @author mingle
  */
 public abstract class WebCrawler {
     private static final long TIMEOUT = 1;
     private static final TimeUnit UNIT = TimeUnit.SECONDS;
-    
+
     private volatile TrackingExecutor exec;
     private final Set<URL> urlsToCrawl = new HashSet<>();
-    
+
     public synchronized void start() {
         exec = new TrackingExecutor(Executors.newCachedThreadPool());
         for (URL url : urlsToCrawl)
             submitCrawlTask(url);
         urlsToCrawl.clear();
     }
-    
+
     public synchronized void stop() throws InterruptedException {
         try {
             saveUncrawled(exec.shutdownNow());
@@ -51,7 +51,7 @@ public abstract class WebCrawler {
             exec = null;
         }
     }
-    
+
     protected abstract List<URL> processPage(URL url);
 
     private void saveUncrawled(List<Runnable> uncrawled) {
@@ -62,7 +62,7 @@ public abstract class WebCrawler {
     private void submitCrawlTask(URL url) {
         exec.submit(new CrawlTask(url));
     }
-    
+
     private class CrawlTask implements Runnable {
         private final URL url;
 
@@ -78,7 +78,7 @@ public abstract class WebCrawler {
                 submitCrawlTask(link);
             }
         }
-        
+
         public URL getPage() {
             return url;
         }

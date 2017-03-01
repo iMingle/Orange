@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 
 /**
  * 水槽实现类
- * 
+ *
  * @author mingle
  */
 public class TankImpl implements Tank {
@@ -34,7 +34,7 @@ public class TankImpl implements Tank {
     }
 
     @Override
-    public void transferWater(float amount) throws OverflowException,
-            UnderflowException {}
+    public void transferWater(float amount) throws OverflowException, UnderflowException {
+    }
 
 }

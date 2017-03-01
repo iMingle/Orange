@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.constant;
 
 /**
  * final不变性
- * 
+ *
  * @author mingle
  */
 public class ImmutableAdder {

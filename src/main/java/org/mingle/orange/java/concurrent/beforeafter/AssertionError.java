@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 
 /**
  * 不变约束如果检查失败
- * 
+ *
  * @author mingle
  */
 public class AssertionError extends Error {
@@ -31,5 +31,5 @@ public class AssertionError extends Error {
     public AssertionError(String message) {
         super(message);
     }
-    
+
 }

@@ -17,8 +17,6 @@
 package org.mingle.orange.java.concurrent.construct;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class LinkedQueue {

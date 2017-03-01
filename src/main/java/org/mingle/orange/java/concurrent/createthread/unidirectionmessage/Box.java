@@ -23,7 +23,7 @@ import java.awt.Point;
 
 /**
  * 消息表现,盒子的抽象类
- * 
+ *
  * @author mingle
  */
 public abstract class Box {
@@ -111,8 +111,7 @@ class HorizontallyJoinedPair extends JoinedPair {
     }
 
     public synchronized Box duplicate() {
-        HorizontallyJoinedPair p = new HorizontallyJoinedPair(fst.duplicate(),
-                snd.duplicate());
+        HorizontallyJoinedPair p = new HorizontallyJoinedPair(fst.duplicate(), snd.duplicate());
         p.setColor(getColor());
         return p;
     }

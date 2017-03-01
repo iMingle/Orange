@@ -20,7 +20,7 @@ import org.mingle.orange.java.concurrent.util.Helper;
 
 /**
  * 开放调用
- * 
+ *
  * @author mingle
  */
 public class OpenCallHost {
@@ -28,7 +28,7 @@ public class OpenCallHost {
     protected final Helper helper = new Helper();
 
     protected synchronized void updateState() {
-        localState = 2; // ...;
+        localState = 2;
     }
 
     public void req() {

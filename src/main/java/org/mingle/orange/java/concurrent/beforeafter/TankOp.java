@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 
 /**
  * 方法适配器接口
- * 
+ *
  * @author mingle
  */
 public interface TankOp {

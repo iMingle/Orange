@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 
 /**
  * 水槽方法适配器
- * 
+ *
  * @author mingle
  */
 public class TankWithMethodAdapter {
@@ -43,33 +43,25 @@ public class TankWithMethodAdapter {
             throw new AssertionError();
     }
 
-    protected void runWithinBeforeAfterChecks(TankOp cmd)
-            throws OverflowException, UnderflowException {
+    protected void runWithinBeforeAfterChecks(TankOp cmd) throws OverflowException, UnderflowException {
         checkVolumeInvariant(); // before-check
 
         try {
             cmd.op();
-        } catch (OverflowException e) {
-            throw e;
-        } catch (UnderflowException e) {
+        } catch (OverflowException | UnderflowException e) {
             throw e;
         } finally {
             checkVolumeInvariant(); // after-check
         }
     }
 
-    protected void doTransferWater(float amount) throws OverflowException,
-            UnderflowException {
+    protected void doTransferWater(float amount) throws OverflowException, UnderflowException {
         // ... implementation code ...
     }
 
-    public synchronized void transferWater(final float amount)
-            throws OverflowException, UnderflowException {
-
-        runWithinBeforeAfterChecks(new TankOp() {
-            public void op() throws OverflowException, UnderflowException {
-                doTransferWater(amount);
-            }
+    public synchronized void transferWater(final float amount) throws OverflowException, UnderflowException {
+        runWithinBeforeAfterChecks(() -> {
+            doTransferWater(amount);
         });
     }
 }

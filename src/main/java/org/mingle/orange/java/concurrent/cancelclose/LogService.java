@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 支持关闭的生产者-消费者日志服务
- * 
+ *
  * @author mingle
  */
 public class LogService {
@@ -34,7 +34,7 @@ public class LogService {
     private final BlockingQueue<String> queue;
     private final LoggerThread loggerThread;
     private final PrintWriter writer;
-    
+
     private boolean isShutdown;
     private int reservations;
 
@@ -43,27 +43,24 @@ public class LogService {
         this.writer = writer;
         this.loggerThread = new LoggerThread();
     }
-    
+
     public void start() {
         /**
-         * 通过注册一个一个关闭钩子来停止日志服务
+         * 通过注册一个关闭钩子来停止日志服务
          */
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-                LogService.this.stop();
-            }
-        });
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            LogService.this.stop();
+        }));
         loggerThread.start();
     }
-    
+
     public void stop() {
         synchronized (this) {
             isShutdown = true;
         }
         loggerThread.interrupt();
     }
-    
+
     public void log(String msg) throws InterruptedException {
         synchronized (this) {
             if (isShutdown)
@@ -105,7 +102,7 @@ public class LogService {
 class LogService2 {
     private final ExecutorService exec = Executors.newSingleThreadExecutor();
     private final PrintWriter writer;
-    
+
     public LogService2(PrintWriter writer) {
         this.writer = writer;
     }
@@ -118,20 +115,21 @@ class LogService2 {
             writer.close();
         }
     }
-    
+
     public void log(String msg) throws InterruptedException {
         try {
             exec.execute(new WriteTask(msg));
-        } catch (RejectedExecutionException ignored) {}
+        } catch (RejectedExecutionException ignored) {
+        }
     }
-    
+
     private class WriteTask implements Runnable {
         private String msg;
 
         public WriteTask(String msg) {
             this.msg = msg;
         }
-        
+
         @Override
         public void run() {
             writer.println(msg);

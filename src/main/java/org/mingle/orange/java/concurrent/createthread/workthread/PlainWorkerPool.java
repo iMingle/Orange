@@ -20,8 +20,6 @@ import org.mingle.orange.java.concurrent.createthread.threadpermessage.Channel;
 import org.mingle.orange.java.concurrent.createthread.threadpermessage.Executor;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class PlainWorkerPool implements Executor {
@@ -43,15 +41,14 @@ public class PlainWorkerPool implements Executor {
     }
 
     protected void activate() {
-        Runnable runLoop = new Runnable() {
-            public void run() {
-                try {
-                    for (;;) {
-                        Runnable r = workQueue.take();
-                        r.run();
-                    }
-                } catch (InterruptedException ie) {} // die
-            }
+        Runnable runLoop = () -> {
+            try {
+                for (; ; ) {
+                    Runnable r = workQueue.take();
+                    r.run();
+                }
+            } catch (InterruptedException ie) {
+            } // die
         };
         new Thread(runLoop).start();
     }

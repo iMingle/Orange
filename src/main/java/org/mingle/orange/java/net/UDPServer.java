@@ -4,22 +4,17 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
-import java.util.Arrays;
 
 public class UDPServer {
 
     public static void main(String[] args) {
-        byte[] buf = new byte[1024];
-        
+        byte[] buf = new byte[6];
         DatagramPacket dp = new DatagramPacket(buf, buf.length);
-        
+
         try {
             DatagramSocket ds = new DatagramSocket(5678);
-            
             ds.receive(dp);
-            
-            System.out.println(Arrays.toString(buf));
-            
+            System.out.println(new String(buf));
             ds.close();
         } catch (SocketException e) {
             e.printStackTrace();
@@ -27,5 +22,4 @@ public class UDPServer {
             e.printStackTrace();
         }
     }
-
 }

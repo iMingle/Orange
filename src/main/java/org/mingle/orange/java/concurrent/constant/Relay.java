@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.constant;
 
 /**
  * 共享
- * 
+ *
  * @author mingle
  */
 public class Relay {
@@ -27,7 +27,7 @@ public class Relay {
     public Relay(Server server) {
         this.server = server;
     }
-    
+
     public void doIt() {
         server.doIt();
     }

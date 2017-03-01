@@ -21,7 +21,7 @@ import java.awt.Dimension;
 
 /**
  * 线性阶段
- * 
+ *
  * @author mingle
  */
 public class Painter extends SingleOutputPushStage implements PushStage {

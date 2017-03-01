@@ -20,29 +20,28 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 非阻塞的链表
- * 
+ *
  * @author mingle
  */
 public class LinkedQueue<E> {
     private static class Node<E> {
-        @SuppressWarnings("unused")
         final E item;
         final AtomicReference<Node<E>> next;
-        
-        public Node(E item, AtomicReference<Node<E>> next) {
+
+        public Node(E item, Node<E> next) {
             super();
             this.item = item;
-            this.next = next;
+            this.next = new AtomicReference<>(next);
         }
     }
-    
-    private final Node<E> dummy = new Node<E>(null, null);
+
+    private final Node<E> dummy = new Node<>(null, null);
     @SuppressWarnings("unused")
-    private final AtomicReference<Node<E>> head = new AtomicReference<Node<E>>(dummy);
-    private final AtomicReference<Node<E>> tail = new AtomicReference<Node<E>>(dummy);
-    
+    private final AtomicReference<Node<E>> head = new AtomicReference<>(dummy);
+    private final AtomicReference<Node<E>> tail = new AtomicReference<>(dummy);
+
     public boolean put(E item) {
-        Node<E> newNode = new Node<E>(item, null);
+        Node<E> newNode = new Node<>(item, null);
         while (true) {
             Node<E> curTail = tail.get();
             Node<E> tailNext = curTail.next.get();
@@ -60,5 +59,10 @@ public class LinkedQueue<E> {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        LinkedQueue<String> linkedQueue = new LinkedQueue<>();
+        linkedQueue.put("node0");
     }
 }

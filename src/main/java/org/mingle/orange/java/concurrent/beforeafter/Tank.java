@@ -18,11 +18,13 @@ package org.mingle.orange.java.concurrent.beforeafter;
 
 /**
  * 水槽
- * 
+ *
  * @author mingle
  */
 public interface Tank {
     float getCapacity();
+
     float getVolume();
+
     void transferWater(float amount) throws OverflowException, UnderflowException;
 }

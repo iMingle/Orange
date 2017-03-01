@@ -20,7 +20,7 @@ import java.util.Date;
 
 /**
  * 只有一个工作者线程
- * 
+ *
  * @author mingle
  */
 public class TimerDaemon {
@@ -72,7 +72,7 @@ public class TimerDaemon {
 
     // wait for and then return next task to run
     protected synchronized Runnable take() throws InterruptedException {
-        for (;;) {
+        for (; ; ) {
             while (pq.isEmpty())
                 wait();
             TimerTask t = pq.least();
@@ -92,16 +92,14 @@ public class TimerDaemon {
 
     void activate() {
         // same as PlainWorkerThread except using above take method
-        Runnable runLoop = new Runnable() {
-            public void run() {
-                try {
-                    for (;;) {
-                        Runnable r = take();
-                        r.run();
-                    }
-                } catch (InterruptedException ie) {
-                } // die
-            }
+        Runnable runLoop = () -> {
+            try {
+                for (; ; ) {
+                    Runnable r = take();
+                    r.run();
+                }
+            } catch (InterruptedException ie) {
+            } // die
         };
         new Thread(runLoop).start();
     }

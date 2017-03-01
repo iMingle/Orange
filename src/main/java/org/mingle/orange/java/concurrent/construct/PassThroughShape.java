@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.construct;
 
 /**
  * 类分解
- * 
+ *
  * @author mingle
  */
 public class PassThroughShape {
@@ -73,11 +73,11 @@ class AdjustableLoc {
     }
 
     protected double longCalculation1() {
-        return 1; /* ... */
+        return 1;
     }
 
     protected double longCalculation2() {
-        return 2; /* ... */
+        return 2;
     }
 
 }
@@ -105,11 +105,11 @@ class AdjustableDim {
     }
 
     protected double longCalculation3() {
-        return 3; /* ... */
+        return 3;
     }
 
     protected double longCalculation4() {
-        return 4; /* ... */
+        return 4;
     }
 
 }

@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 
 /**
  * 只有一个后继的阶段
- * 
+ *
  * @author mingle
  */
 public class SingleOutputPushStage {

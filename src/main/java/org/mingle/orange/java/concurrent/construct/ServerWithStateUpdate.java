@@ -19,8 +19,6 @@ package org.mingle.orange.java.concurrent.construct;
 import org.mingle.orange.java.concurrent.util.Helper;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class ServerWithStateUpdate {

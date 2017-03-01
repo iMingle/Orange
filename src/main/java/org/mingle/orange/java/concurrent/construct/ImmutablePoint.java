@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.construct;
 
 /**
  * 不变类
- * 
+ *
  * @author mingle
  */
 public class ImmutablePoint {
@@ -41,26 +41,26 @@ public class ImmutablePoint {
 
 class Dot {
     protected ImmutablePoint loc;
-    
+
     public Dot(int x, int y) {
         loc = new ImmutablePoint(x, y);
     }
-    
+
     public synchronized ImmutablePoint location() {
         return loc;
     }
-    
+
     protected synchronized void updateLoc(ImmutablePoint newLoc) {
         loc = newLoc;
     }
-    
+
     public void moveTo(int x, int y) {
         updateLoc(new ImmutablePoint(x, y));
     }
-    
+
     /**
      * loc可变,此方法必须同步
-     * 
+     *
      * @param delta
      */
     public synchronized void shiftX(int delta) {

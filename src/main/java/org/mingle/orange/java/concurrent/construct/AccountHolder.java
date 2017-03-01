@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.construct;
 
 /**
  * 只读适配器
- * 
+ *
  * @author mingle
  */
 public class AccountHolder {
@@ -100,7 +100,6 @@ class AccountRecorder { // A logging facility
 }
 
 class EvilAccountRecorder extends AccountRecorder {
-    @SuppressWarnings("unused")
     private long embezzlement;
 
     public void recordBalance(Account a) {

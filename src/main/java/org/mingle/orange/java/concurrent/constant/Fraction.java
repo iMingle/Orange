@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.constant;
 
 /**
  * 抽象数据类型ADT,分数
- * 
+ *
  * @author mingle
  */
 public class Fraction {
@@ -59,5 +59,5 @@ public class Fraction {
     public int hashCode() {
         return (int) (numerator ^ denominator);
     }
-    
+
 }

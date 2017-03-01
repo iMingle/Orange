@@ -16,7 +16,7 @@
 
 /**
  * 模拟水槽
- * 
+ *
  * @author mingle
  */
 package org.mingle.orange.java.concurrent.beforeafter;

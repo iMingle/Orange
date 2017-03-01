@@ -22,7 +22,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * 不支持关闭的生产者-消费者日志服务
- * 
+ *
  * @author mingle
  */
 public class LogWriter {
@@ -34,11 +34,11 @@ public class LogWriter {
         this.queue = new LinkedBlockingQueue<>(CAPACITY);
         this.logger = new LoggerThread(writer);
     }
-    
+
     public void start() {
         logger.start();
     }
-    
+
     public void log(String msg) throws InterruptedException {
         queue.put(msg);
     }
@@ -49,14 +49,14 @@ public class LogWriter {
         public LoggerThread(PrintWriter writer) {
             this.writer = writer;
         }
-        
+
         @Override
         public void run() {
             try {
                 while (true)
                     writer.println(queue.take());
             } catch (InterruptedException ignored) {
-                
+
             } finally {
                 writer.close();
             }

@@ -20,7 +20,7 @@ import org.mingle.orange.java.concurrent.util.Helper;
 
 /**
  * 开放调用(非同步发送消息)
- * 
+ *
  * @author mingle
  */
 public class ServerWithOpenCall {

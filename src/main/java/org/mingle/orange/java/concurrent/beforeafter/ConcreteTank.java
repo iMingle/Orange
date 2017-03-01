@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 
 /**
  * 具体的水槽
- * 
+ *
  * @author mingle
  */
 public class ConcreteTank extends AbstractTank {
@@ -36,8 +36,7 @@ public class ConcreteTank extends AbstractTank {
     }
 
     @Override
-    protected void doTransferWater(float amount) throws OverflowException,
-            UnderflowException {
+    protected void doTransferWater(float amount) throws OverflowException, UnderflowException {
         // ... implementation code ...
     }
 

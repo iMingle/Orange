@@ -21,8 +21,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
  * 
  * @author mingle
  */
-public abstract class Joiner extends SingleOutputPushStage implements
-        DualInputPushStage {
+public abstract class Joiner extends SingleOutputPushStage implements DualInputPushStage {
     protected Box a = null; // incoming from putA
     protected Box b = null; // incoming from putB
 

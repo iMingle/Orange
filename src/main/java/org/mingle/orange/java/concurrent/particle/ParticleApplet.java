@@ -19,8 +19,6 @@ package org.mingle.orange.java.concurrent.particle;
 import java.applet.Applet;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class ParticleApplet extends Applet {
@@ -28,41 +26,36 @@ public class ParticleApplet extends Applet {
 
     protected Thread[] threads = null;    // null when not running
     protected final ParticleCanvas canvas = new ParticleCanvas(100);
-    
+
     @Override
     public void init() {
         add(canvas);
     }
-    
+
     protected Thread makeThread(final Particle p) {
-        Runnable runloop = new Runnable() {
-            
-            @Override
-            public void run() {
-                try {
-                    for (;;) {
-                        p.move();
-                        canvas.repaint();
-                        Thread.sleep(100);
-                    }
-                } catch (InterruptedException e) {
-                    return;
+        return new Thread(() -> {
+            try {
+                for (; ; ) {
+                    p.move();
+                    canvas.repaint();
+                    Thread.sleep(100);
                 }
+            } catch (InterruptedException e) {
+                return;
             }
-        };
-        return new Thread(runloop);
+        });
     }
-    
+
     @Override
     public synchronized void start() {
         int n = 10;
-        
+
         if (threads == null) {    // bypass if already started
             Particle[] particles = new Particle[n];
             for (int i = 0; i < particles.length; i++)
                 particles[i] = new Particle(50, 50);
             canvas.setParticles(particles);
-            
+
             threads = new Thread[n];
             for (int i = 0; i < particles.length; i++) {
                 threads[i] = makeThread(particles[i]);
@@ -70,7 +63,7 @@ public class ParticleApplet extends Applet {
             }
         }
     }
-    
+
     @Override
     public synchronized void stop() {
         if (threads != null) {    // bypass if already stopped

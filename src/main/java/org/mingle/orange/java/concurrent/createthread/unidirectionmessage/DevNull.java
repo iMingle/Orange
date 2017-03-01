@@ -18,12 +18,13 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 
 /**
  * 接收器
- * 
+ *
  * @author mingle
  */
 public class DevNull implements PushStage {
 
     @Override
-    public void putA(Box p) {}
+    public void putA(Box p) {
+    }
 
 }

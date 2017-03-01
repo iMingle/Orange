@@ -26,13 +26,11 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 
- * 
  * @author mingle
  */
 public abstract class SocketUsingTask<V> implements CancellableTask<V> {
     private Socket socket;
-    
+
     protected synchronized void setSocket(Socket s) {
         this.socket = s;
     }
@@ -42,13 +40,13 @@ public abstract class SocketUsingTask<V> implements CancellableTask<V> {
         try {
             if (socket != null)
                 socket.close();
-        } catch (IOException ignored) {}
+        } catch (IOException ignored) {
+        }
     }
 
     @Override
     public RunnableFuture<V> newTask() {
         return new FutureTask<V>(this) {
-            @SuppressWarnings("finally")
             @Override
             public boolean cancel(boolean mayInterruptIfRunning) {
                 try {
@@ -63,9 +61,9 @@ public abstract class SocketUsingTask<V> implements CancellableTask<V> {
 }
 
 class CancellingExecutor extends ThreadPoolExecutor {
-    
-    public CancellingExecutor(int corePoolSize, int maximumPoolSize,
-            long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
+
+    public CancellingExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit,
+                              BlockingQueue<Runnable> workQueue) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
     }
 
@@ -80,5 +78,6 @@ class CancellingExecutor extends ThreadPoolExecutor {
 
 interface CancellableTask<V> extends Callable<V> {
     void cancel();
+
     RunnableFuture<V> newTask();
 }

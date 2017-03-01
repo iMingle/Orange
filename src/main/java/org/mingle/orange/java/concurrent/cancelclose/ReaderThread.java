@@ -22,29 +22,29 @@ import java.net.Socket;
 
 /**
  * 处理不可中断的阻塞
- * 
+ *
  * @author mingle
  */
 public class ReaderThread extends Thread {
     private final Socket socket;
     private final InputStream in;
-    
+
     public ReaderThread(Socket socket) throws IOException {
         this.socket = socket;
         this.in = socket.getInputStream();
     }
-    
+
     @Override
     public void interrupt() {
         try {
             socket.close();    // 由于read和write方法不响应中断,调用close方法可以使阻塞的线程抛出异常
         } catch (IOException ignored) {
-            
+
         } finally {
             super.interrupt();
         }
     }
-    
+
     @Override
     public void run() {
         try {
@@ -62,6 +62,6 @@ public class ReaderThread extends Thread {
     }
 
     private void processBuffer(byte[] buf, int count) {
-        
+
     }
 }

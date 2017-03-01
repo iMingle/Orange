@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.construct;
 
 /**
  * 分解锁
- * 
+ *
  * @author mingle
  */
 public class LockSplitShape {

@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.construct;
 
 /**
  * 可以进行同步分解
- * 
+ *
  * @author mingle
  */
 public class Shape {

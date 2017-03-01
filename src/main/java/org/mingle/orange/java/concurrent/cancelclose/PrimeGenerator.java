@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 素数生成器的取消
- * 
+ *
  * @author mingle
  */
 public class PrimeGenerator implements Runnable {
@@ -44,11 +44,11 @@ public class PrimeGenerator implements Runnable {
     public void cancel() {
         cancelled = true;
     }
-    
+
     public synchronized List<BigInteger> get() {
         return new ArrayList<>(primes);
     }
-    
+
     public static List<BigInteger> oneSecondOfPrimes() throws InterruptedException {
         PrimeGenerator generator = new PrimeGenerator();
         new Thread(generator).start();
@@ -57,11 +57,11 @@ public class PrimeGenerator implements Runnable {
         } finally {
             generator.cancel();
         }
-        
+
         return generator.get();
     }
-    
+
     public static void main(String[] args) throws InterruptedException {
-        PrimeGenerator.oneSecondOfPrimes();
+        System.out.println(PrimeGenerator.oneSecondOfPrimes());
     }
 }

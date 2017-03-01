@@ -20,11 +20,10 @@ import java.awt.Dimension;
 
 /**
  * 发送源
- * 
+ *
  * @author mingle
  */
-public class BasicBoxSource extends SingleOutputPushStage implements
-        PushSource, Runnable {
+public class BasicBoxSource extends SingleOutputPushStage implements PushSource, Runnable {
 
     protected final Dimension size; // maximum sizes
     protected final int productionTime; // simulated delay
@@ -47,11 +46,12 @@ public class BasicBoxSource extends SingleOutputPushStage implements
     @Override
     public void run() {
         try {
-            for (;;) {
+            for (; ; ) {
                 start();
                 Thread.sleep((int) (Math.random() * 2 * productionTime));
             }
-        } catch (InterruptedException ie) {} // die
+        } catch (InterruptedException ie) {
+        } // die
     }
 
 }

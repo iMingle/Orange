@@ -22,7 +22,7 @@ import java.net.Socket;
 
 /**
  * 事件驱动的任务
- * 
+ *
  * @author mingle
  */
 public class IOEventTask implements Runnable {
@@ -63,7 +63,8 @@ public class IOEventTask implements Runnable {
             try {
                 input.close();
                 socket.close();
-            } catch (IOException ignore) {}
+            } catch (IOException ignore) {
+            }
         }
     }
 
@@ -101,7 +102,7 @@ class SessionTask implements Runnable {
     public void run() { // Normally run in a new thread
         byte[] commandBuffer = new byte[BUFFSIZE];
         try {
-            for (;;) {
+            for (; ; ) {
                 int bytes = input.read(commandBuffer, 0, BUFFSIZE);
                 if (bytes != BUFFSIZE)
                     break;
@@ -113,7 +114,8 @@ class SessionTask implements Runnable {
             try {
                 input.close();
                 socket.close();
-            } catch (IOException ignore) {}
+            } catch (IOException ignore) {
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * 触发任务
- * 
+ *
  * @author mingle
  */
 public class PollingWorker implements Runnable {
@@ -40,8 +40,8 @@ public class PollingWorker implements Runnable {
 
     public void run() {
         try {
-            for (;;) {
-                for (Iterator<IOEventTask> it = tasks.iterator(); it.hasNext();) {
+            for (; ; ) {
+                for (Iterator<IOEventTask> it = tasks.iterator(); it.hasNext(); ) {
                     IOEventTask t = it.next();
                     if (t.done())
                         deregister(t);
@@ -58,6 +58,7 @@ public class PollingWorker implements Runnable {
                 }
                 Thread.sleep(sleepTime);
             }
-        } catch (InterruptedException ie) {}
+        } catch (InterruptedException ie) {
+        }
     }
 }

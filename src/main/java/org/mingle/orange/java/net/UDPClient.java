@@ -13,7 +13,7 @@ public class UDPClient {
         try {
             DatagramPacket dp = new DatagramPacket(buf, buf.length, new InetSocketAddress("localhost", 5678));
             DatagramSocket ds = new DatagramSocket(9999);
-            
+
             ds.send(dp);
             ds.close();
         } catch (SocketException e) {
@@ -21,7 +21,5 @@ public class UDPClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }

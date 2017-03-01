@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.beforeafter;
 
 /**
  * 适配器
- * 
+ *
  * @author mingle
  */
 public class AdaptedTank implements Tank {
@@ -42,12 +42,10 @@ public class AdaptedTank implements Tank {
     public synchronized void transferWater(float amount) throws OverflowException,
             UnderflowException {
         checkVolumeInvariant();        // before-check
-        
+
         try {
             delegate.transferWater(amount);
-        } catch (OverflowException e) {
-            throw e;
-        } catch (UnderflowException e) {
+        } catch (OverflowException | UnderflowException e) {
             throw e;
         } finally {
             checkVolumeInvariant();    // after-check
@@ -60,5 +58,5 @@ public class AdaptedTank implements Tank {
         if (!(v >= 0.0 && v <= c))
             throw new AssertionError();
     }
-    
+
 }

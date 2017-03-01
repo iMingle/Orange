@@ -24,23 +24,21 @@ import java.net.Socket;
 
 /**
  * 处理web请求服务
- * 
+ *
  * @author mingle
  */
 public class WebService implements Runnable {
-    static final int PORT = 8080; // just for demo
+    static final int PORT = 8080;
     Handler handler = new Handler();
 
     public void run() {
         ServerSocket socket = null;
         try {
             socket = new ServerSocket(PORT);
-            for (;;) {
+            for (; ; ) {
                 final Socket connection = socket.accept();
-                new Thread(new Runnable() {
-                    public void run() {
-                        handler.process(connection);
-                    }
+                new Thread(() -> {
+                    handler.process(connection);
                 }).start();
             }
         } catch (Exception e) {
@@ -48,7 +46,8 @@ public class WebService implements Runnable {
             if (socket != null)
                 try {
                     socket.close();
-                } catch (IOException ignore) {}
+                } catch (IOException ignore) {
+                }
         }
     }
 
@@ -59,7 +58,6 @@ public class WebService implements Runnable {
 }
 
 class Handler {
-
     void process(Socket s) {
         DataInputStream in = null;
         DataOutputStream out = null;
@@ -74,14 +72,17 @@ class Handler {
             try {
                 if (in != null)
                     in.close();
-            } catch (IOException ignore) {}
+            } catch (IOException ignore) {
+            }
             try {
                 if (out != null)
                     out.close();
-            } catch (IOException ignore) {}
+            } catch (IOException ignore) {
+            }
             try {
                 s.close();
-            } catch (IOException ignore) {}
+            } catch (IOException ignore) {
+            }
         }
     }
 }

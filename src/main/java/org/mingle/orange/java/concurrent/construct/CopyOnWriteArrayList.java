@@ -21,16 +21,16 @@ import java.util.NoSuchElementException;
 
 /**
  * 写拷贝数组
- * 
+ *
  * @author mingle
  */
 public class CopyOnWriteArrayList {
     protected Object[] array = new Object[0];
-    
+
     protected synchronized Object[] getArray() {
         return array;
     }
-    
+
     public synchronized void add(Object element) {
         int len = array.length;
         Object[] newArray = new Object[len + 1];
@@ -38,7 +38,7 @@ public class CopyOnWriteArrayList {
         newArray[len] = element;
         array = newArray;
     }
-    
+
     public Iterator<?> iterator() {
         return new Iterator<Object>() {
             protected final Object[] snapshot = getArray();

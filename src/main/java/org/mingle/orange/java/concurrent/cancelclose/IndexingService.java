@@ -23,7 +23,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * 用毒丸对象关闭服务,必须生产者消费者数量已知的情况下,才可以使用毒丸对象
- * 
+ *
  * @author mingle
  */
 public class IndexingService {
@@ -38,15 +38,13 @@ public class IndexingService {
 
     public IndexingService(File root, final FileFilter fileFilter) {
         this.root = root;
-        this.queue = new LinkedBlockingQueue<File>(CAPACITY);
-        this.fileFilter = new FileFilter() {
-            public boolean accept(File f) {
-                return f.isDirectory() || fileFilter.accept(f);
-            }
+        this.queue = new LinkedBlockingQueue<>(CAPACITY);
+        this.fileFilter = (f) -> {
+            return f.isDirectory() || fileFilter.accept(f);
         };
     }
 
-    private boolean alreadyIndexed(File f) {
+    private boolean alreadyIndexed(File file) {
         return false;
     }
 
@@ -95,7 +93,7 @@ public class IndexingService {
 
         public void indexFile(File file) {
             /* ... */
-        };
+        }
     }
 
     public void start() {

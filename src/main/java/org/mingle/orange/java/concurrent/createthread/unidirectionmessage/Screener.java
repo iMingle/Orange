@@ -18,7 +18,7 @@ package org.mingle.orange.java.concurrent.createthread.unidirectionmessage;
 
 /**
  * 筛选阶段
- * 
+ *
  * @author mingle
  */
 public class Screener extends DualOutputPushStage implements PushStage {
@@ -32,10 +32,8 @@ public class Screener extends DualOutputPushStage implements PushStage {
     @Override
     public void putA(final Box p) {
         if (predicate.test(p)) {
-            new Thread(new Runnable() {
-                public void run() {
-                    next1().putA(p);
-                }
+            new Thread(() -> {
+                next1().putA(p);
             }).start();
         } else
             next2().putA(p);

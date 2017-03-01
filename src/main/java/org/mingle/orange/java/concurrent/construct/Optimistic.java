@@ -18,18 +18,16 @@ package org.mingle.orange.java.concurrent.construct;
 
 /**
  * 原子性提交
- * 
+ *
  * @author mingle
  */
 public class Optimistic {
     private State state; // reference to representation object
 
-    @SuppressWarnings("unused")
     private synchronized State getState() {
         return state;
     }
 
-    @SuppressWarnings("unused")
     private synchronized boolean commit(State assumed, State next) {
         if (state == assumed) {
             state = next;
@@ -54,7 +52,7 @@ class OptimisticDot {
     }
 
     protected synchronized boolean commit(ImmutablePoint assumed,
-            ImmutablePoint next) {
+                                          ImmutablePoint next) {
         if (loc == assumed) {
             loc = next;
             return true;

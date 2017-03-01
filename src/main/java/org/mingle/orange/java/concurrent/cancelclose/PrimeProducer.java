@@ -21,12 +21,12 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * 素数生成器的取消
- * 
+ *
  * @author mingle
  */
 public class PrimeProducer extends Thread {
     private final BlockingQueue<BigInteger> queue;
-    
+
     public PrimeProducer(BlockingQueue<BigInteger> queue) {
         this.queue = queue;
     }
@@ -46,5 +46,4 @@ public class PrimeProducer extends Thread {
     public void cancel() {
         interrupt();
     }
-    
 }

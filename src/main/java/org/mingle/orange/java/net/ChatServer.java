@@ -69,12 +69,11 @@ public class ChatServer extends Frame {
         @SuppressWarnings("rawtypes")
         public void run() {
             try {
-
                 DataInputStream dis = new DataInputStream(s.getInputStream());
                 String str = dis.readUTF();
                 while (str != null && str.length() != 0) {
                     System.out.println(str);
-                    for (Iterator it = cClient.iterator(); it.hasNext();) {
+                    for (Iterator it = cClient.iterator(); it.hasNext(); ) {
                         ClientConn cc = (ClientConn) it.next();
                         if (this != cc) {
                             cc.send(str);
