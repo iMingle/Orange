@@ -24,7 +24,7 @@ import org.mingle.orange.designpattern.structural.composite.FloppyDisk;
 
 /**
  * 计算设备结构的价格
- * 
+ *
  * @author mingle
  */
 public class PricingVisitor implements EquipmentVisitor {

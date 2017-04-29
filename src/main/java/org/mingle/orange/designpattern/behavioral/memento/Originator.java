@@ -18,16 +18,16 @@ package org.mingle.orange.designpattern.behavioral.memento;
 
 /**
  * 原发器
- * 
+ *
  * @author mingle
  */
 public class Originator {
     private State state;
-    
+
     public Memento createMemento() {
         return new Memento(state);
     }
-    
+
     public void setMemento(Memento memento) {
         state = memento.getState();
     }

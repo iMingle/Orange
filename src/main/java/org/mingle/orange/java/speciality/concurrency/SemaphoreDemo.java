@@ -60,12 +60,12 @@ public class SemaphoreDemo {
     static final int SIZE = 25;
     
     public static void main(String[] args) throws InterruptedException {
-        final Pool<Fat> pool = new Pool<Fat>(Fat.class, SIZE);
+        final Pool<Fat> pool = new Pool<>(Fat.class, SIZE);
         ExecutorService exec = Executors.newCachedThreadPool();
         for (int i = 0; i < SIZE; i++)
-            exec.execute(new CheckoutTask<Fat>(pool));
+            exec.execute(new CheckoutTask<>(pool));
         System.out.println("All CheckoutTasks created");
-        List<Fat> list = new ArrayList<Fat>();
+        List<Fat> list = new ArrayList<>();
         for (int i = 0; i < SIZE; i++) {
             Fat f = pool.checkOut();
             System.out.print(i + ": main() thread checked out ");

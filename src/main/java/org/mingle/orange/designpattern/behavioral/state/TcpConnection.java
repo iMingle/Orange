@@ -17,21 +17,19 @@
 package org.mingle.orange.designpattern.behavioral.state;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class TcpConnection {
     private TcpState state;
-    
+
     public TcpConnection() {
         state = TcpClosed.getInstance();
     }
-    
+
     public void activeOpen() {
         state.activeOpen(this);
     }
-    
+
     public void passiveOpen() {
         state.passiveOpen(this);
     }
@@ -39,7 +37,7 @@ public class TcpConnection {
     public void close() {
         state.close(this);
     }
-    
+
     public void synchronize() {
         state.synchronize(this);
     }
@@ -47,15 +45,15 @@ public class TcpConnection {
     public void acknowledge() {
         state.acknowledge(this);
     }
-    
+
     public void send() {
         state.send(this);
     }
-    
+
     void processOctet(TcpOctetStream stream) {
-        
+
     }
-    
+
     void changeState(TcpState state) {
         this.state = state;
     }

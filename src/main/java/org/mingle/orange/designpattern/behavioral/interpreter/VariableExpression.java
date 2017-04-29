@@ -18,12 +18,12 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 
 /**
  * 有名变量
- * 
+ *
  * @author mingle
  */
 public class VariableExpression implements BooleanExpression {
     private String name;
-    
+
     public VariableExpression(String name) {
         super();
         this.name = name;
@@ -34,7 +34,7 @@ public class VariableExpression implements BooleanExpression {
     }
 
     @Override public BooleanExpression replace(String name,
-            BooleanExpression expression) {
+                                               BooleanExpression expression) {
         if (this.name.equals(name))
             return expression.copy();
         else

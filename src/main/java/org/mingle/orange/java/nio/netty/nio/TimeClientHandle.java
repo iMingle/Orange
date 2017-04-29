@@ -119,8 +119,9 @@ public class TimeClientHandle implements Runnable {
                     // 对端链路关闭
                     key.cancel();
                     sc.close();
-                } else
-                    ; // 读到0字节，忽略
+                } else {
+                    // 读到0字节，忽略
+                }
             }
         }
     }

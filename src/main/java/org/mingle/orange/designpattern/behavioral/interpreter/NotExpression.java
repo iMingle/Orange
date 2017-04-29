@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 
 /**
  * not表达式
- * 
+ *
  * @author mingle
  */
 public class NotExpression implements BooleanExpression {
@@ -34,7 +34,7 @@ public class NotExpression implements BooleanExpression {
     }
 
     @Override public BooleanExpression replace(String name,
-            BooleanExpression expression) {
+                                               BooleanExpression expression) {
         return new NotExpression(operand.replace(name, expression));
     }
 

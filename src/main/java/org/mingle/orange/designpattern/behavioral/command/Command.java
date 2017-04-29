@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.command;
 
 /**
  * 命令
- * 
+ *
  * @author mingle
  */
 public interface Command {

@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.structural.facade;
 
 /**
  * 机器代码生成器
- * 
+ *
  * @author mingle
  */
 public class CodeGenerator {
@@ -27,13 +27,13 @@ public class CodeGenerator {
     public CodeGenerator(BytecodeStream output) {
         this.output = output;
     }
-    
+
     public void visit(StatementNode statementNode) {
-        
+
     }
-    
+
     public void visit(ExpressionNode expressionNode) {
-        
+
     }
 
     public BytecodeStream getOutput() {

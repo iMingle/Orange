@@ -28,7 +28,6 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
 
     private int counter;
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         String body = (String) msg;
         System.out.println("The time server receive order : " + body + " ; the counter is : " + ++counter);

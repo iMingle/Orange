@@ -17,8 +17,6 @@
 package org.mingle.orange.designpattern.structural.bridge;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class ApplicationWindow extends Window {

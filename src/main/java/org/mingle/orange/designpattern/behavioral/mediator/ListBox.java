@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * 列表框
- * 
+ *
  * @author mingle
  */
 public class ListBox extends Widget {
@@ -34,7 +34,7 @@ public class ListBox extends Widget {
     public String selection() {
         return "Selected";
     }
-    
+
     public void setList(List<String> items) {
         this.items = items;
     }

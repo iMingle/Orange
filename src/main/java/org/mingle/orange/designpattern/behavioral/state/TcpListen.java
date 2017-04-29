@@ -19,17 +19,17 @@ package org.mingle.orange.designpattern.behavioral.state;
 
 /**
  * TCP监听
- * 
+ *
  * @author mingle
  */
 public class TcpListen extends TcpState {
     private static TcpListen instance;
-    
+
     private TcpListen() {
         if (instance != null)
             throw new IllegalStateException("singleton, cannot create another object");
     }
-    
+
     public static synchronized TcpState getInstance() {
         if (instance == null)
             instance = new TcpListen();

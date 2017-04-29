@@ -25,6 +25,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * 阻塞队列
+ *
  * @author mingle
  */
 public class BlockingQueueTest {
@@ -41,16 +42,16 @@ public class BlockingQueueTest {
 
         final int FILE_QUEUE_SIZE = 10;
         final int SEARCH_THREADS = 100;
-        
+
         BlockingQueue<File> queue = new ArrayBlockingQueue<File>(FILE_QUEUE_SIZE);
-        
+
         FileEnumerationTask enumerator = new FileEnumerationTask(queue, new File(directory));
         new Thread(enumerator).start();
-        
+
         for (int i = 1; i <= SEARCH_THREADS; i++) {
             new Thread(new SearchTask(queue, keyword)).start();
         }
-        
+
         in.close();
     }
 
@@ -66,29 +67,26 @@ class FileEnumerationTask implements Runnable {
 
     /**
      * @param queue
-     * @param file
+     * @param startingDirectory
      */
     public FileEnumerationTask(BlockingQueue<File> queue, File startingDirectory) {
         this.queue = queue;
         this.startingDirectory = startingDirectory;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Runnable#run()
-     */
     @Override
     public void run() {
         try {
             enumerate(startingDirectory);
             queue.add(DUMMY);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
-    
+
     /**
      * Recursively enumerates all files in a given directory and its subdirectories.
+     *
      * @param directory
      * @throws InterruptedException
      */
@@ -117,9 +115,6 @@ class SearchTask implements Runnable {
         this.keyword = keyword;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Runnable#run()
-     */
     @Override
     public void run() {
         try {
@@ -134,17 +129,15 @@ class SearchTask implements Runnable {
                 }
             }
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     /**
      * @param file
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     private void search(File file) throws FileNotFoundException {
         Scanner in = new Scanner(new FileInputStream(file));
@@ -157,5 +150,5 @@ class SearchTask implements Runnable {
         }
         in.close();
     }
-    
+
 }

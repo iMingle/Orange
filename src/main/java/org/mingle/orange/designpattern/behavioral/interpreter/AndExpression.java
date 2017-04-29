@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 
 /**
  * and表达式
- * 
+ *
  * @author mingle
  */
 public class AndExpression implements BooleanExpression {
@@ -36,7 +36,7 @@ public class AndExpression implements BooleanExpression {
     }
 
     @Override public BooleanExpression replace(String name,
-            BooleanExpression expression) {
+                                               BooleanExpression expression) {
         return new AndExpression(operand1.replace(name, expression), operand2.replace(name, expression));
     }
 

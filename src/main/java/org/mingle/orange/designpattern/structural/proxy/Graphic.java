@@ -16,23 +16,27 @@
 
 package org.mingle.orange.designpattern.structural.proxy;
 
-import java.awt.Event;
+import org.mingle.orange.designpattern.structural.Point;
+
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.mingle.orange.designpattern.structural.Point;
-
 /**
  * 图形对象
  * Subject
- * 
+ *
  * @author mingle
  */
 public interface Graphic {
     void draw(Point position);
+
     void handleMouse(Event event);
+
     Point getExtent();
+
     void load(InputStream in) throws IOException;
+
     void save(OutputStream out) throws IOException;
 }

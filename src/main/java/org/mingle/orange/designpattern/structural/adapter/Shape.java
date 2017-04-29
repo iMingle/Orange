@@ -20,10 +20,11 @@ import org.mingle.orange.designpattern.structural.Point;
 
 /**
  * 形状,Shape假定有一个边框,这个边框由它相对的两角定义
- * 
+ *
  * @author mingle
  */
 public interface Shape {
     void scope(Point bottomLeft, Point topRight);
+
     Manipulator createManipulator();
 }

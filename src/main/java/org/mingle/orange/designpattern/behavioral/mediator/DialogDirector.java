@@ -19,15 +19,17 @@ package org.mingle.orange.designpattern.behavioral.mediator;
 /**
  * 负责对话框管理
  * 中介者
- * 
+ *
  * @author mingle
  */
 public abstract class DialogDirector {
-    public void showDialog() {}
-    
-    public void closeDialog() {}
-    
+    public void showDialog() {
+    }
+
+    public void closeDialog() {
+    }
+
     public abstract void changeWidget(Widget widget);
-    
+
     protected abstract void createWidgets();
 }

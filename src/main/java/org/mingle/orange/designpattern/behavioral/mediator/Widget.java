@@ -21,7 +21,7 @@ import java.awt.event.MouseEvent;
 /**
  * 窗口小组件
  * 同事类
- * 
+ *
  * @author mingle
  */
 public class Widget {
@@ -31,12 +31,12 @@ public class Widget {
         super();
         this.director = director;
     }
-    
+
     public void changed() {
         director.changeWidget(this);
     }
-    
+
     public void handleMouse(MouseEvent event) {
-        
+
     }
 }

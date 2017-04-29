@@ -19,7 +19,7 @@ package org.mingle.orange.designpattern.behavioral.chainofresponsibility;
 /**
  * 对话框
  * ConcreteHandler
- * 
+ *
  * @author mingle
  */
 public class Dialog extends Widget {

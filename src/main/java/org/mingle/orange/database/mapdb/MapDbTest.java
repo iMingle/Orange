@@ -16,52 +16,36 @@
 
 package org.mingle.orange.database.mapdb;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Set;
-
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
-import org.mapdb.Pump;
+import org.mapdb.Serializer;
+
+import java.io.IOException;
+import java.util.concurrent.ConcurrentMap;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class MapDbTest {
 
-    /**
-     * @param args
-     * @throws IOException
-     */
     public static void main(String[] args) throws IOException {
         // create database and insert some data
-        DB db = DBMaker.memoryDB().transactionDisable().make();
-        Set<String> s = db.hashSet("backup");
-        s.add("one");
-        s.add("two");
+        DB db = DBMaker.memoryDB().make();
+        ConcurrentMap map = db.hashMap("map").createOrOpen();
+        map.put("something", "here");
 
-        // make full backup
-        File backupFile = File.createTempFile("mapdbTest", "mapdb");
-        FileOutputStream out = new FileOutputStream(backupFile);
-
-        Pump.backupFull(db, out);
-        out.flush();
-        out.close();
-
-        // now close database and create new instance with restored content
+        db = DBMaker.fileDB("file.db").make();
+        map = db.hashMap("map").createOrOpen();
+        map.put("something", "here");
         db.close();
-        DB db2 = Pump.backupFullRestore(
-        // configuration used to instantiate empty database
-                DBMaker.memoryDB().transactionDisable(),
-                // input stream with backup data
-                new FileInputStream(backupFile));
 
-        Set<String> s2 = db2.hashSet("backup");
-        System.out.println(s2);
+        db = DBMaker.fileDB("file.db").fileMmapEnable().make();
+        ConcurrentMap<String, Long> map1 = db
+                .hashMap("map", Serializer.STRING, Serializer.LONG)
+                .createOrOpen();
+        map1.put("something", 111L);
+
+        db.close();
     }
 
 }

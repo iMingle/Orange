@@ -19,17 +19,17 @@ package org.mingle.orange.designpattern.behavioral.state;
 
 /**
  * TCP已建立
- * 
+ *
  * @author mingle
  */
 public class TcpEstablished extends TcpState {
     private static TcpEstablished instance;
-    
+
     private TcpEstablished() {
         if (instance != null)
             throw new IllegalStateException("singleton, cannot create another object");
     }
-    
+
     public static synchronized TcpState getInstance() {
         if (instance == null)
             instance = new TcpEstablished();
@@ -37,7 +37,7 @@ public class TcpEstablished extends TcpState {
     }
 
     @Override public void transmit(TcpConnection connection,
-            TcpOctetStream stream) {
+                                   TcpOctetStream stream) {
         connection.processOctet(stream);
     }
 

@@ -64,7 +64,6 @@ public class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuf
                             if (buffer.hasRemaining())
                                 channel.write(buffer, buffer, this);
                         }
-
                         @Override
                         public void failed(Throwable exc, ByteBuffer attachment) {
                             try {

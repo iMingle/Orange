@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
 
 /**
  * 按键
- * 
+ *
  * @author mingle
  */
 public class Button extends Widget {
@@ -30,9 +30,9 @@ public class Button extends Widget {
     }
 
     public void setText(String text) {
-        
+
     }
-    
+
     @Override public void handleMouse(MouseEvent event) {
         changed();
     }

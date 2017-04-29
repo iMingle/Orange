@@ -16,24 +16,24 @@
 
 package org.mingle.orange.designpattern.structural.proxy;
 
-import java.awt.Event;
+import org.mingle.orange.designpattern.structural.Point;
+
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.mingle.orange.designpattern.structural.Point;
-
 /**
  * 图片代理
  * Proxy
- * 
+ *
  * @author mingle
  */
 public class ImageProxy implements Graphic {
     private Image image;
     private Point extent;
     private final String filename;
-    
+
     public ImageProxy(String imageFile) {
         this.filename = imageFile;
         this.extent = Point.ZERO;
@@ -69,5 +69,5 @@ public class ImageProxy implements Graphic {
             image = new Image(filename);
         return image;
     }
-    
+
 }

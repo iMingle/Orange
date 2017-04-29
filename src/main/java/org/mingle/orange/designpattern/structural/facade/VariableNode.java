@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.structural.facade;
 
 /**
  * 变量节点
- * 
+ *
  * @author mingle
  */
 public class VariableNode extends ProgramNode {

@@ -16,19 +16,15 @@
 
 package org.mingle.orange.java.speciality.concurrency;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.Exchanger;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 import org.mingle.orange.java.util.BasicGenerator;
 import org.mingle.orange.java.util.Generator;
 
+import java.util.List;
+import java.util.concurrent.*;
+
 /**
  * 在两个任务之间交换对象
- * 
+ *
  * @author mingle
  */
 class ExchangerProducer<T> implements Runnable {
@@ -37,15 +33,12 @@ class ExchangerProducer<T> implements Runnable {
     private List<T> holder;
 
     public ExchangerProducer(Generator<T> generator,
-            Exchanger<List<T>> exchanger, List<T> holder) {
+                             Exchanger<List<T>> exchanger, List<T> holder) {
         this.generator = generator;
         this.exchanger = exchanger;
         this.holder = holder;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Runnable#run()
-     */
     @Override
     public void run() {
         try {
@@ -59,7 +52,7 @@ class ExchangerProducer<T> implements Runnable {
             // 可接受的方式退出
         }
     }
-    
+
 }
 
 class ExchangerCustomer<T> implements Runnable {
@@ -90,7 +83,7 @@ class ExchangerCustomer<T> implements Runnable {
         }
         System.out.println("Final value: " + value);
     }
-    
+
 }
 
 public class ExchangerDemo {
@@ -103,12 +96,12 @@ public class ExchangerDemo {
         if (args.length > 1)
             delay = new Integer(args[1]);
         ExecutorService exec = Executors.newCachedThreadPool();
-        Exchanger<List<Fat>> xc = new Exchanger<List<Fat>>();
-        List<Fat> producerList = new CopyOnWriteArrayList<Fat>(),
-                customerList = new CopyOnWriteArrayList<Fat>();
-        exec.execute(new ExchangerProducer<Fat>(BasicGenerator.create(Fat.class), xc, producerList));
-        exec.execute(new ExchangerCustomer<Fat>(xc, customerList));
-        
+        Exchanger<List<Fat>> xc = new Exchanger<>();
+        List<Fat> producerList = new CopyOnWriteArrayList<>(),
+                customerList = new CopyOnWriteArrayList<>();
+        exec.execute(new ExchangerProducer<>(BasicGenerator.create(Fat.class), xc, producerList));
+        exec.execute(new ExchangerCustomer<>(xc, customerList));
+
         TimeUnit.SECONDS.sleep(delay);
         exec.shutdownNow();
     }

@@ -20,7 +20,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 
 /**
  * 底盘
- * 
+ *
  * @author mingle
  */
 public class Chassis extends CompositeEquipment {
@@ -40,7 +40,7 @@ public class Chassis extends CompositeEquipment {
     @Override public double discountPrice() {
         return 5;
     }
-    
+
     @Override public void accept(EquipmentVisitor visitor) {
         visitor.visitChassis(this);
     }

@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.observer;
 
 /**
  * 用户界面工具箱
- * 
+ *
  * @author mingle
  */
 public interface Widget {

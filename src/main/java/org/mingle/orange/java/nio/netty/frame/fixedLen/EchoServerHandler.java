@@ -26,7 +26,6 @@ import io.netty.channel.ChannelHandlerContext;
 @Sharable
 public class EchoServerHandler extends ChannelHandlerAdapter {
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("Receive client : [" + msg + "]");
     }

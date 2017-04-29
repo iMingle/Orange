@@ -23,7 +23,7 @@ import org.mingle.orange.designpattern.creational.Room;
 
 /**
  * 迷宫游戏,用于创建迷宫
- * 
+ *
  * @author mingle
  */
 public class MazeGame {
@@ -34,17 +34,17 @@ public class MazeGame {
         Door door = factory.makeDoor(r1, r2);
         maze.addRoom(r1);
         maze.addRoom(r2);
-        
+
         r1.setSide(Direction.NORTH, factory.makeWall());
         r1.setSide(Direction.EAST, door);
         r1.setSide(Direction.SOUTH, factory.makeWall());
         r1.setSide(Direction.WEST, factory.makeWall());
-        
+
         r2.setSide(Direction.NORTH, factory.makeWall());
         r2.setSide(Direction.EAST, factory.makeWall());
         r2.setSide(Direction.SOUTH, factory.makeWall());
         r2.setSide(Direction.WEST, door);
-        
+
         return maze;
     }
 }

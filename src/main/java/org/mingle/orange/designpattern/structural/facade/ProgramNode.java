@@ -21,26 +21,26 @@ import java.util.Iterator;
 
 /**
  * 程序节点
- * 
+ *
  * @author mingle
  */
 public abstract class ProgramNode {
     public void getSourcePosition(Integer line, Integer index) {
-        
+
     }
-    
+
     public void add(ProgramNode node) {
-        
+
     }
-    
+
     public void remove(ProgramNode node) {
-        
+
     }
 
     public void traverse(CodeGenerator generator) {
-        
+
     }
-    
+
     @SuppressWarnings("unchecked") public Iterator<ProgramNode> children() {
         return Collections.EMPTY_LIST.iterator();
     }

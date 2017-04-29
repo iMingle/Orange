@@ -19,7 +19,7 @@ package org.mingle.orange.designpattern.behavioral.chainofresponsibility;
 /**
  * 应用
  * ConcreteHandler
- * 
+ *
  * @author mingle
  */
 public class Application extends HelpHandler {

@@ -27,6 +27,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author mingle
  */
+
 /**
  * 展示一个任务的一些部分
  */
@@ -40,9 +41,6 @@ class TaskPortion implements Runnable {
         this.latch = latch;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Runnable#run()
-     */
     @Override
     public void run() {
         try {
@@ -52,12 +50,12 @@ class TaskPortion implements Runnable {
             // 可接受的退出
         }
     }
-    
+
     public void doWork() throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(rand.nextInt(2000));
         System.out.println(this + " completed");
     }
-    
+
     public String toString() {
         return String.format("%1$-3d", id);
     }
@@ -75,9 +73,6 @@ class WaitingTask implements Runnable {
         this.latch = latch;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Runnable#run()
-     */
     @Override
     public void run() {
         try {
@@ -87,7 +82,7 @@ class WaitingTask implements Runnable {
             System.out.println(this + " interrupted");
         }
     }
-    
+
     public String toString() {
         return String.format("WaitingTask %1$-3d", id);
     }

@@ -17,25 +17,30 @@
 package org.mingle.orange.designpattern.behavioral.state;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class TcpState {
-    public void transmit(TcpConnection connection, TcpOctetStream stream) {}
-    
-    public void activeOpen(TcpConnection connection) {}
-    
-    public void passiveOpen(TcpConnection connection) {}
+    public void transmit(TcpConnection connection, TcpOctetStream stream) {
+    }
 
-    public void close(TcpConnection connection) {}
-    
-    public void synchronize(TcpConnection connection) {}
+    public void activeOpen(TcpConnection connection) {
+    }
 
-    public void acknowledge(TcpConnection connection) {}
-    
-    public void send(TcpConnection connection) {}
-    
+    public void passiveOpen(TcpConnection connection) {
+    }
+
+    public void close(TcpConnection connection) {
+    }
+
+    public void synchronize(TcpConnection connection) {
+    }
+
+    public void acknowledge(TcpConnection connection) {
+    }
+
+    public void send(TcpConnection connection) {
+    }
+
     protected void changeState(TcpConnection connection, TcpState state) {
         connection.changeState(state);
     }

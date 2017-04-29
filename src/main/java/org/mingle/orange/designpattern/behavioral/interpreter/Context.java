@@ -21,16 +21,16 @@ import java.util.Map;
 
 /**
  * 上下文,定义变量到布尔值的映射
- * 
+ *
  * @author mingle
  */
 public class Context {
     public final Map<String, Boolean> values = new HashMap<>();
-    
+
     public boolean lookup(String name) {
         return values.get(name);
     }
-    
+
     public void assign(VariableExpression expression, boolean value) {
         values.put(expression.getName(), value);
     }

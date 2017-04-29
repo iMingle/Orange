@@ -27,7 +27,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
 /**
- *
  * @author mingle
  */
 public class FutureTest {
@@ -41,16 +40,15 @@ public class FutureTest {
         String directory = in.nextLine();
         System.out.print("Enter keyword (e.g. volatile): ");
         String keyword = in.nextLine();
-        
+
         MatchCounter counter = new MatchCounter(new File(directory), keyword);
-        FutureTask<Integer> task = new FutureTask<Integer>(counter);
+        FutureTask<Integer> task = new FutureTask<>(counter);
         Thread t = new Thread(task);
         t.start();
-        
+
         try {
             System.out.println(task.get() + " matching files.");
         } catch (InterruptedException | ExecutionException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         in.close();
@@ -66,31 +64,24 @@ class MatchCounter implements Callable<Integer> {
     private String keyword;
     private int count;
 
-    /**
-     * @param directory
-     * @param keyword
-     */
     public MatchCounter(File directory, String keyword) {
         this.directory = directory;
         this.keyword = keyword;
     }
 
-    /* (non-Javadoc)
-     * @see java.util.concurrent.Callable#call()
-     */
     @Override
     public Integer call() {
         count = 0;
-        
+
         try {
             File[] files = this.directory.listFiles();
-            ArrayList<Future<Integer>> results = new ArrayList<Future<Integer>>();
-            
+            ArrayList<Future<Integer>> results = new ArrayList<>();
+
             // if has too many files, the system will die.
             for (File file : files) {
                 if (file.isDirectory()) {
                     MatchCounter counter = new MatchCounter(file, keyword);
-                    FutureTask<Integer> task = new FutureTask<Integer>(counter);
+                    FutureTask<Integer> task = new FutureTask<>(counter);
                     results.add(task);
                     Thread t = new Thread(task);
                     t.start();
@@ -98,25 +89,24 @@ class MatchCounter implements Callable<Integer> {
                     if (search(file)) count++;
                 }
             }
-            
+
             for (Future<Integer> result : results) {
                 try {
                     count += result.get();
                 } catch (ExecutionException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
+
         return count;
     }
 
     /**
      * searches a file for a given keyword.
+     *
      * @param file
      * @return
      */
@@ -130,13 +120,12 @@ class MatchCounter implements Callable<Integer> {
                     found = true;
             }
             in.close();
-            
+
             return found;
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
     }
-    
+
 }

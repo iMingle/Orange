@@ -23,22 +23,22 @@ import org.mingle.orange.designpattern.creational.Wall;
 
 /**
  * 迷宫工厂
- * 
+ *
  * @author mingle
  */
 public class MazeFactory implements AbstractMazeFactory {
     @Override public Maze makeMaze() {
         return new Maze();
     }
-    
+
     @Override public Wall makeWall() {
         return new Wall();
     }
-    
+
     @Override public Room makeRoom(int no) {
         return new Room(no);
     }
-    
+
     @Override public Door makeDoor(Room r1, Room r2) {
         return new Door(r1, r2);
     }

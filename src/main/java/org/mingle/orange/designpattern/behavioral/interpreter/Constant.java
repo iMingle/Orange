@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.interpreter;
 
 /**
  * 常量
- * 
+ *
  * @author mingle
  */
 public class Constant implements BooleanExpression {
@@ -34,7 +34,7 @@ public class Constant implements BooleanExpression {
     }
 
     @Override public BooleanExpression replace(String name,
-            BooleanExpression expression) {
+                                               BooleanExpression expression) {
         return new Constant(value);
     }
 

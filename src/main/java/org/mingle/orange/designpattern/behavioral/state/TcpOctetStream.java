@@ -17,8 +17,6 @@
 package org.mingle.orange.designpattern.behavioral.state;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class TcpOctetStream {

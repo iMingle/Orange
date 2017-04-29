@@ -19,23 +19,24 @@ package org.mingle.orange.designpattern.structural.bridge;
 
 /**
  * 负责构建WindowImplementor
- * 
+ *
  * @author mingle
  */
 public class WindowSystemFactory {
     private static WindowSystemFactory instance;
-    
-    protected WindowSystemFactory() {}
-    
+
+    protected WindowSystemFactory() {
+    }
+
     public static WindowSystemFactory getInstance() {
         if (instance == null)
             instance = new WindowSystemFactory();
         return instance;
     }
-    
+
     public WindowImplementor makeWindowImplementor() {
         WindowImplementor implementor = null;
-        
+
         return implementor;
     }
 }

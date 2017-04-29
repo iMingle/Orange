@@ -18,13 +18,13 @@ package org.mingle.orange.designpattern.structural.bridge;
 
 /**
  * 窗口的内容
- * 
+ *
  * @author mingle
  */
 public class View {
 
     public void drawOn(Window window) {
-        
+
     }
 
 }

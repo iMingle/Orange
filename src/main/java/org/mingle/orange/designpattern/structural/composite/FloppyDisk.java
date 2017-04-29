@@ -20,7 +20,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 
 /**
  * 磁盘
- * 
+ *
  * @author mingle
  */
 public class FloppyDisk extends Equipment {

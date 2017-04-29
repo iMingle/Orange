@@ -24,14 +24,14 @@ import org.mingle.orange.designpattern.creational.Wall;
 
 /**
  * 炸弹迷宫工厂
- * 
+ *
  * @author mingle
  */
 public class BombedMazeFactory extends MazeFactory {
     @Override public Wall makeWall() {
         return new BombedWall(new Bomb());
     }
-    
+
     @Override public Room makeRoom(int no) {
         return new RoomWithABomb(no, new Bomb());
     }

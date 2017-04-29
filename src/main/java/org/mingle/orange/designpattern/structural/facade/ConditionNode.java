@@ -18,16 +18,17 @@ package org.mingle.orange.designpattern.structural.facade;
 
 /**
  * 条件表达式节点
- * 
+ *
  * @author mingle
  */
 public class ConditionNode extends ProgramNode {
     private final ProgramNode condition;
     private final ProgramNode truePart;
-    private final ProgramNode falsePart;;
-    
+    private final ProgramNode falsePart;
+    ;
+
     public ConditionNode(ProgramNode condition, ProgramNode truePart,
-            ProgramNode falsePart) {
+                         ProgramNode falsePart) {
         this.condition = condition;
         this.truePart = truePart;
         this.falsePart = falsePart;

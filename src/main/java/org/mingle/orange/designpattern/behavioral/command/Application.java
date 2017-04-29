@@ -19,18 +19,18 @@ package org.mingle.orange.designpattern.behavioral.command;
 /**
  * 应用
  * 接受者
- * 
+ *
  * @author mingle
  */
 public class Application {
 
     /**
      * 添加文档
-     * 
+     *
      * @param document
      */
     public void add(Document document) {
-        
+
     }
 
 }

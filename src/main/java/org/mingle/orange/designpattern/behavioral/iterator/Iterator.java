@@ -18,12 +18,15 @@ package org.mingle.orange.designpattern.behavioral.iterator;
 
 /**
  * 迭代器
- * 
+ *
  * @author mingle
  */
 public interface Iterator<T> {
     void first();
+
     void next();
+
     boolean isDone();
+
     T currentItem();
 }

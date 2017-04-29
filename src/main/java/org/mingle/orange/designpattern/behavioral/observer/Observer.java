@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.observer;
 
 /**
  * 观察者
- * 
+ *
  * @author mingle
  */
 public interface Observer {

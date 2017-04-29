@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.strategy;
 
 /**
  * 坐标
- * 
+ *
  * @author mingle
  */
 public class Coord {

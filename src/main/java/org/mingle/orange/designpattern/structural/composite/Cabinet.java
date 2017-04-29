@@ -20,7 +20,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 
 /**
  * 柜子
- * 
+ *
  * @author mingle
  */
 public class Cabinet extends CompositeEquipment {
@@ -40,7 +40,7 @@ public class Cabinet extends CompositeEquipment {
     @Override public double discountPrice() {
         return 2;
     }
-    
+
     @Override public void accept(EquipmentVisitor visitor) {
         visitor.visitCabinet(this);
     }

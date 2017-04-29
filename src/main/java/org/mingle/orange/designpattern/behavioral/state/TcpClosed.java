@@ -19,17 +19,17 @@ package org.mingle.orange.designpattern.behavioral.state;
 
 /**
  * TCP关闭
- * 
+ *
  * @author mingle
  */
 public class TcpClosed extends TcpState {
     private static TcpClosed instance;
-    
+
     private TcpClosed() {
         if (instance != null)
             throw new IllegalStateException("singleton, cannot create another object");
     }
-    
+
     public static synchronized TcpState getInstance() {
         if (instance == null)
             instance = new TcpClosed();

@@ -24,12 +24,12 @@ import org.mingle.orange.designpattern.creational.Wall;
 
 /**
  * 炸弹迷宫工厂
- * 
+ *
  * @author mingle
  */
 public class BombedMazeGame extends MazeGame {
     private final Bomb bomb;
-    
+
     public BombedMazeGame(Bomb bomb) {
         this.bomb = bomb;
     }
@@ -41,5 +41,4 @@ public class BombedMazeGame extends MazeGame {
     @Override public Room makeRoom(int no) {
         return new RoomWithABomb(no, bomb);
     }
-    
 }

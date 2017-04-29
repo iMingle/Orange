@@ -21,7 +21,7 @@ package org.mingle.orange.arithmetic.base;
  *  140925
  *  161828
  *  [3,675,966 total values]
- *  
+ *
  *************************************************************************/
 
 
@@ -29,16 +29,16 @@ public class BinarySearch2 {
 
     public static int rank(int key, int[] a) {
         int time = 0;
-        
+
         return rank(key, a, 0, a.length - 1, time);
     }
 
     public static int rank(int key, int[] a, int lo, int hi, int time) {
-System.out.println("lo = " + lo);
-System.out.println("hi = " + hi);
-time++;
-System.out.println("time = " + time);
-System.out.println("=========");
+        System.out.println("lo = " + lo);
+        System.out.println("hi = " + hi);
+        time++;
+        System.out.println("time = " + time);
+        System.out.println("=========");
         if (lo > hi)
             return -1;
         int mid = lo + (hi - lo) / 2;
@@ -52,7 +52,7 @@ System.out.println("=========");
 
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-        
+
         rank(3, array);
     }
 }

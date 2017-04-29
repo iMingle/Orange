@@ -21,7 +21,7 @@ import org.mingle.orange.designpattern.structural.bridge.Window;
 /**
  * 字符
  * ConcreteFlyweight
- * 
+ *
  * @author mingle
  */
 public class Character extends Glyph {
@@ -39,5 +39,5 @@ public class Character extends Glyph {
     public char getCh() {
         return value;
     }
-    
+
 }

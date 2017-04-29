@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.structural.facade;
 
 /**
  * 赋值语句节点
- * 
+ *
  * @author mingle
  */
 public class AssignmentNode extends ProgramNode {

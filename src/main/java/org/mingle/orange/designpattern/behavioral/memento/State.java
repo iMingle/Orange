@@ -17,8 +17,6 @@
 package org.mingle.orange.designpattern.behavioral.memento;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class State {

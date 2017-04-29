@@ -20,7 +20,7 @@ import java.io.InputStream;
 
 /**
  * 接受字符串并产生一个标识符流,一次产生一个标识符(Token)
- * 
+ *
  * @author mingle
  */
 public class Scanner {
@@ -29,7 +29,7 @@ public class Scanner {
     public Scanner(InputStream input) {
         this.input = input;
     }
-    
+
     public Token scan() {
         return new Token();
     }

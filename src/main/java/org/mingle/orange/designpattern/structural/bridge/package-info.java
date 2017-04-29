@@ -16,7 +16,7 @@
 
 /**
  * 桥接模式: 将抽象部分和它的实现部分分离,使它们都可以独立地变化.
- * 
+ *
  * @author mingle
  */
 package org.mingle.orange.designpattern.structural.bridge;

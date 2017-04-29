@@ -17,8 +17,6 @@
 package org.mingle.orange.designpattern.behavioral.templatemethod;
 
 /**
- * 
- * 
  * @author mingle
  */
 public abstract class View {
@@ -31,10 +29,10 @@ public abstract class View {
     protected abstract void doDisplay();
 
     private void resetFocut() {
-        
+
     }
 
     private void setFocus() {
-        
+
     }
 }

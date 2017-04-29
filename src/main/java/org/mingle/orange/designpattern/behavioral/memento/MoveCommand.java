@@ -20,28 +20,27 @@ import java.awt.Point;
 
 /**
  * 图像移动命令
- * 
- * 
+ *
  * @author mingle
  */
 public class MoveCommand {
     private ConstraintSolverMemento state;
     private final Point delta;
     private final Graphic target;
-    
+
     public MoveCommand(Point delta, Graphic target) {
         super();
         this.delta = delta;
         this.target = target;
     }
-    
+
     public void execute() {
         ConstraintSolver solver = ConstraintSolver.getInstance();
         state = solver.createMemento();
         target.move(delta);
         solver.solve();
     }
-    
+
     public void unexecute() {
         ConstraintSolver solver = ConstraintSolver.getInstance();
         target.move(delta);

@@ -24,12 +24,12 @@ import org.mingle.orange.designpattern.creational.Spell;
 
 /**
  * 魔法迷宫工厂
- * 
+ *
  * @author mingle
  */
 public class EnchantedMazeGame extends MazeGame {
     private final Spell spell;
-    
+
     public EnchantedMazeGame(Spell spell) {
         super();
         this.spell = spell;
@@ -42,5 +42,4 @@ public class EnchantedMazeGame extends MazeGame {
     @Override public Door makeDoor(Room r1, Room r2) {
         return new DoorNeedingSpell(r1, r2);
     }
-    
 }

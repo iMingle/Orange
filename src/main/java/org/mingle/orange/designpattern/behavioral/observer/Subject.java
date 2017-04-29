@@ -20,25 +20,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class Subject {
     private List<Observer> observers;
-    
+
     public void attach(Observer observer) {
         if (observer == null)
             observers = new ArrayList<>();
         observers.add(observer);
     }
-    
+
     public void detach(Observer observer) {
         if (observer == null)
             return;
         observers.remove(observer);
     }
-    
+
     public void notifyObservers() {
         for (Observer observer : observers)
             observer.update(this);

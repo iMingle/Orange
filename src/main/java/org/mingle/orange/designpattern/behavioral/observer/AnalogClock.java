@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.observer;
 
 /**
  * 模拟时钟
- * 
+ *
  * @author mingle
  */
 public class AnalogClock implements Observer, Widget {
@@ -39,12 +39,12 @@ public class AnalogClock implements Observer, Widget {
         int hour = subject.hour();
         int minute = subject.minute();
         int second = subject.second();
-        
+
         drawClock(hour, minute, second);
     }
 
     private void drawClock(int hour, int minute, int second) {
-        
+
     }
 
 }

@@ -20,7 +20,7 @@ import org.mingle.orange.designpattern.structural.composite.Equipment;
 
 /**
  * 存货清单
- * 
+ *
  * @author mingle
  */
 public class Inventory {

@@ -20,7 +20,7 @@ import java.awt.Component;
 
 /**
  * 文档(包含正文和图形)
- * 
+ *
  * @author mingle
  */
 public class Composition {
@@ -30,13 +30,13 @@ public class Composition {
     @SuppressWarnings("unused") private int lineWidth; // the Composition's line width
     @SuppressWarnings("unused") private int lineBreaks; // the position of linebreaks in components
     @SuppressWarnings("unused") private int lineCount; // the number of lines
-    
+
     public Composition(Compositor compositor) {
         super();
         this.compositor = compositor;
     }
-    
+
     public void repair() {
-        
+
     }
 }

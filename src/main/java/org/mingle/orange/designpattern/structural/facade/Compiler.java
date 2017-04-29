@@ -20,7 +20,7 @@ import java.io.InputStream;
 
 /**
  * 门面编译器
- * 
+ *
  * @author mingle
  */
 public class Compiler {
@@ -29,12 +29,12 @@ public class Compiler {
         ProgramNodeBuilder builder = new ProgramNodeBuilder();
         Parser parser = new Parser() {
             @Override public void parse(Scanner scanner, ProgramNodeBuilder builder) {
-                
+
             }
         };
-        
+
         parser.parse(scanner, builder);
-        
+
         RISCCodeGenerator generator = new RISCCodeGenerator(output);
         ProgramNode parseTree = builder.rootNode();
         parseTree.traverse(generator);

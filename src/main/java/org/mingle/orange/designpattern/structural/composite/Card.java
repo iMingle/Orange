@@ -20,7 +20,7 @@ import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
 
 /**
  * 内存卡
- * 
+ *
  * @author mingle
  */
 public class Card extends Equipment {

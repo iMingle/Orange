@@ -24,13 +24,17 @@ import org.mingle.orange.designpattern.structural.composite.FloppyDisk;
 
 /**
  * 设备访问者
- * 
+ *
  * @author mingle
  */
 public interface EquipmentVisitor {
     void visitFloppyDisk(FloppyDisk floppyDisk);
+
     void visitCard(Card card);
+
     void visitChassis(Chassis chassis);
+
     void visitBus(Bus bus);
+
     void visitCabinet(Cabinet cabinet);
 }

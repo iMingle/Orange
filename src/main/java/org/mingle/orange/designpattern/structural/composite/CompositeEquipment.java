@@ -16,15 +16,13 @@
 
 package org.mingle.orange.designpattern.structural.composite;
 
+import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.mingle.orange.designpattern.behavioral.visitor.EquipmentVisitor;
-
 /**
- * 
- * 
  * @author mingle
  */
 public class CompositeEquipment extends Equipment {
@@ -41,10 +39,10 @@ public class CompositeEquipment extends Equipment {
     @Override public double netPrice() {
         Iterator<Equipment> iterator = iterator();
         double total = 0;
-        
+
         while (iterator.hasNext())
             total += iterator.next().netPrice();
-        
+
         return total;
     }
 

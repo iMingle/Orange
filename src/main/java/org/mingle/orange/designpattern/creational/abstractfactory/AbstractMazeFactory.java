@@ -23,7 +23,7 @@ import org.mingle.orange.designpattern.creational.Wall;
 
 /**
  * 抽象工厂接口
- * 
+ *
  * @author mingle
  */
 public interface AbstractMazeFactory {

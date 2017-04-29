@@ -5,21 +5,19 @@ import java.util.Arrays;
 public class SortingAlgorithm {
 
     public static void exchange(Comparable<Integer>[] array, int i, int j) {
-        Integer temp = 0;
-
-        temp = (Integer) array[i];
+        Integer temp = (Integer) array[i];
         array[i] = array[j];
         array[j] = temp;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
 
     /**
      * 冒泡排序(大气泡沉底)
-     * 
+     *
      * @param array
      */
     public static void bubbleSortBig(Comparable<Integer>[] array) {
@@ -34,7 +32,7 @@ public class SortingAlgorithm {
 
     /**
      * 冒泡排序(轻气泡上浮)
-     * 
+     *
      * @param array
      */
     public static void bubbleSortSmall(Comparable<Integer>[] array) {
@@ -49,7 +47,7 @@ public class SortingAlgorithm {
 
     /**
      * 选择排序
-     * 
+     *
      * @param array
      */
     public static void selectSort(Comparable<Integer>[] array) {
@@ -69,7 +67,7 @@ public class SortingAlgorithm {
 
     /**
      * 简单插入排序
-     * 
+     *
      * @param array
      */
     public static void insertSort(Comparable<Integer>[] array) {
@@ -82,7 +80,7 @@ public class SortingAlgorithm {
 
     /**
      * shell排序
-     * 
+     *
      * @param array
      */
     public static void shellSort(Comparable<Integer>[] array) {
@@ -105,21 +103,21 @@ public class SortingAlgorithm {
 
     /**
      * 数组归并
-     * 
+     *
      * @param array
      * @param start
      * @param middle
      * @param end
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void merge(Comparable<Integer>[] array, int start,
-            int middle, int end) {
+                             int middle, int end) {
         Comparable[] temp = new Comparable[array.length];
         int i = start;
         int j = middle + 1;
 
         for (int k = start; k <= end; k++) {
-            temp[k] = (Integer) array[k];
+            temp[k] = array[k];
         }
 
         for (int k = start; k <= end; k++) {
@@ -136,7 +134,7 @@ public class SortingAlgorithm {
 
     /**
      * 归并排序
-     * 
+     *
      * @param array
      * @param low
      * @param high
@@ -183,7 +181,7 @@ public class SortingAlgorithm {
 
     /**
      * 快速排序
-     * 
+     *
      * @param array
      * @param low
      * @param high
@@ -198,7 +196,6 @@ public class SortingAlgorithm {
     }
 
     /**
-     * 
      * @param array
      * @param start
      * @param N
@@ -220,7 +217,7 @@ public class SortingAlgorithm {
 
     /**
      * 堆排序
-     * 
+     *
      * @param array
      */
     public static void heapSort(Comparable<Integer>[] array) {
@@ -238,7 +235,7 @@ public class SortingAlgorithm {
 
     /**
      * 基数排序
-     * 
+     *
      * @param array
      * @param digit 表示最大的数有多少位
      */
@@ -248,14 +245,14 @@ public class SortingAlgorithm {
         int m = 1;                                    // 控制键值排序依据在哪一位
         int[][] bucket = new int[10][array.length];    // 数组的第一维表示可能的余数0-9
         int[] number = new int[10];                    // 数组order[i]用来表示该位是i的数的个数
-        
+
         while (m <= digit) {
             for (int i = 0; i < array.length; i++) {
                 int remainder = ((array[i] / n) % 10);
                 bucket[remainder][number[remainder]] = array[i];
                 number[remainder]++;
             }
-            
+
             for (int i = 0; i < 10; i++) {
                 if (number[i] != 0) {
                     for (int j = 0; j < number[i]; j++) {
@@ -263,21 +260,21 @@ public class SortingAlgorithm {
                         k++;
                     }
                 }
-                    
+
                 number[i] = 0;
             }
-            
+
             n *= 10;
             k = 0;
             m++;
         }
     }
-    
+
     public static void main(String[] args) {
 //        Integer[] array = new Integer[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 
-        int[] array = new int[] {88, 76, 65, 91, 23, 34, 44, 100, 103, 888};
-        
+        int[] array = new int[]{88, 76, 65, 91, 23, 34, 44, 100, 103, 888};
+
 //        SortingAlgorithm.bubbleSortBig(array);
 //        SortingAlgorithm.bubbleSortSmall(array);
 //        SortingAlgorithm.selectSort(array);

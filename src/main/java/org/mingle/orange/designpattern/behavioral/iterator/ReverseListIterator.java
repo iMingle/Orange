@@ -19,8 +19,6 @@ package org.mingle.orange.designpattern.behavioral.iterator;
 import java.util.List;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class ReverseListIterator<T> implements Iterator<T> {

@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.structural.decorator;
 
 /**
  * 装饰者
- * 
+ *
  * @author mingle
  */
 public class Decorator implements VisualComponent {

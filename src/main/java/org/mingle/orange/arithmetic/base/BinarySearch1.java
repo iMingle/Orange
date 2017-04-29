@@ -21,12 +21,11 @@ package org.mingle.orange.arithmetic.base;
  *  140925
  *  161828
  *  [3,675,966 total values]
- *  
+ *
  *************************************************************************/
 
 public class BinarySearch1 {
 
-    // precondition: array a[] is sorted
     public static int rank(int key, int[] a) {
         int lo = 0;
         int hi = a.length - 1;
@@ -34,16 +33,16 @@ public class BinarySearch1 {
         while (lo <= hi) {
             // Key is in a[lo..hi] or not present.
             int mid = lo + (hi - lo) / 2;
-            if      (key < a[mid]) hi = mid - 1;
+            if (key < a[mid]) hi = mid - 1;
             else if (key > a[mid]) lo = mid + 1;
             else {
                 min = mid;
                 hi = mid;
-                
+
                 break;
             }
         }
-        
+
         while (lo < hi) {
             int mid = lo + (hi - lo) / 2;
             if (key > a[mid]) lo = mid + 1;
@@ -52,38 +51,24 @@ public class BinarySearch1 {
                 hi = mid;
             }
         }
-        
+
         return min;
     }
 
     public static void main(String[] args) {
-/*        
-         @SuppressWarnings("deprecation")
-        int[] whitelist = In.readInts(args[0]);
-
-        Arrays.sort(whitelist);
-
-        // read key; print if not in whitelist
-        while (!StdIn.isEmpty()) {
-            int key = StdIn.readInt();
-            if (rank(key, whitelist) == -1)
-                StdOut.println(key);
-        }
-*/   
         int[] a = {1, 2, 3, 4, 4, 4, 5, 6, 6, 7, 7, 8, 9, 10};
-        int j = 0;
-        
+
         for (int i = 0; i < a.length; i++) {
-            j = i;
+            int j = i;
             if (j == a.length - 1) break;
             while (a[j + 1] == a[i]) {
                 a[j + 1] = 0;
                 j++;
             }
         }
-        
+
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
-     }
+        }
     }
 }

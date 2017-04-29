@@ -18,13 +18,13 @@ package org.mingle.orange.designpattern.behavioral.command;
 
 /**
  * 接收者
- * 
+ *
  * @author mingle
  */
 public class Receiver {
 
     public void action(Action action) {
-        
+
     }
 
 }

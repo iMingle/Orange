@@ -19,7 +19,7 @@ package org.mingle.orange.designpattern.structural.flyweight;
 /**
  * 列
  * UnsharedConcreteFlyweight
- * 
+ *
  * @author mingle
  */
 public class Column extends Glyph {

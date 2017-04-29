@@ -22,12 +22,13 @@ package org.mingle.orange.designpattern.creational.singleton;
  * @author mingle
  */
 public class SingletonThree {
-    private SingletonThree() {}
-    
+    private SingletonThree() {
+    }
+
     private static class SingletonThreeInstance {
         private static final SingletonThree INSTANCE = new SingletonThree();
     }
-    
+
     public static SingletonThree getInstance() {
         return SingletonThreeInstance.INSTANCE;
     }

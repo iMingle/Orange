@@ -19,7 +19,7 @@ package org.mingle.orange.designpattern.behavioral.command;
 /**
  * 粘贴命令
  * 接受者
- * 
+ *
  * @author mingle
  */
 public class PasteCommand implements Command {

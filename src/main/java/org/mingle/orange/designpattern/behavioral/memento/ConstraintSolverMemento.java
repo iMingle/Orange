@@ -19,7 +19,7 @@ package org.mingle.orange.designpattern.behavioral.memento;
 /**
  * 连接约束备忘录
  * 备忘录
- * 
+ *
  * @author mingle
  */
 public class ConstraintSolverMemento {

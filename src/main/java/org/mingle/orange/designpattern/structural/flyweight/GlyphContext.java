@@ -20,7 +20,7 @@ import java.awt.Font;
 
 /**
  * 图形上下文,用于存储外部状态(字体)
- * 
+ *
  * @author mingle
  */
 public class GlyphContext {
@@ -30,21 +30,21 @@ public class GlyphContext {
     public Font font() {
         return null;
     }
-    
+
     public void setFont(Font font, int span) {
-        
+
     }
 
     public Glyph current() {
         return null;
     }
-    
+
     public void next(int step) {
         index++;
     }
-    
+
     public void insert(int quantity) {
-        
+
     }
 
 }

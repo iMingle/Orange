@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  * 子命令序列
- * 
+ *
  * @author mingle
  */
 public class MacroCommand implements Command {
@@ -30,7 +30,7 @@ public class MacroCommand implements Command {
 
     @Override public void execute() {
         Iterator<Command> it = commands.iterator();
-        for ( ; it.hasNext(); )
+        for (; it.hasNext(); )
             it.next().execute();
     }
 
@@ -39,7 +39,7 @@ public class MacroCommand implements Command {
             commands = new ArrayList<>();
         commands.add(command);
     }
-    
+
     public void remove(Command command) {
         if (commands == null)
             return;

@@ -19,7 +19,7 @@ package org.mingle.orange.designpattern.behavioral.command;
 /**
  * 文档
  * 接受者
- * 
+ *
  * @author mingle
  */
 public class Document {
@@ -34,11 +34,11 @@ public class Document {
     }
 
     public void open() {
-        
+
     }
 
     public void paste() {
-        
+
     }
 
 }

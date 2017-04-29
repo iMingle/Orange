@@ -16,16 +16,16 @@
 
 package org.mingle.orange.designpattern.structural.proxy;
 
-import java.awt.Event;
+import org.mingle.orange.designpattern.structural.Point;
+
+import java.awt.*;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import org.mingle.orange.designpattern.structural.Point;
 
 /**
  * 图片
  * RealSubject
- * 
+ *
  * @author mingle
  */
 public class Image implements Graphic {
@@ -36,11 +36,11 @@ public class Image implements Graphic {
     }
 
     @Override public void draw(Point position) {
-        
+
     }
 
     @Override public void handleMouse(Event event) {
-        
+
     }
 
     @Override public Point getExtent() {
@@ -48,11 +48,11 @@ public class Image implements Graphic {
     }
 
     @Override public void load(InputStream in) {
-        
+
     }
 
     @Override public void save(OutputStream out) {
-        
+
     }
 
     public String getFilepath() {

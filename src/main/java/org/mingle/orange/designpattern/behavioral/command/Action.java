@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.behavioral.command;
 
 /**
  * 动作
- * 
+ *
  * @author mingle
  */
 public class Action {

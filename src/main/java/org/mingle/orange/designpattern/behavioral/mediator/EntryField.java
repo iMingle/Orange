@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
 
 /**
  * 输入域
- * 
+ *
  * @author mingle
  */
 public class EntryField extends Widget {

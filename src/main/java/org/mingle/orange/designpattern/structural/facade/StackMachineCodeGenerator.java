@@ -18,7 +18,7 @@ package org.mingle.orange.designpattern.structural.facade;
 
 /**
  * StackMachine机器代码生成器
- * 
+ *
  * @author mingle
  */
 public class StackMachineCodeGenerator extends CodeGenerator {

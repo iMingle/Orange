@@ -19,7 +19,7 @@ package org.mingle.orange.designpattern.behavioral.chainofresponsibility;
 /**
  * 窗口组件的抽象类
  * ConcreteHandler
- * 
+ *
  * @author mingle
  */
 public class Widget extends HelpHandler {
@@ -28,7 +28,7 @@ public class Widget extends HelpHandler {
     public Widget(int top) {
         super(top);
     }
-    
+
     public Widget(Widget widget, int top) {
         super(widget, top);
         parent = widget;

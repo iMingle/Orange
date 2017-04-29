@@ -18,15 +18,15 @@ package org.mingle.orange.designpattern.structural;
 
 /**
  * 点
- * 
+ *
  * @author mingle
  */
 public class Point {
     public static final Point ZERO = new Point(0, 0);
-    
+
     private final int x;
     private final int y;
-    
+
     public Point(int x, int y) {
         this.x = x;
         this.y = y;

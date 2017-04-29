@@ -24,7 +24,7 @@ import org.mingle.orange.designpattern.creational.abstractfactory.MazeFactory;
 
 /**
  * 迷宫原型工厂
- * 
+ *
  * @author mingle
  */
 public class MazePrototypeFactory extends MazeFactory {
@@ -35,7 +35,7 @@ public class MazePrototypeFactory extends MazeFactory {
     private final Wall wall;
     private final Room room;
     private final Door door;
-    
+
     public MazePrototypeFactory(Maze maze, Wall wall, Room room, Door door) {
         super();
         this.maze = maze;
@@ -53,7 +53,7 @@ public class MazePrototypeFactory extends MazeFactory {
         }
         return cloned;
     }
-    
+
     @Override public Wall makeWall() {
         Wall cloned = null;
         try {
@@ -63,7 +63,7 @@ public class MazePrototypeFactory extends MazeFactory {
         }
         return cloned;
     }
-    
+
     @Override public Room makeRoom(int no) {
         Room cloned = null;
         try {
@@ -73,7 +73,7 @@ public class MazePrototypeFactory extends MazeFactory {
         }
         return cloned;
     }
-    
+
     @Override public Door makeDoor(Room r1, Room r2) {
         Door cloned = null;
         try {

@@ -38,7 +38,7 @@ public class NewDate {
     public static void main(String[] args) throws InterruptedException {
         /**
          * Clock类提供了访问当前日期和时间的方法,Clock是时区敏感的,
-         * 可以用来取代 System.currentTimeMillis() 来获取当前的微秒数.
+         * 可以用来取代System.currentTimeMillis()来获取当前的微秒数.
          * 某一个特定的时间点也可以使用Instant类来表示,Instant类也可以用来创建老的java.util.Date对象.
          */
         Clock clock = Clock.systemDefaultZone();
@@ -53,7 +53,7 @@ public class NewDate {
         clock = Clock.fixed(Instant.now(), ZoneId.of("Asia/Shanghai"));//固定上海时区时钟
         System.out.println(clock.millis());
         Thread.sleep(500);
-        System.out.println(clock.millis()); //不变 即时钟时钟在那一个点不动
+        System.out.println(clock.millis()); //不变 即时钟在那一个点不动
         clock = Clock.offset(Clock.systemUTC(), Duration.ofSeconds(20));
         System.out.println(clock.millis());
 
@@ -67,6 +67,7 @@ public class NewDate {
         instant = Instant.now(clock);
         System.out.println(instant);
         Date legacyDate = Date.from(instant);   // legacy java.util.Date
+        System.out.println(legacyDate);
 
         /**
          * Timezones 时区
@@ -199,7 +200,7 @@ public class NewDate {
         clock = Clock.system(ZoneId.of("Asia/Dhaka"));
         LocalDateTime now4 = LocalDateTime.now(clock);
         System.out.println(now4);//会以相应的时区显示日期
-        //不需要写什么相对时间 如java.util.Date 年是相对于1900 月是从0开始
+        //不需要写什么相对时间 如java.util.Date年是相对于1900 月是从0开始
         //2013-12-31 23:59
         LocalDateTime d1 = LocalDateTime.of(2013, 12, 31, 23, 59);
         //年月日 时分秒 纳秒

@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * 字体对话框
  * 具体中介者
- * 
+ *
  * @author mingle
  */
 public class FontDialogDirector extends DialogDirector {
@@ -48,7 +48,7 @@ public class FontDialogDirector extends DialogDirector {
         cancel = new Button(this);
         fontList = new ListBox(this);
         fontName = new EntryField(this);
-        
+
         List<String> items = new ArrayList<>();
         for (Font font : GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts()) {
             items.add(font.getName());
