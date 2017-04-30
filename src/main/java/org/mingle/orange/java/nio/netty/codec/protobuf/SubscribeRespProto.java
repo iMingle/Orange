@@ -15,47 +15,35 @@ public final class SubscribeRespProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface SubscribeRespOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:netty.SubscribeResp)
+      // @@protoc_insertion_point(interface_extends:org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeResp)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 subReqId = 1;</code>
-     */
-    boolean hasSubReqId();
-    /**
-     * <code>required int32 subReqId = 1;</code>
+     * <code>int32 subReqId = 1;</code>
      */
     int getSubReqId();
 
     /**
-     * <code>required int32 respCode = 2;</code>
-     */
-    boolean hasRespCode();
-    /**
-     * <code>required int32 respCode = 2;</code>
+     * <code>int32 respCode = 2;</code>
      */
     int getRespCode();
 
     /**
-     * <code>required string desc = 3;</code>
-     */
-    boolean hasDesc();
-    /**
-     * <code>required string desc = 3;</code>
+     * <code>string desc = 3;</code>
      */
     java.lang.String getDesc();
     /**
-     * <code>required string desc = 3;</code>
+     * <code>string desc = 3;</code>
      */
     com.google.protobuf.ByteString
         getDescBytes();
   }
   /**
-   * Protobuf type {@code netty.SubscribeResp}
+   * Protobuf type {@code org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeResp}
    */
   public  static final class SubscribeResp extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:netty.SubscribeResp)
+      // @@protoc_insertion_point(message_implements:org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeResp)
       SubscribeRespOrBuilder {
     // Use SubscribeResp.newBuilder() to construct.
     private SubscribeResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -70,7 +58,7 @@ public final class SubscribeRespProto {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private SubscribeResp(
         com.google.protobuf.CodedInputStream input,
@@ -78,8 +66,6 @@ public final class SubscribeRespProto {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -89,26 +75,25 @@ public final class SubscribeRespProto {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
+
               subReqId_ = input.readInt32();
               break;
             }
             case 16: {
-              bitField0_ |= 0x00000002;
+
               respCode_ = input.readInt32();
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000004;
-              desc_ = bs;
+              java.lang.String s = input.readStringRequireUtf8();
+
+              desc_ = s;
               break;
             }
           }
@@ -119,33 +104,25 @@ public final class SubscribeRespProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_netty_SubscribeResp_descriptor;
+      return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_netty_SubscribeResp_fieldAccessorTable
+      return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp.class, org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp.Builder.class);
     }
 
-    private int bitField0_;
     public static final int SUBREQID_FIELD_NUMBER = 1;
     private int subReqId_;
     /**
-     * <code>required int32 subReqId = 1;</code>
-     */
-    public boolean hasSubReqId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required int32 subReqId = 1;</code>
+     * <code>int32 subReqId = 1;</code>
      */
     public int getSubReqId() {
       return subReqId_;
@@ -154,13 +131,7 @@ public final class SubscribeRespProto {
     public static final int RESPCODE_FIELD_NUMBER = 2;
     private int respCode_;
     /**
-     * <code>required int32 respCode = 2;</code>
-     */
-    public boolean hasRespCode() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required int32 respCode = 2;</code>
+     * <code>int32 respCode = 2;</code>
      */
     public int getRespCode() {
       return respCode_;
@@ -169,13 +140,7 @@ public final class SubscribeRespProto {
     public static final int DESC_FIELD_NUMBER = 3;
     private volatile java.lang.Object desc_;
     /**
-     * <code>required string desc = 3;</code>
-     */
-    public boolean hasDesc() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>required string desc = 3;</code>
+     * <code>string desc = 3;</code>
      */
     public java.lang.String getDesc() {
       java.lang.Object ref = desc_;
@@ -185,14 +150,12 @@ public final class SubscribeRespProto {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          desc_ = s;
-        }
+        desc_ = s;
         return s;
       }
     }
     /**
-     * <code>required string desc = 3;</code>
+     * <code>string desc = 3;</code>
      */
     public com.google.protobuf.ByteString
         getDescBytes() {
@@ -214,34 +177,21 @@ public final class SubscribeRespProto {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSubReqId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasRespCode()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasDesc()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (subReqId_ != 0) {
         output.writeInt32(1, subReqId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (respCode_ != 0) {
         output.writeInt32(2, respCode_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (!getDescBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, desc_);
       }
-      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -249,18 +199,17 @@ public final class SubscribeRespProto {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (subReqId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, subReqId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (respCode_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, respCode_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (!getDescBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, desc_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -277,22 +226,12 @@ public final class SubscribeRespProto {
       org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp other = (org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp) obj;
 
       boolean result = true;
-      result = result && (hasSubReqId() == other.hasSubReqId());
-      if (hasSubReqId()) {
-        result = result && (getSubReqId()
-            == other.getSubReqId());
-      }
-      result = result && (hasRespCode() == other.hasRespCode());
-      if (hasRespCode()) {
-        result = result && (getRespCode()
-            == other.getRespCode());
-      }
-      result = result && (hasDesc() == other.hasDesc());
-      if (hasDesc()) {
-        result = result && getDesc()
-            .equals(other.getDesc());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
+      result = result && (getSubReqId()
+          == other.getSubReqId());
+      result = result && (getRespCode()
+          == other.getRespCode());
+      result = result && getDesc()
+          .equals(other.getDesc());
       return result;
     }
 
@@ -303,18 +242,12 @@ public final class SubscribeRespProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSubReqId()) {
-        hash = (37 * hash) + SUBREQID_FIELD_NUMBER;
-        hash = (53 * hash) + getSubReqId();
-      }
-      if (hasRespCode()) {
-        hash = (37 * hash) + RESPCODE_FIELD_NUMBER;
-        hash = (53 * hash) + getRespCode();
-      }
-      if (hasDesc()) {
-        hash = (37 * hash) + DESC_FIELD_NUMBER;
-        hash = (53 * hash) + getDesc().hashCode();
-      }
+      hash = (37 * hash) + SUBREQID_FIELD_NUMBER;
+      hash = (53 * hash) + getSubReqId();
+      hash = (37 * hash) + RESPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getRespCode();
+      hash = (37 * hash) + DESC_FIELD_NUMBER;
+      hash = (53 * hash) + getDesc().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -409,20 +342,20 @@ public final class SubscribeRespProto {
       return builder;
     }
     /**
-     * Protobuf type {@code netty.SubscribeResp}
+     * Protobuf type {@code org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeResp}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:netty.SubscribeResp)
+        // @@protoc_insertion_point(builder_implements:org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeResp)
         org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeRespOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_netty_SubscribeResp_descriptor;
+        return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_netty_SubscribeResp_fieldAccessorTable
+        return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp.class, org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp.Builder.class);
       }
@@ -445,17 +378,17 @@ public final class SubscribeRespProto {
       public Builder clear() {
         super.clear();
         subReqId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         respCode_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         desc_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
+
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_netty_SubscribeResp_descriptor;
+        return org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_descriptor;
       }
 
       public org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp getDefaultInstanceForType() {
@@ -472,21 +405,9 @@ public final class SubscribeRespProto {
 
       public org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp buildPartial() {
         org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp result = new org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.subReqId_ = subReqId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.respCode_ = respCode_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.desc_ = desc_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -528,32 +449,21 @@ public final class SubscribeRespProto {
 
       public Builder mergeFrom(org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp other) {
         if (other == org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp.getDefaultInstance()) return this;
-        if (other.hasSubReqId()) {
+        if (other.getSubReqId() != 0) {
           setSubReqId(other.getSubReqId());
         }
-        if (other.hasRespCode()) {
+        if (other.getRespCode() != 0) {
           setRespCode(other.getRespCode());
         }
-        if (other.hasDesc()) {
-          bitField0_ |= 0x00000004;
+        if (!other.getDesc().isEmpty()) {
           desc_ = other.desc_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasSubReqId()) {
-          return false;
-        }
-        if (!hasRespCode()) {
-          return false;
-        }
-        if (!hasDesc()) {
-          return false;
-        }
         return true;
       }
 
@@ -574,35 +484,28 @@ public final class SubscribeRespProto {
         }
         return this;
       }
-      private int bitField0_;
 
       private int subReqId_ ;
       /**
-       * <code>required int32 subReqId = 1;</code>
-       */
-      public boolean hasSubReqId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 subReqId = 1;</code>
+       * <code>int32 subReqId = 1;</code>
        */
       public int getSubReqId() {
         return subReqId_;
       }
       /**
-       * <code>required int32 subReqId = 1;</code>
+       * <code>int32 subReqId = 1;</code>
        */
       public Builder setSubReqId(int value) {
-        bitField0_ |= 0x00000001;
+        
         subReqId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 subReqId = 1;</code>
+       * <code>int32 subReqId = 1;</code>
        */
       public Builder clearSubReqId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         subReqId_ = 0;
         onChanged();
         return this;
@@ -610,31 +513,25 @@ public final class SubscribeRespProto {
 
       private int respCode_ ;
       /**
-       * <code>required int32 respCode = 2;</code>
-       */
-      public boolean hasRespCode() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int32 respCode = 2;</code>
+       * <code>int32 respCode = 2;</code>
        */
       public int getRespCode() {
         return respCode_;
       }
       /**
-       * <code>required int32 respCode = 2;</code>
+       * <code>int32 respCode = 2;</code>
        */
       public Builder setRespCode(int value) {
-        bitField0_ |= 0x00000002;
+        
         respCode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 respCode = 2;</code>
+       * <code>int32 respCode = 2;</code>
        */
       public Builder clearRespCode() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         respCode_ = 0;
         onChanged();
         return this;
@@ -642,13 +539,7 @@ public final class SubscribeRespProto {
 
       private java.lang.Object desc_ = "";
       /**
-       * <code>required string desc = 3;</code>
-       */
-      public boolean hasDesc() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required string desc = 3;</code>
+       * <code>string desc = 3;</code>
        */
       public java.lang.String getDesc() {
         java.lang.Object ref = desc_;
@@ -656,16 +547,14 @@ public final class SubscribeRespProto {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            desc_ = s;
-          }
+          desc_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>required string desc = 3;</code>
+       * <code>string desc = 3;</code>
        */
       public com.google.protobuf.ByteString
           getDescBytes() {
@@ -681,55 +570,56 @@ public final class SubscribeRespProto {
         }
       }
       /**
-       * <code>required string desc = 3;</code>
+       * <code>string desc = 3;</code>
        */
       public Builder setDesc(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  
         desc_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string desc = 3;</code>
+       * <code>string desc = 3;</code>
        */
       public Builder clearDesc() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         desc_ = getDefaultInstance().getDesc();
         onChanged();
         return this;
       }
       /**
-       * <code>required string desc = 3;</code>
+       * <code>string desc = 3;</code>
        */
       public Builder setDescBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  checkByteStringIsUtf8(value);
+        
         desc_ = value;
         onChanged();
         return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return this;
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
-      // @@protoc_insertion_point(builder_scope:netty.SubscribeResp)
+      // @@protoc_insertion_point(builder_scope:org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeResp)
     }
 
-    // @@protoc_insertion_point(class_scope:netty.SubscribeResp)
+    // @@protoc_insertion_point(class_scope:org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeResp)
     private static final org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new org.mingle.orange.java.nio.netty.codec.protobuf.SubscribeRespProto.SubscribeResp();
@@ -739,7 +629,7 @@ public final class SubscribeRespProto {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SubscribeResp>
+    private static final com.google.protobuf.Parser<SubscribeResp>
         PARSER = new com.google.protobuf.AbstractParser<SubscribeResp>() {
       public SubscribeResp parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -765,10 +655,10 @@ public final class SubscribeRespProto {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_netty_SubscribeResp_descriptor;
+    internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_netty_SubscribeResp_fieldAccessorTable;
+      internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -778,11 +668,12 @@ public final class SubscribeRespProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023SubscribeResp.proto\022\005netty\"A\n\rSubscrib" +
-      "eResp\022\020\n\010subReqId\030\001 \002(\005\022\020\n\010respCode\030\002 \002(" +
-      "\005\022\014\n\004desc\030\003 \002(\tBE\n/org.mingle.orange.jav" +
-      "a.nio.netty.codec.protobufB\022SubscribeRes" +
-      "pProto"
+      "\n\023SubscribeResp.proto\022/org.mingle.orange" +
+      ".java.nio.netty.codec.protobuf\"A\n\rSubscr" +
+      "ibeResp\022\020\n\010subReqId\030\001 \001(\005\022\020\n\010respCode\030\002 " +
+      "\001(\005\022\014\n\004desc\030\003 \001(\tBE\n/org.mingle.orange.j" +
+      "ava.nio.netty.codec.protobufB\022SubscribeR" +
+      "espProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -796,11 +687,11 @@ public final class SubscribeRespProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_netty_SubscribeResp_descriptor =
+    internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_netty_SubscribeResp_fieldAccessorTable = new
+    internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_netty_SubscribeResp_descriptor,
+        internal_static_org_mingle_orange_java_nio_netty_codec_protobuf_SubscribeResp_descriptor,
         new java.lang.String[] { "SubReqId", "RespCode", "Desc", });
   }
 
