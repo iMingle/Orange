@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.mingle.orange.java.nio.netty.frame.fault;
+package org.mingle.orange.java.nio.netty.codec.serializable.netty;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -23,11 +23,14 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.serialization.ClassResolvers;
+import io.netty.handler.codec.serialization.ObjectDecoder;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 
 /**
  * @author mingle
  */
-public class TimeClient {
+public class SubReqClient {
 
     public void connect(int port, String host) throws Exception {
         // 配置客户端NIO线程组
@@ -40,7 +43,10 @@ public class TimeClient {
                         @Override
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
-                            ch.pipeline().addLast(new TimeClientHandler());
+                            ch.pipeline().addLast(new ObjectDecoder(1024, ClassResolvers
+                                    .cacheDisabled(this.getClass().getClassLoader())));
+                            ch.pipeline().addLast(new ObjectEncoder());
+                            ch.pipeline().addLast(new SubReqClientHandler());
                         }
                     });
 
@@ -55,10 +61,6 @@ public class TimeClient {
         }
     }
 
-    /**
-     * @param args
-     * @throws Exception
-     */
     public static void main(String[] args) throws Exception {
         int port = 8080;
         if (args != null && args.length > 0) {
@@ -68,6 +70,6 @@ public class TimeClient {
                 // 采用默认值
             }
         }
-        new TimeClient().connect(port, "127.0.0.1");
+        new SubReqClient().connect(port, "127.0.0.1");
     }
 }

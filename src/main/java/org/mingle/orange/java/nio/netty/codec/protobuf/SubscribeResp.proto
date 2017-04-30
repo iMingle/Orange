@@ -1,0 +1,12 @@
+package netty;
+
+option java_package = "org.mingle.orange.java.nio.netty.codec.protobuf";
+option java_outer_classname = "SubscribeRespProto";
+
+syntax = "proto3";
+
+message SubscribeResp {
+    required int32 subReqId = 1;
+    required int32 respCode = 2;
+    required string desc = 3;
+}

@@ -19,19 +19,19 @@ package org.mingle.orange.java.nio.netty.frame.delimiter;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * @author mingle
  */
 @Sharable
-public class EchoServerHandler extends ChannelHandlerAdapter {
+public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     int counter = 0;
 
-    public void channelRead(ChannelHandlerContext ctx, Object msg)
-            throws Exception {
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         String body = (String) msg;
         System.out.println("This is " + ++counter + " times receive client : [" + body + "]");
         body += "$_";

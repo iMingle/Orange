@@ -13,40 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.mingle.orange.java.nio.netty.codec.serializable.netty;
 
-package org.mingle.orange.java.nio.netty.frame.delimiter;
-
-import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.mingle.orange.java.nio.netty.codec.serializable.pojo.SubscribeReq;
+import org.mingle.orange.java.nio.netty.codec.serializable.pojo.SubscribeResp;
 
 /**
  * @author mingle
  */
-public class EchoClientHandler extends ChannelInboundHandlerAdapter {
-
-    private int counter;
-
-    static final String ECHO_REQ = "Hi, mingle. Welcome to Netty.$_";
-
-    public EchoClientHandler() {
-    }
-
-    @Override
-    public void channelActive(ChannelHandlerContext ctx) {
-        for (int i = 0; i < 10; i++) {
-            ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
-        }
-    }
+@Sharable
+public class SubReqServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("This is " + ++counter + " times receive server : [" + msg + "]");
+        SubscribeReq req = (SubscribeReq) msg;
+        if ("mingle".equalsIgnoreCase(req.getUserName())) {
+            System.out.println("Service accept client subscrib req : [" + req.toString() + "]");
+            ctx.writeAndFlush(resp(req.getSubReqID()));
+        }
     }
 
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.flush();
+    private SubscribeResp resp(int subReqID) {
+        SubscribeResp resp = new SubscribeResp();
+        resp.setSubReqID(subReqID);
+        resp.setRespCode(0);
+        resp.setDesc("Apple order succeed, 3 days later, sent to the designated address");
+        return resp;
     }
 
     @Override

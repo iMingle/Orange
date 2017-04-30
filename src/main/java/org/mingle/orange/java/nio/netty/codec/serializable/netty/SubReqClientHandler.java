@@ -13,35 +13,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.mingle.orange.java.nio.netty.codec.serializable.netty;
 
-package org.mingle.orange.java.nio.netty.frame.delimiter;
-
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.mingle.orange.java.nio.netty.codec.serializable.pojo.SubscribeReq;
 
 /**
  * @author mingle
  */
-public class EchoClientHandler extends ChannelInboundHandlerAdapter {
+public class SubReqClientHandler extends ChannelInboundHandlerAdapter {
 
-    private int counter;
-
-    static final String ECHO_REQ = "Hi, mingle. Welcome to Netty.$_";
-
-    public EchoClientHandler() {
+    public SubReqClientHandler() {
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
         for (int i = 0; i < 10; i++) {
-            ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
+            ctx.write(subReq(i));
         }
+        ctx.flush();
+    }
+
+    private SubscribeReq subReq(int i) {
+        SubscribeReq req = new SubscribeReq();
+        req.setAddress("北京市");
+        req.setPhoneNumber("138xxxxxxxxx");
+        req.setProductName("Apple");
+        req.setSubReqID(i);
+        req.setUserName("mingle");
+        return req;
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("This is " + ++counter + " times receive server : [" + msg + "]");
+        System.out.println("Receive server response : [" + msg + "]");
     }
 
     @Override
