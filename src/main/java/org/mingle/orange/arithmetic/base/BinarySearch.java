@@ -1,32 +1,29 @@
+/*
+ * Copyright 2012 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.mingle.orange.arithmetic.base;
 
-/*************************************************************************
- *  Compilation:  javac BinarySearch.java
- *  Execution:    java BinarySearch whitelist.txt < input.txt
- *  Data files:   http://algs4.cs.princeton.edu/11model/tinyW.txt
- *                http://algs4.cs.princeton.edu/11model/tinyT.txt
- *                http://algs4.cs.princeton.edu/11model/largeW.txt
- *                http://algs4.cs.princeton.edu/11model/largeT.txt
+/**
+ * 二分查找
  *
- *  % java BinarySearch tinyW.txt < tinyT.txt
- *  50
- *  99
- *  13
- *
- *  % java BinarySearch largeW.txt < largeT.txt | more
- *  499569
- *  984875
- *  295754
- *  207807
- *  140925
- *  161828
- *  [3,675,966 total values]
- *
- *************************************************************************/
-
+ * @author mingle
+ */
 public class BinarySearch {
 
-    public static int rank(int key, int[] a) {
+    public static int rank0(int key, int[] a) {
         int lo = 0;
         int hi = a.length - 1;
         while (lo <= hi) {
@@ -36,23 +33,60 @@ public class BinarySearch {
             else if (key > a[mid]) lo = mid + 1;
             else return mid;
         }
+
         return -1;
+    }
+
+    public static int rank1(int key, int[] a) {
+        int lo = 0;
+        int hi = a.length - 1;
+        int min = 0;
+        while (lo <= hi) {
+            // Key is in a[lo..hi] or not present.
+            int mid = lo + (hi - lo) / 2;
+            if (key < a[mid]) hi = mid - 1;
+            else if (key > a[mid]) lo = mid + 1;
+            else {
+                min = mid;
+                hi = mid;
+
+                break;
+            }
+        }
+
+        while (lo < hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (key > a[mid]) lo = mid + 1;
+            else {
+                min = mid;
+                hi = mid;
+            }
+        }
+
+        return min;
+    }
+
+    public static int rank2(int key, int[] a) {
+        return rankRecursive(key, a, 0, a.length - 1);
+    }
+
+    private static int rankRecursive(int key, int[] a, int lo, int hi) {
+        if (lo > hi)
+            return -1;
+        int mid = lo + (hi - lo) / 2;
+        if (key < a[mid])
+            return rankRecursive(key, a, lo, mid - 1);
+        else if (key > a[mid])
+            return rankRecursive(key, a, mid + 1, hi);
+        else
+            return mid;
     }
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4, 4, 4, 5, 6, 6, 7, 7, 8, 9, 10};
 
-        for (int i = 0; i < a.length; i++) {
-            int j = i;
-            if (j == a.length - 1) break;
-            while (a[j + 1] == a[i]) {
-                a[j + 1] = 0;
-                j++;
-            }
-        }
-
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-        }
+        System.out.println(BinarySearch.rank0(4, a));
+        System.out.println(BinarySearch.rank1(4, a));
+        System.out.println(BinarySearch.rank2(4, a));
     }
 }

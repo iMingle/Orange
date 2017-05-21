@@ -17,11 +17,12 @@
 package org.mingle.orange.args;
 
 import com.google.gson.*;
-import org.mingle.orange.util.Utils;
 
 import java.lang.reflect.Type;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.concurrent.SynchronousQueue;
 
 /**
@@ -29,6 +30,7 @@ import java.util.concurrent.SynchronousQueue;
  */
 public class Test {
     private static final SynchronousQueue<Integer> queue = new SynchronousQueue<>();
+    private static final int NUM = 4;
 
     public static void main(String[] args) throws InterruptedException {
         Gson gson = new GsonBuilder().registerTypeAdapter(Double.class, new JsonSerializer<Double>() {
@@ -41,34 +43,15 @@ public class Test {
         Map<String, String> map = gson.fromJson("{\"partner_id\":[12, 13],\"return_order_codes\":[\"S000224016\",\"S000208146\"]}", Map.class);
         System.out.println(gson.toJson(map));
 
-        int[] array = {5, 4, 3, 2, 1};
+        int[] array = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        int[] tmp = new int[NUM];
         sort(array);
         System.out.println(Arrays.toString(array));
 
-        // 00000110
-        // 00001100
-        System.out.println(Integer.MAX_VALUE >> 30);
-        System.out.println((5 >> 1) | 5);
-        System.out.println(Utils.nextPowerOf2(8));
-
-        Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = new Object[0];
-        System.out.println(DEFAULTCAPACITY_EMPTY_ELEMENTDATA.length);
-
-        System.out.println(Integer.toHexString(-1));
-        System.out.println(Integer.MAX_VALUE);
-
-        Thread t1 = new Thread(() -> {
-            try {
-                System.out.println(queue.take());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        t1.start();
-        t1.sleep(5000);
-        queue.put(1);
-
-        System.out.println(123);
+        Integer[] arr = new Integer[] {150, 80, 40, 30, 10, 70, 130, 100, 20, 90, 60, 50, 120, 140, 110};
+        Collection<Integer> data = Arrays.asList(arr);
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(data);
+        System.out.println(priorityQueue);
     }
 
     public static void sort(int[] array) {

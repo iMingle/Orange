@@ -34,7 +34,7 @@ public class IntrospectorTest {
         System.out.println(propertyDescriptor.getPropertyEditorClass());
         BeanIntrospector beanIntrospector = new BeanIntrospector();
         propertyDescriptor.getWriteMethod().invoke(beanIntrospector, "mingle");
-        System.out.println(propertyDescriptor.getReadMethod().invoke(beanIntrospector, null));
+        System.out.println(propertyDescriptor.getReadMethod().invoke(beanIntrospector, (Object) null));
     }
 }
 

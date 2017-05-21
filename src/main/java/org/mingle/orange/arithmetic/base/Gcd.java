@@ -16,30 +16,36 @@
 
 package org.mingle.orange.arithmetic.base;
 
-import edu.princeton.cs.algs4.StdIn;
-
 /**
  * 最小公倍数
- * 
+ *
  * @author mingle
  */
 public class Gcd {
 
     public static int gcd(int p, int q) {
+        while (q != 0) {
+            int rem = p % q;
+            p = q;
+            q = rem;
+        }
+
+        return p;
+    }
+
+    public static int gcdRecursive(int p, int q) {
         if (q == 0)
             return p;
         int r = p % q;
-        return gcd(q, r);
+        return gcdRecursive(q, r);
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        int a = StdIn.readInt();
-        int b = StdIn.readInt();
-        
-        Gcd.gcd(a, b);
+        int b = 50;
+        int a = 15;
+
+        System.out.println(Gcd.gcd(a, b));
+        System.out.println(Gcd.gcdRecursive(a, b));
     }
 
 }

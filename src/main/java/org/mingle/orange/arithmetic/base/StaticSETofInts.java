@@ -1,7 +1,37 @@
+/*
+ * Copyright 2012 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.mingle.orange.arithmetic.base;
 
 import java.util.Arrays;
 
+/**
+ * The {@code StaticSETofInts} class represents a set of integers.
+ * It supports searching for a given integer is in the set. It accomplishes
+ * this by keeping the set of integers in a sorted array and using
+ * binary search to find the given integer.
+ * <p>
+ * The <em>rank</em> and <em>contains</em> operations take
+ * logarithmic time in the worst case.
+ * <p>
+ * For additional documentation, see <a href="http://algs4.cs.princeton.edu/12oop">Section 1.2</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ *
+ * @author mingle
+ */
 public class StaticSETofInts {
     private int[] a;
 
@@ -15,7 +45,7 @@ public class StaticSETofInts {
     public boolean contains(int key) {
         return rank(key) != -1;
     }
-    
+
     public int howMany(int key) {
         int lo = 0;
         int hi = a.length - 1;
@@ -34,7 +64,7 @@ public class StaticSETofInts {
                 break;
             }
         }
-        
+
         lo = 0;
         hi = mid;
         while (lo < hi) {
@@ -56,8 +86,8 @@ public class StaticSETofInts {
                 lo = midd;
             }
         }
-    System.out.println(max);
-    System.out.println(min);
+        System.out.println(max);
+        System.out.println(min);
         return max - min;
     }
 
@@ -75,11 +105,11 @@ public class StaticSETofInts {
         }
         return -1;
     }
-    
+
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 3, 3, 3, 3, 3, 4, 5, 6};
         StaticSETofInts se = new StaticSETofInts(a);
-        
+
         System.out.println(se.howMany(3));
     }
 }

@@ -18,24 +18,10 @@ public class ThreeSum {
 
     @SuppressWarnings("deprecation")
     public static void main(String[] args) {
-/*
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter(new File("1.txt")));
-            
-            for (int i = 0; i < 100; i++) {
-                out.write("" + StdRandom.uniform(-100, 100));
-            }
-            
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-*/    
         String[] s = In.readStrings("1.txt");
         int[] a = new int[s.length];
 
         for (int i = 0; i < s.length; i++) {
-//            System.out.println(s[i]);
             a[i] = Integer.parseInt(s[i]);
         }
 
@@ -45,11 +31,11 @@ public class ThreeSum {
         Arrays.sort(a);
 
         for (int i = 0; i < a.length; i++) {
-            if (BinarySearch.rank(-a[i], a) > i) {
+            if (BinarySearch.rank0(-a[i], a) > i) {
                 count++;
             }
         }
-        
+
         System.out.println(count);
     }
 }

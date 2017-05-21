@@ -14,31 +14,48 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.arithmetic.base;
+package org.mingle.orange.arithmetic.search.btree;
+
+import lombok.Data;
 
 import java.util.LinkedList;
 
 /**
  * 二叉树的遍历
- * 
+ *
  * @author mingle
  */
-public class BinaryTree {
+public class BinaryTree<T> {
     // 根节点
-    private Node<String> root;
+    private Node<T> root;
+
+    @Data private static class Node<V> {
+        private V value;
+        private Node<V> left;
+        private Node<V> right;
+
+        public Node() {
+        }
+
+        public Node(V value) {
+            this.value = value;
+            left = null;
+            right = null;
+        }
+    }
 
     // 二叉树中节点数量
 //    private int size;
 
     // 无参构造器
     public BinaryTree() {
-        root = new Node<String>();
+        root = new Node<>();
     }
 
     // 数组构造器
-    public BinaryTree(String[] values) {
+    public BinaryTree(T[] values) {
         System.out.print("新建binaryTree:");
-        for (String i : values) {
+        for (T i : values) {
             System.out.print(i);
         }
         System.out.println();
@@ -46,23 +63,23 @@ public class BinaryTree {
         int len = values.length;
         if (len == 0)
             return;
-        LinkedList<Node<String>> queue = new LinkedList<Node<String>>();
-        root = new Node<String>(values[0]);
+        LinkedList<Node<T>> queue = new LinkedList<>();
+        root = new Node<>(values[0]);
         queue.addLast(root);
-        Node<String> parent = null;
-        Node<String> current = null;
+        Node<T> parent;
+        Node<T> current;
         for (int i = 1; i < len; i++) {
-            current = new Node<String>(values[i]);
+            current = new Node<>(values[i]);
             queue.addLast(current);
             if (isLeft)
                 parent = queue.getFirst();
             else
                 parent = queue.removeFirst();
             if (isLeft) {
-                parent.setLeftChild(current);
+                parent.setLeft(current);
                 isLeft = false;
             } else {
-                parent.setRightChild(current);
+                parent.setRight(current);
                 isLeft = true;
             }
         }
@@ -82,15 +99,15 @@ public class BinaryTree {
      */
     public void layerorder() {
         System.out.print("binaryTree层次遍历:");
-        LinkedList<Node<String>> queue = new LinkedList<Node<String>>();
+        LinkedList<Node<T>> queue = new LinkedList<>();
         queue.addLast(root);
-        Node<String> current = null;
+        Node<T> current;
         while (!queue.isEmpty()) {
             current = queue.removeFirst();
-            if (current.getLeftChild() != null)
-                queue.addLast(current.getLeftChild());
-            if (current.getRightChild() != null)
-                queue.addLast(current.getRightChild());
+            if (current.getLeft() != null)
+                queue.addLast(current.getLeft());
+            if (current.getRight() != null)
+                queue.addLast(current.getRight());
             System.out.print(current.getValue());
         }
         System.out.println();
@@ -98,17 +115,18 @@ public class BinaryTree {
 
     /**
      * 获得二叉树深度（非递归）
+     *
      * @return
      */
     public int getDepth() {
         return getDepthRecursion(root);
     }
 
-    private int getDepthRecursion(Node<String> node) {
+    private int getDepthRecursion(Node<T> node) {
         if (node == null)
             return 0;
-        int llen = getDepthRecursion(node.getLeftChild());
-        int rlen = getDepthRecursion(node.getRightChild());
+        int llen = getDepthRecursion(node.getLeft());
+        int rlen = getDepthRecursion(node.getRight());
         int maxlen = Math.max(llen, rlen);
         return maxlen + 1;
     }
@@ -121,7 +139,7 @@ public class BinaryTree {
         preorderTraverseRecursion(root);
         System.out.println();
     }
-    
+
     /**
      * 递归后序遍历
      */
@@ -131,28 +149,27 @@ public class BinaryTree {
         System.out.println();
     }
 
-    private void inorderTraverseRecursion(Node<String> node) {
-        // TODO Auto-generated method stub
-        if (node.getLeftChild() != null)
-            inorderTraverseRecursion(node.getLeftChild());
+    private void inorderTraverseRecursion(Node<T> node) {
+        if (node.getLeft() != null)
+            inorderTraverseRecursion(node.getLeft());
         System.out.print(node.getValue());
-        if (node.getRightChild() != null)
-            inorderTraverseRecursion(node.getRightChild());
+        if (node.getRight() != null)
+            inorderTraverseRecursion(node.getRight());
     }
 
-    private void preorderTraverseRecursion(Node<String> node) {
+    private void preorderTraverseRecursion(Node<T> node) {
         System.out.print(node.getValue());
-        if (node.getLeftChild() != null)
-            preorderTraverseRecursion(node.getLeftChild());
-        if (node.getRightChild() != null)
-            preorderTraverseRecursion(node.getRightChild());
+        if (node.getLeft() != null)
+            preorderTraverseRecursion(node.getLeft());
+        if (node.getRight() != null)
+            preorderTraverseRecursion(node.getRight());
     }
-    
-    private void postorderTraverseRecursion(Node<String> node) {
-        if (node.getLeftChild() != null)
-            preorderTraverseRecursion(node.getLeftChild());
-        if (node.getRightChild() != null)
-            preorderTraverseRecursion(node.getRightChild());
+
+    private void postorderTraverseRecursion(Node<T> node) {
+        if (node.getLeft() != null)
+            preorderTraverseRecursion(node.getLeft());
+        if (node.getRight() != null)
+            preorderTraverseRecursion(node.getRight());
         System.out.print(node.getValue());
     }
 
@@ -161,16 +178,16 @@ public class BinaryTree {
      */
     public void preorderNoRecursion() {
         System.out.print("binaryTree非递归先序遍历:");
-        LinkedList<Node<String>> stack = new LinkedList<Node<String>>();
+        LinkedList<Node<T>> stack = new LinkedList<>();
         stack.push(root);
-        Node<String> current = null;
+        Node<T> current;
         while (!stack.isEmpty()) {
             current = stack.pop();
             System.out.print(current.getValue());
-            if (current.getRightChild() != null)
-                stack.push(current.getRightChild());
-            if (current.getLeftChild() != null)
-                stack.push(current.getLeftChild());
+            if (current.getRight() != null)
+                stack.push(current.getRight());
+            if (current.getLeft() != null)
+                stack.push(current.getLeft());
         }
         System.out.println();
     }
@@ -180,17 +197,17 @@ public class BinaryTree {
      */
     public void inorderNoRecursion() {
         System.out.print("binaryTree非递归中序遍历:");
-        LinkedList<Node<String>> stack = new LinkedList<Node<String>>();
-        Node<String> current = root;
+        LinkedList<Node<T>> stack = new LinkedList<>();
+        Node<T> current = root;
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
-                current = current.getLeftChild();
+                current = current.getLeft();
             }
             if (!stack.isEmpty()) {
                 current = stack.pop();
                 System.out.print(current.getValue());
-                current = current.getRightChild();
+                current = current.getRight();
             }
         }
         System.out.println();
@@ -198,23 +215,23 @@ public class BinaryTree {
 
     /**
      * 非递归后序遍历
-     * 
+     * <p>
      * 当上一个访问的结点是右孩子或者当前结点没有右孩子则访问当前结点
      */
     public void postorderNoRecursion() {
         System.out.print("binaryTree非递归后序遍历:");
-        Node<String> rNode = null;
-        Node<String> current = root;
-        LinkedList<Node<String>> stack = new LinkedList<Node<String>>();
+        Node<T> rNode = null;
+        Node<T> current = root;
+        LinkedList<Node<T>> stack = new LinkedList<>();
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
-                current = current.getLeftChild();
+                current = current.getLeft();
             }
             current = stack.pop();
             while (current != null
-                    && (current.getRightChild() == null || current
-                            .getRightChild() == rNode)) {
+                    && (current.getRight() == null || current
+                    .getRight() == rNode)) {
                 System.out.print(current.getValue());
                 rNode = current;
                 if (stack.isEmpty()) {
@@ -224,15 +241,15 @@ public class BinaryTree {
                 current = stack.pop();
             }
             stack.push(current);
-            current = current.getRightChild();
+            current = current.getRight();
         }
 
     }
 
     public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree(new String[] { "-", "+", "/", "a", "*",
+        BinaryTree bt = new BinaryTree(new String[]{"-", "+", "/", "a", "*",
                 "e", "f", "", "", "b", "-", "", "", "", "", "", "",
-                "", "", "", "", "c", "d" });
+                "", "", "", "", "c", "d"});
         bt.preorder();
         bt.inorder();
         bt.postorder();
@@ -242,44 +259,4 @@ public class BinaryTree {
         bt.postorderNoRecursion();
         System.out.println("深度为：" + bt.getDepth());
     }
-}
-
-class Node<V> {
-    private V value;
-    private Node<V> leftChild;
-    private Node<V> rightChild;
-
-    public Node() {
-    };
-
-    public Node(V value) {
-        this.value = value;
-        leftChild = null;
-        rightChild = null;
-    }
-
-    public void setLeftChild(Node<V> lNode) {
-        this.leftChild = lNode;
-    }
-
-    public void setRightChild(Node<V> rNode) {
-        this.rightChild = rNode;
-    }
-
-    public V getValue() {
-        return value;
-    }
-
-    public void setValue(V value) {
-        this.value = value;
-    }
-
-    public Node<V> getLeftChild() {
-        return leftChild;
-    }
-
-    public Node<V> getRightChild() {
-        return rightChild;
-    }
-
 }
