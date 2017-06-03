@@ -3,25 +3,28 @@ package org.mingle.orange.arithmetic.sort;
 import edu.princeton.cs.algs4.StdRandom;
 import org.mingle.orange.arithmetic.base.Stopwatch;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SortCompare {
     
-    public static double time(String alg, Double[] a) {
+    public static double time(String alg, List<Double> a) {
         Stopwatch timer = new Stopwatch();
         
-        if (alg.equals("Insertion")) Insertion.sort(a);
+        if (alg.equals("Insertion")) Insertion.sort(a, 0, a.size() - 1);
         if (alg.equals("Selection")) Selection.sort(a);
         if (alg.equals("Shell")) Shell.sort(a);
         
         return timer.elapsedTime();
     }
     
-    public static double timeRandomInput(String alg, int N, int T) {
+    private static double timeRandomInput(String alg, int N, int T) {
         double total = 0.0;
-        Double[] a = new Double[N];
+        List<Double> a = new ArrayList<>(N);
         
         for (int t = 0; t < T; t++) {
             for (int i = 0; i < N; i++) {
-                a[i] = StdRandom.uniform();
+                a.add(StdRandom.uniform());
             }
             
             total += time(alg, a);

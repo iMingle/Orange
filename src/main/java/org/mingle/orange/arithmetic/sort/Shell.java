@@ -1,64 +1,56 @@
+/*
+ * Copyright 2012 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.mingle.orange.arithmetic.sort;
 
-import edu.princeton.cs.algs4.In;
+import org.mingle.orange.util.SortUtils;
 
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ *
+ * @author mingle
+ */
 public class Shell {
-    
-    @SuppressWarnings("rawtypes")
-    public static void sort(Comparable[] a) {
-        int N = a.length;
+
+    public static <T extends Comparable<T>> void sort(List<T> a) {
+        int N = a.size();
         int h = 1;
-        
+
         while (h < N / 3) h = h * 3 + 1;
-        
+
         while (h >= 1) {
             for (int i = h; i < N; i++) {
-                for (int j = h; j >= h && less(a[j], a[j - h]); j -= h) {
-                    exch(a, j, j - h);
+                for (int j = i; j >= h && SortUtils.less(a.get(j), a.get(j - h)); j -= h) {
+                    SortUtils.exchange(a, j, j - h);
                 }
             }
-            
+
             h /= 3;
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
-    }
-    
-    @SuppressWarnings({ "rawtypes" })
-    private static void exch(Comparable[] a, int i, int j) {
-        Comparable t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
-        }
-        
-        System.out.println();
-    }
-    
-    @SuppressWarnings("rawtypes")
-    public static boolean isSorted(Comparable[] a) {
-        for (int i = 1; i < a.length; i++) {
-            if (less(a[i], a[i - 1])) return false;
-        }
-        
-        return true;
-    }
-    
-    @SuppressWarnings("deprecation")
     public static void main(String[] args) {
-        String[] s = In.readStrings();
+        String[] str = new String[]{"g", "f", "e", "d", "c", "b", "a", "h"};
+        List<String> s = Arrays.asList(str);
         sort(s);
-        
-        assert isSorted(s);
-        
-        show(s);
+
+        assert SortUtils.isSorted(s);
+
+        SortUtils.show(s);
     }
 }
