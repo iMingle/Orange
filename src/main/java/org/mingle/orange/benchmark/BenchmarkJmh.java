@@ -28,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 利用JMH进行基准测试
+ * java -jar target/practice-0.0.1-SNAPSHOT.jar org.mingle.orange.benchmark.BenchmarkJmh
  *
  * @author mingle
  */
