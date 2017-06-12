@@ -77,7 +77,7 @@ public class BreadthFirstPaths {
     }
 
     // breadth-first search from a single source
-    private void bfs(Graph G, int s) {
+    @SuppressWarnings("Duplicates") private void bfs(Graph G, int s) {
         Queue<Integer> q = new Queue<>();
         for (int v = 0; v < G.V(); v++)
             distTo[v] = INFINITY;
@@ -99,13 +99,14 @@ public class BreadthFirstPaths {
     }
 
     // breadth-first search from multiple sources
-    private void bfs(Graph G, Iterable<Integer> sources) {
+    @SuppressWarnings("Duplicates") private void bfs(Graph G, Iterable<Integer> sources) {
         Queue<Integer> q = new Queue<>();
         for (int s : sources) {
             marked[s] = true;
             distTo[s] = 0;
             q.enqueue(s);
         }
+
         while (!q.isEmpty()) {
             int v = q.dequeue();
             for (int w : G.adj(v)) {
@@ -126,7 +127,7 @@ public class BreadthFirstPaths {
      * @return {@code true} if there is a path, and {@code false} otherwise
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
-    public boolean hasPathTo(int v) {
+    private boolean hasPathTo(int v) {
         validateVertex(v);
         return marked[v];
     }
@@ -165,7 +166,6 @@ public class BreadthFirstPaths {
 
     // check optimality conditions for single source
     private boolean check(Graph G, int s) {
-
         // check that the distance of s = 0
         if (distTo[s] != 0) {
             System.out.println("distance of source " + s + " to itself = " + distTo[s]);
@@ -219,11 +219,9 @@ public class BreadthFirstPaths {
         if (vertices == null) {
             throw new IllegalArgumentException("argument is null");
         }
-        int V = marked.length;
+
         for (int v : vertices) {
-            if (v < 0 || v >= V) {
-                throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V - 1));
-            }
+            validateVertex(v);
         }
     }
 }
