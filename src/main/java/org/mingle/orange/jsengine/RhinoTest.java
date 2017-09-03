@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.rhino;
+package org.mingle.orange.jsengine;
+
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-
-import org.mozilla.javascript.Context;
-import org.mozilla.javascript.Scriptable;
 
 /**
  * JavaScript脚本引擎测试

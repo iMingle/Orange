@@ -14,24 +14,19 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.rhino;
-
-import java.util.List;
+package org.mingle.orange.jsengine;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import java.util.List;
 
 /**
- *
  * @author mingle
  */
 public class RunJavaScript {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         ScriptEngineManager factory = new ScriptEngineManager();
         ScriptEngine engine = factory.getEngineByName("JavaScript");
@@ -40,11 +35,11 @@ public class RunJavaScript {
             System.out.println(s.getNames());
             // [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript]
         }
-        
+
 //        JavaScriptDomainInner script = new JavaScriptDomainInner();        // error
         JavaScriptDomain script = new JavaScriptDomain();
         engine.put("scriptDomain", script);
-        
+
         try {
             engine.eval("print('Hello World!')");
             engine.eval("print(scriptDomain.say())");
@@ -57,7 +52,7 @@ public class RunJavaScript {
 
 class JavaScriptDomainInner {
     private String name = "JavaScript";
-    
+
     public String say() {
         return this.name;
     }

@@ -27,7 +27,7 @@ import org.mingle.orange.designpattern.creational.Room;
  * @author mingle
  */
 public class MazeGame {
-    public Maze createMaze(AbstractMazeFactory factory) {
+    @SuppressWarnings("Duplicates") public Maze createMaze(AbstractMazeFactory factory) {
         Maze maze = factory.makeMaze();
         Room r1 = factory.makeRoom(1);
         Room r2 = factory.makeRoom(2);

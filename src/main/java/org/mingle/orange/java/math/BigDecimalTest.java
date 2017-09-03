@@ -19,8 +19,6 @@ package org.mingle.orange.java.math;
 import java.math.BigDecimal;
 
 /**
- *
- *
  * @author mingle
  */
 public class BigDecimalTest {
@@ -53,6 +51,13 @@ public class BigDecimalTest {
         System.out.println("0.05 - 0.01 = " + f3.subtract(f2));
         System.out.println("0.05 * 0.01 = " + f3.multiply(f2));
         System.out.println("0.05 / 0.01 = " + f3.divide(f2));
+
+        /** 银行家舍入算法(四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一) */
+        System.out.println(BigDecimal.valueOf(3.454).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue());
+        System.out.println(BigDecimal.valueOf(3.456).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue());
+        System.out.println(BigDecimal.valueOf(3.4551).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue());
+        System.out.println(BigDecimal.valueOf(3.4550).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue());
+        System.out.println(BigDecimal.valueOf(3.4450).setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue());
     }
 
 }

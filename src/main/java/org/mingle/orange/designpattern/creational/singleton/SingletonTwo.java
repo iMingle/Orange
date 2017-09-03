@@ -2,7 +2,7 @@ package org.mingle.orange.designpattern.creational.singleton;
 
 public class SingletonTwo {
 
-    private static SingletonTwo INSTANCE = null;
+    private volatile static SingletonTwo INSTANCE = null;
 
     private SingletonTwo() {
         // 防止借助AccessibleObject.setAccessible的反射机制调用私有构造器
@@ -11,8 +11,12 @@ public class SingletonTwo {
     }
 
     public static SingletonTwo getInstance() {
-        if (null == INSTANCE)
-            INSTANCE = new SingletonTwo();
+        if (INSTANCE == null) {
+            synchronized (SingletonTwo.class) {
+                if (INSTANCE == null)
+                    INSTANCE = new SingletonTwo();
+            }
+        }
 
         return INSTANCE;
     }

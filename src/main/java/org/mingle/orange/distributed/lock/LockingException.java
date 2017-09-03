@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.rhino;
+package org.mingle.orange.distributed.lock;
 
 /**
- *
  * @author mingle
  */
-public class JavaScriptDomain {
-    private String name = "JavaScript";
-    
-    public String say() {
-        return this.name;
+public class LockingException extends RuntimeException {
+    public LockingException(String message, Exception e) {
+        super(message, e);
+    }
+
+    public LockingException(String message) {
+        super(message);
     }
 }

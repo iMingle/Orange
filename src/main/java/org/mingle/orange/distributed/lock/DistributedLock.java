@@ -14,23 +14,17 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.java.speciality.concurrency;
+package org.mingle.orange.distributed.lock;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
- * 固定数量的Thread
- *
  * @author mingle
  */
-public class FixedThreadPool {
+public interface DistributedLock {
+    void lock() throws LockingException;
 
-    public static void main(String[] args) {
-        ExecutorService exec = Executors.newFixedThreadPool(5);
-        for (int i = 0; i < 5; i++)
-            exec.submit(new LiftOff());
-        exec.shutdown();    // 防止新任务提交给这个Executor
-    }
+    boolean tryLock(long timeout, TimeUnit unit);
 
+    void unlock() throws LockingException;
 }

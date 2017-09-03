@@ -18,19 +18,25 @@ package org.mingle.orange.designpattern.creational.singleton;
 
 /**
  * 单例迷宫工厂
- * 
+ *
  * @author mingle
  */
 public class MazeFactory {
-    private static MazeFactory instance;
-    
-    protected MazeFactory() {
-        
+    private volatile static MazeFactory instance;
+
+    private MazeFactory() {
+        // 防止借助AccessibleObject.setAccessible的反射机制调用私有构造器
+        if (instance != null)
+            throw new IllegalStateException("singleton, cannot create another object");
     }
-    
+
     public static MazeFactory getInstance() {
-        if (instance == null)
-            instance = new MazeFactory();
+        if (instance == null) {
+            synchronized (MazeFactory.class) {
+                if (instance == null)
+                    instance = new MazeFactory();
+            }
+        }
         return instance;
     }
 }

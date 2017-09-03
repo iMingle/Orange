@@ -28,7 +28,7 @@ public abstract class SortUtils {
      * return median of left, center and right.
      * order these and hide the pivot.
      * <p>
-     * 首选对A[left],A[rignt],A[center]进行从小到大排序，经过该操作后，
+     * 首选对A[left],A[right],A[center]进行从小到大排序，经过该操作后，
      * 三元素的最大者被放到了A[right],最小者被放到了A[left],A[center]中的元素大小居中，
      * 这样就可以作为枢纽元。由于A[right]大于枢纽元，我们可以把枢纽元放到A[right-1],
      * 并在分割阶段将左右的遍历索引i和j分别置为left+1,right-2.

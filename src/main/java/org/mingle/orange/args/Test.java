@@ -52,6 +52,10 @@ public class Test {
         Collection<Integer> data = Arrays.asList(arr);
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(data);
         System.out.println(priorityQueue);
+
+        Double.valueOf("12.34");
+        System.out.println(Double.valueOf(Double.MIN_VALUE));
+        System.out.println(Double.MAX_VALUE);
     }
 
     public static void sort(int[] array) {

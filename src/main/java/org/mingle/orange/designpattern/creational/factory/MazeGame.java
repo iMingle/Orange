@@ -44,7 +44,7 @@ public class MazeGame {
         return new Door(r1, r2);
     }
 
-    public Maze createMaze() {
+    @SuppressWarnings("Duplicates") public Maze createMaze() {
         Maze maze = makeMaze();
         Room r1 = makeRoom(1);
         Room r2 = makeRoom(2);
