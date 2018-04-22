@@ -14,28 +14,27 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.args;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.SynchronousQueue;
+package org.mingle.orange.java.speciality;
 
 /**
+ * 闭包测试
+ *
  * @author mingle
  */
-public class Test {
-    private static final SynchronousQueue<Integer> queue = new SynchronousQueue<>();
-    private static final int NUM = 4;
+public class ClosureTest {
+    interface AnonInner {
+        int add();
+    }
 
-    private int stackLength = 1;
+    private AnonInner getAnonInner(int x) {
+        int y = 5;
+        return () -> x + y;
+    }
 
     public static void main(String[] args) {
-        Test test = new Test();
-        String str1 = new StringBuilder().append("hello").toString();
-        System.out.println(str1.intern() == str1);
-        System.out.println(str1.intern() == str1.intern());
-        System.out.println(str1 == str1);
-
-        Map<Integer, String> map = new HashMap<>((1 << 31) - 1);
+        ClosureTest closure = new ClosureTest();
+        AnonInner anonInner = closure.getAnonInner(3);
+        System.out.println(anonInner.add());
+        System.out.println(anonInner.add());
     }
 }

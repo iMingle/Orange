@@ -81,8 +81,8 @@ public class ZookeeperDistributedLock implements DistributedLock {
         LOG.log(Level.FINE, "Working with locking path:" + lockPath);
 
         // Create an EPHEMERAL_SEQUENTIAL node.
-        currentNode =
-                zkClient.get().create(lockPath + "/member_", null, acl, CreateMode.EPHEMERAL_SEQUENTIAL);
+        currentNode = zkClient.get().create(lockPath + "/member_", null, acl,
+                CreateMode.EPHEMERAL_SEQUENTIAL);
 
         // We only care about our actual id since we want to compare ourselves to siblings.
         if (currentNode.contains("/")) {
