@@ -413,6 +413,34 @@
             <artifactId>zkclient</artifactId>
             <version>0.10</version>
         </dependency>
+
+        <!-- btrace -->
+        <dependency>
+            <groupId>com.sun.tools.btrace</groupId>
+            <artifactId>btrace-boot</artifactId>
+            <scope>system</scope>
+            <version>1.3.11</version>
+            <type>jar</type>
+            <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-boot.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.tools.btrace</groupId>
+            <artifactId>btrace-client</artifactId>
+            <scope>system</scope>
+            <version>1.3.11</version>
+            <type>jar</type>
+            <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-client.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.tools.btrace</groupId>
+            <artifactId>btrace-agent</artifactId>
+            <scope>system</scope>
+            <version>1.3.11</version>
+            <type>jar</type>
+            <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-agent.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
