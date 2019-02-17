@@ -19,7 +19,7 @@ package org.mingle.orange.util;
 import java.io.File;
 import java.net.URISyntaxException;
 
-import org.mingle.orange.autotest.selenium.WebDriverTest;
+import org.mingle.orange.util.autotest.selenium.WebDriverTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
