@@ -70,13 +70,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- google guava lib -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>18.0</version>
-        </dependency>
-
         <!-- job scheduling -->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
@@ -234,22 +227,6 @@
             <version>3.1.0</version>
         </dependency>
 
-        <!-- MapDB provides concurrent Maps, Sets and Queues backed by disk storage or off-heap memory.
-        It is a fast, scalable and easy to use embedded Java database. -->
-        <dependency>
-            <groupId>org.mapdb</groupId>
-            <artifactId>mapdb</artifactId>
-            <version>3.0.3</version>
-        </dependency>
-
-        <!-- H2 Database Engine -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.188</version>
-            <scope>runtime</scope>
-        </dependency>
-
         <!-- Java library which enables encryption in java apps with minimum effort. -->
         <dependency>
             <groupId>org.jasypt</groupId>
@@ -264,38 +241,11 @@
             <version>5.7.0</version>
         </dependency>
 
-        <!-- Google Guice Core Library -->
-        <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>4.0</version>
-        </dependency>
-
         <!-- Fastjson is a JSON processor (JSON parser + JSON generator) written in Java -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.29</version>
-        </dependency>
-
-        <!-- Bean Validation API -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.4.1.Final</version>
-        </dependency>
-
-        <!-- Expression Language 3.0 API -->
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>javax.el-api</artifactId>
-            <version>3.0.1-b04</version>
         </dependency>
 
         <!-- Selenium automates browsers. That's it! What you do with that power is entirely up to you -->
@@ -315,28 +265,6 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.9.Final</version>
-        </dependency>
-
-        <!-- Core Protocol Buffers library.
-        Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. -->
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>3.6.1</version>
-        </dependency>
-
-        <!-- JBoss Marshalling API -->
-        <dependency>
-            <groupId>org.jboss.marshalling</groupId>
-            <artifactId>jboss-marshalling</artifactId>
-            <version>1.4.11.Final</version>
-        </dependency>
-
-        <!-- JBoss Marshalling Serial Implementation -->
-        <dependency>
-            <groupId>org.jboss.marshalling</groupId>
-            <artifactId>jboss-marshalling-serial</artifactId>
-            <version>1.4.11.Final</version>
         </dependency>
 
         <!-- The jmh is a Java harness for building, running, and analysing nano/micro/macro benchmarks
@@ -461,6 +389,14 @@
     </dependencies>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.5.0.Final</version>
+            </extension>
+        </extensions>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -526,6 +462,25 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.1</version>
+                <configuration>
+                    <protocArtifact>com.google.protobuf:protoc:3.5.1-1:exe:${os.detected.classifier}</protocArtifact>
+                    <pluginId>grpc-java</pluginId>
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.18.0:exe:${os.detected.classifier}</pluginArtifact>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compile-custom</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 
         <pluginManagement>
@@ -568,5 +523,7 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+
     </build>
 </project>
