@@ -18,13 +18,13 @@ package org.mingle.orange.java.base;
 
 /**
  * hashCode和equals方法如何写
- * 
+ *
  * @author mingle
  */
 public class HashCodeEquals {
     private int age;
     private String name;
-    
+
     /**
      * @return the age
      */
@@ -33,8 +33,7 @@ public class HashCodeEquals {
     }
 
     /**
-     * @param age
-     *            the age to set
+     * @param age the age to set
      */
     public void setAge(int age) {
         this.age = age;
@@ -48,8 +47,7 @@ public class HashCodeEquals {
     }
 
     /**
-     * @param name
-     *            the name to set
+     * @param name the name to set
      */
     public void setName(String name) {
         this.name = name;
@@ -67,9 +65,6 @@ public class HashCodeEquals {
         return result;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -87,16 +82,5 @@ public class HashCodeEquals {
         } else if (!name.equals(other.name))
             return false;
         return true;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Integer.valueOf(1) == Integer.valueOf(1));
-        System.out.println(Integer.valueOf(1000) == Integer.valueOf(1000));
-        
-        System.out.println(Class.class.isInstance(new Object()));
-        String s = new String("abc").intern();
-        System.out.println(s.intern() == "abc");
-        System.out.println(new String().intern() == new String().intern());
-        System.out.println("a".hashCode());
     }
 }

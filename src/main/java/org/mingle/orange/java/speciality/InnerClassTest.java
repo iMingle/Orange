@@ -194,11 +194,6 @@ class Factories {
 
 @SuppressWarnings("unused") class TestClassInInterface implements ClassInInterface {
 
-    public static void main(String[] args) {
-        ClassInInterface in = new Implementation();
-        System.out.println(new Implementation() == new Implementation());    // false
-    }
-
     @Override
     public void service() {
         new Implementation().service();

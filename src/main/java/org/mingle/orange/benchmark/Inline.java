@@ -19,7 +19,7 @@ package org.mingle.orange.benchmark;
 /**
  * 内联优化
  * java -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining -XX:MaxInlineSize=100 Inline
- * 
+ *
  * @author mingle
  */
 public class Inline {
@@ -28,9 +28,7 @@ public class Inline {
     private static final long NANOS_PER_MS = 1000L * 1000L;
 
     private static boolean equalsTest(String s) {
-        boolean result = s.equals(s);
-
-        return result;
+        return true;
     }
 
     private static long doTest(long iterations) {

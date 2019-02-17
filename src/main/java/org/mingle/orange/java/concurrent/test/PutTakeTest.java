@@ -16,21 +16,20 @@
 
 package org.mingle.orange.java.concurrent.test;
 
+import junit.framework.TestCase;
+
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import junit.framework.TestCase;
-
 /**
  * Producer-consumer test program for BoundedBuffer
- * 
+ *
  * @author mingle
  */
 public class PutTakeTest extends TestCase {
-    protected static final ExecutorService pool = Executors
-            .newCachedThreadPool();
+    protected static final ExecutorService pool = Executors.newCachedThreadPool();
     protected CyclicBarrier barrier;
     protected final SemaphoreBoundedBuffer<Integer> bb;
     protected final int nTrials, nPairs;
@@ -49,7 +48,7 @@ public class PutTakeTest extends TestCase {
         this.barrier = new CyclicBarrier(npairs * 2 + 1);
     }
 
-    void test() {
+    public void test() {
         try {
             for (int i = 0; i < nPairs; i++) {
                 pool.execute(new Producer());

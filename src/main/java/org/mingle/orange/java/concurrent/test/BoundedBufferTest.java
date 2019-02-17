@@ -19,30 +19,28 @@ package org.mingle.orange.java.concurrent.test;
 import junit.framework.TestCase;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class BoundedBufferTest extends TestCase {
     private static final long LOCKUP_DETECT_TIMEOUT = 1000;
     private static final int CAPACITY = 10000;
     private static final int THRESHOLD = 10000;
-    
-    void testIsEmptyWhenConstructed() {
+
+    public void testIsEmptyWhenConstructed() {
         SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(CAPACITY);
         assertTrue(bb.isEmpty());
         assertFalse(bb.isFull());
     }
-    
-    void testIsFullAfterPuts() throws InterruptedException {
+
+    public void testIsFullAfterPuts() throws InterruptedException {
         SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(CAPACITY);
         for (int i = 0; i < 10; i++)
             bb.put(i);
         assertTrue(bb.isFull());
         assertFalse(bb.isEmpty());
     }
-    
-    void testTakeBlocksWhenEmpty() {
+
+    public void testTakeBlocksWhenEmpty() {
         final SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<>(CAPACITY);
         Thread taker = new Thread() {
             public void run() {
@@ -64,19 +62,20 @@ public class BoundedBufferTest extends TestCase {
             fail();
         }
     }
-    
+
     /**
      * 大对象
      */
     class Big {
         double[] data = new double[100000];
     }
-    
+
     /**
      * 测试资源泄露
-     * @throws InterruptedException 
+     *
+     * @throws InterruptedException
      */
-    void testLeak() throws InterruptedException {
+    public void testLeak() throws InterruptedException {
         SemaphoreBoundedBuffer<Big> bb = new SemaphoreBoundedBuffer<>(CAPACITY);
         int heapSize1 = 800;    /* 生成堆的快照 */
         for (int i = 0; i < CAPACITY; i++)

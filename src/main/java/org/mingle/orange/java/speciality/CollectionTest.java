@@ -63,7 +63,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 public class CollectionTest {
 
     public static void main(String[] args) {
-        
+
     }
 
 }
@@ -75,7 +75,7 @@ class StringAddress {
         super();
         this.s = s;
     }
-    
+
     public String toString() {
         return super.toString() + " " + s;
     }
@@ -98,13 +98,13 @@ class FillingLists {
  */
 class CollectionData<T> extends ArrayList<T> {
     private static final long serialVersionUID = -3840733009729211792L;
-    
+
     public CollectionData(Generator<T> gen, int quantity) {
         for (int i = 0; i < quantity; i++) {
             add(gen.next());
         }
     }
-    
+
     public static <T> CollectionData<T> list(Generator<T> gen, int quantity) {
         return new CollectionData<T>(gen, quantity);
     }
@@ -125,7 +125,7 @@ class Government implements Generator<String> {
     public String next() {
         return foundation[index++];
     }
-    
+
 }
 
 class CollectionDataTest {
@@ -133,7 +133,7 @@ class CollectionDataTest {
         Set<String> set = new LinkedHashSet<>(new CollectionData<String>(new Government(), 15));
         set.addAll(CollectionData.list(new Government(), 15));
         System.out.println(set);
-        
+
         System.out.println(new ArrayList<String>(CollectionData.list(new RandomGenerator.String(9), 10)));
         System.out.println(new ArrayList<Integer>(CollectionData.list(new RandomGenerator.Integer(), 10)));
     }
@@ -142,10 +142,10 @@ class CollectionDataTest {
 /**
  * 键值对,只读的数据传输对象
  */
-class Pair<K,V> {
+class Pair<K, V> {
     public final K key;
     public final V value;
-    
+
     /**
      * @param key
      * @param value
@@ -159,59 +159,59 @@ class Pair<K,V> {
 /**
  * Map适配器
  */
-class MappedData<K,V> extends LinkedHashMap<K,V> {
+class MappedData<K, V> extends LinkedHashMap<K, V> {
 
     private static final long serialVersionUID = 5288213832194900901L;
-    
-    public MappedData(Generator<Pair<K,V>> gen, int quantity) {
+
+    public MappedData(Generator<Pair<K, V>> gen, int quantity) {
         for (int i = 0; i < quantity; i++) {
-            Pair<K,V> p = gen.next();
+            Pair<K, V> p = gen.next();
             put(p.key, p.value);
         }
     }
-    
+
     public MappedData(Generator<K> genK, Generator<V> genV, int quantity) {
         for (int i = 0; i < quantity; i++) {
             put(genK.next(), genV.next());
         }
     }
-    
+
     public MappedData(Generator<K> genK, V value, int quantity) {
         for (int i = 0; i < quantity; i++) {
             put(genK.next(), value);
         }
     }
-    
+
     public MappedData(Iterable<K> genK, Generator<V> genV) {
         for (K k : genK) {
             put(k, genV.next());
         }
     }
-    
+
     public MappedData(Iterable<K> genK, V value) {
         for (K k : genK) {
             put(k, value);
         }
     }
-    
-    public static <K,V> MappedData<K,V> map(Generator<Pair<K,V>> gen, int quantity) {
-        return new MappedData<K,V>(gen, quantity);
+
+    public static <K, V> MappedData<K, V> map(Generator<Pair<K, V>> gen, int quantity) {
+        return new MappedData<K, V>(gen, quantity);
     }
-    
-    public static <K,V> MappedData<K,V> map(Generator<K> genK, Generator<V> genV, int quantity) {
-        return new MappedData<K,V>(genK, genV, quantity);
+
+    public static <K, V> MappedData<K, V> map(Generator<K> genK, Generator<V> genV, int quantity) {
+        return new MappedData<K, V>(genK, genV, quantity);
     }
-    
-    public static <K,V> MappedData<K,V> map(Generator<K> genK, V value, int quantity) {
-        return new MappedData<K,V>(genK, value, quantity);
+
+    public static <K, V> MappedData<K, V> map(Generator<K> genK, V value, int quantity) {
+        return new MappedData<K, V>(genK, value, quantity);
     }
-    
-    public static <K,V> MappedData<K,V> map(Iterable<K> genK, Generator<V> genV) {
-        return new MappedData<K,V>(genK, genV);
+
+    public static <K, V> MappedData<K, V> map(Iterable<K> genK, Generator<V> genV) {
+        return new MappedData<K, V>(genK, genV);
     }
-    
-    public static <K,V> MappedData<K,V> map(Iterable<K> genK, V value) {
-        return new MappedData<K,V>(genK, value);
+
+    public static <K, V> MappedData<K, V> map(Iterable<K> genK, V value) {
+        return new MappedData<K, V>(genK, value);
     }
 }
 
@@ -230,15 +230,15 @@ class Letters implements Generator<Pair<Integer, String>>, Iterable<Integer> {
     public Pair<Integer, String> next() {
         return new Pair<Integer, String>(number++, "" + letter++);
     }
-    
+
     public Iterator<Integer> iterator() {
         return new Iterator<Integer>() {
-            
+
             @Override
             public Integer next() {
                 return number++;
             }
-            
+
             @Override
             public boolean hasNext() {
                 return number < size;
@@ -263,197 +263,197 @@ class MappedDataTest {
 class Countries {
     public static final String[][] DATA = {
             // Africa
-            { "ALGERIA", "Algiers" },
-            { "ANGOLA", "Luanda" },
-            { "BENIN", "Porto-Novo" },
-            { "BOTSWANA", "Gaberone" },
-            { "BURKINA FASO", "Ouagadougou" },
-            { "BURUNDI", "Bujumbura" },
-            { "CAMEROON", "Yaounde" },
-            { "CAPE VERDE", "Praia" },
-            { "CENTRAL AFRICAN REPUBLIC", "Bangui" },
-            { "CHAD", "N'djamena" },
-            { "COMOROS", "Moroni" },
-            { "CONGO", "Brazzaville" },
-            { "DJIBOUTI", "Dijibouti" },
-            { "EGYPT", "Cairo" },
-            { "EQUATORIAL GUINEA", "Malabo" },
-            { "ERITREA", "Asmara" },
-            { "ETHIOPIA", "Addis Ababa" },
-            { "GABON", "Libreville" },
-            { "THE GAMBIA", "Banjul" },
-            { "GHANA", "Accra" },
-            { "GUINEA", "Conakry" },
-            { "BISSAU", "Bissau" },
-            { "COTE D'IVOIR (IVORY COAST)", "Yamoussoukro" },
-            { "KENYA", "Nairobi" },
-            { "LESOTHO", "Maseru" },
-            { "LIBERIA", "Monrovia" },
-            { "LIBYA", "Tripoli" },
-            { "MADAGASCAR", "Antananarivo" },
-            { "MALAWI", "Lilongwe" },
-            { "MALI", "Bamako" },
-            { "MAURITANIA", "Nouakchott" },
-            { "MAURITIUS", "Port Louis" },
-            { "MOROCCO", "Rabat" },
-            { "MOZAMBIQUE", "Maputo" },
-            { "NAMIBIA", "Windhoek" },
-            { "NIGER", "Niamey" },
-            { "NIGERIA", "Abuja" },
-            { "RWANDA", "Kigali" },
-            { "SAO TOME E PRINCIPE", "Sao Tome" },
-            { "SENEGAL", "Dakar" },
-            { "SEYCHELLES", "Victoria" },
-            { "SIERRA LEONE", "Freetown" },
-            { "SOMALIA", "Mogadishu" },
-            { "SOUTH AFRICA", "Pretoria/Cape Town" },
-            { "SUDAN", "Khartoum" },
-            { "SWAZILAND", "Mbabane" },
-            { "TANZANIA", "Dodoma" },
-            { "TOGO", "Lome" },
-            { "TUNISIA", "Tunis" },
-            { "UGANDA", "Kampala" },
-            { "DEMOCRATIC REPUBLIC OF THE CONGO (ZAIRE)", "Kinshasa" },
-            { "ZAMBIA", "Lusaka" },
-            { "ZIMBABWE", "Harare" },
+            {"ALGERIA", "Algiers"},
+            {"ANGOLA", "Luanda"},
+            {"BENIN", "Porto-Novo"},
+            {"BOTSWANA", "Gaberone"},
+            {"BURKINA FASO", "Ouagadougou"},
+            {"BURUNDI", "Bujumbura"},
+            {"CAMEROON", "Yaounde"},
+            {"CAPE VERDE", "Praia"},
+            {"CENTRAL AFRICAN REPUBLIC", "Bangui"},
+            {"CHAD", "N'djamena"},
+            {"COMOROS", "Moroni"},
+            {"CONGO", "Brazzaville"},
+            {"DJIBOUTI", "Dijibouti"},
+            {"EGYPT", "Cairo"},
+            {"EQUATORIAL GUINEA", "Malabo"},
+            {"ERITREA", "Asmara"},
+            {"ETHIOPIA", "Addis Ababa"},
+            {"GABON", "Libreville"},
+            {"THE GAMBIA", "Banjul"},
+            {"GHANA", "Accra"},
+            {"GUINEA", "Conakry"},
+            {"BISSAU", "Bissau"},
+            {"COTE D'IVOIR (IVORY COAST)", "Yamoussoukro"},
+            {"KENYA", "Nairobi"},
+            {"LESOTHO", "Maseru"},
+            {"LIBERIA", "Monrovia"},
+            {"LIBYA", "Tripoli"},
+            {"MADAGASCAR", "Antananarivo"},
+            {"MALAWI", "Lilongwe"},
+            {"MALI", "Bamako"},
+            {"MAURITANIA", "Nouakchott"},
+            {"MAURITIUS", "Port Louis"},
+            {"MOROCCO", "Rabat"},
+            {"MOZAMBIQUE", "Maputo"},
+            {"NAMIBIA", "Windhoek"},
+            {"NIGER", "Niamey"},
+            {"NIGERIA", "Abuja"},
+            {"RWANDA", "Kigali"},
+            {"SAO TOME E PRINCIPE", "Sao Tome"},
+            {"SENEGAL", "Dakar"},
+            {"SEYCHELLES", "Victoria"},
+            {"SIERRA LEONE", "Freetown"},
+            {"SOMALIA", "Mogadishu"},
+            {"SOUTH AFRICA", "Pretoria/Cape Town"},
+            {"SUDAN", "Khartoum"},
+            {"SWAZILAND", "Mbabane"},
+            {"TANZANIA", "Dodoma"},
+            {"TOGO", "Lome"},
+            {"TUNISIA", "Tunis"},
+            {"UGANDA", "Kampala"},
+            {"DEMOCRATIC REPUBLIC OF THE CONGO (ZAIRE)", "Kinshasa"},
+            {"ZAMBIA", "Lusaka"},
+            {"ZIMBABWE", "Harare"},
             // Asia
-            { "AFGHANISTAN", "Kabul" },
-            { "BAHRAIN", "Manama" },
-            { "BANGLADESH", "Dhaka" },
-            { "BHUTAN", "Thimphu" },
-            { "BRUNEI", "Bandar Seri Begawan" },
-            { "CAMBODIA", "Phnom Penh" },
-            { "CHINA", "Beijing" },
-            { "CYPRUS", "Nicosia" },
-            { "INDIA", "New Delhi" },
-            { "INDONESIA", "Jakarta" },
-            { "IRAN", "Tehran" },
-            { "IRAQ", "Baghdad" },
-            { "ISRAEL", "Jerusalem" },
-            { "JAPAN", "Tokyo" },
-            { "JORDAN", "Amman" },
-            { "KUWAIT", "Kuwait City" },
-            { "LAOS", "Vientiane" },
-            { "LEBANON", "Beirut" },
-            { "MALAYSIA", "Kuala Lumpur" },
-            { "THE MALDIVES", "Male" },
-            { "MONGOLIA", "Ulan Bator" },
-            { "MYANMAR (BURMA)", "Rangoon" },
-            { "NEPAL", "Katmandu" },
-            { "NORTH KOREA", "P'yongyang" },
-            { "OMAN", "Muscat" },
-            { "PAKISTAN", "Islamabad" },
-            { "PHILIPPINES", "Manila" },
-            { "QATAR", "Doha" },
-            { "SAUDI ARABIA", "Riyadh" },
-            { "SINGAPORE", "Singapore" },
-            { "SOUTH KOREA", "Seoul" },
-            { "SRI LANKA", "Colombo" },
-            { "SYRIA", "Damascus" },
-            { "TAIWAN (REPUBLIC OF CHINA)", "Taipei" },
-            { "THAILAND", "Bangkok" },
-            { "TURKEY", "Ankara" },
-            { "UNITED ARAB EMIRATES", "Abu Dhabi" },
-            { "VIETNAM", "Hanoi" },
-            { "YEMEN", "Sana'a" },
+            {"AFGHANISTAN", "Kabul"},
+            {"BAHRAIN", "Manama"},
+            {"BANGLADESH", "Dhaka"},
+            {"BHUTAN", "Thimphu"},
+            {"BRUNEI", "Bandar Seri Begawan"},
+            {"CAMBODIA", "Phnom Penh"},
+            {"CHINA", "Beijing"},
+            {"CYPRUS", "Nicosia"},
+            {"INDIA", "New Delhi"},
+            {"INDONESIA", "Jakarta"},
+            {"IRAN", "Tehran"},
+            {"IRAQ", "Baghdad"},
+            {"ISRAEL", "Jerusalem"},
+            {"JAPAN", "Tokyo"},
+            {"JORDAN", "Amman"},
+            {"KUWAIT", "Kuwait City"},
+            {"LAOS", "Vientiane"},
+            {"LEBANON", "Beirut"},
+            {"MALAYSIA", "Kuala Lumpur"},
+            {"THE MALDIVES", "Male"},
+            {"MONGOLIA", "Ulan Bator"},
+            {"MYANMAR (BURMA)", "Rangoon"},
+            {"NEPAL", "Katmandu"},
+            {"NORTH KOREA", "P'yongyang"},
+            {"OMAN", "Muscat"},
+            {"PAKISTAN", "Islamabad"},
+            {"PHILIPPINES", "Manila"},
+            {"QATAR", "Doha"},
+            {"SAUDI ARABIA", "Riyadh"},
+            {"SINGAPORE", "Singapore"},
+            {"SOUTH KOREA", "Seoul"},
+            {"SRI LANKA", "Colombo"},
+            {"SYRIA", "Damascus"},
+            {"TAIWAN (REPUBLIC OF CHINA)", "Taipei"},
+            {"THAILAND", "Bangkok"},
+            {"TURKEY", "Ankara"},
+            {"UNITED ARAB EMIRATES", "Abu Dhabi"},
+            {"VIETNAM", "Hanoi"},
+            {"YEMEN", "Sana'a"},
             // Australia and Oceania
-            { "AUSTRALIA", "Canberra" },
-            { "FIJI", "Suva" },
-            { "KIRIBATI", "Bairiki" },
-            { "MARSHALL ISLANDS", "Dalap-Uliga-Darrit" },
-            { "MICRONESIA", "Palikir" },
-            { "NAURU", "Yaren" },
-            { "NEW ZEALAND", "Wellington" },
-            { "PALAU", "Koror" },
-            { "PAPUA NEW GUINEA", "Port Moresby" },
-            { "SOLOMON ISLANDS", "Honaira" },
-            { "TONGA", "Nuku'alofa" },
-            { "TUVALU", "Fongafale" },
-            { "VANUATU", "< Port-Vila" },
-            { "WESTERN SAMOA", "Apia" },
+            {"AUSTRALIA", "Canberra"},
+            {"FIJI", "Suva"},
+            {"KIRIBATI", "Bairiki"},
+            {"MARSHALL ISLANDS", "Dalap-Uliga-Darrit"},
+            {"MICRONESIA", "Palikir"},
+            {"NAURU", "Yaren"},
+            {"NEW ZEALAND", "Wellington"},
+            {"PALAU", "Koror"},
+            {"PAPUA NEW GUINEA", "Port Moresby"},
+            {"SOLOMON ISLANDS", "Honaira"},
+            {"TONGA", "Nuku'alofa"},
+            {"TUVALU", "Fongafale"},
+            {"VANUATU", "< Port-Vila"},
+            {"WESTERN SAMOA", "Apia"},
             // Eastern Europe and former USSR
-            { "ARMENIA", "Yerevan" },
-            { "AZERBAIJAN", "Baku" },
-            { "BELARUS (BYELORUSSIA)", "Minsk" },
-            { "BULGARIA", "Sofia" },
-            { "GEORGIA", "Tbilisi" },
-            { "KAZAKSTAN", "Almaty" },
-            { "KYRGYZSTAN", "Alma-Ata" },
-            { "MOLDOVA", "Chisinau" },
-            { "RUSSIA", "Moscow" },
-            { "TAJIKISTAN", "Dushanbe" },
-            { "TURKMENISTAN", "Ashkabad" },
-            { "UKRAINE", "Kyiv" },
-            { "UZBEKISTAN", "Tashkent" },
+            {"ARMENIA", "Yerevan"},
+            {"AZERBAIJAN", "Baku"},
+            {"BELARUS (BYELORUSSIA)", "Minsk"},
+            {"BULGARIA", "Sofia"},
+            {"GEORGIA", "Tbilisi"},
+            {"KAZAKSTAN", "Almaty"},
+            {"KYRGYZSTAN", "Alma-Ata"},
+            {"MOLDOVA", "Chisinau"},
+            {"RUSSIA", "Moscow"},
+            {"TAJIKISTAN", "Dushanbe"},
+            {"TURKMENISTAN", "Ashkabad"},
+            {"UKRAINE", "Kyiv"},
+            {"UZBEKISTAN", "Tashkent"},
             // Europe
-            { "ALBANIA", "Tirana" }, { "ANDORRA", "Andorra la Vella" },
-            { "AUSTRIA", "Vienna" }, { "BELGIUM", "Brussels" },
-            { "BOSNIA", "-" },
-            { "HERZEGOVINA", "Sarajevo" },
-            { "CROATIA", "Zagreb" },
-            { "CZECH REPUBLIC", "Prague" },
-            { "DENMARK", "Copenhagen" },
-            { "ESTONIA", "Tallinn" },
-            { "FINLAND", "Helsinki" },
-            { "FRANCE", "Paris" },
-            { "GERMANY", "Berlin" },
-            { "GREECE", "Athens" },
-            { "HUNGARY", "Budapest" },
-            { "ICELAND", "Reykjavik" },
-            { "IRELAND", "Dublin" },
-            { "ITALY", "Rome" },
-            { "LATVIA", "Riga" },
-            { "LIECHTENSTEIN", "Vaduz" },
-            { "LITHUANIA", "Vilnius" },
-            { "LUXEMBOURG", "Luxembourg" },
-            { "MACEDONIA", "Skopje" },
-            { "MALTA", "Valletta" },
-            { "MONACO", "Monaco" },
-            { "MONTENEGRO", "Podgorica" },
-            { "THE NETHERLANDS", "Amsterdam" },
-            { "NORWAY", "Oslo" },
-            { "POLAND", "Warsaw" },
-            { "PORTUGAL", "Lisbon" },
-            { "ROMANIA", "Bucharest" },
-            { "SAN MARINO", "San Marino" },
-            { "SERBIA", "Belgrade" },
-            { "SLOVAKIA", "Bratislava" },
-            { "SLOVENIA", "Ljuijana" },
-            { "SPAIN", "Madrid" },
-            { "SWEDEN", "Stockholm" },
-            { "SWITZERLAND", "Berne" },
-            { "UNITED KINGDOM", "London" },
-            { "VATICAN CITY", "---" },
+            {"ALBANIA", "Tirana"}, {"ANDORRA", "Andorra la Vella"},
+            {"AUSTRIA", "Vienna"}, {"BELGIUM", "Brussels"},
+            {"BOSNIA", "-"},
+            {"HERZEGOVINA", "Sarajevo"},
+            {"CROATIA", "Zagreb"},
+            {"CZECH REPUBLIC", "Prague"},
+            {"DENMARK", "Copenhagen"},
+            {"ESTONIA", "Tallinn"},
+            {"FINLAND", "Helsinki"},
+            {"FRANCE", "Paris"},
+            {"GERMANY", "Berlin"},
+            {"GREECE", "Athens"},
+            {"HUNGARY", "Budapest"},
+            {"ICELAND", "Reykjavik"},
+            {"IRELAND", "Dublin"},
+            {"ITALY", "Rome"},
+            {"LATVIA", "Riga"},
+            {"LIECHTENSTEIN", "Vaduz"},
+            {"LITHUANIA", "Vilnius"},
+            {"LUXEMBOURG", "Luxembourg"},
+            {"MACEDONIA", "Skopje"},
+            {"MALTA", "Valletta"},
+            {"MONACO", "Monaco"},
+            {"MONTENEGRO", "Podgorica"},
+            {"THE NETHERLANDS", "Amsterdam"},
+            {"NORWAY", "Oslo"},
+            {"POLAND", "Warsaw"},
+            {"PORTUGAL", "Lisbon"},
+            {"ROMANIA", "Bucharest"},
+            {"SAN MARINO", "San Marino"},
+            {"SERBIA", "Belgrade"},
+            {"SLOVAKIA", "Bratislava"},
+            {"SLOVENIA", "Ljuijana"},
+            {"SPAIN", "Madrid"},
+            {"SWEDEN", "Stockholm"},
+            {"SWITZERLAND", "Berne"},
+            {"UNITED KINGDOM", "London"},
+            {"VATICAN CITY", "---"},
             // North and Central America
-            { "ANTIGUA AND BARBUDA", "Saint John's" }, { "BAHAMAS", "Nassau" },
-            { "BARBADOS", "Bridgetown" }, { "BELIZE", "Belmopan" },
-            { "CANADA", "Ottawa" }, { "COSTA RICA", "San Jose" },
-            { "CUBA", "Havana" }, { "DOMINICA", "Roseau" },
-            { "DOMINICAN REPUBLIC", "Santo Domingo" },
-            { "EL SALVADOR", "San Salvador" },
-            { "GRENADA", "Saint George's" },
-            { "GUATEMALA", "Guatemala City" },
-            { "HAITI", "Port-au-Prince" },
-            { "HONDURAS", "Tegucigalpa" },
-            { "JAMAICA", "Kingston" },
-            { "MEXICO", "Mexico City" },
-            { "NICARAGUA", "Managua" },
-            { "PANAMA", "Panama City" },
-            { "ST. KITTS", "-" },
-            { "NEVIS", "Basseterre" },
-            { "ST. LUCIA", "Castries" },
-            { "ST. VINCENT AND THE GRENADINES", "Kingstown" },
-            { "UNITED STATES OF AMERICA", "Washington, D.C." },
+            {"ANTIGUA AND BARBUDA", "Saint John's"}, {"BAHAMAS", "Nassau"},
+            {"BARBADOS", "Bridgetown"}, {"BELIZE", "Belmopan"},
+            {"CANADA", "Ottawa"}, {"COSTA RICA", "San Jose"},
+            {"CUBA", "Havana"}, {"DOMINICA", "Roseau"},
+            {"DOMINICAN REPUBLIC", "Santo Domingo"},
+            {"EL SALVADOR", "San Salvador"},
+            {"GRENADA", "Saint George's"},
+            {"GUATEMALA", "Guatemala City"},
+            {"HAITI", "Port-au-Prince"},
+            {"HONDURAS", "Tegucigalpa"},
+            {"JAMAICA", "Kingston"},
+            {"MEXICO", "Mexico City"},
+            {"NICARAGUA", "Managua"},
+            {"PANAMA", "Panama City"},
+            {"ST. KITTS", "-"},
+            {"NEVIS", "Basseterre"},
+            {"ST. LUCIA", "Castries"},
+            {"ST. VINCENT AND THE GRENADINES", "Kingstown"},
+            {"UNITED STATES OF AMERICA", "Washington, D.C."},
             // South America
-            { "ARGENTINA", "Buenos Aires" },
-            { "BOLIVIA", "Sucre (legal)/La Paz(administrative)" },
-            { "BRAZIL", "Brasilia" }, { "CHILE", "Santiago" },
-            { "COLOMBIA", "Bogota" }, { "ECUADOR", "Quito" },
-            { "GUYANA", "Georgetown" }, { "PARAGUAY", "Asuncion" },
-            { "PERU", "Lima" }, { "SURINAME", "Paramaribo" },
-            { "TRINIDAD AND TOBAGO", "Port of Spain" },
-            { "URUGUAY", "Montevideo" }, { "VENEZUELA", "Caracas" }, };
-    
+            {"ARGENTINA", "Buenos Aires"},
+            {"BOLIVIA", "Sucre (legal)/La Paz(administrative)"},
+            {"BRAZIL", "Brasilia"}, {"CHILE", "Santiago"},
+            {"COLOMBIA", "Bogota"}, {"ECUADOR", "Quito"},
+            {"GUYANA", "Georgetown"}, {"PARAGUAY", "Asuncion"},
+            {"PERU", "Lima"}, {"SURINAME", "Paramaribo"},
+            {"TRINIDAD AND TOBAGO", "Port of Spain"},
+            {"URUGUAY", "Montevideo"}, {"VENEZUELA", "Caracas"},};
+
     private static class FlyweightMap extends AbstractMap<String, String> {
         private static class Entry implements Map.Entry<String, String> {
             // 只存储索引,不是实际的键和值,享元模式
@@ -502,7 +502,7 @@ class Countries {
             public int hashCode() {
                 return DATA[index][0].hashCode();
             }
-            
+
         }
 
         static class EntrySet extends AbstractSet<Map.Entry<String, String>> {
@@ -516,7 +516,7 @@ class Countries {
                 else
                     this.size = size;
             }
-            
+
             private class Iter implements Iterator<Map.Entry<String, String>> {
                 // 每个迭代器只包含一个Map.Entry,享元模式
                 private Entry entry = new Entry(-1);
@@ -537,9 +537,9 @@ class Countries {
                     entry.index++;
                     return entry;
                 }
-                
+
             }
-            
+
             /* (non-Javadoc)
              * @see java.util.AbstractCollection#iterator()
              */
@@ -556,9 +556,9 @@ class Countries {
                 return size;
             }
         }
-        
+
         private static Set<Map.Entry<String, String>> entries = new EntrySet(DATA.length);
-        
+
         /* (non-Javadoc)
          * @see java.util.AbstractMap#entrySet()
          */
@@ -566,9 +566,9 @@ class Countries {
         public Set<java.util.Map.Entry<String, String>> entrySet() {
             return entries;
         }
-        
+
     }
-    
+
     static Map<String, String> select(final int size) {
         return new FlyweightMap() {
             @Override
@@ -577,27 +577,27 @@ class Countries {
             }
         };
     }
-    
+
     static Map<String, String> map = new FlyweightMap();
-    
+
     public static Map<String, String> capitals() {
         return map;
     }
-    
+
     public static Map<String, String> capitals(int size) {
         return select(size);
     }
-    
+
     static List<String> names = new ArrayList<>(map.keySet());
-    
+
     public static List<String> names() {
         return names;
     }
-    
+
     public static List<String> names(int size) {
         return new ArrayList<>(select(size).keySet());
     }
-    
+
     public static void main(String[] args) {
         System.out.println(capitals(10));
         System.out.println(names(10));
@@ -605,14 +605,14 @@ class Countries {
         System.out.println(new LinkedHashMap<>(capitals(3)));
         System.out.println(new TreeMap<>(capitals(3)));
         System.out.println(new Hashtable<>(capitals(3)));
-        
+
         System.out.println(new HashSet<>(names(6)));
         System.out.println(new LinkedHashSet<>(names(6)));
         System.out.println(new TreeSet<>(names(6)));
-        
+
         System.out.println(new ArrayList<>(names(6)));
         System.out.println(new LinkedList<>(names(6)));
-        
+
         System.out.println(capitals().get("BRAZIL"));
     }
 }
@@ -643,7 +643,7 @@ class CountingIntegerList extends AbstractList<Integer> {
     public int size() {
         return size;
     }
-    
+
     public static void main(String[] args) {
         System.out.println(new CountingIntegerList(30));
     }
@@ -655,14 +655,14 @@ class CountingIntegerList extends AbstractList<Integer> {
 class CountingMapData extends AbstractMap<Integer, String> {
     private int size;
     private static String[] chars = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
-    
+
     public CountingMapData(int size) {
         if (size < 0)
             this.size = 0;
         else
             this.size = size;
     }
-    
+
     private static class Entry implements Map.Entry<Integer, String> {
         int index;
 
@@ -709,7 +709,7 @@ class CountingMapData extends AbstractMap<Integer, String> {
         public int hashCode() {
             return Integer.valueOf(index).hashCode();
         }
-        
+
     }
 
     /* (non-Javadoc)
@@ -723,7 +723,7 @@ class CountingMapData extends AbstractMap<Integer, String> {
         }
         return entries;
     }
-    
+
     public static void main(String[] args) {
         System.out.println(new CountingMapData(60));
     }
@@ -736,16 +736,16 @@ class CollectionMethods {
         c.add("ten");
         c.add("eleven");
         System.out.println(c);
-        
+
         Object[] array = c.toArray();
-        System.out.println(array);
-        
+        System.out.println(Arrays.toString(array));
+
         String[] str = c.toArray(new String[0]);
-        System.out.println(str);
-        
+        System.out.println(Arrays.toString(str));
+
         System.out.println(Collections.max(c));
         System.out.println(Collections.min(c));
-        
+
         Collection<String> c2 = new ArrayList<>();
         c2.addAll(Countries.names(6));
         c.addAll(c2);
@@ -754,22 +754,22 @@ class CollectionMethods {
         System.out.println(c);
         c.remove(Countries.DATA[1][0]);
         System.out.println(c);
-        
+
         c.removeAll(c2);
         System.out.println(c);
         c.addAll(c2);
         System.out.println(c);
-        
+
         System.out.println(c.contains(Countries.DATA[3][0]));
         System.out.println(c.containsAll(c2));
-        
-        Collection<String> c3 = ((List<String>)c).subList(3, 5);
+
+        Collection<String> c3 = ((List<String>) c).subList(3, 5);
         c2.retainAll(c3);
         System.out.println(c2);
-        
+
         c2.removeAll(c3);
         System.out.println(c2.isEmpty());
-        
+
         c = new ArrayList<>();
         c.addAll(Countries.names(6));
         System.out.println(c);
@@ -787,50 +787,50 @@ class Unsupported {
         Collection<String> c = list;
         Collection<String> subList = list.subList(1, 8);
         Collection<String> c2 = new ArrayList<>(subList);
-        
+
         try {
             c.retainAll(c2);
         } catch (Exception e) {
             System.out.println("retainAll(): " + e);
         }
-        
+
         try {
             c.removeAll(c2);
         } catch (Exception e) {
             System.out.println("removeAll(): " + e);
         }
-        
+
         try {
             c.clear();
         } catch (Exception e) {
             System.out.println("clear(): " + e);
         }
-        
+
         try {
             c.add("X");
         } catch (Exception e) {
             System.out.println("add(): " + e);
         }
-        
+
         try {
             c.addAll(c2);
         } catch (Exception e) {
             System.out.println("addAll(): " + e);
         }
-        
+
         try {
             c.remove("C");
         } catch (Exception e) {
             System.out.println("remove(): " + e);
         }
-        
+
         try {
             list.set(0, "X");
         } catch (Exception e) {
             System.out.println("List.set(): " + e);
         }
     }
-    
+
     public static void main(String[] args) {
         List<String> list = Arrays.asList("A B C D E F G H I J K L".split(" "));
         test("Modifiable Copy", new ArrayList<>(list));
@@ -851,7 +851,7 @@ class Lists {
     private static Iterator<String> it;
     @SuppressWarnings("unused")
     private static ListIterator<String> lit;
-    
+
     public static void basicTest(List<String> a) {
         a.add(1, "x");
         a.add("x");
@@ -873,7 +873,7 @@ class Lists {
         i = a.size();
         a.clear();
     }
-    
+
     public static void iterMotion(List<String> a) {
         ListIterator<String> it = a.listIterator();
         b = it.hasNext();
@@ -883,7 +883,7 @@ class Lists {
         s = it.previous();
         i = it.previousIndex();
     }
-    
+
     public static void iterManipulation(List<String> a) {
         ListIterator<String> it = a.listIterator();
         System.out.println(a);
@@ -899,7 +899,7 @@ class Lists {
         it.set("47");
         System.out.println(a);
     }
-    
+
     public static void testVisual(List<String> a) {
         System.out.println(a);
         List<String> b = Countries.names(5);
@@ -907,7 +907,7 @@ class Lists {
         a.addAll(b);
         a.addAll(b);
         System.out.println(a);
-        
+
         ListIterator<String> x = a.listIterator(a.size() / 2);
         x.add("one");
         System.out.println(a);
@@ -916,7 +916,7 @@ class Lists {
         System.out.println(x.next());
         x.set("47");
         System.out.println(a);
-        
+
         x = a.listIterator(a.size());
         while (x.hasPrevious()) {
             System.out.print(x.previous() + " ");
@@ -924,7 +924,7 @@ class Lists {
         System.out.println();
         System.out.println("testVisual finished");
     }
-    
+
     public static void testLinkedList() {
         LinkedList<String> ll = new LinkedList<String>();
         ll.addAll(Countries.names(5));
@@ -938,7 +938,7 @@ class Lists {
         System.out.println(ll.removeLast());
         System.out.println(ll);
     }
-    
+
     public static void main(String[] args) {
         basicTest(new LinkedList<>(Countries.names(5)));
         basicTest(new ArrayList<>(Countries.names(5)));
@@ -969,9 +969,9 @@ class SetType {
      */
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof SetType && (i == ((SetType)obj).i);
+        return obj instanceof SetType && (i == ((SetType) obj).i);
     }
-    
+
     public String toString() {
         return Integer.toString(i);
     }
@@ -982,7 +982,7 @@ class HashType extends SetType {
     public HashType(int n) {
         super(n);
     }
-    
+
     public int hashCode() {
         return i;
     }
@@ -1001,7 +1001,7 @@ class TreeType extends SetType implements Comparable<TreeType> {
     public int compareTo(TreeType o) {
         return o.i < i ? -1 : (o.i == i ? 0 : 1);
     }
-    
+
 }
 
 class TypesForSets {
@@ -1013,39 +1013,39 @@ class TypesForSets {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        
+
         return set;
     }
-    
+
     static <T> void test(Set<T> set, Class<T> type) {
         fill(set, type);
         fill(set, type);
         fill(set, type);
         System.out.println(set);
     }
-    
+
     public static void main(String[] args) {
         test(new HashSet<HashType>(), HashType.class);
         test(new LinkedHashSet<HashType>(), HashType.class);
         test(new TreeSet<TreeType>(), TreeType.class);
-        
+
         test(new HashSet<SetType>(), SetType.class);
         test(new HashSet<TreeType>(), TreeType.class);
         test(new LinkedHashSet<SetType>(), SetType.class);
         test(new LinkedHashSet<TreeType>(), TreeType.class);
-        
+
         try {
             test(new TreeSet<SetType>(), SetType.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+
         try {
             test(new TreeSet<HashType>(), HashType.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+
         Set<SetType> sets = new HashSet<>();
         sets.add(new SetType(1));
         sets.add(new SetType(1));
@@ -1062,7 +1062,7 @@ class SortedSetDemo {
         String high = sortedSet.last();
         System.out.println(low);        // eight
         System.out.println(high);        // two
-        
+
         Iterator<String> it = sortedSet.iterator();
         for (int i = 0; i <= 6; i++) {
             if (i == 3) low = it.next();
@@ -1082,7 +1082,7 @@ class SortedSetDemo {
  */
 class QueueBehavior {
     private static int count = 10;
-    
+
     static <T> void test(Queue<T> queue, Generator<T> gen) {
         for (int i = 0; i < count; i++) {
             queue.offer(gen.next());
@@ -1092,7 +1092,7 @@ class QueueBehavior {
         }
         System.out.println();
     }
-    
+
     static class Gen implements Generator<String> {
         String[] s = ("one two three four five six seven eight nine ten").split(" ");
         int i;
@@ -1104,9 +1104,9 @@ class QueueBehavior {
         public String next() {
             return s[i++];
         }
-        
+
     }
-    
+
     public static void main(String[] args) {
         test(new LinkedList<String>(), new Gen());
         test(new PriorityQueue<String>(), new Gen());
@@ -1127,7 +1127,7 @@ class ToDoList extends PriorityQueue<ToDoList.ToDoItem> {
         private char primary;
         private int secondary;
         private String item;
-        
+
         /**
          * @param primary
          * @param secondary
@@ -1138,7 +1138,7 @@ class ToDoList extends PriorityQueue<ToDoList.ToDoItem> {
             this.secondary = secondary;
             this.item = item;
         }
-        
+
         /* (non-Javadoc)
          * @see java.lang.Comparable#compareTo(java.lang.Object)
          */
@@ -1160,11 +1160,11 @@ class ToDoList extends PriorityQueue<ToDoList.ToDoItem> {
         }
 
     }
-    
+
     public void add(char primary, int secondary, String item) {
         super.add(new ToDoItem(primary, secondary, item));
     }
-    
+
     public static void main(String[] args) {
         ToDoList toDoList = new ToDoList();
         toDoList.add('C', 4, "Empty trash");
@@ -1181,20 +1181,20 @@ class ToDoList extends PriorityQueue<ToDoList.ToDoItem> {
 /**
  * 关联数组,模仿Map
  */
-class AssociativeArray<K,V> {
+class AssociativeArray<K, V> {
     private Object[][] pairs;
     private int index;
-    
+
     public AssociativeArray(int length) {
         pairs = new Object[length][2];
     }
-    
+
     public void put(K key, V value) {
         if (index > pairs.length)
             throw new ArrayIndexOutOfBoundsException();
-        pairs[index++] = new Object[] {key, value};
+        pairs[index++] = new Object[]{key, value};
     }
-    
+
     @SuppressWarnings("unchecked")
     public V get(K key) {
         for (int i = 0; i < index; i++) {
@@ -1204,7 +1204,7 @@ class AssociativeArray<K,V> {
         }
         return null;
     }
-    
+
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < index; i++) {
@@ -1214,10 +1214,10 @@ class AssociativeArray<K,V> {
             if (i < index - 1)
                 result.append("\n");
         }
-        
+
         return result.toString();
     }
-    
+
     public static void main(String[] args) {
         AssociativeArray<String, String> map = new AssociativeArray<String, String>(6);
         map.put("sky", "blue");
@@ -1242,21 +1242,21 @@ class Maps {
         System.out.print("Keys: ");
         System.out.println(map.keySet());
     }
-    
+
     public static void test(Map<Integer, String> map) {
         System.out.println(map.getClass().getSimpleName());
         map.putAll(new CountingMapData(25));
         map.putAll(new CountingMapData(25));
         printKeys(map);
-        
+
         System.out.print("Values: ");
         System.out.println(map.values());
         System.out.println(map);
-        
+
         System.out.println(map.containsKey(11));
         System.out.println(map.get(11));
         System.out.println(map.containsValue("F0"));
-        
+
         Integer key = map.keySet().iterator().next();
         System.out.println("First key in map: " + key);
         map.remove(key);
@@ -1267,7 +1267,7 @@ class Maps {
         map.keySet().removeAll(map.keySet());
         System.out.println(map.isEmpty());
     }
-    
+
     public static void main(String[] args) {
         test(new HashMap<>());
         test(new TreeMap<>());
@@ -1285,12 +1285,12 @@ class SortedMapDemo {
     public static void main(String[] args) {
         TreeMap<Integer, String> sortedMap = new TreeMap<>(new CountingMapData(10));
         System.out.println(sortedMap);    // {0=A0, 1=B0, 2=C0, 3=D0, 4=E0, 5=F0, 6=G0, 7=H0, 8=I0, 9=J0}
-        
+
         Integer low = sortedMap.firstKey();
         Integer high = sortedMap.lastKey();
         System.out.println(low);    // 0
         System.out.println(high);    // 9
-        
+
         Iterator<Integer> it = sortedMap.keySet().iterator();
         for (int i = 0; i <= 6; i++) {
             if (i == 3) low = it.next();
@@ -1325,10 +1325,10 @@ class LinkedHashMapDemo {
 /**
  * 用ArrayList实现的Map
  */
-class SlowMap<K,V> extends AbstractMap<K, V> {
+class SlowMap<K, V> extends AbstractMap<K, V> {
     private List<K> keys = new ArrayList<>();
     private List<V> values = new ArrayList<>();
-    
+
     public V put(K key, V value) {
         V oldValue = get(key);
         if (!keys.contains(key)) {
@@ -1337,10 +1337,10 @@ class SlowMap<K,V> extends AbstractMap<K, V> {
         } else {
             values.set(keys.indexOf(key), value);
         }
-        
+
         return oldValue;
     }
-    
+
     public V get(Object key) {
         if (!keys.contains(key))
             return null;
@@ -1356,11 +1356,11 @@ class SlowMap<K,V> extends AbstractMap<K, V> {
         Iterator<K> ki = keys.iterator();
         Iterator<V> vi = values.iterator();
         while (ki.hasNext()) {
-            set.add(new MapEntry<K,V>(ki.next(), vi.next()));
+            set.add(new MapEntry<K, V>(ki.next(), vi.next()));
         }
         return set;
     }
-    
+
     public static void main(String[] args) {
         SlowMap<String, String> m = new SlowMap<String, String>();
         m.putAll(Countries.capitals(15));
@@ -1370,7 +1370,7 @@ class SlowMap<K,V> extends AbstractMap<K, V> {
     }
 }
 
-class MapEntry<K,V> implements Map.Entry<K, V> {
+class MapEntry<K, V> implements Map.Entry<K, V> {
     private K key;
     private V value;
 
@@ -1436,28 +1436,28 @@ class MapEntry<K,V> implements Map.Entry<K, V> {
     public String toString() {
         return key + "=" + value;
     }
-    
+
 }
 
 /**
  * 散列Map
  */
-class SimpleHashMap<K,V> extends AbstractMap<K, V> {
+class SimpleHashMap<K, V> extends AbstractMap<K, V> {
     static final int SIZE = 997;
     @SuppressWarnings("unchecked")
-    LinkedList<MapEntry<K,V>>[] buckets = new LinkedList[SIZE];
-    
+    LinkedList<MapEntry<K, V>>[] buckets = new LinkedList[SIZE];
+
     public V put(K key, V value) {
         V oldValue = null;
         int index = Math.abs(key.hashCode()) % SIZE;
         if (buckets[index] == null)
-            buckets[index] = new LinkedList<MapEntry<K,V>>();
-        LinkedList<MapEntry<K,V>> bucket = buckets[index];
-        MapEntry<K,V> pair = new MapEntry<K,V>(key, value);
+            buckets[index] = new LinkedList<MapEntry<K, V>>();
+        LinkedList<MapEntry<K, V>> bucket = buckets[index];
+        MapEntry<K, V> pair = new MapEntry<K, V>(key, value);
         boolean found = false;
-        ListIterator<MapEntry<K,V>> it = bucket.listIterator();
+        ListIterator<MapEntry<K, V>> it = bucket.listIterator();
         while (it.hasNext()) {
-            MapEntry<K,V> iPair = it.next();
+            MapEntry<K, V> iPair = it.next();
             if (iPair.getKey().equals(key)) {
                 oldValue = iPair.getValue();
                 it.set(pair);
@@ -1465,13 +1465,13 @@ class SimpleHashMap<K,V> extends AbstractMap<K, V> {
                 break;
             }
         }
-        
+
         if (!found)
             buckets[index].add(pair);
-        
+
         return oldValue;
     }
-    
+
     public V get(Object key) {
         int index = Math.abs(key.hashCode()) % SIZE;
         if (buckets[index] == null) return null;
@@ -1479,7 +1479,7 @@ class SimpleHashMap<K,V> extends AbstractMap<K, V> {
             if (iPair.getKey().equals(key))
                 return iPair.getValue();
         }
-        
+
         return null;
     }
 
@@ -1488,7 +1488,7 @@ class SimpleHashMap<K,V> extends AbstractMap<K, V> {
      */
     @Override
     public Set<java.util.Map.Entry<K, V>> entrySet() {
-        Set<Map.Entry<K,V>> set = new HashSet<>();
+        Set<Map.Entry<K, V>> set = new HashSet<>();
         for (LinkedList<MapEntry<K, V>> bucket : buckets) {
             if (bucket == null) continue;
             for (MapEntry<K, V> mPair : bucket) {
@@ -1497,7 +1497,7 @@ class SimpleHashMap<K,V> extends AbstractMap<K, V> {
         }
         return set;
     }
-    
+
     public static void main(String[] args) {
         SimpleHashMap<String, String> m = new SimpleHashMap<String, String>();
         m.putAll(Countries.capitals(25));
@@ -1517,19 +1517,19 @@ abstract class Test<C> {
     public Test(String name) {
         this.name = name;
     }
-    
+
     abstract int test(C container, TestParam tp);
 }
 
 class TestParam {
     public final int size;
     public final int loops;
-    
+
     public TestParam(int size, int loops) {
         this.size = size;
         this.loops = loops;
     }
-    
+
     public static TestParam[] array(int... values) {
         int size = values.length / 2;
         TestParam[] result = new TestParam[size];
@@ -1537,16 +1537,16 @@ class TestParam {
         for (int i = 0; i < size; i++) {
             result[i] = new TestParam(values[n++], values[n++]);
         }
-        
+
         return result;
     }
-    
+
     public static TestParam[] array(String[] values) {
         int[] vals = new int[values.length];
         for (int i = 0; i < vals.length; i++) {
             vals[i] = Integer.decode(values[i]);
         }
-        
+
         return array(vals);
     }
 }
@@ -1562,14 +1562,14 @@ class Tester<C> {
     private static int sizeWidth = 5;
     private static String sizeField = "%" + sizeWidth + "s";
     private TestParam[] paramList = defaultParams;
-    
+
     public Tester(C container, List<Test<C>> tests) {
         this.container = container;
         this.tests = tests;
         if (container != null)
             headline = container.getClass().getSimpleName();
     }
-    
+
     public Tester(C container, List<Test<C>> tests, TestParam[] paramList) {
         this(container, tests);
         this.paramList = paramList;
@@ -1579,27 +1579,27 @@ class Tester<C> {
     protected C initialize(int size) {
         return container;
     }
-    
+
     private static String stringField() {
         return "%" + fieldWidth + "s";
     }
-    
+
     private static String numberField() {
         return "%" + fieldWidth + "d";
     }
-    
+
     public void setHeadline(String newHeadline) {
         this.headline = newHeadline;
     }
-    
+
     public static <C> void run(C cntcr, List<Test<C>> tests) {
         new Tester<C>(cntcr, tests).timedTest();
     }
-    
+
     public static <C> void run(C cntcr, List<Test<C>> tests, TestParam[] paramList) {
         new Tester<C>(cntcr, tests, paramList).timedTest();
     }
-    
+
     private void displayHeader() {
         // Calculate width and pad with '-'
         int width = fieldWidth * tests.size() + sizeWidth;
@@ -1615,14 +1615,14 @@ class Tester<C> {
             head.append('-');
         }
         System.out.println(head);
-        
+
         // Print column headers
         System.out.format(sizeField, "size");
         for (Test<?> test : tests)
             System.out.format(stringField(), test.name);
         System.out.println();
     }
-    
+
     public void timedTest() {
         displayHeader();
         for (TestParam param : paramList) {
@@ -1649,6 +1649,7 @@ class ListPerformance {
     static int reps = 1000;
     static List<Test<List<Integer>>> tests = new ArrayList<Test<List<Integer>>>();
     static List<Test<LinkedList<Integer>>> qTests = new ArrayList<Test<LinkedList<Integer>>>();
+
     static {
         tests.add(new Test<List<Integer>>("add") {
             int test(List<Integer> list, TestParam tp) {
@@ -1766,7 +1767,7 @@ class ListPerformance {
 
     static class ListTester extends Tester<List<Integer>> {
         public ListTester(List<Integer> container,
-                List<Test<List<Integer>>> tests) {
+                          List<Test<List<Integer>>> tests) {
             super(container, tests);
         }
 
@@ -1780,7 +1781,7 @@ class ListPerformance {
 
         // Convenience method:
         public static void run(List<Integer> list,
-                List<Test<List<Integer>>> tests) {
+                               List<Test<List<Integer>>> tests) {
             new ListTester(list, tests).timedTest();
         }
     }
@@ -1822,6 +1823,7 @@ class ListPerformance {
  */
 class SetPerformance {
     static List<Test<Set<Integer>>> tests = new ArrayList<Test<Set<Integer>>>();
+
     static {
         tests.add(new Test<Set<Integer>>("add") {
             int test(Set<Integer> set, TestParam tp) {
@@ -1873,6 +1875,7 @@ class SetPerformance {
  */
 class MapPerformance {
     static List<Test<Map<Integer, Integer>>> tests = new ArrayList<Test<Map<Integer, Integer>>>();
+
     static {
         tests.add(new Test<Map<Integer, Integer>>("put") {
             int test(Map<Integer, Integer> map, TestParam tp) {
@@ -1927,7 +1930,7 @@ class MapPerformance {
  */
 class Utilities {
     static List<String> list = Arrays.asList(("one two three Four five six one").split(" "));
-    
+
     public static void main(String[] args) {
         System.out.println(list);    // [one, two, three, Four, five, six, one]
         System.out.println(Collections.disjoint(list, Collections.singletonList("Four")));    // false
@@ -1935,7 +1938,7 @@ class Utilities {
         System.out.println(Collections.min(list));    // Four
         System.out.println(Collections.max(list, String.CASE_INSENSITIVE_ORDER));    // two
         System.out.println(Collections.min(list, String.CASE_INSENSITIVE_ORDER));    // five
-        
+
         List<String> sublist = Arrays.asList(("Four five six").split(" "));
         System.out.println(Collections.indexOfSubList(list, sublist));    // 3
         System.out.println(Collections.lastIndexOfSubList(list, sublist));    // 3
@@ -1945,7 +1948,7 @@ class Utilities {
         System.out.println(list);    // [Yo, six, five, Four, three, two, Yo]
         Collections.rotate(list, 3);
         System.out.println(list);    // [three, two, Yo, Yo, six, five, Four]
-        
+
         List<String> source = Arrays.asList(("in the matrix").split(" "));
         Collections.copy(list, source);
         System.out.println(list);    // [in, the, matrix, Yo, six, five, Four]
@@ -1956,13 +1959,13 @@ class Utilities {
         Collections.fill(list, "pop");
         System.out.println(list);    // [pop, pop, pop, pop, pop, pop, pop]
         System.out.println(Collections.frequency(list, "pop"));    // 7
-        
+
         List<String> dups = Collections.nCopies(3, "snap");
         System.out.println(dups);    // [snap, snap, snap]
         System.out.println(Collections.disjoint(list, dups));    // true
-        
+
         Enumeration<String> e = Collections.enumeration(dups);
-        
+
         Vector<String> v = new Vector<>();
         while (e.hasMoreElements()) {
             v.addElement(e.nextElement());
@@ -1977,35 +1980,35 @@ class Utilities {
  */
 class References {
     private static ReferenceQueue<VeryBig> rq = new ReferenceQueue<>();
-    
+
     public static void checkQueue() {
         Reference<? extends VeryBig> inq = rq.poll();
         if (inq != null)
             System.out.println("In queue: " + inq.get());
     }
-    
+
     @SuppressWarnings("unused")
     public static void main(String[] args) {
         int size = 10;
-        
+
         LinkedList<SoftReference<VeryBig>> sa = new LinkedList<>();
         for (int i = 0; i < size; i++) {
             sa.add(new SoftReference<VeryBig>(new VeryBig("Soft " + i), rq));
             System.out.println("Just created: " + sa.getLast());
             checkQueue();
         }
-        
+
         LinkedList<WeakReference<VeryBig>> wa = new LinkedList<>();
         for (int i = 0; i < size; i++) {
             wa.add(new WeakReference<VeryBig>(new VeryBig("Weak " + i), rq));
             System.out.println("Just created: " + wa.getLast());
             checkQueue();
         }
-        
+
         SoftReference<VeryBig> s = new SoftReference<VeryBig>(new VeryBig("Soft"));
         WeakReference<VeryBig> w = new WeakReference<VeryBig>(new VeryBig("Weak"));
         System.gc();
-        
+
         LinkedList<PhantomReference<VeryBig>> pa = new LinkedList<>();
         for (int i = 0; i < size; i++) {
             pa.add(new PhantomReference<VeryBig>(new VeryBig("Phantom " + i), rq));
@@ -2023,11 +2026,11 @@ class VeryBig {
     @SuppressWarnings("unused")
     private long[] la = new long[SIZE];
     private String ident;
-    
+
     public VeryBig(String id) {
         this.ident = id;
     }
-    
+
     public String toString() {
         return ident;
     }
