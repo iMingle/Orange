@@ -30,7 +30,7 @@ public class FlinkTest {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        DataStream<Tuple2<String, Integer>> dataStream = env.socketTextStream("127.0.0.1", 8888)
+        DataStream<Tuple2<String, Integer>> dataStream = env.readTextFile("/Users/mingle/Downloads/shakespeare.txt")
                 .flatMap(new Splitter()).keyBy(0).timeWindow(Time.seconds(5)).sum(1);
 
         dataStream.print();
@@ -41,7 +41,7 @@ public class FlinkTest {
     public static class Splitter implements FlatMapFunction<String, Tuple2<String, Integer>> {
         @Override
         public void flatMap(String sentence, Collector<Tuple2<String, Integer>> out) {
-            for (String word : sentence.split(" ")) {
+            for (String word : sentence.replaceAll("\"", "").split("[^\\p{L}]+")) {
                 out.collect(new Tuple2<>(word, 1));
             }
         }
