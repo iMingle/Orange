@@ -16,31 +16,22 @@
 
 package org.mingle.orange.java.annotation;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-
 import org.junit.Test;
 
+import javax.swing.JFrame;
+import java.awt.EventQueue;
+
 /**
- * 
  * @author mingle
  */
 public class ButtonTest {
 
-    /**
-     * @param args
-     */
     @Test
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            
-            public void run() {
-                ButtonFrame frame = new ButtonFrame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            ButtonFrame frame = new ButtonFrame();
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
         });
     }
-
 }

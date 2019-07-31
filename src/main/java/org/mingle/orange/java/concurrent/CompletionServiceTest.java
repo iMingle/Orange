@@ -24,11 +24,7 @@ import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
-import org.mingle.orange.util.LaunderThrowable;
-
 /**
- * 
- * 
  * @author mingle
  */
 public abstract class CompletionServiceTest {
@@ -60,7 +56,7 @@ public abstract class CompletionServiceTest {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         } catch (ExecutionException e) {
-            throw LaunderThrowable.launderThrowable(e.getCause());
+            throw new RuntimeException(e);
         }
     }
 

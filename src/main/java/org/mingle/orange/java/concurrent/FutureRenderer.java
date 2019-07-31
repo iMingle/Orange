@@ -24,11 +24,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.mingle.orange.util.LaunderThrowable;
-
 /**
- * 
- * 
  * @author mingle
  */
 public abstract class FutureRenderer {
@@ -58,7 +54,7 @@ public abstract class FutureRenderer {
             // We don't need the result, so cancel the task too
             future.cancel(true);
         } catch (ExecutionException e) {
-            throw LaunderThrowable.launderThrowable(e.getCause());
+            throw new RuntimeException(e);
         }
     }
 

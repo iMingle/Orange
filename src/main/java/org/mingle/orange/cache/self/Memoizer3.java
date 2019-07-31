@@ -23,17 +23,15 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
-import org.mingle.orange.util.LaunderThrowable;
-
 /**
  * 缓存
- * 
+ *
  * @author mingle
  */
 public class Memoizer3<A, V> implements Computable<A, V> {
-    private final Map<A, Future<V>> cache = new ConcurrentHashMap<A, Future<V>>();
+    private final Map<A, Future<V>> cache = new ConcurrentHashMap<>();
     private final Computable<A, V> c;
-    
+
     public Memoizer3(Computable<A, V> c) {
         this.c = c;
     }
@@ -45,24 +43,23 @@ public class Memoizer3<A, V> implements Computable<A, V> {
     public V compute(A arg) throws InterruptedException {
         Future<V> f = cache.get(arg);
         if (null == f) {
-            Callable<V>    eval = new Callable<V>() {
+            Callable<V> eval = new Callable<V>() {
 
                 @Override
                 public V call() throws Exception {
                     return c.compute(arg);
                 }
             };
-            
+
             FutureTask<V> ft = new FutureTask<>(eval);
             f = ft;
             cache.put(arg, ft);
             ft.run();    // 调用c.compute(arg);
         }
-        
+
         try {
             return f.get();
         } catch (ExecutionException e) {
-            LaunderThrowable.launderThrowable(e.getCause());
             return null;
         }
     }

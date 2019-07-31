@@ -20,13 +20,11 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class Impletation implements Interface, Serializable {
     private static final long serialVersionUID = -2645048100632268327L;
-    
+
     private String message;
 
     /**
@@ -36,11 +34,6 @@ public class Impletation implements Interface, Serializable {
         message = msg;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.mingle.orange.distributed.rmi.temp.HelloInterface#say()
-     */
     @Override
     public String say() throws RemoteException {
         System.out.println("Called by HelloClient");

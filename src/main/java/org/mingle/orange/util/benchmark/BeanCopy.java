@@ -17,16 +17,27 @@
 package org.mingle.orange.util.benchmark;
 
 import com.baidu.unbiz.easymapper.MapperFactory;
+import com.github.dozermapper.core.DozerBeanMapperBuilder;
+import com.github.dozermapper.core.Mapper;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import net.sf.cglib.beans.BeanCopier;
 import org.apache.commons.beanutils.PropertyUtils;
-import org.dozer.DozerBeanMapper;
-import org.dozer.Mapper;
-import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.TearDown;
+import org.openjdk.jmh.annotations.Threads;
+import org.openjdk.jmh.annotations.Warmup;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cglib.beans.BeanCopier;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.TimeUnit;
@@ -148,7 +159,7 @@ public class BeanCopy {
     @Setup
     public void setup() {
         beanCopier = BeanCopier.create(Src.class, Dest.class, false);
-        mapper = new DozerBeanMapper();
+        mapper = DozerBeanMapperBuilder.buildDefault();
         easyMapper = MapperFactory.getCopyByRefMapper();
 
         src.setId(1);

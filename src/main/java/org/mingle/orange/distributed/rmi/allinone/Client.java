@@ -19,8 +19,6 @@ package org.mingle.orange.distributed.rmi.allinone;
 import java.rmi.Naming;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class Client {

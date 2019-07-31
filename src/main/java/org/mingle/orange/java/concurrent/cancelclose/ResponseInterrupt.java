@@ -16,9 +16,13 @@
 
 package org.mingle.orange.java.concurrent.cancelclose;
 
-import org.mingle.orange.util.LaunderThrowable;
-
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * 响应中断
@@ -68,7 +72,7 @@ public class ResponseInterrupt {
 
             void rethrow() {
                 if (t != null)
-                    throw LaunderThrowable.launderThrowable(t);
+                    throw new RuntimeException(t);
             }
         }
 
@@ -96,7 +100,7 @@ public class ResponseInterrupt {
             task.get(timeout, unit);
         } catch (ExecutionException e) {
             // 重新抛出异常
-            throw LaunderThrowable.launderThrowable(e.getCause());
+            throw new RuntimeException(e);
         } catch (TimeoutException e) {
             // 超时取消任务
         } finally {

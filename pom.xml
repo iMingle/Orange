@@ -34,10 +34,16 @@
 
     <!-- 属性 -->
     <properties>
+        <java.version>1.8</java.version>
         <compiler.version>1.8</compiler.version>
         <!-- encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <flink.version>1.8.1</flink.version>
+        <beam.version>2.13.0</beam.version>
+        <spring.version>5.1.8.RELEASE</spring.version>
+        <btrace.version>1.3.11</btrace.version>
     </properties>
 
     <dependencies>
@@ -46,20 +52,16 @@
             <groupId>org.mingle.arithmetic</groupId>
             <artifactId>algs</artifactId>
             <version>4.0</version>
-        </dependency>
-
-        <!-- PDF导出 -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>itextpdf</artifactId>
-            <version>5.5.1</version>
+            <scope>system</scope>
+            <type>jar</type>
+            <systemPath>/Users/mingle/.m2/repository/org/mingle/arithmetic/algs/4.0/algs-4.0.jar</systemPath>
         </dependency>
 
         <!-- 单元测试 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
         </dependency>
 
         <dependency>
@@ -74,49 +76,36 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.7.1</version>
+            <version>3.0.0</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- job scheduling -->
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz</artifactId>
-            <version>2.2.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz-jobs</artifactId>
-            <version>2.2.1</version>
         </dependency>
 
         <!-- 全文检索 -->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
-            <version>4.10.0</version>
+            <version>8.2.0</version>
         </dependency>
 
         <!-- 词法分析和语言处理 -->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analyzers-common</artifactId>
-            <version>4.10.0</version>
+            <version>8.2.0</version>
         </dependency>
 
         <!-- 对查询语句进行语法分析 -->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-queryparser</artifactId>
-            <version>4.10.0</version>
+            <version>8.2.0</version>
         </dependency>
 
         <!-- 中文分词 -->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analyzers-smartcn</artifactId>
-            <version>4.10.0</version>
+            <version>8.2.0</version>
         </dependency>
 
         <!-- 基于Java应用程序的表达式语言 -->
@@ -124,13 +113,6 @@
             <groupId>org.mvel</groupId>
             <artifactId>mvel2</artifactId>
             <version>2.2.2.Final</version>
-        </dependency>
-
-        <!-- 基于Java的JavaScript脚本引擎 -->
-        <dependency>
-            <groupId>org.mozilla</groupId>
-            <artifactId>rhino</artifactId>
-            <version>1.7R4</version>
         </dependency>
 
         <!-- 用于Java对象和JSON和XML之间的转换 -->
@@ -143,35 +125,28 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.0</version>
+            <version>2.8.5</version>
+        </dependency>
+
+        <!-- Fastjson is a JSON processor (JSON parser + JSON generator) written in Java -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.58</version>
         </dependency>
 
         <!-- 日志记录 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.6</version>
-        </dependency>
-
-        <!-- Java Cache框架 -->
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>2.9.1</version>
-        </dependency>
-
-        <!-- XML解析器 -->
-        <dependency>
-            <groupId>com.io7m.xom</groupId>
-            <artifactId>xom</artifactId>
-            <version>1.2.10</version>
+            <version>1.7.26</version>
         </dependency>
 
         <!-- 分析、编辑和创建Java字节码的类库 -->
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.19.0-GA</version>
+            <version>3.25.0-GA</version>
         </dependency>
 
         <!-- Apache Commons Lang, a package of Java utility classes for the classes
@@ -180,7 +155,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>3.9</version>
         </dependency>
 
         <!-- The Commons IO library contains utility classes, stream implementations,
@@ -188,7 +163,7 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>2.6</version>
         </dependency>
 
         <!-- Apache Commons BeanUtils provides an easy-to-use
@@ -210,7 +185,7 @@
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>2.8.2</version>
+            <version>2.10.3</version>
         </dependency>
 
         <!-- Spice up your java: Automatic Resource Management, automatic generation
@@ -218,28 +193,21 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.6</version>
+            <version>1.18.8</version>
         </dependency>
 
         <!-- The easiest way to write SQL in Java -->
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
-            <version>3.6.2</version>
+            <version>3.11.11</version>
         </dependency>
 
         <!-- Rich and fluent assertions for testing for Java -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-
-        <!-- Java library which enables encryption in java apps with minimum effort. -->
-        <dependency>
-            <groupId>org.jasypt</groupId>
-            <artifactId>jasypt</artifactId>
-            <version>1.9.2</version>
+            <version>3.13.0</version>
         </dependency>
 
         <!-- The ActiveMQ Message Broker and Client implementations -->
@@ -249,18 +217,11 @@
             <version>5.7.0</version>
         </dependency>
 
-        <!-- Fastjson is a JSON processor (JSON parser + JSON generator) written in Java -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.29</version>
-        </dependency>
-
         <!-- Selenium automates browsers. That's it! What you do with that power is entirely up to you -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.0.1</version>
+            <version>3.141.59</version>
             <exclusions>
                 <exclusion>
                     <groupId>io.netty</groupId>
@@ -272,7 +233,7 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.9.Final</version>
+            <version>4.1.38.Final</version>
         </dependency>
 
         <!-- The jmh is a Java harness for building, running, and analysing nano/micro/macro benchmarks
@@ -280,131 +241,108 @@
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
-            <version>1.19</version>
+            <version>1.21</version>
         </dependency>
 
         <!-- JMH benchmark generator, based on annotation processors. -->
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
-            <version>1.19</version>
+            <version>1.21</version>
         </dependency>
 
         <!-- Apache HttpComponents Client -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.2.5</version>
+            <version>4.5.9</version>
         </dependency>
 
         <!-- Spring Core -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.3.8.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.github.dozermapper</groupId>
             <artifactId>dozer-core</artifactId>
-            <version>6.0.0</version>
+            <version>6.5.0</version>
         </dependency>
 
         <!-- Easy mapper is a simple, light-weight tool for Java bean mapping -->
         <dependency>
             <groupId>com.baidu.unbiz</groupId>
             <artifactId>easy-mapper</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.4</version>
         </dependency>
 
         <!-- Redis based In-Memory Data Grid for Java -->
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
-            <version>3.5.1</version>
+            <version>3.11.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
-            <version>3.4.10</version>
+            <version>3.5.5</version>
         </dependency>
 
         <!-- Jedis is a blazingly small and sane Redis java client -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>2.9.0</version>
+            <version>3.1.0</version>
         </dependency>
 
         <!-- A zookeeper client, that makes life a little easier -->
         <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
-            <version>0.10</version>
-        </dependency>
-
-        <!-- grpc -->
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-netty-shaded</artifactId>
-            <version>1.18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-protobuf</artifactId>
-            <version>1.18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-stub</artifactId>
-            <version>1.18.0</version>
+            <version>0.11</version>
         </dependency>
 
         <!-- flink -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
-            <version>1.8.1</version>
+            <version>${flink.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_2.11</artifactId>
-            <version>1.8.1</version>
+            <version>${flink.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients_2.11</artifactId>
-            <version>1.8.1</version>
+            <version>${flink.version}</version>
         </dependency>
 
         <!-- beam -->
         <dependency>
             <groupId>org.apache.beam</groupId>
             <artifactId>beam-sdks-java-core</artifactId>
-            <version>2.13.0</version>
+            <version>${beam.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.beam</groupId>
             <artifactId>beam-sdks-java-io-kafka</artifactId>
-            <version>2.13.0</version>
+            <version>${beam.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.beam</groupId>
             <artifactId>beam-runners-direct-java</artifactId>
-            <version>2.13.0</version>
+            <version>${beam.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.beam</groupId>
             <artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
-            <version>2.13.0</version>
+            <version>${beam.version}</version>
         </dependency>
 
         <!-- btrace -->
@@ -412,7 +350,7 @@
             <groupId>com.sun.tools.btrace</groupId>
             <artifactId>btrace-boot</artifactId>
             <scope>system</scope>
-            <version>1.3.11</version>
+            <version>${btrace.version}</version>
             <type>jar</type>
             <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-boot.jar</systemPath>
         </dependency>
@@ -421,7 +359,7 @@
             <groupId>com.sun.tools.btrace</groupId>
             <artifactId>btrace-client</artifactId>
             <scope>system</scope>
-            <version>1.3.11</version>
+            <version>${btrace.version}</version>
             <type>jar</type>
             <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-client.jar</systemPath>
         </dependency>
@@ -430,7 +368,7 @@
             <groupId>com.sun.tools.btrace</groupId>
             <artifactId>btrace-agent</artifactId>
             <scope>system</scope>
-            <version>1.3.11</version>
+            <version>${btrace.version}</version>
             <type>jar</type>
             <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-agent.jar</systemPath>
         </dependency>

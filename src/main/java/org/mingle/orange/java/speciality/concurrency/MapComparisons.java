@@ -16,25 +16,37 @@
 
 package org.mingle.orange.java.speciality.concurrency;
 
-import java.util.Collections;
-import java.util.Map;
-
-import net.sf.ehcache.util.concurrent.ConcurrentHashMap;
-
 import org.mingle.orange.java.util.CountingGenerator;
 import org.mingle.orange.java.util.MapData;
 
+import java.util.Collections;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Map测试
- * 
+ *
  * @author mingle
  */
+public class MapComparisons {
+    public static void main(String[] args) {
+        Tester.initMain(args);
+        new SynchronizedHashMapTest(10, 0);
+        new SynchronizedHashMapTest(9, 1);
+        new SynchronizedHashMapTest(5, 5);
+        new ConcurrentHashMapTest(10, 0);
+        new ConcurrentHashMapTest(9, 1);
+        new ConcurrentHashMapTest(5, 5);
+        Tester.exec.shutdown();
+    }
+}
+
 abstract class MapTest extends Tester<Map<Integer, Integer>> {
 
     public MapTest(String testId, int nReaders, int nWriters) {
         super(testId, nReaders, nWriters);
     }
-    
+
     class Reader extends TestTask {
         long result = 0;
 
@@ -50,9 +62,9 @@ abstract class MapTest extends Tester<Map<Integer, Integer>> {
             readResult += result;
             readTime += duration;
         }
-        
+
     }
-    
+
     class Writer extends TestTask {
 
         @Override
@@ -66,9 +78,9 @@ abstract class MapTest extends Tester<Map<Integer, Integer>> {
         void putResults() {
             writeTime = duration;
         }
-        
+
     }
-    
+
     void startReadersAndWriters() {
         for (int i = 0; i < nReaders; i++)
             exec.execute(new Reader());
@@ -86,10 +98,10 @@ class SynchronizedHashMapTest extends MapTest {
     @Override
     Map<Integer, Integer> containerInitializer() {
         return Collections.synchronizedMap(
-                MapData.map(new CountingGenerator.Integer(), 
+                MapData.map(new CountingGenerator.Integer(),
                         new CountingGenerator.Integer(), containerSize));
     }
-    
+
 }
 
 class ConcurrentHashMapTest extends MapTest {
@@ -104,23 +116,8 @@ class ConcurrentHashMapTest extends MapTest {
     @Override
     Map<Integer, Integer> containerInitializer() {
         return new ConcurrentHashMap<>(
-                MapData.map(new CountingGenerator.Integer(), 
+                MapData.map(new CountingGenerator.Integer(),
                         new CountingGenerator.Integer(), containerSize));
-    }
-    
-}
-
-public class MapComparisons {
-
-    public static void main(String[] args) {
-        Tester.initMain(args);
-        new SynchronizedHashMapTest(10, 0);
-        new SynchronizedHashMapTest(9, 1);
-        new SynchronizedHashMapTest(5, 5);
-        new ConcurrentHashMapTest(10, 0);
-        new ConcurrentHashMapTest(9, 1);
-        new ConcurrentHashMapTest(5, 5);
-        Tester.exec.shutdown();
     }
 
 }

@@ -39,7 +39,6 @@ import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.io.Serializable;
@@ -64,14 +63,6 @@ import java.util.SortedMap;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import java.util.regex.Pattern;
-
-import nu.xom.Builder;
-import nu.xom.Document;
-import nu.xom.Element;
-import nu.xom.Elements;
-import nu.xom.ParsingException;
-import nu.xom.Serializer;
-import nu.xom.ValidityException;
 
 /**
  * Java I/O测试
@@ -582,7 +573,7 @@ class IntBufferDemo {
     public static void main(String[] args) {
         ByteBuffer bb = ByteBuffer.allocate(BSIZE);
         IntBuffer ib = bb.asIntBuffer();
-        ib.put(new int[] { 11, 42, 47, 99, 143, 811, 1016 });
+        ib.put(new int[]{11, 42, 47, 99, 143, 811, 1016});
         System.out.println(ib.get(3)); // 99
         ib.put(3, 1811);
         ib.flip();
@@ -599,7 +590,7 @@ class IntBufferDemo {
 class ViewBuffers {
     public static void main(String[] args) {
         ByteBuffer bb = ByteBuffer
-                .wrap(new byte[] { 0, 0, 0, 0, 0, 0, 0, 'a' });
+                .wrap(new byte[]{0, 0, 0, 0, 0, 0, 0, 'a'});
         bb.rewind();
         System.out.print("Byte Buffer ");
         while (bb.hasRemaining())
@@ -692,7 +683,7 @@ class MappedIO {
         public abstract void test() throws IOException;
     }
 
-    private static Tester[] tests = { new Tester("Stream Write") {
+    private static Tester[] tests = {new Tester("Stream Write") {
         public void test() throws IOException {
             DataOutputStream dos = new DataOutputStream(
                     new BufferedOutputStream(new FileOutputStream(new File(
@@ -754,7 +745,7 @@ class MappedIO {
                 ib.put(ib.get(i - 1));
             fc.close();
         }
-    } };
+    }};
 
     public static void main(String[] args) {
         for (Tester test : tests)
@@ -824,7 +815,7 @@ class LockingMappedFiles {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see java.lang.Thread#run()
          */
         @Override
@@ -869,8 +860,8 @@ class Worm implements Serializable {
     private static final long serialVersionUID = -3798002066339821114L;
 
     private Random rand = new Random(47);
-    private Data[] d = { new Data(rand.nextInt(10)),
-            new Data(rand.nextInt(10)), new Data(rand.nextInt(10)) };
+    private Data[] d = {new Data(rand.nextInt(10)),
+            new Data(rand.nextInt(10)), new Data(rand.nextInt(10))};
     private Worm next;
     private char c;
 
@@ -887,7 +878,7 @@ class Worm implements Serializable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override
@@ -946,7 +937,7 @@ class Blip1 implements Externalizable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
      */
     @Override
@@ -956,7 +947,7 @@ class Blip1 implements Externalizable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
      */
     @Override
@@ -974,7 +965,7 @@ class Blip2 implements Externalizable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
      */
     @Override
@@ -984,7 +975,7 @@ class Blip2 implements Externalizable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
      */
     @Override
@@ -1038,7 +1029,7 @@ class Blip3 implements Externalizable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override
@@ -1048,7 +1039,7 @@ class Blip3 implements Externalizable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
      */
     @Override
@@ -1060,7 +1051,7 @@ class Blip3 implements Externalizable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
      */
     @Override
@@ -1174,13 +1165,13 @@ abstract class Shape implements Serializable {
         int yVal = rand.nextInt(100);
         int dim = rand.nextInt(100);
         switch (counter++ % 3) {
-        default:
-        case 0:
-            return new Circle(xVal, yVal, dim);
-        case 1:
-            return new Square(xVal, yVal, dim);
-        case 2:
-            return new Line(xVal, yVal, dim);
+            default:
+            case 0:
+                return new Circle(xVal, yVal, dim);
+            case 1:
+                return new Square(xVal, yVal, dim);
+            case 2:
+                return new Line(xVal, yVal, dim);
         }
     }
 }
@@ -1229,6 +1220,7 @@ class Line extends Shape {
 
     /**
      * 必须手动序列化static变量
+     *
      * @param os
      * @throws IOException
      */
@@ -1303,7 +1295,7 @@ class StoreCADState {
 }
 
 class RecoverCADState {
-    @SuppressWarnings({ "unchecked", "unused" })
+    @SuppressWarnings({"unchecked", "unused"})
     public static void main(String[] args) throws Exception {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream(
                 "CADState.out"));
@@ -1339,91 +1331,6 @@ class RecoverCADState {
 }
 
 /**
- * 用XOM解析XML,序列化对象
- */
-class XOMPerson {
-    private String first;
-    private String last;
-    
-    public XOMPerson(String first, String last) {
-        this.first = first;
-        this.last = last;
-    }
-    
-    public Element getXML() {
-        Element person = new Element("person");
-        Element firstName = new Element("first");
-        firstName.appendChild(first);
-        Element lastName = new Element("last");
-        lastName.appendChild(last);
-        person.appendChild(firstName);
-        person.appendChild(lastName);
-        
-        return person;
-    }
-    
-    /**
-     * 从XML中恢复数据
-     */
-    public XOMPerson(Element person) {
-        first = person.getFirstChildElement("first").getValue();
-        last = person.getFirstChildElement("last").getValue();
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return first + " " + last;
-    }
-    
-    public static void format(OutputStream os, Document doc) throws Exception {
-        Serializer serializer = new Serializer(os, "UTF-8");
-        serializer.setIndent(4);
-        serializer.setMaxLength(60);
-        serializer.write(doc);
-        serializer.flush();
-    }
-    
-    public static void main(String[] args) throws Exception {
-        List<XOMPerson> people = Arrays.asList(
-                new XOMPerson("Dr. Bunsen", "Honeydew"),
-                new XOMPerson("Minglei", "Jin"),
-                new XOMPerson("明雷", "靳"));
-        System.out.println(people);
-        
-        Element root = new Element("people");
-        for (XOMPerson p : people) {
-            root.appendChild(p.getXML());
-        }
-        Document doc = new Document(root);
-        format(System.out, doc);
-        format(new BufferedOutputStream(new FileOutputStream("people.xml")), doc);
-    }
-}
-
-/**
- * 从XML中恢复对象
- */
-class People extends ArrayList<XOMPerson> {
-    private static final long serialVersionUID = 8878183606574705842L;
-
-    public People(String filename) throws ValidityException, ParsingException, IOException {
-        Document doc = new Builder().build(filename);
-        Elements elements = doc.getRootElement().getChildElements();
-        for (int i = 0; i < elements.size(); i++) {
-            add(new XOMPerson(elements.get(i)));
-        }
-    }
-    
-    public static void main(String[] args) throws ValidityException, ParsingException, IOException {
-        People p = new People("people.xml");
-        System.out.println(p);
-    }
-}
-
-/**
  * Preferences,主要用于读取用户的偏好和程序配置项信息
  * 在Windows平台中，用户参数项在注册表中的根节点是: HKEY_CURRENT_USER\Software\JavaSoft\Prefs
  * 系统参数项在注册表中的根节点是: HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Prefs
@@ -1435,11 +1342,11 @@ class PreferencesDemo {
         prefs.put("Footwear", "Ruby Slippers");
         prefs.putBoolean("isMan", false);
         prefs.putInt("age", 28);
-        
+
         for (String key : prefs.keys()) {
             System.out.println(key + ": " + prefs.get(key, null));
         }
-        
+
         System.out.println(prefs.getInt("age", 18));
     }
 }

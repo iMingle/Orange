@@ -20,10 +20,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * 
- * 
  * @author mingle
  */
 public interface Interface extends Remote {
-    public String say() throws RemoteException;
+    String say() throws RemoteException;
 }
