@@ -14,9 +14,20 @@
  * limitations under the License.
  */
 
+package org.mingle.orange;
+
+import java.util.concurrent.CompletableFuture;
+
 /**
- * 并发程序的测试
- * 
  * @author mingle
  */
-package org.mingle.orange.java.concurrent.test;
+public class Test {
+    public static void main(String[] args) {
+        String result = CompletableFuture.supplyAsync(() -> "hello")
+                .thenCombine(CompletableFuture.supplyAsync(() -> "world"), (s1, s2) -> s1 + " " + s2).join();
+        System.out.println(result);
+
+        System.out.println(Math.PI);
+
+    }
+}
