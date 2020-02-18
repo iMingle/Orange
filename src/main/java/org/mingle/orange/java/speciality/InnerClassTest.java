@@ -88,16 +88,12 @@ public class InnerClassTest {
         };
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         InnerClassTest outer = new InnerClassTest(6);
         InnerClassTest.Inner inner = outer.new Inner(5);
         InnerClassTest.InnerStatic innerStatic = new InnerStatic();
         inner.service();
     }
-
 }
 
 class InheritInnerClass extends InnerClassTest.Inner {

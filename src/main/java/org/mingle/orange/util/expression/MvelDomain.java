@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.util.mvel;
+package org.mingle.orange.util.expression;
 
 import lombok.Data;
 

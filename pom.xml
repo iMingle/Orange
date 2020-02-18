@@ -1,6 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
+
     <groupId>org.mingle</groupId>
     <artifactId>practice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -8,41 +15,16 @@
     <name>orange</name>
     <description>the orange project</description>
 
-    <developers>
-        <developer>
-            <id>mingle</id>
-            <name>JinMinglei</name>
-            <email>jinminglei@yeah.net</email>
-            <roles>
-                <role>main engineer</role>
-            </roles>
-            <timezone>UTC+08:00</timezone>
-        </developer>
-    </developers>
-
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
     <!-- 属性 -->
     <properties>
         <java.version>1.8</java.version>
-        <compiler.version>1.8</compiler.version>
+
         <!-- encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <flink.version>1.8.1</flink.version>
         <beam.version>2.13.0</beam.version>
-        <spring.version>5.1.8.RELEASE</spring.version>
         <btrace.version>1.3.11</btrace.version>
     </properties>
 
@@ -61,22 +43,18 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
         </dependency>
 
         <dependency>
             <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
-            <version>1.3</version>
+            <artifactId>hamcrest-core</artifactId>
             <scope>test</scope>
         </dependency>
-
 
         <!-- Mock objects library for java -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>3.0.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -112,20 +90,24 @@
         <dependency>
             <groupId>org.mvel</groupId>
             <artifactId>mvel2</artifactId>
-            <version>2.2.2.Final</version>
+            <version>2.4.4.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.aviator</groupId>
+            <artifactId>aviator</artifactId>
+            <version>4.2.4</version>
         </dependency>
 
         <!-- 用于Java对象和JSON和XML之间的转换 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.9</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.5</version>
         </dependency>
 
         <!-- Fastjson is a JSON processor (JSON parser + JSON generator) written in Java -->
@@ -139,7 +121,6 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.26</version>
         </dependency>
 
         <!-- 分析、编辑和创建Java字节码的类库 -->
@@ -155,7 +136,6 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.9</version>
         </dependency>
 
         <!-- The Commons IO library contains utility classes, stream implementations,
@@ -185,7 +165,6 @@
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>2.10.3</version>
         </dependency>
 
         <!-- Spice up your java: Automatic Resource Management, automatic generation
@@ -193,35 +172,24 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
         </dependency>
 
         <!-- The easiest way to write SQL in Java -->
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
-            <version>3.11.11</version>
         </dependency>
 
         <!-- Rich and fluent assertions for testing for Java -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.13.0</version>
-        </dependency>
-
-        <!-- The ActiveMQ Message Broker and Client implementations -->
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-core</artifactId>
-            <version>5.7.0</version>
         </dependency>
 
         <!-- Selenium automates browsers. That's it! What you do with that power is entirely up to you -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
             <exclusions>
                 <exclusion>
                     <groupId>io.netty</groupId>
@@ -233,7 +201,6 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.38.Final</version>
         </dependency>
 
         <!-- The jmh is a Java harness for building, running, and analysing nano/micro/macro benchmarks
@@ -255,14 +222,12 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.9</version>
         </dependency>
 
         <!-- Spring Core -->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
+            <artifactId>spring-beans</artifactId>
         </dependency>
 
         <dependency>
@@ -295,7 +260,6 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>3.1.0</version>
         </dependency>
 
         <!-- A zookeeper client, that makes life a little easier -->
@@ -303,6 +267,19 @@
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
             <version>0.11</version>
+        </dependency>
+
+        <!-- kafka -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+        </dependency>
+
+        <!-- Java library which enables encryption in java apps with minimum effort. -->
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>1.9.3</version>
         </dependency>
 
         <!-- flink -->
@@ -391,9 +368,9 @@
                 <configuration>
                     <compilerId>javac-with-errorprone</compilerId>
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
-                    <compilerVersion>${compiler.version}</compilerVersion>
-                    <source>${compiler.version}</source>
-                    <target>${compiler.version}</target>
+                    <compilerVersion>${java.version}</compilerVersion>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <encoding>UTF-8</encoding>
                     <compilerArgs>
                         <arg>-Xep:ParameterName:OFF</arg>

@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.util.mvel;
+package org.mingle.orange.util.expression;
 
-import lombok.Data;
 import org.mvel2.MVEL;
 import org.mvel2.ParserContext;
 
@@ -26,29 +25,14 @@ import org.mvel2.ParserContext;
 public class MvelTest {
 
     public static void main(String[] args) {
+        MvelTest.mvel();
+    }
+
+    public static void mvel() {
         String expression = "((name contains 'Mingle') && (age >= 25))";
-//        MvelDomainInner domainInner = new MvelDomainInner("JinMinglei", 25);            // error
-        MvelDomain domain = new MvelDomain("JinMinglei", 25);
+        MvelDomain domain = new MvelDomain(null, 25);
 
         Object compiledExpression = MVEL.compileExpression(expression, new ParserContext());
         System.out.println(MVEL.executeExpression(compiledExpression, domain, Boolean.class));
-    }
-}
-
-/**
- * 非public类
- */
-@Data
-class MvelDomainInner {
-    private String name;
-    private int age;
-
-    public MvelDomainInner() {
-    }
-
-    public MvelDomainInner(String name, int age) {
-        super();
-        this.name = name;
-        this.age = age;
     }
 }

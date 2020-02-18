@@ -20,18 +20,18 @@ import java.util.List;
 import java.util.concurrent.Phaser;
 
 /**
- * A reusable synchronization barrier, similar in functionality to 
+ * A reusable synchronization barrier, similar in functionality to
  * CyclicBarrier and CountDownLatch but supporting more flexible usage.
- * 
+ *
  * @author mingle
  */
 public class ConcurrentPhaser {
     /**
-     * A Phaser may be used instead of a CountDownLatch to control 
-     * a one-shot action serving a variable number of parties. 
-     * The typical idiom is for the method setting this up to first register, 
+     * A Phaser may be used instead of a CountDownLatch to control
+     * a one-shot action serving a variable number of parties.
+     * The typical idiom is for the method setting this up to first register,
      * then start the actions, then deregister
-     * 
+     *
      * @param tasks
      */
     void runTasks(List<Runnable> tasks) {
@@ -39,12 +39,10 @@ public class ConcurrentPhaser {
         // create and start threads
         for (final Runnable task : tasks) {
             phaser.register();
-            new Thread() {
-                public void run() {
-                    phaser.arriveAndAwaitAdvance(); // await all creation
-                    task.run();
-                }
-            }.start();
+            new Thread(() -> {
+                phaser.arriveAndAwaitAdvance(); // await all creation
+                task.run();
+            }).start();
         }
 
         // allow threads to start and deregister self
@@ -52,29 +50,27 @@ public class ConcurrentPhaser {
     }
 
     /**
-     * One way to cause a set of threads to repeatedly perform actions 
+     * One way to cause a set of threads to repeatedly perform actions
      * for a given number of iterations is to override onAdvance
-     * 
+     *
      * @param tasks
      * @param iterations
      */
     void startTasks(List<Runnable> tasks, final int iterations) {
         final Phaser phaser = new Phaser() {
-            protected boolean onAdvance(int phase, int registeredParties) {
+            @Override protected boolean onAdvance(int phase, int registeredParties) {
                 return phase >= iterations || registeredParties == 0;
             }
         };
         phaser.register();
         for (final Runnable task : tasks) {
             phaser.register();
-            new Thread() {
-                public void run() {
-                    do {
-                        task.run();
-                        phaser.arriveAndAwaitAdvance();
-                    } while (!phaser.isTerminated());
-                }
-            }.start();
+            new Thread(() -> {
+                do {
+                    task.run();
+                    phaser.arriveAndAwaitAdvance();
+                } while (!phaser.isTerminated());
+            }).start();
         }
         phaser.arriveAndDeregister(); // deregister self, don't wait
     }

@@ -16,6 +16,8 @@
 
 package org.mingle.orange;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -24,10 +26,21 @@ import java.util.concurrent.CompletableFuture;
 public class Test {
     public static void main(String[] args) {
         String result = CompletableFuture.supplyAsync(() -> "hello")
-                .thenCombine(CompletableFuture.supplyAsync(() -> "world"), (s1, s2) -> s1 + " " + s2).join();
+                .thenCombineAsync(CompletableFuture.supplyAsync(() -> "world"), (s1, s2) -> s1 + " " + s2).join();
         System.out.println(result);
 
-        System.out.println(Math.PI);
+        System.out.println(Long.toBinaryString(Long.parseLong("f0000000", 16)));
+        System.out.println(0xf0000000);
+        System.out.println(0xc0000000);
+        System.out.println(0x80000000);
+        System.out.println(0x00010000);
 
+        List<Integer> persons = new ArrayList<>();
+        persons.add(1);
+        persons.add(2);
+        persons.add(3);
+
+        System.out.println(persons.indexOf(3));
+        System.out.println(persons.get(persons.indexOf(3)));
     }
 }
