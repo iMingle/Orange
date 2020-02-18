@@ -14,29 +14,29 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.cache.self;
+package org.mingle.orange.cache;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 缓存
  * 
  * @author mingle
  */
-public class Memoizer2<A, V> implements Computable<A, V> {
-    private final Map<A, V> cache = new ConcurrentHashMap<A, V>();
+public class Memoizer1<A, V> implements Computable<A, V> {
+    private final Map<A, V> cache = new HashMap<A, V>();
     private final Computable<A, V> c;
     
-    public Memoizer2(Computable<A, V> c) {
+    public Memoizer1(Computable<A, V> c) {
         this.c = c;
     }
 
     /**
-     * 可能出现2个线程同时计算相同的数据
+     * synchronized一次只能有一个线程执行,有伸缩性问题
      */
     @Override
-    public V compute(A arg) throws InterruptedException {
+    public synchronized V compute(A arg) throws InterruptedException {
         V result = cache.get(arg);
         if (null == result) {
             result = c.compute(arg);

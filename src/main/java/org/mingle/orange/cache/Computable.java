@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.cache.self;
+package org.mingle.orange.cache;
 
 /**
  * 可计算

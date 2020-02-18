@@ -14,36 +14,21 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.cache.self;
+package org.mingle.orange.cache;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.math.BigInteger;
 
 /**
- * 缓存
+ * 耗时操作
  * 
  * @author mingle
  */
-public class Memoizer1<A, V> implements Computable<A, V> {
-    private final Map<A, V> cache = new HashMap<A, V>();
-    private final Computable<A, V> c;
-    
-    public Memoizer1(Computable<A, V> c) {
-        this.c = c;
-    }
+public class ExpensiveFunction implements Computable<String, BigInteger> {
 
-    /**
-     * synchronized一次只能有一个线程执行,有伸缩性问题
-     */
     @Override
-    public synchronized V compute(A arg) throws InterruptedException {
-        V result = cache.get(arg);
-        if (null == result) {
-            result = c.compute(arg);
-            cache.put(arg, result);
-        }
-        
-        return result;
+    public BigInteger compute(String arg) throws InterruptedException {
+        // 经过长时间的计算
+        return new BigInteger(arg);
     }
 
 }

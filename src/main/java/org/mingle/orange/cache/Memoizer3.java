@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.cache.self;
+package org.mingle.orange.cache;
 
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -25,32 +25,35 @@ import java.util.concurrent.FutureTask;
 
 /**
  * 缓存
- * 问题1:如果计算取消或检测到RuntimeExeption,需要移除Future
- * 问题2:缓存逾期问题,可以通过FutureTask的子类来解决
- * 问题3:缓存清理问题,即移除旧的计算结果以便为新的计算结果腾出空间,从而使缓存不会消耗过多的内存
  *
  * @author mingle
  */
-public class Memoizer<A, V> implements Computable<A, V> {
+public class Memoizer3<A, V> implements Computable<A, V> {
     private final Map<A, Future<V>> cache = new ConcurrentHashMap<>();
     private final Computable<A, V> c;
 
-    public Memoizer(Computable<A, V> c) {
+    public Memoizer3(Computable<A, V> c) {
         this.c = c;
     }
 
     /**
-     * 通过putIfAbsent方法确保原子性,不可能出现2个线程同时计算相同的数据的情况
+     * 可能出现2个线程同时计算相同的数据,但是发生概率小于Memoizer2
      */
     @Override
     public V compute(A arg) throws InterruptedException {
         Future<V> f = cache.get(arg);
         if (null == f) {
-            Callable<V> eval = () -> c.compute(arg);
+            Callable<V> eval = new Callable<V>() {
+
+                @Override
+                public V call() throws Exception {
+                    return c.compute(arg);
+                }
+            };
 
             FutureTask<V> ft = new FutureTask<>(eval);
             f = ft;
-            cache.putIfAbsent(arg, ft);
+            cache.put(arg, ft);
             ft.run();    // 调用c.compute(arg);
         }
 
