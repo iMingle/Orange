@@ -1,0 +1,11 @@
+syntax = "proto3";
+package org.orange.java.nio.netty.codec.protobuf;
+
+option java_package = "org.orange.java.nio.netty.codec.protobuf";
+option java_outer_classname = "SubscribeRespProto";
+
+message SubscribeResp {
+    int32 subReqId = 1;
+    int32 respCode = 2;
+    string desc = 3;
+}

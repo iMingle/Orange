@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mingle.orange.java.speciality;
+package org.orange.java.speciality;
 
 interface Incrementable {
     void increment();
