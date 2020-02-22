@@ -16,10 +16,8 @@
 
 package org.orange.util.json;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,8 +25,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -100,33 +96,6 @@ public class JacksonTest {
         JsonNode node = mapper.readTree(json);
         for (Iterator<JsonNode> it = node.iterator(); it.hasNext(); )
             System.out.println(it.next());
-
-        System.out.println("============== Streaming parser, generator ==============");
-        JsonFactory f = mapper.getFactory(); // may alternatively construct directly too
-
-        // First: write simple JSON output
-        File jsonFile = new File("test.json");
-        JsonGenerator g = f.createGenerator(new FileOutputStream(jsonFile));
-        g.writeStartObject();
-        g.writeStringField("message", "Hello world!");
-        g.writeEndObject();
-        g.close();
-
-        // Second: read file back
-        JsonParser p = f.createParser(jsonFile);
-
-        JsonToken t = p.nextToken(); // Should be JsonToken.START_OBJECT
-        t = p.nextToken(); // JsonToken.FIELD_NAME
-        if ((t != JsonToken.FIELD_NAME) || !"message".equals(p.getCurrentName())) {
-            // handle error
-        }
-        t = p.nextToken();
-        if (t != JsonToken.VALUE_STRING) {
-            // similarly
-        }
-        String msg = p.getText();
-        System.out.printf("My message to you is: %s!\n", msg);
-        p.close();
 
         System.out.println("============== Conversions List<Integer>->int[] ==============");
         List<Integer> sourceList = Lists.newArrayList();
