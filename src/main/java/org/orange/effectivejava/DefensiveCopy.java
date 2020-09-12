@@ -20,7 +20,7 @@ import java.util.Date;
 
 /**
  * 保护性拷贝
- * 
+ *
  * @author mingle
  */
 public class DefensiveCopy {
@@ -42,19 +42,19 @@ public class DefensiveCopy {
 final class Period {
     private final Date start;
     private final Date end;
-    
+
     public Period(Date start, Date end) {
         this.start = new Date(start.getTime());
         this.end = new Date(end.getTime());
-        
+
         if (start.compareTo(end) > 0)
             throw new IllegalArgumentException(start + " after " + end);
     }
-    
+
     public Date start() {
         return new Date(start.getTime());
     }
-    
+
     public Date end() {
         return new Date(end.getTime());
     }

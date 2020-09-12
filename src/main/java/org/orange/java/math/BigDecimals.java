@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 /**
  * @author mingle
  */
-public class BigDecimalTest {
+public class BigDecimals {
 
     public static void main(String[] args) {
         System.out.println("0.05 + 0.01 = " + (0.05 + 0.01));

@@ -16,7 +16,7 @@
 
 package org.orange.arithmetic.search.hash;
 
-import org.orange.arithmetic.base.Queue;
+import org.orange.arithmetic.base.queue.Queue;
 
 /**
  * The {@code LinearProbingHash} class represents a symbol table of generic

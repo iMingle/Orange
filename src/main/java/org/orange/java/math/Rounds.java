@@ -25,7 +25,7 @@ import java.text.NumberFormat;
  *
  * @author mingle
  */
-public class RoundTest {
+public class Rounds {
     public static void main(String[] args) {
         double i = 2, j = 2.1, k = 2.5, m = 2.9;
         System.out.println("舍掉小数取整:Math.floor(2)=" + (int) Math.floor(i));

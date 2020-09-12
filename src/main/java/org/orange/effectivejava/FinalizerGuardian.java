@@ -14,12 +14,20 @@
  * limitations under the License.
  */
 
-package org.orange.arithmetic.base;
+package org.orange.effectivejava;
 
-public interface Datable {
-    int month();
-
-    int day();
-
-    int year();
+/**
+ * 终结方法守卫者
+ *
+ * 公有类FinalizerGuardian并没有终结方法,所以子类的终结方法是否调用super.finalize并不重要.
+ * 对于每一个带有终结方法的非final公有类,都应该考虑使用这种方法.
+ *
+ * @author mingle
+ */
+public class FinalizerGuardian {
+    private final Object finalizerGuardian = new Object() {
+        @Override protected void finalize() throws Throwable {
+            FinalizerGuardian.this.finalize();
+        }
+    };
 }

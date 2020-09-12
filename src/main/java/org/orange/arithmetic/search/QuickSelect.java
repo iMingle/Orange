@@ -16,7 +16,7 @@
 
 package org.orange.arithmetic.search;
 
-import org.orange.arithmetic.sort.Insertion;
+import org.orange.arithmetic.sort.InsertionSort;
 import org.orange.util.SortUtils;
 
 import java.util.Arrays;
@@ -68,7 +68,7 @@ public class QuickSelect {
             else if (k > i + 1)
                 quickSelect(a, i + 1, right, k);
         } else {
-            Insertion.sort(a, left, right);
+            InsertionSort.sort(a, left, right);
         }
     }
 

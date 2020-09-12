@@ -16,7 +16,7 @@
 
 package org.orange.arithmetic.graph;
 
-import org.orange.arithmetic.base.Stack;
+import org.orange.arithmetic.base.stack.Stack;
 
 /**
  * The {@code EdgeWeightedDirectedCycle} class represents a data type for

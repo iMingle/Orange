@@ -18,13 +18,13 @@ package org.orange.effectivejava;
 
 /**
  * Builder模式创建对象
- * 
+ *
  * @author mingle
  */
 public class BuilderPattern {
     public static void main(String[] args) {
         NutritionFactsThree nf = new NutritionFactsThree.BuilderInner(240, 8)
-        .calories(100).sodium(35).carbohydrate(27).build();
+                .calories(100).sodium(35).carbohydrate(27).build();
         System.out.println(nf);
     }
 }
@@ -46,27 +46,27 @@ class NutritionFactsOne {
     private final int sodium;        // (mg)                optional
     @SuppressWarnings("unused")
     private final int carbohydrate;    // (g)                optional
-    
+
     public NutritionFactsOne(int servingSize, int servings) {
         this(servingSize, servings, 0);
     }
-    
+
     public NutritionFactsOne(int servingSize, int servings, int calories) {
         this(servingSize, servings, calories, 0);
     }
-    
+
     public NutritionFactsOne(int servingSize, int servings, int calories,
-            int fat) {
+                             int fat) {
         this(servingSize, servings, calories, fat, 0);
     }
-    
+
     public NutritionFactsOne(int servingSize, int servings, int calories,
-            int fat, int sodium) {
+                             int fat, int sodium) {
         this(servingSize, servings, calories, fat, sodium, 0);
     }
-    
+
     public NutritionFactsOne(int servingSize, int servings, int calories,
-            int fat, int sodium, int carbohydrate) {
+                             int fat, int sodium, int carbohydrate) {
         this.servingSize = servingSize;
         this.servings = servings;
         this.calories = calories;
@@ -74,7 +74,7 @@ class NutritionFactsOne {
         this.sodium = sodium;
         this.carbohydrate = carbohydrate;
     }
-    
+
 }
 
 /**
@@ -93,8 +93,9 @@ class NutritionFactsTwo {
     private int sodium = 0;
     @SuppressWarnings("unused")
     private int carbohydrate = 0;
-    
-    public NutritionFactsTwo() {}
+
+    public NutritionFactsTwo() {
+    }
 
     // Setters
     public void setServingSize(int servingSize) {
@@ -120,7 +121,7 @@ class NutritionFactsTwo {
     public void setCarbohydrate(int carbohydrate) {
         this.carbohydrate = carbohydrate;
     }
-    
+
 }
 
 /**
@@ -139,52 +140,52 @@ class NutritionFactsThree {
     private final int sodium;
     @SuppressWarnings("unused")
     private final int carbohydrate;
-    
+
     interface Builder<T> {
         T build();
     }
-    
+
     public static class BuilderInner implements Builder<NutritionFactsThree> {
         // Required paarmeters
         private final int servingSize;
         private final int servings;
-        
+
         // Optional parameters - initialized to default value
         private int calories = 0;
         private int fat = 0;
         private int sodium = 0;
         private int carbohydrate = 0;
-        
+
         public BuilderInner(int servingSize, int servings) {
             this.servingSize = servingSize;
             this.servings = servings;
         }
-        
+
         public BuilderInner calories(int val) {
             calories = val;
             return this;
         }
-        
+
         public BuilderInner fat(int val) {
             fat = val;
             return this;
         }
-        
+
         public BuilderInner sodium(int val) {
             sodium = val;
             return this;
         }
-        
+
         public BuilderInner carbohydrate(int val) {
             carbohydrate = val;
             return this;
         }
-        
+
         public NutritionFactsThree build() {
             return new NutritionFactsThree(this);
         }
     }
-    
+
     private NutritionFactsThree(BuilderInner builder) {
         servingSize = builder.servingSize;
         servings = builder.servings;
@@ -193,5 +194,5 @@ class NutritionFactsThree {
         sodium = builder.sodium;
         carbohydrate = builder.carbohydrate;
     }
-    
+
 }

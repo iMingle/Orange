@@ -18,7 +18,11 @@ package org.orange.designpattern.creational.singleton;
 
 import java.io.Serializable;
 
-
+/**
+ * 正常初始化单例
+ *
+ * @author mingle
+ */
 public class SingletonOne implements Serializable {
     private static final long serialVersionUID = 7170169719109367401L;
 

@@ -22,13 +22,13 @@ import java.util.TimeZone;
 
 /**
  * 避免创建不必要的对象
- * 
+ *
  * @author mingle
  */
 public class AvoidCreateNeedlessObject {
     @SuppressWarnings("unused")
     private String s = new String("stringette");    // DON'T DO THIS
-    
+
     public static void main(String[] args) {
         Long sum = 0L;
         /**
@@ -41,14 +41,14 @@ public class AvoidCreateNeedlessObject {
 
 class Person {
     private final Date birthDate;
-    
+
     public Person(Date birthDate) {
         this.birthDate = birthDate;
     }
 
     /**
      * 是否在生育高峰期出生的小孩
-     * 
+     *
      * @return
      */
     public boolean isBabyBoomer() {
@@ -64,10 +64,10 @@ class Person {
 
 class PersonBetter {
     private final Date birthDate;
-    
+
     private static final Date BOOM_START;
     private static final Date BOOM_END;
-    
+
     static {
         Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
         gmtCal.set(1946, Calendar.JANUARY, 1, 0, 0, 0);
@@ -75,14 +75,14 @@ class PersonBetter {
         gmtCal.set(1965, Calendar.JANUARY, 1, 0, 0, 0);
         BOOM_END = gmtCal.getTime();
     }
-    
+
     public PersonBetter(Date birthDate) {
         this.birthDate = birthDate;
     }
 
     /**
      * 是否在生育高峰期出生的小孩
-     * 
+     *
      * @return
      */
     public boolean isBabyBoomer() {

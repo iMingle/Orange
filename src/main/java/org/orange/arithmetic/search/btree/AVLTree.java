@@ -17,7 +17,7 @@
 package org.orange.arithmetic.search.btree;
 
 import edu.princeton.cs.algs4.AVLTreeST;
-import org.orange.arithmetic.base.Queue;
+import org.orange.arithmetic.base.queue.Queue;
 
 import java.util.NoSuchElementException;
 

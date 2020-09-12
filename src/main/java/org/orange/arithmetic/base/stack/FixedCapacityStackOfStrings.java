@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.orange.arithmetic.base;
+package org.orange.arithmetic.base.stack;
 
 public class FixedCapacityStackOfStrings {
     private String[] a;
     private int N;
-    
+
     public String[] getA() {
         return a;
     }
@@ -39,23 +39,23 @@ public class FixedCapacityStackOfStrings {
     public FixedCapacityStackOfStrings(int capacity) {
         a = new String[capacity];
     }
-    
+
     public boolean isEmpty() {
         return N == 0;
     }
-    
+
     public boolean isFull() {
         return N == this.a.length;
     }
-    
+
     public int size() {
         return N;
     }
-    
+
     public void push(String item) {
         a[N++] = item;
     }
-    
+
     public String pop() {
         return a[--N];
     }

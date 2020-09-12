@@ -14,8 +14,18 @@
  * limitations under the License.
  */
 
-package org.orange.arithmetic.base;
+package org.orange.java.math;
 
-public enum Day {
-    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+/**
+ * @author mingle
+ */
+public class Mods {
+    public static void main(String[] args) {
+        System.out.println(7 % -3);
+        System.out.println(Math.floorMod(7, -3));
+        System.out.println(Math.floor(3.2));
+        System.out.println(Math.floor(-3.2));
+        System.out.println(Math.ceil(3.2));
+        System.out.println(Math.ceil(-3.2));
+    }
 }

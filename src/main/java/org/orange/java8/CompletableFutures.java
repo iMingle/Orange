@@ -14,35 +14,17 @@
  * limitations under the License.
  */
 
-package org.orange.arithmetic.sort;
+package org.orange.java8;
 
-import org.orange.util.SortUtils;
-
-import java.util.Arrays;
-import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 /**
- *
  * @author mingle
  */
-public class Insertion {
-
-    public static <T extends Comparable<T>> void sort(List<T> a, int lo, int hi) {
-        for (int i = lo + 1; i <= hi; i++) {
-            for (int j = i; j > 0 && SortUtils.less(a.get(j), a.get(j - 1)); j--) {
-                SortUtils.exchange(a, j, j - 1);
-            }
-        }
-    }
-
+public class CompletableFutures {
     public static void main(String[] args) {
-        String[] str = new String[] {"g", "f", "e", "d", "c", "b", "a"};
-        List<String> s = Arrays.asList(str);
-
-        sort(s, 0, s.size() - 1);
-
-        assert SortUtils.isSorted(s);
-
-        SortUtils.show(s);
+        String result = CompletableFuture.supplyAsync(() -> "hello")
+                .thenCombineAsync(CompletableFuture.supplyAsync(() -> "world"), (s1, s2) -> s1 + " " + s2).join();
+        System.out.println(result);
     }
 }

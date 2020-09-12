@@ -84,8 +84,8 @@ public class LinkedBag<Item> implements Iterable<Item> {
     /**
      * Returns an iterator that iterates over the items in the bag.
      */
-    public Iterator<Item> iterator() {
-        return new ListIterator();
+    @Override public Iterator<Item> iterator() {
+        return new ListIterator<>();
     }
 
     // an iterator, doesn't implement remove() since it's optional

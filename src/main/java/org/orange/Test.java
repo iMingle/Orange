@@ -16,31 +16,34 @@
 
 package org.orange;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-
 /**
  * @author mingle
  */
 public class Test {
     public static void main(String[] args) {
-        String result = CompletableFuture.supplyAsync(() -> "hello")
-                .thenCombineAsync(CompletableFuture.supplyAsync(() -> "world"), (s1, s2) -> s1 + " " + s2).join();
-        System.out.println(result);
+        /**
+         * 12345的浮点数标识
+         * 11000000111001  1.1000000111001*(2**13)
+         */
+        System.out.println(Long.toBinaryString(-1L));
+        System.out.println(1L >> 2);
+        System.out.println(Float.floatToIntBits(1.2f));
+        System.out.println(Long.MAX_VALUE);
+        System.out.println(Long.MIN_VALUE);
+        System.out.println(Long.toBinaryString(Long.MAX_VALUE));
+        System.out.println(Long.toBinaryString(Long.MIN_VALUE));
+        System.out.println(Long.toBinaryString((-1L) >> 2));
+        System.out.println(Long.toBinaryString(12345)); // 1+8+16+32+2**12+2**13
 
-        System.out.println(Long.toBinaryString(Long.parseLong("f0000000", 16)));
-        System.out.println(0xf0000000);
-        System.out.println(0xc0000000);
-        System.out.println(0x80000000);
-        System.out.println(0x00010000);
 
-        List<Integer> persons = new ArrayList<>();
-        persons.add(1);
-        persons.add(2);
-        persons.add(3);
+        while (true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("interrupted");
+            }
 
-        System.out.println(persons.indexOf(3));
-        System.out.println(persons.get(persons.indexOf(3)));
+            System.out.println("hello");
+        }
     }
 }

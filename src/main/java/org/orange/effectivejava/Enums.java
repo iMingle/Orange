@@ -18,10 +18,10 @@ package org.orange.effectivejava;
 
 /**
  * 枚举类型
- * 
+ *
  * @author mingle
  */
-public class Enum {
+public class Enums {
     /**
      * 基本运算
      */
@@ -50,20 +50,20 @@ public class Enum {
                 return x / y;
             }
         };
-        
+
         private final String symbol;
 
         Operation(String symbol) {
             this.symbol = symbol;
         }
-        
+
         @Override public String toString() {
             return symbol;
         }
-        
+
         abstract double apply(double x, double y);
     }
-    
+
     /**
      * 策略枚举
      */
@@ -71,9 +71,9 @@ public class Enum {
         MONDAY(PayType.WEEKDAY), TUESDAY(PayType.WEEKDAY), WEDNESDAY(PayType.WEEKDAY),
         THURSDAY(PayType.WEEKDAY), FRIDAY(PayType.WEEKDAY),
         SATURDAY(PayType.WEEKEND), SUNDAY(PayType.WEEKEND);
-        
+
         private final PayType payType;
-        
+
         PayrollDay(PayType payType) {
             this.payType = payType;
         }
@@ -99,9 +99,9 @@ public class Enum {
                 }
             };
             private static final int HOURS_PER_SHIFT = 8;
-            
+
             abstract double overtimePay(double hours, double payRate);
-            
+
             double pay(double hoursWorked, double payRate) {
                 double basePay = hoursWorked * payRate;
                 return basePay + overtimePay(hoursWorked, payRate);

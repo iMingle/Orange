@@ -35,7 +35,7 @@ public class Quick {
 
     private static <T extends Comparable<T>> void sort(List<T> a, int lo, int hi) {
         if (hi <= lo + M) {
-            Insertion.sort(a, lo, hi);
+            InsertionSort.sort(a, lo, hi);
             return;
         }
 
@@ -57,7 +57,7 @@ public class Quick {
 
     private static <T extends Comparable<T>> void mediansort(List<T> a, int lo, int hi) {
         if (hi <= lo + M) {
-            Insertion.sort(a, lo, hi);
+            InsertionSort.sort(a, lo, hi);
             return;
         }
 

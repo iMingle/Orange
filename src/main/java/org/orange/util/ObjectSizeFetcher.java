@@ -34,10 +34,11 @@ import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
  * @author mingle
  */
 public class ObjectSizeFetcher {
-    int a;
-    int b;
-    int d;
-    char c;
+//    int a;
+//    long b;
+//    int d;
+    char[] c;
+    Object[] o = new Object[2];
 
     public static void main(String[] args) {
         System.out.println(ObjectSizeCalculator.getObjectSize(new ObjectSizeFetcher()));

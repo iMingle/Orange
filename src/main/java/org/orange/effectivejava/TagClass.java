@@ -18,10 +18,11 @@ package org.orange.effectivejava;
 
 /**
  * 类层次优于标签类
- * 
+ *
  * @author mingle
  */
-public class TagClass {}
+public class TagClass {
+}
 
 /**
  * 标签类,冗余信息太多
@@ -30,12 +31,12 @@ class Figure {
     enum Shape {
         RECTANGLE, CIRCLE
     }
-    
+
     final Shape shape;
-    
+
     double length;
     double width;
-    
+
     double radius;
 
     public Figure(double radius) {
@@ -48,15 +49,15 @@ class Figure {
         this.length = length;
         this.width = width;
     }
-    
+
     public double area() {
         switch (shape) {
-        case RECTANGLE:
-            return length * width;
-        case CIRCLE:
-            return Math.PI * (radius * radius);
-        default:
-            throw new AssertionError();
+            case RECTANGLE:
+                return length * width;
+            case CIRCLE:
+                return Math.PI * (radius * radius);
+            default:
+                throw new AssertionError();
         }
     }
 }
@@ -71,7 +72,7 @@ class Circle extends FigureBetter {
     public Circle(double radius) {
         this.radius = radius;
     }
-    
+
     public double area() {
         return Math.PI * (radius * radius);
     }
@@ -80,12 +81,12 @@ class Circle extends FigureBetter {
 class Rectangle extends FigureBetter {
     final double length;
     final double width;
-    
+
     public Rectangle(double length, double width) {
         this.length = length;
         this.width = width;
     }
-    
+
     public double area() {
         return length * width;
     }

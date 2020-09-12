@@ -16,6 +16,8 @@
 
 package org.orange.arithmetic.base;
 
+import org.orange.arithmetic.base.stack.Stack;
+
 /**
  * 括号匹配
  * 

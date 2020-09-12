@@ -17,10 +17,18 @@
 package org.orange.arithmetic.base;
 
 import edu.princeton.cs.algs4.In;
+import org.orange.arithmetic.search.BinarySearch;
 
 import java.util.Arrays;
 
+/**
+ * @author mingle
+ */
 public class ThreeSum {
+    /**
+     * 计算和为0的三元组个数
+     * ~N**3
+     */
     public static int count(int[] a) { // Count triples that sum to 0.
         int N = a.length;
         int cnt = 0;
@@ -32,14 +40,24 @@ public class ThreeSum {
         return cnt;
     }
 
-    @SuppressWarnings("deprecation")
-    public static void main(String[] args) {
-        String[] s = In.readStrings("1.txt");
-        int[] a = new int[s.length];
+    /**
+     * 计算和为0的三元组个数
+     * ~N**2 * lgN
+     */
+    public static int countFast(int[] a) {
+        Arrays.sort(a);
+        int N = a.length;
+        int cnt = 0;
+        for (int i = 0; i < N; i++)
+            for (int j = i + 1; j < N; j++)
+                if (BinarySearch.rank0(-a[i] - a[j], a) > j)
+                    cnt++;
+        return cnt;
+    }
 
-        for (int i = 0; i < s.length; i++) {
-            a[i] = Integer.parseInt(s[i]);
-        }
+    public static void main(String[] args) {
+        In in = new In("1.txt");
+        int[] a = in.readAllInts();
 
         System.out.println(a.length);
         int count = 0;

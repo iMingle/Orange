@@ -22,5 +22,8 @@ package org.orange.designpattern.creational.singleton;
  * @author mingle
  */
 public enum SingletonFour {
+    /**
+     * 单例
+     */
     INSTANCE
 }

@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.orange.arithmetic.base;
+package org.orange.arithmetic.base.queue;
 
 import java.util.Iterator;
 
 /**
  * 链表实现Queue
- * 
+ *
  * @author mingle
  */
 public class Queue<Item> implements Iterable<Item> {
@@ -32,40 +32,40 @@ public class Queue<Item> implements Iterable<Item> {
         Item item;
         Node next;
     }
-    
+
     public boolean isEmpty() {
         return null == first;
     }
-    
+
     public int size() {
         return N;
     }
-    
+
     public void enqueue(Item item) {
         Node oldLast = last;
         last = new Node();
         last.item = item;
         last.next = null;
-        
+
         if (isEmpty()) {
             first = last;
         } else {
             oldLast.next = last;
         }
-        
+
         N++;
     }
-    
+
     public Item dequeue() {
         Item item = first.item;
         first = first.next;
         if (isEmpty()) last = null;
         N--;
-        
+
         return item;
     }
 
-    public Iterator<Item> iterator() {
+    @Override public Iterator<Item> iterator() {
         return new ListIterator();
     }
 

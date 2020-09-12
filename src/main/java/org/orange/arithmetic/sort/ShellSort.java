@@ -22,10 +22,32 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 希尔排序
  *
  * @author mingle
  */
-public class Shell {
+public class ShellSort {
+    public static void sort(int[] a) {
+        int N = a.length;
+        int h = 1;
+        int temp;
+
+        while (h < N / 3) {
+            h = h * 3 + 1;
+        }
+
+        while (h >= 1) {
+            for (int i = h; i < N; i++) {
+                for (int j = i; j >= h && a[j - h] > a[j]; j -= h) {
+                    temp = a[j - h];
+                    a[j - h] = a[j];
+                    a[j] = temp;
+                }
+            }
+
+            h /= 3;
+        }
+    }
 
     public static <T extends Comparable<T>> void sort(List<T> a) {
         int N = a.size();
@@ -52,5 +74,10 @@ public class Shell {
         assert SortUtils.isSorted(s);
 
         SortUtils.show(s);
+
+        int[] data = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+        sort(data);
+
+        System.out.println(Arrays.toString(data));
     }
 }

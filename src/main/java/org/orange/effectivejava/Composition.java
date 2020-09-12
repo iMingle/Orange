@@ -25,7 +25,7 @@ import java.util.TreeSet;
 
 /**
  * 复合设计
- * 
+ *
  * @author mingle
  */
 public class Composition {
@@ -43,21 +43,24 @@ public class Composition {
  */
 class InstrumentedHashSet<E> extends HashSet<E> {
     private static final long serialVersionUID = -3048767023300971996L;
-    
-    // The number of attempted element insertions
+
+    /**
+     * The number of attempted element insertions
+     */
     private int addCount = 0;
-    
-    public InstrumentedHashSet() {}
+
+    public InstrumentedHashSet() {
+    }
 
     public InstrumentedHashSet(int initialCapacity, float loadFactor) {
         super(initialCapacity, loadFactor);
     }
-    
+
     @Override public boolean add(E e) {
         addCount++;
         return super.add(e);
     }
-    
+
     /**
      * addAll方法会调用add方法,导致计数错误
      */
@@ -65,7 +68,7 @@ class InstrumentedHashSet<E> extends HashSet<E> {
         addCount += c.size();
         return super.addAll(c);
     }
-    
+
     public int getAddCount() {
         return addCount;
     }
@@ -76,7 +79,7 @@ class InstrumentedHashSet<E> extends HashSet<E> {
  */
 class InstrumentedSetComposition<E> extends ForwardingSet<E> {
     private int addCount = 0;
-    
+
     public InstrumentedSetComposition(Set<E> s) {
         super(s);
     }
@@ -92,7 +95,7 @@ class InstrumentedSetComposition<E> extends ForwardingSet<E> {
         addCount += c.size();
         return super.addAll(c);
     }
-    
+
     public int getAddCount() {
         return addCount;
     }
@@ -172,5 +175,5 @@ class ForwardingSet<E> implements Set<E> {
     public void clear() {
         s.clear();
     }
-    
+
 }

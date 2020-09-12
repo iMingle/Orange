@@ -17,7 +17,7 @@
 package org.orange.arithmetic.search.hash;
 
 import edu.princeton.cs.algs4.SequentialSearchST;
-import org.orange.arithmetic.base.Queue;
+import org.orange.arithmetic.base.queue.Queue;
 
 /**
  * The {@code SeparateChainingHash} class represents a symbol table of generic

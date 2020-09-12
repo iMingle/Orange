@@ -16,7 +16,7 @@
 
 package org.orange.arithmetic.graph;
 
-import org.orange.arithmetic.base.Queue;
+import org.orange.arithmetic.base.queue.Queue;
 
 /**
  * The {@code TopologicalX} class represents a data type for

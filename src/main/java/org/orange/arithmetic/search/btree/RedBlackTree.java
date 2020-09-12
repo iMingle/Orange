@@ -16,7 +16,7 @@
 
 package org.orange.arithmetic.search.btree;
 
-import org.orange.arithmetic.base.Queue;
+import org.orange.arithmetic.base.queue.Queue;
 
 import java.util.NoSuchElementException;
 

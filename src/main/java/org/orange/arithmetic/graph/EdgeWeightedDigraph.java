@@ -18,7 +18,7 @@ package org.orange.arithmetic.graph;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdRandom;
-import org.orange.arithmetic.base.Stack;
+import org.orange.arithmetic.base.stack.Stack;
 import org.orange.arithmetic.base.bag.Bag;
 
 /**

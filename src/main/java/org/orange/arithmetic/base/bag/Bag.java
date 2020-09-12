@@ -88,12 +88,12 @@ public class Bag<Item> implements Iterable<Item> {
      *
      * @return an iterator that iterates over the items in this bag in arbitrary order
      */
-    public Iterator<Item> iterator() {
+    @Override public Iterator<Item> iterator() {
         return new ListIterator<>(first);
     }
 
     // an iterator, doesn't implement remove() since it's optional
-    private class ListIterator<Item> implements Iterator<Item> {
+    private static class ListIterator<Item> implements Iterator<Item> {
         private Node<Item> current;
 
         public ListIterator(Node<Item> first) {

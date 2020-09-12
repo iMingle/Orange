@@ -21,7 +21,7 @@ import java.util.Date;
 
 /**
  * 所有对象都通用的方法
- * 
+ *
  * @author mingle
  */
 public class ObjectGeneralMethod implements Comparable<ObjectGeneralMethod> {
@@ -35,7 +35,7 @@ public class ObjectGeneralMethod implements Comparable<ObjectGeneralMethod> {
     private char c;
     private String name;
     private Date[] array;
-    
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -54,7 +54,7 @@ public class ObjectGeneralMethod implements Comparable<ObjectGeneralMethod> {
         result = prime * result + sex;
         return result;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -95,7 +95,7 @@ public class ObjectGeneralMethod implements Comparable<ObjectGeneralMethod> {
             return false;
         return true;
     }
-    
+
     @Override
     public String toString() {
         return "ObjectGeneralMethod [b=" + b + ", sex=" + sex + ", age=" + age

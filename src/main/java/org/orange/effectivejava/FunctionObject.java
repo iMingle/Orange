@@ -22,7 +22,7 @@ import java.io.Serializable;
 
 /**
  * 函数对象
- * 
+ *
  * @author mingle
  */
 public class FunctionObject {
@@ -33,13 +33,13 @@ public class FunctionObject {
         public int compare(String o1, String o2) {
             return o1.length() - o2.length();
         }
-        
+
     }
-    
+
     public static final Comparator<String> STRING_LENGTH_COMPARATOR = new StrLenCmp();
-    
+
     public static void main(String[] args) {
-        String[] stringArray = new String[] {"asda", "dsdas", "bsd"};
+        String[] stringArray = new String[]{"asda", "dsdas", "bsd"};
         Arrays.sort(stringArray, new Comparator<String>() {
 
             @Override
@@ -47,7 +47,7 @@ public class FunctionObject {
                 return o1.compareTo(o2);
             }
         });
-        
+
         Arrays.sort(stringArray, STRING_LENGTH_COMPARATOR);
     }
 }

@@ -16,9 +16,14 @@
 
 package org.orange.designpattern.creational.singleton;
 
+/**
+ * double-check idiom
+ *
+ * @author mingle
+ */
 public class SingletonTwo {
 
-    private volatile static SingletonTwo INSTANCE = null;
+    private static volatile SingletonTwo INSTANCE = null;
 
     private SingletonTwo() {
         // 防止借助AccessibleObject.setAccessible的反射机制调用私有构造器
@@ -27,13 +32,15 @@ public class SingletonTwo {
     }
 
     public static SingletonTwo getInstance() {
-        if (INSTANCE == null) {
+        SingletonTwo result = INSTANCE;
+        if (result == null) {
             synchronized (SingletonTwo.class) {
-                if (INSTANCE == null)
-                    INSTANCE = new SingletonTwo();
+                result = INSTANCE;
+                if (result == null)
+                    INSTANCE = result = new SingletonTwo();
             }
         }
 
-        return INSTANCE;
+        return result;
     }
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.orange.arithmetic.base;
+package org.orange.arithmetic.search;
 
 /**
  * 二分查找
