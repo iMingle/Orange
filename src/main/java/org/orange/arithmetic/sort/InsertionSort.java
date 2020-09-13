@@ -22,7 +22,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 插入排序
+ * 插入排序 - 稳定的排序算法
+ * <ul>
+ * <li>最好情况时间复杂度 O(n)</li>
+ * <li>最坏情况时间复杂度 O(n**2)</li>
+ * <li>平均情况时间复杂度 O(n**2)</li>
+ * <li>空间复杂度 O(1)</li>
+ * </ul>
  *
  * @author mingle
  */
@@ -36,6 +42,25 @@ public class InsertionSort {
                 a[j - 1] = a[j];
                 a[j] = temp;
             }
+        }
+    }
+
+    public void insertionSort(int[] a) {
+        int N = a.length;
+        if (N <= 1) return;
+
+        for (int i = 1; i < N; ++i) {
+            int value = a[i];
+            int j = i - 1;
+            // 查找插入的位置
+            for (; j >= 0; --j) {
+                if (a[j] > value) {
+                    a[j + 1] = a[j];  // 数据移动
+                } else {
+                    break;
+                }
+            }
+            a[j + 1] = value; // 插入数据
         }
     }
 

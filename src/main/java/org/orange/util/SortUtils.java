@@ -23,7 +23,10 @@ import java.util.List;
  *
  * @author mingle
  */
-public abstract class SortUtils {
+public class SortUtils {
+    private SortUtils() {
+    }
+
     /**
      * return median of left, center and right.
      * order these and hide the pivot.

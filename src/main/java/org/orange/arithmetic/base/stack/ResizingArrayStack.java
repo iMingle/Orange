@@ -23,63 +23,67 @@ import java.util.Iterator;
  *
  * @author mingle
  */
-public class ResizingArrayStack<Item> implements Iterable<Item> {
-    @SuppressWarnings("unchecked")
-    private Item[] a = (Item[]) new Object();
-    private int N = 0;
+public class ResizingArrayStack<E> implements Iterable<E> {
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private Object[] stack;
+    private int size = 0;
+
+    public ResizingArrayStack() {
+        stack = new Object[DEFAULT_CAPACITY];
+    }
 
     public boolean isEmpty() {
-        return N == 0;
+        return size == 0;
     }
 
     public int size() {
-        return N;
+        return size;
     }
 
     private void resize(int max) {
-        @SuppressWarnings("unchecked")
-        Item[] temp = (Item[]) new Object[max];
+        Object[] temp = new Object[max];
 
-        for (int i = 0; i < N; i++) {
-            temp[i] = a[i];
+        for (int i = 0; i < size; i++) {
+            temp[i] = stack[i];
         }
 
-        a = temp;
+        stack = temp;
     }
 
-    public void push(Item item) {
-        if (N == a.length) {
-            resize(2 * a.length);
+    public void push(E item) {
+        if (size == stack.length) {
+            resize(2 * stack.length);
         }
 
-        a[N++] = item;
+        stack[size++] = item;
     }
 
-    public Item pop() {
-        Item item = a[--N];
-        a[N] = null;
+    @SuppressWarnings("unchecked")
+    public E pop() {
+        E item = (E) stack[--size];
+        stack[size] = null;
 
-        if (N > 0 && N == a.length / 4) {
-            resize(a.length / 2);
+        if (size > 0 && size == stack.length / 4) {
+            resize(stack.length / 2);
         }
         return item;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public Iterator<Item> iterator() {
+    @Override public Iterator<E> iterator() {
         return new ReverseArrayIterator();
     }
 
-    @SuppressWarnings("unused")
-    private class ReverseArrayIterator implements Iterator<Item> {
-        private int item = N;
+    private class ReverseArrayIterator implements Iterator<E> {
+        private int item = size;
 
         public boolean hasNext() {
             return item > 0;
         }
 
-        public Item next() {
-            return a[--item];
+        @SuppressWarnings("unchecked")
+        public E next() {
+            return (E) stack[--item];
         }
 
         public void remove() {

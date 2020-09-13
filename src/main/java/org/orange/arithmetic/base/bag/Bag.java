@@ -33,14 +33,14 @@ import java.util.NoSuchElementException;
  *
  * @author mingle
  */
-public class Bag<Item> implements Iterable<Item> {
-    private Node<Item> first;    // beginning of bag
-    private int n;               // number of elements in bag
+public class Bag<E> implements Iterable<E> {
+    private Node<E> first;    // beginning of bag
+    private int n;           // number of elements in bag
 
     // helper linked list class
-    private static class Node<Item> {
-        private Item item;
-        private Node<Item> next;
+    private static class Node<E> {
+        private E item;
+        private Node<E> next;
     }
 
     /**
@@ -75,8 +75,8 @@ public class Bag<Item> implements Iterable<Item> {
      *
      * @param item the item to add to this bag
      */
-    public void add(Item item) {
-        Node<Item> oldfirst = first;
+    public void add(E item) {
+        Node<E> oldfirst = first;
         first = new Node<>();
         first.item = item;
         first.next = oldfirst;
@@ -88,15 +88,15 @@ public class Bag<Item> implements Iterable<Item> {
      *
      * @return an iterator that iterates over the items in this bag in arbitrary order
      */
-    @Override public Iterator<Item> iterator() {
+    @Override public Iterator<E> iterator() {
         return new ListIterator<>(first);
     }
 
     // an iterator, doesn't implement remove() since it's optional
-    private static class ListIterator<Item> implements Iterator<Item> {
-        private Node<Item> current;
+    private static class ListIterator<E> implements Iterator<E> {
+        private Node<E> current;
 
-        public ListIterator(Node<Item> first) {
+        public ListIterator(Node<E> first) {
             current = first;
         }
 
@@ -108,9 +108,9 @@ public class Bag<Item> implements Iterable<Item> {
             throw new UnsupportedOperationException();
         }
 
-        public Item next() {
+        public E next() {
             if (!hasNext()) throw new NoSuchElementException();
-            Item item = current.item;
+            E item = current.item;
             current = current.next;
             return item;
         }

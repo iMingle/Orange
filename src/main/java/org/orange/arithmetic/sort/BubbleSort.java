@@ -19,7 +19,13 @@ package org.orange.arithmetic.sort;
 import java.util.Arrays;
 
 /**
- * 冒泡排序
+ * 冒泡排序 - 稳定的排序算法
+ * <ul>
+ * <li>最好情况时间复杂度 O(n)</li>
+ * <li>最坏情况时间复杂度 O(n**2)</li>
+ * <li>平均情况时间复杂度 O(n**2)</li>
+ * <li>空间复杂度 O(1)</li>
+ * </ul>
  *
  * @author mingle
  */

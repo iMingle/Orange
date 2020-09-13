@@ -24,41 +24,41 @@ import java.util.NoSuchElementException;
  *
  * @author mingle
  */
-public class ResizingArrayQueue<Item> implements Iterable<Item> {
-    private Item[] queue;
+public class ResizingArrayQueue<E> implements Iterable<E> {
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private Object[] queue;
     private int first = 0;
     private int last = 0;
-    private int N = 0;
+    private int size = 0;
 
-    @SuppressWarnings("unchecked")
     public ResizingArrayQueue() {
-        queue = (Item[]) new Object[2];
+        queue = new Object[DEFAULT_CAPACITY];
     }
 
     public boolean isEmpty() {
-        return N == 0;
+        return size == 0;
     }
 
     public int size() {
-        return N;
+        return size;
     }
 
-    @SuppressWarnings("unchecked")
     private void resize(int max) {
-        assert max >= N;
-        Item[] temp = (Item[]) new Object[max];
+        assert max >= size;
+        Object[] temp = new Object[max];
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < size; i++) {
             temp[i] = queue[(i + first) % queue.length];
         }
 
         queue = temp;
         first = 0;
-        last = N;
+        last = size;
     }
 
-    public void enqueue(Item item) {
-        if (N == queue.length) {
+    public void enqueue(E item) {
+        if (size == queue.length) {
             resize(2 * queue.length);
         }
 
@@ -68,59 +68,49 @@ public class ResizingArrayQueue<Item> implements Iterable<Item> {
             last = 0;
         }
 
-        N++;
+        size++;
     }
 
-    public Item dequeue() {
-        if (isEmpty()) throw new NoSuchElementException("Queue underflow");
+    @SuppressWarnings("unchecked")
+    public E dequeue() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue underflow");
+        }
 
-        Item item = queue[first];
+        E item = (E) queue[first];
         queue[first] = null;
-        N--;
+        size--;
         first++;
 
         if (first == queue.length) {
             first = 0;
         }
 
-        if (N > 0 && N == queue.length / 4) {
+        if (size > 0 && size == queue.length / 4) {
             resize(queue.length / 2);
         }
 
         return item;
     }
 
-    public static void main(String[] args) {
-        ResizingArrayQueue<String> re = new ResizingArrayQueue<String>();
-        re.enqueue("jin");
-        re.enqueue("ming");
-        re.enqueue("lei");
-        re.enqueue("wang");
-        re.enqueue("jian");
-        re.enqueue("zong");
-        System.out.println(re.N);
-
-        for (int i = 0; i < 6; i++) {
-            System.out.println("kk");
-            System.out.println(re.dequeue());
-        }
-    }
-
-    public Iterator<Item> iterator() {
+    @Override public Iterator<E> iterator() {
         return new ArrayIterator();
     }
 
-    private class ArrayIterator implements Iterator<Item> {
+    private class ArrayIterator implements Iterator<E> {
         private int i = 0;
 
         public boolean hasNext() {
-            return i < N;
+            return i < size;
         }
 
-        public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
+        @SuppressWarnings("unchecked")
+        public E next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
 
-            Item item = queue[(i + first) % queue.length];
+            E item = (E) queue[(i + first) % queue.length];
             i++;
 
             return item;
@@ -128,6 +118,22 @@ public class ResizingArrayQueue<Item> implements Iterable<Item> {
 
         public void remove() {
             throw new UnsupportedOperationException();
+        }
+    }
+
+    public static void main(String[] args) {
+        ResizingArrayQueue<String> re = new ResizingArrayQueue<>();
+        re.enqueue("jin");
+        re.enqueue("ming");
+        re.enqueue("lei");
+        re.enqueue("wang");
+        re.enqueue("jian");
+        re.enqueue("zong");
+        System.out.println(re.size);
+
+        for (int i = 0; i < 6; i++) {
+            System.out.println("kk");
+            System.out.println(re.dequeue());
         }
     }
 }

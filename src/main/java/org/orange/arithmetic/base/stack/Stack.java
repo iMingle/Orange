@@ -32,11 +32,11 @@ import java.util.NoSuchElementException;
  * operations all take constant time in the worst case.
  * <p>
  *
- * @param <Item> the generic type of an item in this stack
+ * @param <E> the generic type of an item in this stack
  * @author mingle
  */
-public class Stack<Item> implements Iterable<Item> {
-    private Node<Item> first;     // top of stack
+public class Stack<E> implements Iterable<E> {
+    private Node<E> first;     // top of stack
     private int n;                // size of the stack
 
     // helper linked list class
@@ -76,8 +76,8 @@ public class Stack<Item> implements Iterable<Item> {
      *
      * @param item the item to add
      */
-    public void push(Item item) {
-        Node<Item> oldfirst = first;
+    public void push(E item) {
+        Node<E> oldfirst = first;
         first = new Node<>();
         first.item = item;
         first.next = oldfirst;
@@ -90,9 +90,9 @@ public class Stack<Item> implements Iterable<Item> {
      * @return the item most recently added
      * @throws NoSuchElementException if this stack is empty
      */
-    public Item pop() {
+    public E pop() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
-        Item item = first.item;        // save item to return
+        E item = first.item;        // save item to return
         first = first.next;            // delete first node
         n--;
         return item;                   // return the saved item
@@ -104,7 +104,7 @@ public class Stack<Item> implements Iterable<Item> {
      * @return the item most recently added to this stack
      * @throws NoSuchElementException if this stack is empty
      */
-    public Item peek() {
+    public E peek() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
         return first.item;
     }
@@ -116,7 +116,7 @@ public class Stack<Item> implements Iterable<Item> {
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
-        for (Item item : this) {
+        for (E item : this) {
             s.append(item);
             s.append(' ');
         }
@@ -128,15 +128,15 @@ public class Stack<Item> implements Iterable<Item> {
      *
      * @return an iterator to this stack that iterates through the items in LIFO order
      */
-    public Iterator<Item> iterator() {
+    @Override public Iterator<E> iterator() {
         return new ListIterator<>(first);
     }
 
     // an iterator, doesn't implement remove() since it's optional
-    private static class ListIterator<Item> implements Iterator<Item> {
-        private Node<Item> current;
+    private static class ListIterator<E> implements Iterator<E> {
+        private Node<E> current;
 
-        public ListIterator(Node<Item> first) {
+        public ListIterator(Node<E> first) {
             current = first;
         }
 
@@ -148,9 +148,9 @@ public class Stack<Item> implements Iterable<Item> {
             throw new UnsupportedOperationException();
         }
 
-        public Item next() {
+        public E next() {
             if (!hasNext()) throw new NoSuchElementException();
-            Item item = current.item;
+            E item = current.item;
             current = current.next;
             return item;
         }

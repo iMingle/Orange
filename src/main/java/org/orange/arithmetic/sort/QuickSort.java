@@ -23,9 +23,17 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * 快速排序 - 不稳定的排序算法
+ * <ul>
+ * <li>最好情况时间复杂度 O(nlogn)</li>
+ * <li>最坏情况时间复杂度 O(n**2)</li>
+ * <li>平均情况时间复杂度 O(nlogn)</li>
+ * <li>空间复杂度 O(1)</li>
+ * </ul>
+ *
  * @author mingle
  */
-public class Quick {
+public class QuickSort {
     private static final int M = 10;
 
     public static <T extends Comparable<T>> void sort(List<T> a) {

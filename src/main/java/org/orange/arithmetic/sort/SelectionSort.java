@@ -22,7 +22,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 选择排序
+ * 选择排序 - 不稳定的排序算法
+ * <ul>
+ * <li>最好情况时间复杂度 O(n**2)</li>
+ * <li>最坏情况时间复杂度 O(n**2)</li>
+ * <li>平均情况时间复杂度 O(n**2)</li>
+ * <li>空间复杂度 O(1)</li>
+ * </ul>
  *
  * @author mingle
  */

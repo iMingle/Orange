@@ -23,11 +23,23 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 归并排序
+ * 归并排序 - 稳定的排序算法
+ * <ul>
+ * <li>最好情况时间复杂度 O(nlogn)</li>
+ * <li>最坏情况时间复杂度 O(nlogn)</li>
+ * <li>平均情况时间复杂度 O(nlogn)</li>
+ * <li>空间复杂度 O(n)</li>
+ * </ul>
  *
  * @author mingle
  */
-public class MergeUpToDown {
+public class MergeSort {
+    /**
+     * 自顶向下的归并排序
+     *
+     * @param a   待排序数组
+     * @param <T> type
+     */
     public static <T extends Comparable<T>> void sort(List<T> a) {
         List<T> aux = new ArrayList<>(a);
 
@@ -45,7 +57,24 @@ public class MergeUpToDown {
         merge(a, aux, lo, middle, hi);
     }
 
-    public static <T extends Comparable<T>> void merge(List<T> a, List<T> aux, int lo, int middle, int hi) {
+    /**
+     * 自底向上的归并排序
+     *
+     * @param a   待排序数组
+     * @param <T> type
+     */
+    public static <T extends Comparable<T>> void sortBottomUp(List<T> a) {
+        int N = a.size();
+        List<T> aux = new ArrayList<>(a);
+
+        for (int sz = 1; sz < N; sz += sz) {
+            for (int lo = 0; lo < N - sz; lo += sz + sz) {
+                merge(a, aux, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
+            }
+        }
+    }
+
+    private static <T extends Comparable<T>> void merge(List<T> a, List<T> aux, int lo, int middle, int hi) {
         int i = lo;
         int j = middle + 1;
 
@@ -53,10 +82,10 @@ public class MergeUpToDown {
             aux.set(k, a.get(k));
 
         for (int k = lo; k <= hi; k++) {
-            if (i > middle) a.set(k, (T) aux.get(j++));
-            else if (j > hi) a.set(k, (T) aux.get(i++));
-            else if (SortUtils.less(aux.get(i), aux.get(j))) a.set(k, (T) aux.get(i++));
-            else a.set(k, (T) aux.get(j++));
+            if (i > middle) a.set(k, aux.get(j++));
+            else if (j > hi) a.set(k, aux.get(i++));
+            else if (SortUtils.less(aux.get(i), aux.get(j))) a.set(k, aux.get(i++));
+            else a.set(k, aux.get(j++));
         }
     }
 
@@ -68,5 +97,13 @@ public class MergeUpToDown {
         assert SortUtils.isSorted(array);
 
         SortUtils.show(array);
+
+        Integer[] arrBottomUp = {4, 5, 2, 1, 11, 3, 9, 8, 7, 6, 10};
+        List<Integer> arrayBottomUp = Arrays.asList(arrBottomUp);
+        sortBottomUp(arrayBottomUp);
+
+        assert SortUtils.isSorted(arrayBottomUp);
+
+        SortUtils.show(arrayBottomUp);
     }
 }
