@@ -23,22 +23,45 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 归并排序
+ *
  * @author mingle
  */
-public class MergeDownToUp {
+public class MergeUpToDown {
     public static <T extends Comparable<T>> void sort(List<T> a) {
-        int N = a.size();
-        List<Comparable> aux = new ArrayList<>(a);
+        List<T> aux = new ArrayList<>(a);
 
-        for (int sz = 1; sz < N; sz += sz) {
-            for (int lo = 0; lo < N - sz; lo += sz + sz) {
-                MergeUpToDown.merge(a, aux, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
-            }
+        sort(a, aux, 0, a.size() - 1);
+    }
+
+    private static <T extends Comparable<T>> void sort(List<T> a, List<T> aux, int lo, int hi) {
+        if (hi <= lo) return;
+
+        int middle = lo + (hi - lo) / 2;
+
+        sort(a, aux, lo, middle);
+        sort(a, aux, middle + 1, hi);
+
+        merge(a, aux, lo, middle, hi);
+    }
+
+    public static <T extends Comparable<T>> void merge(List<T> a, List<T> aux, int lo, int middle, int hi) {
+        int i = lo;
+        int j = middle + 1;
+
+        for (int k = lo; k <= hi; k++)
+            aux.set(k, a.get(k));
+
+        for (int k = lo; k <= hi; k++) {
+            if (i > middle) a.set(k, (T) aux.get(j++));
+            else if (j > hi) a.set(k, (T) aux.get(i++));
+            else if (SortUtils.less(aux.get(i), aux.get(j))) a.set(k, (T) aux.get(i++));
+            else a.set(k, (T) aux.get(j++));
         }
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {4, 5, 2, 1, 11, 3, 9, 8, 7, 6, 10};
+        Integer[] arr = {4, 5, 2, 1, 11, 12, 3, 9, 8, 7, 6, 10};
         List<Integer> array = Arrays.asList(arr);
         sort(array);
 
