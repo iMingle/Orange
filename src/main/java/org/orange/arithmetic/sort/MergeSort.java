@@ -84,8 +84,8 @@ public class MergeSort {
         for (int k = lo; k <= hi; k++) {
             if (i > middle) a.set(k, aux.get(j++));
             else if (j > hi) a.set(k, aux.get(i++));
-            else if (SortUtils.less(aux.get(i), aux.get(j))) a.set(k, aux.get(i++));
-            else a.set(k, aux.get(j++));
+            else if (SortUtils.less(aux.get(j), aux.get(i))) a.set(k, aux.get(j++));
+            else a.set(k, aux.get(i++));
         }
     }
 
