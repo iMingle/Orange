@@ -36,6 +36,12 @@ import java.util.List;
 public class QuickSort {
     private static final int M = 10;
 
+    /**
+     * 快速排序,lo作为pivot
+     *
+     * @param a   the list to be sorted
+     * @param <T> type
+     */
     public static <T extends Comparable<T>> void sort(List<T> a) {
         Collections.shuffle(a);
         sort(a, 0, a.size() - 1);
@@ -53,10 +59,31 @@ public class QuickSort {
         sort(a, j + 1, hi);
     }
 
+    private static <T extends Comparable<T>> int partition(List<T> a, int lo, int hi) {
+        int i = lo;
+        int j = hi + 1;
+
+        // 第一个元素作为pivot
+        T v = a.get(lo);
+
+        for (; ; ) {
+            while (SortUtils.less(a.get(++i), v)) if (i == hi) break;
+            while (SortUtils.less(v, a.get(--j))) if (j == lo) break;
+
+            if (i >= j) break;
+            SortUtils.exchange(a, i, j);
+        }
+
+        SortUtils.exchange(a, lo, j);
+
+        return j;
+    }
+
     /**
-     * 中位数作为枢纽元
+     * 快速排序,中位数作为枢纽元
      *
-     * @param a
+     * @param a   the list to be sorted
+     * @param <T> type
      */
     public static <T extends Comparable<T>> void mediansort(List<T> a) {
         Collections.shuffle(a);
@@ -75,34 +102,14 @@ public class QuickSort {
         for (; ; ) {
             while (a.get(++i).compareTo(pivot) < 0) ;
             while (pivot.compareTo(a.get(--j)) < 0) ;
-            if (i < j)
-                SortUtils.exchange(a, i, j);
-            else break;
-        }
-
-        SortUtils.exchange(a, i, hi - 1); // restore pivot
-
-        mediansort(a, lo, i - 1);
-        mediansort(a, i + 1, hi);
-    }
-
-    private static <T extends Comparable<T>> int partition(List<T> a, int lo, int hi) {
-        int i = lo;
-        int j = hi + 1;
-
-        T v = a.get(lo);
-
-        while (true) {
-            while (SortUtils.less(a.get(++i), v)) if (i == hi) break;
-            while (SortUtils.less(v, a.get(--j))) if (j == lo) break;
-
             if (i >= j) break;
             SortUtils.exchange(a, i, j);
         }
 
-        SortUtils.exchange(a, lo, j);
+        SortUtils.exchange(a, i, hi - 1); // restore pivot (hi - 1)
 
-        return j;
+        mediansort(a, lo, i - 1);
+        mediansort(a, i + 1, hi);
     }
 
     public static void main(String[] args) {
@@ -114,10 +121,12 @@ public class QuickSort {
 
         SortUtils.show(array);
 
-        mediansort(array);
+        Integer[] arrMedian = {4, 5, 2, 11, 12, 13, 1, 3, 9, 8, 7, 6, 10};
+        List<Integer> arrayMedian = Arrays.asList(arrMedian);
+        mediansort(arrayMedian);
 
-        assert SortUtils.isSorted(array);
+        assert SortUtils.isSorted(arrayMedian);
 
-        SortUtils.show(array);
+        SortUtils.show(arrayMedian);
     }
 }

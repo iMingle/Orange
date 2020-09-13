@@ -37,7 +37,7 @@ public class MergeSort {
     /**
      * 自顶向下的归并排序
      *
-     * @param a   待排序数组
+     * @param a   the list to be sorted
      * @param <T> type
      */
     public static <T extends Comparable<T>> void sort(List<T> a) {
@@ -60,7 +60,7 @@ public class MergeSort {
     /**
      * 自底向上的归并排序
      *
-     * @param a   待排序数组
+     * @param a   the list to be sorted
      * @param <T> type
      */
     public static <T extends Comparable<T>> void sortBottomUp(List<T> a) {

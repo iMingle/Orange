@@ -39,10 +39,10 @@ public class SortUtils {
      * 这样操作的好处是，因为此时A[left]比枢纽元小，所以将它作为j的警戒标记，
      * 因此我们不用担心j越界；由于i将停在那些等于枢纽元处，故将枢纽元存储在A[right-1],将提供一个警戒标记。
      *
-     * @param a
-     * @param left
-     * @param right
-     * @return
+     * @param a     the list to be sorted
+     * @param left  left border
+     * @param right right border
+     * @return median value
      */
     public static <T extends Comparable<T>> T median(List<T> a, int left, int right) {
         int center = left + (right - left) / 2;

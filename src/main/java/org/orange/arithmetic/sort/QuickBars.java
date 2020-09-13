@@ -19,6 +19,8 @@ package org.orange.arithmetic.sort;
 import edu.princeton.cs.algs4.StdDraw;
 
 /**
+ * 快速排序可视化
+ *
  * @author mingle
  */
 public class QuickBars {

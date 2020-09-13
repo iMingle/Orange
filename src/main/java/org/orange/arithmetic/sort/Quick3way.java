@@ -23,12 +23,19 @@ import java.util.List;
 
 /**
  * 三向切分(将数组分为小于,等于,大于三部分)
+ * 适合包含很多重复元素的数组
  *
  * @author mingle
  */
 public class Quick3way {
     private static final int M = 10;
 
+    /**
+     * 三向切分快速排序
+     *
+     * @param a   the list to be sorted
+     * @param <T> type
+     */
     public static <T extends Comparable<T>> void sort(List<T> a) {
         sort(a, 0, a.size() - 1);
     }
