@@ -19,7 +19,6 @@ package org.orange.arithmetic.sort;
 import org.orange.util.SortUtils;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 希尔排序
@@ -49,15 +48,15 @@ public class ShellSort {
         }
     }
 
-    public static <T extends Comparable<T>> void sort(List<T> a) {
-        int N = a.size();
+    public static <T extends Comparable<? super T>> void sort(T[] a) {
+        int N = a.length;
         int h = 1;
 
         while (h < N / 3) h = h * 3 + 1;
 
         while (h >= 1) {
             for (int i = h; i < N; i++) {
-                for (int j = i; j >= h && SortUtils.less(a.get(j), a.get(j - h)); j -= h) {
+                for (int j = i; j >= h && SortUtils.less(a[j], a[j - h]); j -= h) {
                     SortUtils.exchange(a, j, j - h);
                 }
             }
@@ -67,8 +66,7 @@ public class ShellSort {
     }
 
     public static void main(String[] args) {
-        String[] str = new String[]{"g", "f", "e", "d", "c", "b", "a", "h"};
-        List<String> s = Arrays.asList(str);
+        String[] s = new String[]{"g", "f", "e", "d", "c", "b", "a", "h"};
         sort(s);
 
         assert SortUtils.isSorted(s);

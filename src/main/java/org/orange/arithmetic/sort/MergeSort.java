@@ -18,9 +18,7 @@ package org.orange.arithmetic.sort;
 
 import org.orange.util.SortUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 归并排序 - 稳定的排序算法
@@ -40,13 +38,13 @@ public class MergeSort {
      * @param a   the list to be sorted
      * @param <T> type
      */
-    public static <T extends Comparable<T>> void sort(List<T> a) {
-        List<T> aux = new ArrayList<>(a);
+    public static <T extends Comparable<? super T>> void sort(T[] a) {
+        T[] aux = Arrays.copyOf(a, a.length);
 
-        sort(a, aux, 0, a.size() - 1);
+        sort(a, aux, 0, a.length - 1);
     }
 
-    private static <T extends Comparable<T>> void sort(List<T> a, List<T> aux, int lo, int hi) {
+    private static <T extends Comparable<? super T>> void sort(T[] a, T[] aux, int lo, int hi) {
         if (hi <= lo) return;
 
         int middle = lo + (hi - lo) / 2;
@@ -63,9 +61,9 @@ public class MergeSort {
      * @param a   the list to be sorted
      * @param <T> type
      */
-    public static <T extends Comparable<T>> void sortBottomUp(List<T> a) {
-        int N = a.size();
-        List<T> aux = new ArrayList<>(a);
+    public static <T extends Comparable<? super T>> void sortBottomUp(T[] a) {
+        int N = a.length;
+        T[] aux = Arrays.copyOf(a, a.length);
 
         for (int sz = 1; sz < N; sz += sz) {
             for (int lo = 0; lo < N - sz; lo += sz + sz) {
@@ -74,32 +72,30 @@ public class MergeSort {
         }
     }
 
-    private static <T extends Comparable<T>> void merge(List<T> a, List<T> aux, int lo, int middle, int hi) {
+    private static <T extends Comparable<? super T>> void merge(T[] a, T[] aux, int lo, int middle, int hi) {
         int i = lo;
         int j = middle + 1;
 
         for (int k = lo; k <= hi; k++)
-            aux.set(k, a.get(k));
+            aux[k] = a[k];
 
         for (int k = lo; k <= hi; k++) {
-            if (i > middle) a.set(k, aux.get(j++));
-            else if (j > hi) a.set(k, aux.get(i++));
-            else if (SortUtils.less(aux.get(j), aux.get(i))) a.set(k, aux.get(j++));
-            else a.set(k, aux.get(i++));
+            if (i > middle) a[k] = aux[j++];
+            else if (j > hi) a[k] = aux[i++];
+            else if (SortUtils.less(aux[j], aux[i])) a[k] = aux[j++];
+            else a[k] = aux[i++];
         }
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {4, 5, 2, 1, 11, 12, 3, 9, 8, 7, 6, 10};
-        List<Integer> array = Arrays.asList(arr);
+        Integer[] array = {4, 5, 2, 1, 11, 12, 3, 9, 8, 7, 6, 10};
         sort(array);
 
         assert SortUtils.isSorted(array);
 
         SortUtils.show(array);
 
-        Integer[] arrBottomUp = {4, 5, 2, 1, 11, 3, 9, 8, 7, 6, 10};
-        List<Integer> arrayBottomUp = Arrays.asList(arrBottomUp);
+        Integer[] arrayBottomUp = {4, 5, 2, 1, 11, 3, 9, 8, 7, 6, 10};
         sortBottomUp(arrayBottomUp);
 
         assert SortUtils.isSorted(arrayBottomUp);

@@ -18,9 +18,6 @@ package org.orange.arithmetic.sort;
 
 import org.orange.util.SortUtils;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * 选择排序 - 不稳定的排序算法
  * <ul>
@@ -52,12 +49,12 @@ public class SelectionSort {
         }
     }
 
-    public static <T extends Comparable<T>> void sort(List<T> a) {
-        int N = a.size();
+    public static <T extends Comparable<? super T>> void sort(T[] a) {
+        int N = a.length;
         for (int i = 0; i < N; i++) {
             int min = i;
             for (int j = i + 1; j < N; j++) {
-                if (SortUtils.less(a.get(j), a.get(min))) {
+                if (SortUtils.less(a[j], a[min])) {
                     min = j;
                 }
             }
@@ -68,17 +65,16 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = new Integer[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
-        List<Integer> array = Arrays.asList(arr);
+        Integer[] array = new Integer[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
         sort(array);
 
         assert SortUtils.isSorted(array);
 
         SortUtils.show(array);
 
-        int[] data = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+        Integer[] data = {9, 8, 7, 6, 5, 4, 3, 2, 1};
         sort(data);
 
-        System.out.println(Arrays.toString(data));
+        SortUtils.show(data);
     }
 }

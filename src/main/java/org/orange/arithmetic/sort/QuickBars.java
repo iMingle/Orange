@@ -17,6 +17,7 @@
 package org.orange.arithmetic.sort;
 
 import edu.princeton.cs.algs4.StdDraw;
+import org.orange.util.SortUtils;
 
 /**
  * 快速排序可视化
@@ -26,24 +27,24 @@ import edu.princeton.cs.algs4.StdDraw;
 public class QuickBars {
     private static int ROWS;
     private static int row = 0;
-    private static int VERTICAL = 70;
-    private static int CUTOFF = 8;
+    private static final int VERTICAL = 50;
+    private static final int INSERTION_SORT_CUTOFF = 8;
 
     // partition the subarray a[lo .. hi] by returning an index j
     // so that a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
-    private static int partition(double[] a, int lo, int hi) {
+    private static int partition(Double[] a, int lo, int hi) {
         int i = lo;
         int j = hi + 1;
         double v = a[lo];
         while (true) {
 
             // find item on lo to swap
-            while (less(a[++i], v))
+            while (SortUtils.less(a[++i], v))
                 if (i == hi)
                     break;
 
             // find item on hi to swap
-            while (less(v, a[--j]))
+            while (SortUtils.less(v, a[--j]))
                 if (j == lo)
                     break; // redundant since a[lo] acts as sentinel
 
@@ -51,35 +52,34 @@ public class QuickBars {
             if (i >= j)
                 break;
 
-            exch(a, i, j);
+            SortUtils.exchange(a, i, j);
         }
 
         // put v = a[j] into position
-        exch(a, lo, j);
+        SortUtils.exchange(a, lo, j);
 
         // with a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
         return j;
     }
 
-    public static void sort(double[] a) {
-        // StdRandom.shuffle(a);
+    public static void sort(Double[] a) {
         show(a, 0, 0, -1, a.length - 1);
         sort(a, 0, a.length - 1);
         show(a, 0, 0, -1, a.length - 1);
     }
 
     // quicksort the subarray from a[lo] to a[hi]
-    private static void sort(double[] a, int lo, int hi) {
+    private static void sort(Double[] a, int lo, int hi) {
         // cutoff to insertion sort
         int N = hi - lo + 1;
-        if (N <= CUTOFF) {
-            insertionSort(a, lo, hi);
+        if (N <= INSERTION_SORT_CUTOFF) {
+            InsertionSort.sort(a, lo, hi);
             // show(a, lo, -1, -1, hi);
             return;
         }
 
-        int m = median3(a, lo, lo + N / 2, hi);
-        exch(a, m, lo);
+        int m = SortUtils.median(a, lo, lo + N / 2, hi);
+        SortUtils.exchange(a, m, lo);
 
         int j = partition(a, lo, hi);
         show(a, lo, j, j, hi);
@@ -87,31 +87,8 @@ public class QuickBars {
         sort(a, j + 1, hi);
     }
 
-    // sort from a[lo] to a[hi] using insertion sort
-    private static void insertionSort(double[] a, int lo, int hi) {
-        for (int i = lo; i <= hi; i++)
-            for (int j = i; j > lo && less(a[j], a[j - 1]); j--)
-                exch(a, j, j - 1);
-    }
-
-    // return the index of the median element among a[i], a[j], and a[k]
-    private static int median3(double[] a, int i, int j, int k) {
-        return (less(a[i], a[j]) ? (less(a[j], a[k]) ? j : less(a[i], a[k]) ? k
-                : i) : (less(a[k], a[j]) ? j : less(a[k], a[i]) ? k : i));
-    }
-
-    private static boolean less(double v, double w) {
-        return v < w;
-    }
-
-    private static void exch(double[] a, int i, int j) {
-        double t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-
     // draw one row of trace
-    private static void show(double[] a, int lo, int lt, int gt, int hi) {
+    private static void show(Double[] a, int lo, int lt, int gt, int hi) {
         double y = ROWS - row - 1;
         for (int k = 0; k < a.length; k++) {
             if (k < lo)
@@ -131,8 +108,8 @@ public class QuickBars {
     public static void main(String[] args) {
         int M = 1000;
         int N = 75;
-        double[] a = new double[N];
-        double[] b = new double[N];
+        Double[] a = new Double[N];
+        Double[] b = new Double[N];
         for (int i = 0; i < N; i++) {
             a[i] = ((int) (1 + Math.random() * M)) / (double) M;
             b[i] = a[i];

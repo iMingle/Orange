@@ -19,9 +19,6 @@ package org.orange.arithmetic.sort;
 import edu.princeton.cs.algs4.StdRandom;
 import org.orange.arithmetic.base.Stopwatch;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 排序算法比较
  *
@@ -29,10 +26,10 @@ import java.util.List;
  */
 public class SortCompare {
 
-    public static double time(String alg, List<Double> a) {
+    public static double time(String alg, Double[] a) {
         Stopwatch timer = new Stopwatch();
 
-        if (alg.equals("Insertion")) InsertionSort.sort(a, 0, a.size() - 1);
+        if (alg.equals("Insertion")) InsertionSort.sort(a, 0, a.length - 1);
         if (alg.equals("Selection")) SelectionSort.sort(a);
         if (alg.equals("Shell")) ShellSort.sort(a);
 
@@ -41,11 +38,11 @@ public class SortCompare {
 
     private static double timeRandomInput(String alg, int N, int T) {
         double total = 0.0;
-        List<Double> a = new ArrayList<>(N);
+        Double[] a = new Double[N];
 
         for (int t = 0; t < T; t++) {
             for (int i = 0; i < N; i++) {
-                a.add(StdRandom.uniform());
+                a[i] = StdRandom.uniform();
             }
 
             total += time(alg, a);

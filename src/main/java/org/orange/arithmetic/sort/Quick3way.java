@@ -18,9 +18,6 @@ package org.orange.arithmetic.sort;
 
 import org.orange.util.SortUtils;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * 三向切分(将数组分为小于,等于,大于三部分)
  * 适合包含很多重复元素的数组
@@ -28,7 +25,7 @@ import java.util.List;
  * @author mingle
  */
 public class Quick3way {
-    private static final int M = 10;
+    private static final int INSERTION_SORT_CUTOFF = 10;
 
     /**
      * 三向切分快速排序
@@ -36,12 +33,12 @@ public class Quick3way {
      * @param a   the list to be sorted
      * @param <T> type
      */
-    public static <T extends Comparable<T>> void sort(List<T> a) {
-        sort(a, 0, a.size() - 1);
+    public static <T extends Comparable<? super T>> void sort(T[] a) {
+        sort(a, 0, a.length - 1);
     }
 
-    private static <T extends Comparable<T>> void sort(List<T> a, int lo, int hi) {
-        if (hi <= lo + M) {
+    private static <T extends Comparable<? super T>> void sort(T[] a, int lo, int hi) {
+        if (hi <= lo + INSERTION_SORT_CUTOFF) {
             InsertionSort.sort(a, lo, hi);
             return;
         }
@@ -50,23 +47,22 @@ public class Quick3way {
         int i = lo + 1;
         int gt = hi;
 
-        T v = a.get(lo);
+        T v = a[lo];
 
         while (i <= gt) {
-            int cmp = a.get(i).compareTo(v);
+            int cmp = a[i].compareTo(v);
 
             if (cmp < 0) SortUtils.exchange(a, lt++, i++);
             else if (cmp > 0) SortUtils.exchange(a, i, gt--);
             else i++;
-        }
+        } // now a[lo..lt-1] < v = a[lt..gt] < a[gt+1.. hi]
 
         sort(a, lo, lt - 1);
         sort(a, gt + 1, hi);
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {4, 5, 2, 1, 3, 11, 9, 8, 7, 6, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
-        List<Integer> array = Arrays.asList(arr);
+        Integer[] array = {4, 5, 2, 1, 3, 11, 9, 8, 7, 6, 10, 4, 5, 3, 4, 5, 4, 5, 4};
         sort(array);
 
         assert SortUtils.isSorted(array);

@@ -16,6 +16,10 @@
 
 package org.orange;
 
+import org.orange.util.SortUtils;
+
+import java.util.Arrays;
+
 /**
  * @author mingle
  */
@@ -35,15 +39,38 @@ public class Test {
         System.out.println(Long.toBinaryString((-1L) >> 2));
         System.out.println(Long.toBinaryString(12345)); // 1+8+16+32+2**12+2**13
 
+        Integer[] a = new Integer[] {5, 3, 6, 7, 2, 1, 9, 8, 4};
+        sort(a);
+        System.out.println(Arrays.toString(a));
+    }
 
-        while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                System.out.println("interrupted");
-            }
+    public static void sort(Integer[] a) {
+        sort(a, 0, a.length - 1);
+    }
 
-            System.out.println("hello");
+    public static void sort(Integer[] a, int lo, int hi) {
+        if (hi <= lo)
+            return;
+
+        int j = partition(a, lo, hi);
+        sort(a, lo, j - 1);
+        sort(a, j + 1, hi);
+    }
+
+    private static int partition(Integer[] a, int lo, int hi) {
+        int i = lo;
+        int j = hi + 1;
+
+        int v = a[lo];
+        for (;;) {
+            while (a[++i] < v) if (i == hi) break;
+            while (v < a[--j]) if (j == lo) break;
+            if (i >= j) break;
+
+            SortUtils.exchange(a, i, j);
         }
+
+        SortUtils.exchange(a, lo, j);
+        return j;
     }
 }

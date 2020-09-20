@@ -16,8 +16,6 @@
 
 package org.orange.util;
 
-import java.util.List;
-
 /**
  * 排序工具类
  *
@@ -44,31 +42,42 @@ public class SortUtils {
      * @param right right border
      * @return median value
      */
-    public static <T extends Comparable<T>> T median(List<T> a, int left, int right) {
+    public static <T extends Comparable<? super T>> T median(T[] a, int left, int right) {
         int center = left + (right - left) / 2;
-        if (a.get(center).compareTo(a.get(left)) < 0)
-            SortUtils.exchange(a, center, left);
-        if (a.get(right).compareTo(a.get(left)) < 0)
-            SortUtils.exchange(a, right, left);
-        if (a.get(right).compareTo(a.get(center)) < 0)
-            SortUtils.exchange(a, right, center);
+        if (less(a[center], a[left]))
+            exchange(a, center, left);
+        if (less(a[right], a[left]))
+            exchange(a, right, left);
+        if (less(a[right], a[center]))
+            exchange(a, right, center);
 
         SortUtils.exchange(a, center, right - 1); // place pivot at position right - 1
 
-        return a.get(right - 1);
+        return a[right - 1];
     }
 
-    public static <T extends Comparable<T>> boolean less(T v, T w) {
+    /**
+     * return the index of the median element among a[i], a[j], and a[k]
+     */
+    public static <T extends Comparable<? super T>> int median(T[] a, int i, int j, int k) {
+        return (less(a[i], a[j]) ? (less(a[j], a[k]) ? j : less(a[i], a[k]) ? k : i) :
+                (less(a[k], a[j]) ? j : less(a[k], a[i]) ? k : i));
+    }
+
+    public static <T extends Comparable<? super T>> boolean less(T v, T w) {
         return v.compareTo(w) < 0;
     }
 
-    public static <T extends Comparable<T>> void exchange(List<T> a, int i, int j) {
-        T t = a.get(i);
-        a.set(i, a.get(j));
-        a.set(j, t);
+    public static <T extends Comparable<? super T>> void exchange(T[] a, int i, int j) {
+        if (i == j)
+            return;
+
+        T t = a[i];
+        a[i] = a[j];
+        a[j] = t;
     }
 
-    public static <T extends Comparable<T>> void show(List<T> a) {
+    public static <T extends Comparable<? super T>> void show(T[] a) {
         for (T element : a) {
             System.out.print(element + " ");
         }
@@ -76,9 +85,9 @@ public class SortUtils {
         System.out.println();
     }
 
-    public static <T extends Comparable<T>> boolean isSorted(List<T> a) {
-        for (int i = 1; i < a.size(); i++) {
-            if (less(a.get(i), a.get(i - 1))) return false;
+    public static <T extends Comparable<? super T>> boolean isSorted(T[] a) {
+        for (int i = 1; i < a.length; i++) {
+            if (less(a[i], a[i - 1])) return false;
         }
 
         return true;

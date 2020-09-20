@@ -19,7 +19,6 @@ package org.orange.arithmetic.sort;
 import org.orange.util.SortUtils;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 插入排序 - 稳定的排序算法
@@ -64,19 +63,18 @@ public class InsertionSort {
         }
     }
 
-    public static <T extends Comparable<T>> void sort(List<T> a, int lo, int hi) {
+    public static <T extends Comparable<? super T>> void sort(T[] a, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++) {
-            for (int j = i; j > 0 && SortUtils.less(a.get(j), a.get(j - 1)); j--) {
+            for (int j = i; j > 0 && SortUtils.less(a[j], a[j - 1]); j--) {
                 SortUtils.exchange(a, j, j - 1);
             }
         }
     }
 
     public static void main(String[] args) {
-        String[] str = new String[]{"g", "f", "e", "d", "c", "b", "a"};
-        List<String> s = Arrays.asList(str);
+        String[] s = new String[]{"g", "f", "e", "d", "c", "b", "a"};
 
-        sort(s, 0, s.size() - 1);
+        sort(s, 0, s.length - 1);
 
         assert SortUtils.isSorted(s);
 
