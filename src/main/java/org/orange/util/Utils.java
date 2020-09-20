@@ -30,4 +30,8 @@ public class Utils {
         val++;
         return val;
     }
+
+    public static void main(String[] args) {
+        System.out.println(nextPowerOf2(10));
+    }
 }

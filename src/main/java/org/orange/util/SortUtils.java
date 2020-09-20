@@ -68,7 +68,7 @@ public class SortUtils {
         return v.compareTo(w) < 0;
     }
 
-    public static <T extends Comparable<? super T>> void exchange(T[] a, int i, int j) {
+    public static <T> void exchange(T[] a, int i, int j) {
         if (i == j)
             return;
 
@@ -77,7 +77,7 @@ public class SortUtils {
         a[j] = t;
     }
 
-    public static <T extends Comparable<? super T>> void show(T[] a) {
+    public static <T> void show(T[] a) {
         for (T element : a) {
             System.out.print(element + " ");
         }
