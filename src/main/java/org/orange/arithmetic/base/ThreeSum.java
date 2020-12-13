@@ -50,7 +50,7 @@ public class ThreeSum {
         int cnt = 0;
         for (int i = 0; i < N; i++)
             for (int j = i + 1; j < N; j++)
-                if (BinarySearch.rank0(-a[i] - a[j], a) > j)
+                if (BinarySearch.search(a, -a[i] - a[j]) > j)
                     cnt++;
         return cnt;
     }
@@ -65,7 +65,7 @@ public class ThreeSum {
         Arrays.sort(a);
 
         for (int i = 0; i < a.length; i++) {
-            if (BinarySearch.rank0(-a[i], a) > i) {
+            if (BinarySearch.search(a, -a[i]) > i) {
                 count++;
             }
         }
