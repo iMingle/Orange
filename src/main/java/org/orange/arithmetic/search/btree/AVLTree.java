@@ -16,7 +16,6 @@
 
 package org.orange.arithmetic.search.btree;
 
-import edu.princeton.cs.algs4.AVLTreeST;
 import org.orange.arithmetic.base.queue.Queue;
 
 import java.util.NoSuchElementException;
@@ -26,18 +25,18 @@ import java.util.NoSuchElementException;
  *
  * @author mingle
  */
-public class AVLTree<Key extends Comparable<Key>, Value> {
+public class AVLTree<K extends Comparable<K>, V> {
     private Node root;
 
     private class Node {
-        private final Key key;   // the key
-        private Value val;       // the associated value
+        private final K key;   // the key
+        private V val;       // the associated value
         private int height;      // height of the subtree
         private int size;        // number of nodes in subtree
         private Node left;       // left subtree
         private Node right;      // right subtree
 
-        public Node(Key key, Value val, int height, int size) {
+        public Node(K key, V val, int height, int size) {
             this.key = key;
             this.val = val;
             this.size = size;
@@ -108,7 +107,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * symbol table
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Value get(Key key) {
+    public V get(K key) {
         if (key == null) throw new IllegalArgumentException("argument to get() is null");
         Node x = get(root, key);
         if (x == null) return null;
@@ -124,7 +123,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @return value associated with the given key in the subtree or
      * {@code null} if no such key
      */
-    private Node get(Node x, Key key) {
+    private Node get(Node x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return get(x.left, key);
@@ -140,7 +139,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * and {@code false} otherwise
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public boolean contains(Key key) {
+    public boolean contains(K key) {
         return get(key) != null;
     }
 
@@ -154,7 +153,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @param val the value
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void put(Key key, Value val) {
+    public void put(K key, V val) {
         if (key == null) throw new IllegalArgumentException("first argument to put() is null");
         if (val == null) {
             delete(key);
@@ -175,7 +174,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @param val the value
      * @return the subtree
      */
-    private Node put(Node x, Key key, Value val) {
+    private Node put(Node x, K key, V val) {
         if (x == null) return new Node(key, val, 0, 1);
         int cmp = key.compareTo(x.key);
         if (cmp < 0) {
@@ -267,7 +266,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @param key the key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void delete(Key key) {
+    public void delete(K key) {
         if (key == null) throw new IllegalArgumentException("argument to delete() is null");
         if (!contains(key)) return;
         root = delete(root, key);
@@ -282,7 +281,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @param key the key
      * @return the updated subtree
      */
-    private Node delete(Node x, Key key) {
+    private Node delete(Node x, K key) {
         int cmp = key.compareTo(x.key);
         if (cmp < 0) {
             x.left = delete(x.left, key);
@@ -361,7 +360,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @return the smallest key in the symbol table
      * @throws NoSuchElementException if the symbol table is empty
      */
-    public Key min() {
+    public K min() {
         if (isEmpty()) throw new NoSuchElementException("called min() with empty symbol table");
         return min(root).key;
     }
@@ -383,7 +382,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @return the largest key in the symbol table
      * @throws NoSuchElementException if the symbol table is empty
      */
-    public Key max() {
+    public K max() {
         if (isEmpty()) throw new NoSuchElementException("called max() with empty symbol table");
         return max(root).key;
     }
@@ -409,7 +408,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @throws NoSuchElementException   if the symbol table is empty
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Key floor(Key key) {
+    public K floor(K key) {
         if (key == null) throw new IllegalArgumentException("argument to floor() is null");
         if (isEmpty()) throw new NoSuchElementException("called floor() with empty symbol table");
         Node x = floor(root, key);
@@ -426,7 +425,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @return the node in the subtree with the largest key less than or equal
      * to the given key
      */
-    private Node floor(Node x, Key key) {
+    private Node floor(Node x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
@@ -446,7 +445,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @throws NoSuchElementException   if the symbol table is empty
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Key ceiling(Key key) {
+    public K ceiling(K key) {
         if (key == null) throw new IllegalArgumentException("argument to ceiling() is null");
         if (isEmpty()) throw new NoSuchElementException("called ceiling() with empty symbol table");
         Node x = ceiling(root, key);
@@ -463,7 +462,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @return the node in the subtree with the smallest key greater than or
      * equal to the given key
      */
-    private Node ceiling(Node x, Key key) {
+    private Node ceiling(Node x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
@@ -481,7 +480,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException unless {@code k} is between 0 and
      *                                  {@code size() -1 }
      */
-    public Key select(int k) {
+    public K select(int k) {
         if (k < 0 || k >= size()) throw new IllegalArgumentException("k is not in range 0-" + (size() - 1));
         Node x = select(root, k);
         return x.key;
@@ -511,7 +510,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * {@code key}
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public int rank(Key key) {
+    public int rank(K key) {
         if (key == null) throw new IllegalArgumentException("argument to rank() is null");
         return rank(key, root);
     }
@@ -523,7 +522,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @param x   the subtree
      * @return the number of keys in the subtree less than key
      */
-    private int rank(Key key, Node x) {
+    private int rank(K key, Node x) {
         if (x == null) return 0;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return rank(key, x.left);
@@ -536,7 +535,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      *
      * @return all keys in the symbol table
      */
-    public Iterable<Key> keys() {
+    public Iterable<K> keys() {
         return keysInOrder();
     }
 
@@ -545,8 +544,8 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      *
      * @return all keys in the symbol table following an in-order traversal
      */
-    public Iterable<Key> keysInOrder() {
-        Queue<Key> queue = new Queue<Key>();
+    public Iterable<K> keysInOrder() {
+        Queue<K> queue = new Queue<K>();
         keysInOrder(root, queue);
         return queue;
     }
@@ -557,7 +556,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @param x     the subtree
      * @param queue the queue
      */
-    private void keysInOrder(Node x, Queue<Key> queue) {
+    private void keysInOrder(Node x, Queue<K> queue) {
         if (x == null) return;
         keysInOrder(x.left, queue);
         queue.enqueue(x.key);
@@ -569,8 +568,8 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      *
      * @return all keys in the symbol table following a level-order traversal.
      */
-    public Iterable<Key> keysLevelOrder() {
-        Queue<Key> queue = new Queue<Key>();
+    public Iterable<K> keysLevelOrder() {
+        Queue<K> queue = new Queue<K>();
         if (!isEmpty()) {
             Queue<Node> queue2 = new Queue<Node>();
             queue2.enqueue(root);
@@ -598,10 +597,10 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if either {@code lo} or {@code hi}
      *                                  is {@code null}
      */
-    public Iterable<Key> keys(Key lo, Key hi) {
+    public Iterable<K> keys(K lo, K hi) {
         if (lo == null) throw new IllegalArgumentException("first argument to keys() is null");
         if (hi == null) throw new IllegalArgumentException("second argument to keys() is null");
-        Queue<Key> queue = new Queue<Key>();
+        Queue<K> queue = new Queue<K>();
         keys(root, queue, lo, hi);
         return queue;
     }
@@ -615,7 +614,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @param lo    the lowest key
      * @param hi    the highest key
      */
-    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+    private void keys(Node x, Queue<K> queue, K lo, K hi) {
         if (x == null) return;
         int cmplo = lo.compareTo(x.key);
         int cmphi = hi.compareTo(x.key);
@@ -634,7 +633,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if either {@code lo} or {@code hi}
      *                                  is {@code null}
      */
-    public int size(Key lo, Key hi) {
+    public int size(K lo, K hi) {
         if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
         if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
         if (lo.compareTo(hi) > 0) return 0;
@@ -696,7 +695,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
      * @param max the maximum key in subtree
      * @return {@code true} if if the symmetric order is consistent
      */
-    private boolean isBST(Node x, Key min, Key max) {
+    private boolean isBST(Node x, K min, K max) {
         if (x == null) return true;
         if (min != null && x.key.compareTo(min) <= 0) return false;
         if (max != null && x.key.compareTo(max) >= 0) return false;
@@ -731,13 +730,13 @@ public class AVLTree<Key extends Comparable<Key>, Value> {
     private boolean isRankConsistent() {
         for (int i = 0; i < size(); i++)
             if (i != rank(select(i))) return false;
-        for (Key key : keys())
+        for (K key : keys())
             if (key.compareTo(select(rank(key))) != 0) return false;
         return true;
     }
 
     public static void main(String[] args) {
-        AVLTreeST<String, Integer> st = new AVLTreeST<>();
+        AVLTree<String, Integer> st = new AVLTree<>();
         for (String s : st.keys())
             System.out.println(s + " " + st.get(s));
         System.out.println();

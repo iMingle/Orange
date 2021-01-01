@@ -243,11 +243,10 @@ public class BinaryTree<T> {
             stack.push(current);
             current = current.getRight();
         }
-
     }
 
     public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree(new String[]{"-", "+", "/", "a", "*",
+        BinaryTree<String> bt = new BinaryTree<>(new String[]{"-", "+", "/", "a", "*",
                 "e", "f", "", "", "b", "-", "", "", "", "", "", "",
                 "", "", "", "", "c", "d"});
         bt.preorder();

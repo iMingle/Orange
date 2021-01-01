@@ -1,6 +1,6 @@
 /*
  * Copyright 2012 the original author or authors.
- *  
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -39,13 +39,13 @@ import java.util.NoSuchElementException;
  *
  * @author mingle
  */
-public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
+public class BinomialMinPriorityQueue<K> implements Iterable<K> {
     private Node head;                    //head of the list of roots
-    private final Comparator<Key> comp;    //Comparator over the keys
+    private final Comparator<K> comp;    //Comparator over the keys
 
     //Represents a Node of a Binomial Tree
     private class Node {
-        Key key;                        // Key contained by the Node
+        K key;                        // Key contained by the Node
         int order;                      // The order of the Binomial Tree rooted by this Node
         Node child, sibling;            // child and sibling of this Node
     }
@@ -64,7 +64,7 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
      *
      * @param comparator a comparator over the keys
      */
-    public BinomialMinPriorityQueue(Comparator<Key> comparator) {
+    public BinomialMinPriorityQueue(Comparator<K> comparator) {
         comp = comparator;
     }
 
@@ -74,9 +74,9 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
      *
      * @param a an array of keys
      */
-    public BinomialMinPriorityQueue(Key[] a) {
+    public BinomialMinPriorityQueue(K[] a) {
         comp = new MyComparator();
-        for (Key k : a) insert(k);
+        for (K k : a) insert(k);
     }
 
     /**
@@ -84,11 +84,11 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
      * Worst case is O(n*log(n))
      *
      * @param comparator a comparator over the keys
-     * @param a an array of keys
+     * @param a          an array of keys
      */
-    public BinomialMinPriorityQueue(Comparator<Key> comparator, Key[] a) {
+    public BinomialMinPriorityQueue(Comparator<K> comparator, K[] a) {
         comp = comparator;
-        for (Key k : a) insert(k);
+        for (K k : a) insert(k);
     }
 
     /**
@@ -112,7 +112,8 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
         int result = 0, tmp;
         for (Node node = head; node != null; node = node.sibling) {
             if (node.order > 30) {
-                throw new ArithmeticException("The number of elements cannot be evaluated, but the priority queue is still valid.");
+                throw new ArithmeticException("The number of elements cannot be evaluated, but the priority queue is "
+                        + "still valid.");
             }
             tmp = 1 << node.order;
             result |= tmp;
@@ -126,11 +127,11 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
      *
      * @param key a Key
      */
-    public void insert(Key key) {
+    public void insert(K key) {
         Node x = new Node();
         x.key = key;
         x.order = 0;
-        BinomialMinPriorityQueue<Key> H = new BinomialMinPriorityQueue<>(); //The Comparator oh the H heap is not used
+        BinomialMinPriorityQueue<K> H = new BinomialMinPriorityQueue<>(); //The Comparator oh the H heap is not used
         H.head = x;
         this.head = this.union(H).head;
     }
@@ -142,7 +143,7 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
      * @return the minimum key currently in the priority queue
      * @throws java.util.NoSuchElementException if the priority queue is empty
      */
-    public Key minKey() {
+    public K minKey() {
         if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
         Node min = head;
         Node current = head;
@@ -160,7 +161,7 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
      * @return the minimum key
      * @throws java.util.NoSuchElementException if the priority queue is empty
      */
-    public Key delMin() {
+    public K delMin() {
         if (isEmpty()) throw new NoSuchElementException("Priority queue is empty");
         Node min = eraseMin();
         Node x = (min.child == null) ? min : min.child;
@@ -174,7 +175,7 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
                 nextx = nextx.sibling;
             }
             x.sibling = prevx;
-            BinomialMinPriorityQueue<Key> H = new BinomialMinPriorityQueue<>();
+            BinomialMinPriorityQueue<K> H = new BinomialMinPriorityQueue<>();
             H.head = x;
             head = union(H).head;
         }
@@ -190,7 +191,7 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
      * @return the union of two heaps
      * @throws java.lang.IllegalArgumentException if the heap in parameter is null
      */
-    public BinomialMinPriorityQueue<Key> union(BinomialMinPriorityQueue<Key> heap) {
+    public BinomialMinPriorityQueue<K> union(BinomialMinPriorityQueue<K> heap) {
         if (heap == null) throw new IllegalArgumentException("Cannot merge a Binomial Heap with null");
         this.head = merge(new Node(), this.head, heap.head).sibling;
         Node x = this.head;
@@ -218,7 +219,7 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
     }
 
     //Compares two keys
-    private boolean greater(Key n, Key m) {
+    private boolean greater(K n, K m) {
         if (n == null) return false;
         if (m == null) return true;
         return comp.compare(n, m) > 0;
@@ -267,12 +268,12 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
      *
      * @return an Iterator over the keys in the priority queue in ascending order
      */
-    public Iterator<Key> iterator() {
+    public Iterator<K> iterator() {
         return new MyIterator();
     }
 
-    private class MyIterator implements Iterator<Key> {
-        BinomialMinPriorityQueue<Key> data;
+    private class MyIterator implements Iterator<K> {
+        BinomialMinPriorityQueue<K> data;
 
         //Constructor clones recursively the elements in the queue
         //It takes linear time
@@ -294,7 +295,7 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
             return !data.isEmpty();
         }
 
-        public Key next() {
+        public K next() {
             if (!hasNext()) throw new NoSuchElementException();
             return data.delMin();
         }
@@ -304,10 +305,10 @@ public class BinomialMinPriorityQueue<Key> implements Iterable<Key> {
         }
     }
 
-    private class MyComparator implements Comparator<Key> {
+    private class MyComparator implements Comparator<K> {
         @SuppressWarnings("unchecked") @Override
-        public int compare(Key key1, Key key2) {
-            return ((Comparable<Key>) key1).compareTo(key2);
+        public int compare(K key1, K key2) {
+            return ((Comparable<K>) key1).compareTo(key2);
         }
     }
 }

@@ -22,8 +22,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class ThreadLocalTest {
@@ -53,7 +51,7 @@ class Accessor implements Runnable {
             Thread.yield();
         }
     }
-    
+
     @Override
     public String toString() {
         return "#" + id + ": " + ThreadLocalVariableHolder.get();
@@ -63,17 +61,17 @@ class Accessor implements Runnable {
 class ThreadLocalVariableHolder {
     private static ThreadLocal<Integer> value = new ThreadLocal<Integer>() {
         private Random rand = new Random(8);
-        
+
         @Override
         protected Integer initialValue() {
             return rand.nextInt(10000);
         }
     };
-    
+
     public static void increment() {
         value.set(value.get() + 1);
     }
-    
+
     public static Integer get() {
         return value.get();
     }

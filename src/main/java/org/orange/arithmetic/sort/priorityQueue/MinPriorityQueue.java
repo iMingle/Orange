@@ -1,6 +1,6 @@
 /*
  * Copyright 2012 the original author or authors.
- *  
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -37,13 +37,13 @@ import java.util.Scanner;
  * items used to initialize the data structure.
  * <p>
  *
- * @param <Key> the generic type of key on this priority queue
+ * @param <K> the generic type of key on this priority queue
  * @author mingle
  */
-public class MinPriorityQueue<Key> implements Iterable<Key> {
-    private Key[] pq;                    // store items at indices 1 to n
+public class MinPriorityQueue<K> implements Iterable<K> {
+    private K[] pq;                    // store items at indices 1 to n
     private int n;                       // number of items on priority queue
-    private Comparator<Key> comparator;  // optional comparator
+    private Comparator<K> comparator;  // optional comparator
 
     /**
      * Initializes an empty priority queue with the given initial capacity.
@@ -51,7 +51,7 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
      * @param initCapacity the initial capacity of this priority queue
      */
     @SuppressWarnings("unchecked") public MinPriorityQueue(int initCapacity) {
-        pq = (Key[]) new Object[initCapacity + 1];
+        pq = (K[]) new Object[initCapacity + 1];
         n = 0;
     }
 
@@ -69,9 +69,9 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
      * @param initCapacity the initial capacity of this priority queue
      * @param comparator   the order to use when comparing keys
      */
-    @SuppressWarnings("unchecked") public MinPriorityQueue(int initCapacity, Comparator<Key> comparator) {
+    @SuppressWarnings("unchecked") public MinPriorityQueue(int initCapacity, Comparator<K> comparator) {
         this.comparator = comparator;
-        pq = (Key[]) new Object[initCapacity + 1];
+        pq = (K[]) new Object[initCapacity + 1];
         n = 0;
     }
 
@@ -80,7 +80,7 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
      *
      * @param comparator the order to use when comparing keys
      */
-    public MinPriorityQueue(Comparator<Key> comparator) {
+    public MinPriorityQueue(Comparator<K> comparator) {
         this(1, comparator);
     }
 
@@ -91,9 +91,9 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
      *
      * @param keys the array of keys
      */
-    @SuppressWarnings("unchecked") public MinPriorityQueue(Key[] keys) {
+    @SuppressWarnings("unchecked") public MinPriorityQueue(K[] keys) {
         n = keys.length;
-        pq = (Key[]) new Object[keys.length + 1];
+        pq = (K[]) new Object[keys.length + 1];
         for (int i = 0; i < n; i++)
             pq[i + 1] = keys[i];
         for (int k = n / 2; k >= 1; k--)
@@ -126,7 +126,7 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
      * @return a smallest key on this priority queue
      * @throws NoSuchElementException if this priority queue is empty
      */
-    public Key min() {
+    public K min() {
         if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");
         return pq[1];
     }
@@ -134,7 +134,7 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
     // helper function to double the size of the heap array
     private void resize(int capacity) {
         assert capacity > n;
-        @SuppressWarnings("unchecked") Key[] temp = (Key[]) new Object[capacity];
+        @SuppressWarnings("unchecked") K[] temp = (K[]) new Object[capacity];
         for (int i = 1; i <= n; i++) {
             temp[i] = pq[i];
         }
@@ -146,7 +146,7 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
      *
      * @param x the key to add to this priority queue
      */
-    public void insert(Key x) {
+    public void insert(K x) {
         // double size of array if necessary
         if (n == pq.length - 1) resize(2 * pq.length);
 
@@ -162,10 +162,10 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
      * @return a smallest key on this priority queue
      * @throws NoSuchElementException if this priority queue is empty
      */
-    public Key delMin() {
+    public K delMin() {
         if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");
         exch(1, n);
-        Key min = pq[n--];
+        K min = pq[n--];
         sink(1);
         pq[n + 1] = null;         // avoid loitering and help with garbage collection
         if ((n > 0) && (n == (pq.length - 1) / 4)) resize(pq.length / 2);
@@ -192,14 +192,14 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
 
     private boolean greater(int i, int j) {
         if (comparator == null) {
-            return ((Comparable<Key>) pq[i]).compareTo(pq[j]) > 0;
+            return ((Comparable<K>) pq[i]).compareTo(pq[j]) > 0;
         } else {
             return comparator.compare(pq[i], pq[j]) > 0;
         }
     }
 
     private void exch(int i, int j) {
-        Key swap = pq[i];
+        K swap = pq[i];
         pq[i] = pq[j];
         pq[j] = swap;
     }
@@ -227,13 +227,13 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
      *
      * @return an iterator that iterates over the keys in ascending order
      */
-    public Iterator<Key> iterator() {
+    public Iterator<K> iterator() {
         return new HeapIterator();
     }
 
-    private class HeapIterator implements Iterator<Key> {
+    private class HeapIterator implements Iterator<K> {
         // create a new pq
-        private MinPriorityQueue<Key> copy;
+        private MinPriorityQueue<K> copy;
 
         // add all items to copy of heap
         // takes linear time since already in heap order so no keys move
@@ -252,7 +252,7 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
             throw new UnsupportedOperationException();
         }
 
-        public Key next() {
+        public K next() {
             if (!hasNext()) throw new NoSuchElementException();
             return copy.delMin();
         }

@@ -25,16 +25,16 @@ import java.util.NoSuchElementException;
  *
  * @author mingle
  */
-public class BinarySearchTree<Key extends Comparable<Key>, Value> {
+public class BinarySearchTree<K extends Comparable<K>, V> {
     private Node root;
 
     private class Node {
-        private Key key;           // sorted by key
-        private Value val;         // associated data
+        private K key;           // sorted by key
+        private V val;         // associated data
         private Node left, right;  // left and right subtrees
         private int size;          // number of nodes in subtree
 
-        public Node(Key key, Value val, int size) {
+        public Node(K key, V val, int size) {
             this.key = key;
             this.val = val;
             this.size = size;
@@ -76,7 +76,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * {@code false} otherwise
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public boolean contains(Key key) {
+    public boolean contains(K key) {
         if (key == null) throw new IllegalArgumentException("argument to contains() is null");
         return get(key) != null;
     }
@@ -89,11 +89,11 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * and {@code null} if the key is not in the symbol table
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Value get(Key key) {
+    public V get(K key) {
         return get(root, key);
     }
 
-    private Value get(Node node, Key key) {
+    private V get(Node node, K key) {
         if (node == null) return null;
         int cmp = key.compareTo(node.key);
         if (cmp < 0) return get(node.left, key);
@@ -111,7 +111,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @param val the value
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void put(Key key, Value val) {
+    public void put(K key, V val) {
         if (key == null) throw new IllegalArgumentException("first argument to put() is null");
         if (val == null) {
             delete(key);
@@ -121,7 +121,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         assert check();
     }
 
-    private Node put(Node x, Key key, Value val) {
+    private Node put(Node x, K key, V val) {
         if (x == null) return new Node(key, val, 1);
         int cmp = key.compareTo(x.key);
         if (cmp < 0) x.left = put(x.left, key, val);
@@ -174,13 +174,13 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @param key the key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void delete(Key key) {
+    public void delete(K key) {
         if (key == null) throw new IllegalArgumentException("argument to delete() is null");
         root = delete(root, key);
         assert check();
     }
 
-    private Node delete(Node x, Key key) {
+    private Node delete(Node x, K key) {
         if (x == null) return null;
 
         int cmp = key.compareTo(x.key);
@@ -204,7 +204,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @return the smallest key in the symbol table
      * @throws NoSuchElementException if the symbol table is empty
      */
-    public Key min() {
+    public K min() {
         if (isEmpty()) throw new NoSuchElementException("called min() with empty symbol table");
         return min(root).key;
     }
@@ -220,7 +220,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @return the largest key in the symbol table
      * @throws NoSuchElementException if the symbol table is empty
      */
-    public Key max() {
+    public K max() {
         if (isEmpty()) throw new NoSuchElementException("called max() with empty symbol table");
         return max(root).key;
     }
@@ -238,7 +238,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @throws NoSuchElementException   if there is no such key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Key floor(Key key) {
+    public K floor(K key) {
         if (key == null) throw new IllegalArgumentException("argument to floor() is null");
         if (isEmpty()) throw new NoSuchElementException("called floor() with empty symbol table");
         Node x = floor(root, key);
@@ -246,7 +246,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         else return x.key;
     }
 
-    private Node floor(Node x, Key key) {
+    private Node floor(Node x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
@@ -264,7 +264,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @throws NoSuchElementException   if there is no such key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Key ceiling(Key key) {
+    public K ceiling(K key) {
         if (key == null) throw new IllegalArgumentException("argument to ceiling() is null");
         if (isEmpty()) throw new NoSuchElementException("called ceiling() with empty symbol table");
         Node x = ceiling(root, key);
@@ -272,7 +272,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         else return x.key;
     }
 
-    private Node ceiling(Node x, Key key) {
+    private Node ceiling(Node x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
@@ -292,7 +292,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException unless {@code k} is between 0 and
      *                                  <em>N</em> &minus; 1
      */
-    public Key select(int k) {
+    public K select(int k) {
         if (k < 0 || k >= size()) throw new IllegalArgumentException();
         Node x = select(root, k);
         return x.key;
@@ -314,13 +314,13 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @return the number of keys in the symbol table strictly less than {@code key}
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public int rank(Key key) {
+    public int rank(K key) {
         if (key == null) throw new IllegalArgumentException("argument to rank() is null");
         return rank(key, root);
     }
 
     // Number of keys in the subtree less than key.
-    private int rank(Key key, Node x) {
+    private int rank(K key, Node x) {
         if (x == null) return 0;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return rank(key, x.left);
@@ -335,7 +335,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      *
      * @return all keys in the symbol table
      */
-    public Iterable<Key> keys() {
+    public Iterable<K> keys() {
         return keys(min(), max());
     }
 
@@ -350,16 +350,16 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if either {@code lo} or {@code hi}
      *                                  is {@code null}
      */
-    public Iterable<Key> keys(Key lo, Key hi) {
+    public Iterable<K> keys(K lo, K hi) {
         if (lo == null) throw new IllegalArgumentException("first argument to keys() is null");
         if (hi == null) throw new IllegalArgumentException("second argument to keys() is null");
 
-        Queue<Key> queue = new Queue<Key>();
+        Queue<K> queue = new Queue<K>();
         keys(root, queue, lo, hi);
         return queue;
     }
 
-    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+    private void keys(Node x, Queue<K> queue, K lo, K hi) {
         if (x == null) return;
         int cmplo = lo.compareTo(x.key);
         int cmphi = hi.compareTo(x.key);
@@ -378,7 +378,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if either {@code lo} or {@code hi}
      *                                  is {@code null}
      */
-    public int size(Key lo, Key hi) {
+    public int size(K lo, K hi) {
         if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
         if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
 
@@ -406,8 +406,8 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      *
      * @return the keys in the BST in level order traversal
      */
-    public Iterable<Key> levelOrder() {
-        Queue<Key> keys = new Queue<>();
+    public Iterable<K> levelOrder() {
+        Queue<K> keys = new Queue<>();
         Queue<Node> queue = new Queue<>();
         queue.enqueue(root);
         while (!queue.isEmpty()) {
@@ -439,7 +439,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     // is the tree rooted at x a BST with all keys strictly between min and max
     // (if min or max is null, treat as empty constraint)
     // Credit: Bob Dondero's elegant solution
-    private boolean isBST(Node x, Key min, Key max) {
+    private boolean isBST(Node x, K min, K max) {
         if (x == null) return true;
         if (min != null && x.key.compareTo(min) <= 0) return false;
         if (max != null && x.key.compareTo(max) >= 0) return false;
@@ -461,7 +461,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     private boolean isRankConsistent() {
         for (int i = 0; i < size(); i++)
             if (i != rank(select(i))) return false;
-        for (Key key : keys())
+        for (K key : keys())
             if (key.compareTo(select(rank(key))) != 0) return false;
         return true;
     }
