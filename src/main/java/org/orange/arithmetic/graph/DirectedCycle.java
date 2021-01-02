@@ -40,46 +40,37 @@ import org.orange.arithmetic.base.stack.Stack;
  * @author mingle
  */
 public class DirectedCycle {
-    private boolean[] marked;        // marked[v] = has vertex v been marked?
-    private int[] edgeTo;            // edgeTo[v] = previous vertex on path to v
-    private boolean[] onStack;       // onStack[v] = is vertex on the stack?
-    private Stack<Integer> cycle;    // directed cycle (or null if no such cycle)
-
-    public static void main(String[] args) {
-        Digraph digraph = new Digraph(3);
-        digraph.addEdge(0, 1);
-        digraph.addEdge(1, 2);
-        digraph.addEdge(2, 0);
-        DirectedCycle cycle = new DirectedCycle(digraph);
-        System.out.println(cycle.hasCycle());
-    }
+    private final boolean[] marked;        // marked[v] = has vertex v been marked?
+    private final int[] edgeTo;            // edgeTo[v] = previous vertex on path to v
+    private final boolean[] onStack;       // onStack[v] = is vertex on the stack?
+    private Stack<Integer> cycle;         // directed cycle (or null if no such cycle)
 
     /**
-     * Determines whether the digraph {@code G} has a directed cycle and, if so,
+     * Determines whether the digraph {@code graph} has a directed cycle and, if so,
      * finds such a cycle.
      *
-     * @param G the digraph
+     * @param graph the digraph
      */
-    public DirectedCycle(Digraph G) {
-        marked = new boolean[G.V()];
-        onStack = new boolean[G.V()];
-        edgeTo = new int[G.V()];
-        for (int v = 0; v < G.V(); v++)
-            if (!marked[v] && cycle == null) dfs(G, v);
+    public DirectedCycle(Digraph graph) {
+        marked = new boolean[graph.vertex()];
+        onStack = new boolean[graph.vertex()];
+        edgeTo = new int[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++)
+            if (!marked[v] && cycle == null) dfs(graph, v);
     }
 
     // check that algorithm computes either the topological order or finds a directed cycle
-    private void dfs(Digraph G, int v) {
+    private void dfs(Digraph graph, int v) {
         onStack[v] = true;
         marked[v] = true;
-        for (int w : G.adj(v)) {
+        for (int w : graph.adj(v)) {
             // short circuit if directed cycle found
             if (cycle != null) return;
 
                 // found new vertex, so recur
             else if (!marked[w]) {
                 edgeTo[w] = v;
-                dfs(G, w);
+                dfs(graph, w);
             }
 
             // trace back directed cycle
@@ -131,5 +122,14 @@ public class DirectedCycle {
         }
 
         return true;
+    }
+
+    public static void main(String[] args) {
+        Digraph digraph = new Digraph(3);
+        digraph.addEdge(0, 1);
+        digraph.addEdge(1, 2);
+        digraph.addEdge(2, 0);
+        DirectedCycle cycle = new DirectedCycle(digraph);
+        System.out.println(cycle.hasCycle());
     }
 }

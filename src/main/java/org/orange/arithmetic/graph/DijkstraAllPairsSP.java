@@ -33,20 +33,20 @@ package org.orange.arithmetic.graph;
  * @author mingle
  */
 public class DijkstraAllPairsSP {
-    private DijkstraSP[] all;
+    private final DijkstraSP[] all;
 
     /**
      * Computes a shortest paths tree from each vertex to every other vertex in
-     * the edge-weighted digraph {@code G}.
+     * the edge-weighted digraph {@code graph}.
      *
-     * @param G the edge-weighted digraph
+     * @param graph the edge-weighted digraph
      * @throws IllegalArgumentException if an edge weight is negative
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
-    public DijkstraAllPairsSP(EdgeWeightedDigraph G) {
-        all = new DijkstraSP[G.V()];
-        for (int v = 0; v < G.V(); v++)
-            all[v] = new DijkstraSP(G, v);
+    public DijkstraAllPairsSP(EdgeWeightedDigraph graph) {
+        all = new DijkstraSP[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++)
+            all[v] = new DijkstraSP(graph, v);
     }
 
     /**

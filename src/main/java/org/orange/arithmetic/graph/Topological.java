@@ -44,28 +44,17 @@ public class Topological {
     private Iterable<Integer> order;  // topological order
     private int[] rank;               // rank[v] = position of vertex v in topological order
 
-    public static void main(String[] args) {
-        Digraph digraph = new Digraph(13);
-        digraph.addEdge(0, 1).addEdge(0, 5).addEdge(0, 6).addEdge(2, 0)
-                .addEdge(2, 3).addEdge(3, 5).addEdge(5, 4)
-                .addEdge(6, 4).addEdge(6, 9).addEdge(7, 6).addEdge(8, 7)
-                .addEdge(9, 10).addEdge(9, 11).addEdge(9, 12).addEdge(11, 12);
-        Topological topological = new Topological(digraph);
-        for (Integer o : topological.order())
-            System.out.println(o);
-    }
-
     /**
-     * Determines whether the digraph {@code G} has a topological order and, if so finds such a topological order.
+     * Determines whether the digraph {@code graph} has a topological order and, if so finds such a topological order.
      *
-     * @param G the digraph
+     * @param graph the digraph
      */
-    public Topological(Digraph G) {
-        DirectedCycle finder = new DirectedCycle(G);
+    public Topological(Digraph graph) {
+        DirectedCycle finder = new DirectedCycle(graph);
         if (!finder.hasCycle()) {
-            DepthFirstOrder dfs = new DepthFirstOrder(G);
+            DepthFirstOrder dfs = new DepthFirstOrder(graph);
             order = dfs.reversePost();
-            rank = new int[G.V()];
+            rank = new int[graph.vertex()];
             int i = 0;
             for (int v : order)
                 rank[v] = i++;
@@ -73,15 +62,15 @@ public class Topological {
     }
 
     /**
-     * Determines whether the edge-weighted digraph {@code G} has a topological
+     * Determines whether the edge-weighted digraph {@code graph} has a topological
      * order and, if so, finds such an order.
      *
-     * @param G the edge-weighted digraph
+     * @param graph the edge-weighted digraph
      */
-    public Topological(EdgeWeightedDigraph G) {
-        EdgeWeightedDirectedCycle finder = new EdgeWeightedDirectedCycle(G);
+    public Topological(EdgeWeightedDigraph graph) {
+        EdgeWeightedDirectedCycle finder = new EdgeWeightedDirectedCycle(graph);
         if (!finder.hasCycle()) {
-            DepthFirstOrder dfs = new DepthFirstOrder(G);
+            DepthFirstOrder dfs = new DepthFirstOrder(graph);
             order = dfs.reversePost();
         }
     }
@@ -128,5 +117,16 @@ public class Topological {
         int V = rank.length;
         if (v < 0 || v >= V)
             throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V - 1));
+    }
+
+    public static void main(String[] args) {
+        Digraph digraph = new Digraph(13);
+        digraph.addEdge(0, 1).addEdge(0, 5).addEdge(0, 6).addEdge(2, 0)
+                .addEdge(2, 3).addEdge(3, 5).addEdge(5, 4)
+                .addEdge(6, 4).addEdge(6, 9).addEdge(7, 6).addEdge(8, 7)
+                .addEdge(9, 10).addEdge(9, 11).addEdge(9, 12).addEdge(11, 12);
+        Topological topological = new Topological(digraph);
+        for (Integer o : topological.order())
+            System.out.println(o);
     }
 }

@@ -1,6 +1,6 @@
 /*
  * Copyright 2012 the original author or authors.
- *  
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -35,51 +35,51 @@ import org.orange.arithmetic.base.stack.Stack;
  */
 public class BreadthFirstPaths {
     private static final int INFINITY = Integer.MAX_VALUE;
-    private boolean[] marked;  // marked[v] = is there an s-v path
-    private int[] edgeTo;      // edgeTo[v] = previous edge on shortest s-v path
-    private int[] distTo;      // distTo[v] = number of edges shortest s-v path
+    private final boolean[] marked;  // marked[v] = is there an s-v path
+    private final int[] edgeTo;      // edgeTo[v] = previous edge on shortest s-v path
+    private final int[] distTo;      // distTo[v] = number of edges shortest s-v path
 
     /**
      * Computes the shortest path between the source vertex {@code s}
-     * and every other vertex in the graph {@code G}.
+     * and every other vertex in the graph {@code graph}.
      *
-     * @param G the graph
-     * @param s the source vertex
+     * @param graph the graph
+     * @param s     the source vertex
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
-    public BreadthFirstPaths(Graph G, int s) {
-        marked = new boolean[G.V()];
-        distTo = new int[G.V()];
-        edgeTo = new int[G.V()];
+    public BreadthFirstPaths(Graph graph, int s) {
+        marked = new boolean[graph.vertex()];
+        distTo = new int[graph.vertex()];
+        edgeTo = new int[graph.vertex()];
         validateVertex(s);
-        bfs(G, s);
+        bfs(graph, s);
 
-        assert check(G, s);
+        assert check(graph, s);
     }
 
     /**
      * Computes the shortest path between any one of the source vertices in {@code sources}
-     * and every other vertex in graph {@code G}.
+     * and every other vertex in graph {@code graph}.
      *
-     * @param G       the graph
+     * @param graph   the graph
      * @param sources the source vertices
      * @throws IllegalArgumentException unless {@code 0 <= s < V} for each vertex
      *                                  {@code s} in {@code sources}
      */
-    public BreadthFirstPaths(Graph G, Iterable<Integer> sources) {
-        marked = new boolean[G.V()];
-        distTo = new int[G.V()];
-        edgeTo = new int[G.V()];
-        for (int v = 0; v < G.V(); v++)
+    public BreadthFirstPaths(Graph graph, Iterable<Integer> sources) {
+        marked = new boolean[graph.vertex()];
+        distTo = new int[graph.vertex()];
+        edgeTo = new int[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++)
             distTo[v] = INFINITY;
         validateVertices(sources);
-        bfs(G, sources);
+        bfs(graph, sources);
     }
 
     // breadth-first search from a single source
-    @SuppressWarnings("Duplicates") private void bfs(Graph G, int s) {
+    @SuppressWarnings("Duplicates") private void bfs(Graph graph, int s) {
         Queue<Integer> q = new Queue<>();
-        for (int v = 0; v < G.V(); v++)
+        for (int v = 0; v < graph.vertex(); v++)
             distTo[v] = INFINITY;
         distTo[s] = 0;
         marked[s] = true;
@@ -87,7 +87,7 @@ public class BreadthFirstPaths {
 
         while (!q.isEmpty()) {
             int v = q.dequeue();
-            for (int w : G.adj(v)) {
+            for (int w : graph.adj(v)) {
                 if (!marked[w]) {
                     edgeTo[w] = v;
                     distTo[w] = distTo[v] + 1;
@@ -99,7 +99,7 @@ public class BreadthFirstPaths {
     }
 
     // breadth-first search from multiple sources
-    @SuppressWarnings("Duplicates") private void bfs(Graph G, Iterable<Integer> sources) {
+    @SuppressWarnings("Duplicates") private void bfs(Graph graph, Iterable<Integer> sources) {
         Queue<Integer> q = new Queue<>();
         for (int s : sources) {
             marked[s] = true;
@@ -109,7 +109,7 @@ public class BreadthFirstPaths {
 
         while (!q.isEmpty()) {
             int v = q.dequeue();
-            for (int w : G.adj(v)) {
+            for (int w : graph.adj(v)) {
                 if (!marked[w]) {
                     edgeTo[w] = v;
                     distTo[w] = distTo[v] + 1;
@@ -165,7 +165,7 @@ public class BreadthFirstPaths {
     }
 
     // check optimality conditions for single source
-    private boolean check(Graph G, int s) {
+    private boolean check(Graph graph, int s) {
         // check that the distance of s = 0
         if (distTo[s] != 0) {
             System.out.println("distance of source " + s + " to itself = " + distTo[s]);
@@ -174,8 +174,8 @@ public class BreadthFirstPaths {
 
         // check that for each edge v-w dist[w] <= dist[v] + 1
         // provided v is reachable from s
-        for (int v = 0; v < G.V(); v++) {
-            for (int w : G.adj(v)) {
+        for (int v = 0; v < graph.vertex(); v++) {
+            for (int w : graph.adj(v)) {
                 if (hasPathTo(v) != hasPathTo(w)) {
                     System.out.println("edge " + v + "-" + w);
                     System.out.println("hasPathTo(" + v + ") = " + hasPathTo(v));
@@ -193,7 +193,7 @@ public class BreadthFirstPaths {
 
         // check that v = edgeTo[w] satisfies distTo[w] = distTo[v] + 1
         // provided v is reachable from s
-        for (int w = 0; w < G.V(); w++) {
+        for (int w = 0; w < graph.vertex(); w++) {
             if (!hasPathTo(w) || w == s) continue;
             int v = edgeTo[w];
             if (distTo[w] != distTo[v] + 1) {

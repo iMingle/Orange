@@ -35,69 +35,69 @@ import org.orange.arithmetic.base.stack.Stack;
  * @author mingle
  */
 public class DepthFirstOrder {
-    private boolean[] marked;          // marked[v] = has v been marked in dfs?
-    private int[] pre;                 // pre[v]    = preorder number of v
-    private int[] post;                // post[v]   = postorder number of v
-    private Queue<Integer> preorder;   // vertices in preorder
-    private Queue<Integer> postorder;  // vertices in postorder
-    private int preCounter;            // counter or preorder numbering
-    private int postCounter;           // counter for postorder numbering
+    private final boolean[] marked;          // marked[v] = has v been marked in dfs?
+    private final int[] pre;                 // pre[v]    = preorder number of v
+    private final int[] post;                // post[v]   = postorder number of v
+    private final Queue<Integer> preorder;   // vertices in preorder
+    private final Queue<Integer> postorder;  // vertices in postorder
+    private int preCounter;                 // counter or preorder numbering
+    private int postCounter;                // counter for postorder numbering
 
     /**
-     * Determines a depth-first order for the digraph {@code G}.
+     * Determines a depth-first order for the digraph {@code graph}.
      *
-     * @param G the digraph
+     * @param graph the digraph
      */
-    public DepthFirstOrder(Digraph G) {
-        pre = new int[G.V()];
-        post = new int[G.V()];
+    public DepthFirstOrder(Digraph graph) {
+        pre = new int[graph.vertex()];
+        post = new int[graph.vertex()];
         postorder = new Queue<>();
         preorder = new Queue<>();
-        marked = new boolean[G.V()];
-        for (int v = 0; v < G.V(); v++)
-            if (!marked[v]) dfs(G, v);
+        marked = new boolean[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++)
+            if (!marked[v]) dfs(graph, v);
 
         assert check();
     }
 
     /**
-     * Determines a depth-first order for the edge-weighted digraph {@code G}.
+     * Determines a depth-first order for the edge-weighted digraph {@code graph}.
      *
-     * @param G the edge-weighted digraph
+     * @param graph the edge-weighted digraph
      */
-    public DepthFirstOrder(EdgeWeightedDigraph G) {
-        pre = new int[G.V()];
-        post = new int[G.V()];
+    public DepthFirstOrder(EdgeWeightedDigraph graph) {
+        pre = new int[graph.vertex()];
+        post = new int[graph.vertex()];
         postorder = new Queue<>();
         preorder = new Queue<>();
-        marked = new boolean[G.V()];
-        for (int v = 0; v < G.V(); v++)
-            if (!marked[v]) dfs(G, v);
+        marked = new boolean[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++)
+            if (!marked[v]) dfs(graph, v);
     }
 
     // run DFS in digraph G from vertex v and compute preorder/postorder
-    private void dfs(Digraph G, int v) {
+    private void dfs(Digraph graph, int v) {
         marked[v] = true;
         pre[v] = preCounter++;
         preorder.enqueue(v);
-        for (int w : G.adj(v)) {
+        for (int w : graph.adj(v)) {
             if (!marked[w]) {
-                dfs(G, w);
+                dfs(graph, w);
             }
         }
         postorder.enqueue(v);
         post[v] = postCounter++;
     }
 
-    // run DFS in edge-weighted digraph G from vertex v and compute preorder/postorder
-    private void dfs(EdgeWeightedDigraph G, int v) {
+    // run DFS in edge-weighted digraph graph from vertex v and compute preorder/postorder
+    private void dfs(EdgeWeightedDigraph graph, int v) {
         marked[v] = true;
         pre[v] = preCounter++;
         preorder.enqueue(v);
-        for (DirectedEdge e : G.adj(v)) {
+        for (DirectedEdge e : graph.adj(v)) {
             int w = e.to();
             if (!marked[w]) {
-                dfs(G, w);
+                dfs(graph, w);
             }
         }
         postorder.enqueue(v);

@@ -41,25 +41,25 @@ import java.util.NoSuchElementException;
 public class Digraph {
     private static final String NEWLINE = System.getProperty("line.separator");
 
-    private final int V;           // number of vertices in this digraph
-    private int E;                 // number of edges in this digraph
-    private Bag<Integer>[] adj;    // adj[v] = adjacency list for vertex v
-    private int[] indegree;        // indegree[v] = indegree of vertex v
+    private final int vertex;           // number of vertices in this digraph
+    private int edge;                 // number of edges in this digraph
+    private final Bag<Integer>[] adjacency;    // adj[v] = adjacency list for vertex v
+    private final int[] indegree;        // indegree[v] = indegree of vertex v
 
     /**
      * Initializes an empty digraph with <em>V</em> vertices.
      *
-     * @param V the number of vertices
+     * @param vertex the number of vertices
      * @throws IllegalArgumentException if {@code V < 0}
      */
-    @SuppressWarnings("unchecked") public Digraph(int V) {
-        if (V < 0) throw new IllegalArgumentException("Number of vertices in a Digraph must be nonnegative");
-        this.V = V;
-        this.E = 0;
-        indegree = new int[V];
-        adj = (Bag<Integer>[]) new Bag[V];
-        for (int v = 0; v < V; v++) {
-            adj[v] = new Bag<>();
+    @SuppressWarnings("unchecked") public Digraph(int vertex) {
+        if (vertex < 0) throw new IllegalArgumentException("Number of vertices in a Digraph must be nonnegative");
+        this.vertex = vertex;
+        this.edge = 0;
+        indegree = new int[vertex];
+        adjacency = (Bag<Integer>[]) new Bag[vertex];
+        for (int v = 0; v < vertex; v++) {
+            adjacency[v] = new Bag<>();
         }
     }
 
@@ -76,12 +76,12 @@ public class Digraph {
      */
     @SuppressWarnings("unchecked") public Digraph(In in) {
         try {
-            this.V = in.readInt();
-            if (V < 0) throw new IllegalArgumentException("number of vertices in a Digraph must be nonnegative");
-            indegree = new int[V];
-            adj = (Bag<Integer>[]) new Bag[V];
-            for (int v = 0; v < V; v++) {
-                adj[v] = new Bag<>();
+            this.vertex = in.readInt();
+            if (vertex < 0) throw new IllegalArgumentException("number of vertices in a Digraph must be nonnegative");
+            indegree = new int[vertex];
+            adjacency = (Bag<Integer>[]) new Bag[vertex];
+            for (int v = 0; v < vertex; v++) {
+                adjacency[v] = new Bag<>();
             }
             int E = in.readInt();
             if (E < 0) throw new IllegalArgumentException("number of edges in a Digraph must be nonnegative");
@@ -101,18 +101,18 @@ public class Digraph {
      * @param G the digraph to copy
      */
     public Digraph(Digraph G) {
-        this(G.V());
-        this.E = G.E();
-        for (int v = 0; v < V; v++)
+        this(G.vertex());
+        this.edge = G.edge();
+        for (int v = 0; v < vertex; v++)
             this.indegree[v] = G.indegree(v);
-        for (int v = 0; v < G.V(); v++) {
+        for (int v = 0; v < G.vertex(); v++) {
             // reverse so that adjacency list is in same order as original
             Stack<Integer> reverse = new Stack<>();
-            for (int w : G.adj[v]) {
+            for (int w : G.adjacency[v]) {
                 reverse.push(w);
             }
             for (int w : reverse) {
-                adj[v].add(w);
+                adjacency[v].add(w);
             }
         }
     }
@@ -122,8 +122,8 @@ public class Digraph {
      *
      * @return the number of vertices in this digraph
      */
-    public int V() {
-        return V;
+    public int vertex() {
+        return vertex;
     }
 
     /**
@@ -131,15 +131,15 @@ public class Digraph {
      *
      * @return the number of edges in this digraph
      */
-    public int E() {
-        return E;
+    public int edge() {
+        return edge;
     }
 
 
     // throw an IllegalArgumentException unless {@code 0 <= v < V}
     private void validateVertex(int v) {
-        if (v < 0 || v >= V)
-            throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V - 1));
+        if (v < 0 || v >= vertex)
+            throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (vertex - 1));
     }
 
     /**
@@ -152,9 +152,9 @@ public class Digraph {
     public Digraph addEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
-        adj[v].add(w);
+        adjacency[v].add(w);
         indegree[w]++;
-        E++;
+        edge++;
 
         return this;
     }
@@ -168,7 +168,7 @@ public class Digraph {
      */
     public Iterable<Integer> adj(int v) {
         validateVertex(v);
-        return adj[v];
+        return adjacency[v];
     }
 
     /**
@@ -181,7 +181,7 @@ public class Digraph {
      */
     public int outdegree(int v) {
         validateVertex(v);
-        return adj[v].size();
+        return adjacency[v].size();
     }
 
     /**
@@ -203,8 +203,8 @@ public class Digraph {
      * @return the reverse of the digraph
      */
     public Digraph reverse() {
-        Digraph reverse = new Digraph(V);
-        for (int v = 0; v < V; v++) {
+        Digraph reverse = new Digraph(vertex);
+        for (int v = 0; v < vertex; v++) {
             for (int w : adj(v)) {
                 reverse.addEdge(w, v);
             }
@@ -220,10 +220,10 @@ public class Digraph {
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append(V).append(" vertices, ").append(E).append(" edges ").append(NEWLINE);
-        for (int v = 0; v < V; v++) {
+        s.append(vertex).append(" vertices, ").append(edge).append(" edges ").append(NEWLINE);
+        for (int v = 0; v < vertex; v++) {
             s.append(String.format("%d: ", v));
-            for (int w : adj[v]) {
+            for (int w : adjacency[v]) {
                 s.append(String.format("%d ", w));
             }
             s.append(NEWLINE);

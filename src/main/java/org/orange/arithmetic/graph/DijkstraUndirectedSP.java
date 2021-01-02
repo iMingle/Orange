@@ -35,45 +35,45 @@ import org.orange.arithmetic.sort.priorityQueue.IndexMinPQ;
  * @author mingle
  */
 public class DijkstraUndirectedSP {
-    private double[] distTo;          // distTo[v] = distance  of shortest s->v path
-    private Edge[] edgeTo;            // edgeTo[v] = last edge on shortest s->v path
-    private IndexMinPQ<Double> pq;    // priority queue of vertices
+    private final double[] distTo;          // distTo[v] = distance  of shortest s->v path
+    private final Edge[] edgeTo;            // edgeTo[v] = last edge on shortest s->v path
+    private final IndexMinPQ<Double> pq;    // priority queue of vertices
 
     /**
      * Computes a shortest-paths tree from the source vertex {@code s} to every
-     * other vertex in the edge-weighted graph {@code G}.
+     * other vertex in the edge-weighted graph {@code graph}.
      *
-     * @param G the edge-weighted digraph
-     * @param s the source vertex
+     * @param graph the edge-weighted digraph
+     * @param s     the source vertex
      * @throws IllegalArgumentException if an edge weight is negative
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
-    public DijkstraUndirectedSP(EdgeWeightedGraph G, int s) {
-        for (Edge e : G.edges()) {
+    public DijkstraUndirectedSP(EdgeWeightedGraph graph, int s) {
+        for (Edge e : graph.edges()) {
             if (e.weight() < 0)
                 throw new IllegalArgumentException("edge " + e + " has negative weight");
         }
 
-        distTo = new double[G.V()];
-        edgeTo = new Edge[G.V()];
+        distTo = new double[graph.vertex()];
+        edgeTo = new Edge[graph.vertex()];
 
         validateVertex(s);
 
-        for (int v = 0; v < G.V(); v++)
+        for (int v = 0; v < graph.vertex(); v++)
             distTo[v] = Double.POSITIVE_INFINITY;
         distTo[s] = 0.0;
 
         // relax vertices in order of distance from s
-        pq = new IndexMinPQ<>(G.V());
+        pq = new IndexMinPQ<>(graph.vertex());
         pq.insert(s, distTo[s]);
         while (!pq.isEmpty()) {
             int v = pq.delMin();
-            for (Edge e : G.adj(v))
+            for (Edge e : graph.adj(v))
                 relax(e, v);
         }
 
         // check optimality conditions
-        assert check(G, s);
+        assert check(graph, s);
     }
 
     // relax edge e and update pq if changed
@@ -152,7 +152,7 @@ public class DijkstraUndirectedSP {
             System.err.println("distTo[s] and edgeTo[s] inconsistent");
             return false;
         }
-        for (int v = 0; v < G.V(); v++) {
+        for (int v = 0; v < G.vertex(); v++) {
             if (v == s) continue;
             if (edgeTo[v] == null && distTo[v] != Double.POSITIVE_INFINITY) {
                 System.err.println("distTo[] and edgeTo[] inconsistent");
@@ -161,7 +161,7 @@ public class DijkstraUndirectedSP {
         }
 
         // check that all edges e = v-w satisfy distTo[w] <= distTo[v] + e.weight()
-        for (int v = 0; v < G.V(); v++) {
+        for (int v = 0; v < G.vertex(); v++) {
             for (Edge e : G.adj(v)) {
                 int w = e.other(v);
                 if (distTo[v] + e.weight() < distTo[w]) {
@@ -172,7 +172,7 @@ public class DijkstraUndirectedSP {
         }
 
         // check that all edges e = v-w on SPT satisfy distTo[w] == distTo[v] + e.weight()
-        for (int w = 0; w < G.V(); w++) {
+        for (int w = 0; w < G.vertex(); w++) {
             if (edgeTo[w] == null) continue;
             Edge e = edgeTo[w];
             if (w != e.either() && w != e.other(e.either())) return false;

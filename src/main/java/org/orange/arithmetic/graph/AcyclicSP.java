@@ -47,12 +47,12 @@ public class AcyclicSP {
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
     public AcyclicSP(EdgeWeightedDigraph G, int s) {
-        distTo = new double[G.V()];
-        edgeTo = new DirectedEdge[G.V()];
+        distTo = new double[G.vertex()];
+        edgeTo = new DirectedEdge[G.vertex()];
 
         validateVertex(s);
 
-        for (int v = 0; v < G.V(); v++)
+        for (int v = 0; v < G.vertex(); v++)
             distTo[v] = Double.POSITIVE_INFINITY;
         distTo[s] = 0.0;
 

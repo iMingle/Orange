@@ -21,7 +21,9 @@ import org.orange.arithmetic.base.bag.Bag;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.Queue;
 
 /**
  * The {@code Graph} class represents an undirected graph of vertices
@@ -46,24 +48,34 @@ import java.util.NoSuchElementException;
 public class Graph {
     private static final String NEWLINE = System.getProperty("line.separator");
 
-    private final int V;
-    private int E;
-    private Bag<Integer>[] adj;
+    private final int vertex;
+    private int edge;
+
+    /**
+     * 邻接表
+     */
+    private final Bag<Integer>[] adjacency;
+
+    /**
+     * 是否找到节点
+     */
+    private boolean found;
 
     /**
      * Initializes an empty graph with {@code V} vertices and 0 edges.
      * param V the number of vertices
      *
-     * @param V number of vertices
+     * @param vertex number of vertices
      * @throws IllegalArgumentException if {@code V < 0}
      */
-    public Graph(int V) {
-        if (V < 0) throw new IllegalArgumentException("Number of vertices must be nonnegative");
-        this.V = V;
-        this.E = 0;
-        adj = (Bag<Integer>[]) new Bag[V];
-        for (int v = 0; v < V; v++) {
-            adj[v] = new Bag<>();
+    @SuppressWarnings("unchecked")
+    public Graph(int vertex) {
+        if (vertex < 0) throw new IllegalArgumentException("Number of vertices must be nonnegative");
+        this.vertex = vertex;
+        this.edge = 0;
+        adjacency = (Bag<Integer>[]) new Bag[vertex];
+        for (int v = 0; v < vertex; v++) {
+            adjacency[v] = new Bag<>();
         }
     }
 
@@ -78,13 +90,14 @@ public class Graph {
      * @throws IllegalArgumentException if the number of vertices or edges is negative
      * @throws IllegalArgumentException if the input stream is in the wrong format
      */
+    @SuppressWarnings("unchecked")
     public Graph(DataInputStream in) throws IOException {
         try {
-            this.V = in.readInt();
-            if (V < 0) throw new IllegalArgumentException("number of vertices in a Graph must be nonnegative");
-            adj = (Bag<Integer>[]) new Bag[V];
-            for (int v = 0; v < V; v++) {
-                adj[v] = new Bag<>();
+            this.vertex = in.readInt();
+            if (vertex < 0) throw new IllegalArgumentException("number of vertices in a Graph must be nonnegative");
+            adjacency = (Bag<Integer>[]) new Bag[vertex];
+            for (int v = 0; v < vertex; v++) {
+                adjacency[v] = new Bag<>();
             }
             int E = in.readInt();
             if (E < 0) throw new IllegalArgumentException("number of edges in a Graph must be nonnegative");
@@ -101,21 +114,21 @@ public class Graph {
     }
 
     /**
-     * Initializes a new graph that is a deep copy of {@code G}.
+     * Initializes a new graph that is a deep copy of {@code graph}.
      *
-     * @param G the graph to copy
+     * @param graph the graph to copy
      */
-    public Graph(Graph G) {
-        this(G.V());
-        this.E = G.E();
-        for (int v = 0; v < G.V(); v++) {
+    public Graph(Graph graph) {
+        this(graph.vertex());
+        this.edge = graph.edge();
+        for (int v = 0; v < graph.vertex(); v++) {
             // reverse so that adjacency list is in same order as original
             Stack<Integer> reverse = new Stack<>();
-            for (int w : G.adj[v]) {
+            for (int w : graph.adjacency[v]) {
                 reverse.push(w);
             }
             for (int w : reverse) {
-                adj[v].add(w);
+                adjacency[v].add(w);
             }
         }
     }
@@ -125,8 +138,8 @@ public class Graph {
      *
      * @return the number of vertices in this graph
      */
-    public int V() {
-        return V;
+    public int vertex() {
+        return vertex;
     }
 
     /**
@@ -134,14 +147,14 @@ public class Graph {
      *
      * @return the number of edges in this graph
      */
-    public int E() {
-        return E;
+    public int edge() {
+        return edge;
     }
 
     // throw an IllegalArgumentException unless {@code 0 <= v < V}
     private void validateVertex(int v) {
-        if (v < 0 || v >= V)
-            throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V - 1));
+        if (v < 0 || v >= vertex)
+            throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (vertex - 1));
     }
 
     /**
@@ -154,9 +167,9 @@ public class Graph {
     public void addEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
-        E++;
-        adj[v].add(w);
-        adj[w].add(v);
+        edge++;
+        adjacency[v].add(w);
+        adjacency[w].add(v);
     }
 
     /**
@@ -168,7 +181,7 @@ public class Graph {
      */
     public Iterable<Integer> adj(int v) {
         validateVertex(v);
-        return adj[v];
+        return adjacency[v];
     }
 
     /**
@@ -180,7 +193,90 @@ public class Graph {
      */
     public int degree(int v) {
         validateVertex(v);
-        return adj[v].size();
+        return adjacency[v].size();
+    }
+
+    /**
+     * 广度优先
+     *
+     * @param s source vertex
+     * @param t target vertex
+     */
+    public void bfs(int s, int t) {
+        if (s == t) return;
+        // visited是用来记录已经被访问的顶点，用来避免顶点被重复访问。
+        boolean[] visited = new boolean[vertex];
+        visited[s] = true;
+        // queue是一个队列，用来存储已经被访问、但相连的顶点还没有被访问的顶点。
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(s);
+        // prev用来记录搜索路径。
+        int[] prev = new int[vertex];
+        for (int i = 0; i < vertex; ++i) {
+            prev[i] = -1;
+        }
+
+        while (!queue.isEmpty()) {
+            int w = queue.poll();
+            for (int q : adj(w)) {
+                if (!visited[q]) {
+                    prev[q] = w;
+                    if (q == t) {
+                        print(prev, s, t);
+                        return;
+                    }
+
+                    visited[q] = true;
+                    queue.add(q);
+                }
+            }
+        }
+    }
+
+    /**
+     * 深度优先
+     *
+     * @param s source vertex
+     * @param t target vertex
+     */
+    public void dfs(int s, int t) {
+        found = false;
+        // visited是用来记录已经被访问的顶点，用来避免顶点被重复访问。
+        boolean[] visited = new boolean[vertex];
+        visited[s] = true;
+        // prev用来记录搜索路径。
+        int[] prev = new int[vertex];
+        for (int i = 0; i < vertex; ++i) {
+            prev[i] = -1;
+        }
+
+        recursiveDfs(s, t, visited, prev);
+
+        print(prev, s, t);
+    }
+
+    private void recursiveDfs(int w, int t, boolean[] visited, int[] prev) {
+        if (found) return;
+        visited[w] = true;
+        if (w == t) {
+            found = true;
+            return;
+        }
+
+        for (int q : adj(w)) {
+            if (!visited[q]) {
+                prev[q] = w;
+                recursiveDfs(q, t, visited, prev);
+            }
+        }
+    }
+
+    // 递归打印 s->t 的路径
+    private void print(int[] prev, int s, int t) {
+        if (prev[t] != -1 && t != s) {
+            print(prev, s, prev[t]);
+        }
+        System.out.print(t + " ");
     }
 
     /**
@@ -191,14 +287,33 @@ public class Graph {
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append(V).append(" vertices, ").append(E).append(" edges ").append(NEWLINE);
-        for (int v = 0; v < V; v++) {
+        s.append(vertex).append(" vertices, ").append(edge).append(" edges ").append(NEWLINE);
+        for (int v = 0; v < vertex; v++) {
             s.append(v).append(": ");
-            for (int w : adj[v]) {
+            for (int w : adjacency[v]) {
                 s.append(w).append(" ");
             }
             s.append(NEWLINE);
         }
         return s.toString();
+    }
+
+    public static void main(String[] args) {
+        Graph graph = new Graph(8);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 3);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 4);
+        graph.addEdge(2, 5);
+        graph.addEdge(4, 5);
+        graph.addEdge(4, 6);
+        graph.addEdge(5, 7);
+        graph.addEdge(6, 7);
+
+        System.out.println(graph);
+
+        graph.bfs(0, 6);
+        System.out.println();
+        graph.dfs(0, 6);
     }
 }

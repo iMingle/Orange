@@ -39,9 +39,9 @@ import java.util.TreeMap;
  * @author mingle
  */
 public class SymbolDigraph {
-    private Map<String, Integer> st;  // string -> index
-    private String[] keys;           // index  -> string
-    private Digraph graph;           // the underlying digraph
+    private final Map<String, Integer> st; // string -> index
+    private final String[] keys;           // index  -> string
+    private final Digraph graph;           // the underlying digraph
 
     /**
      * Initializes a digraph from a file using the specified delimiter.
@@ -130,7 +130,7 @@ public class SymbolDigraph {
 
     // throw an IllegalArgumentException unless {@code 0 <= v < V}
     private void validateVertex(int v) {
-        int V = graph.V();
+        int V = graph.vertex();
         if (v < 0 || v >= V)
             throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V - 1));
     }

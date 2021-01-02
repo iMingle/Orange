@@ -19,6 +19,8 @@ package org.orange;
 import org.orange.util.SortUtils;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author mingle
@@ -39,9 +41,20 @@ public class Test {
         System.out.println(Long.toBinaryString((-1L) >> 2));
         System.out.println(Long.toBinaryString(12345)); // 1+8+16+32+2**12+2**13
 
-        Integer[] a = new Integer[] {5, 3, 6, 7, 2, 1, 9, 8, 4};
+        Integer[] a = new Integer[]{5, 3, 6, 7, 2, 1, 9, 8, 4};
         sort(a);
         System.out.println(Arrays.toString(a));
+
+        Map<Integer, Integer> m = new LinkedHashMap<>(10, 0.75f, true);
+        m.put(3, 11);
+        m.put(1, 12);
+        m.put(5, 23);
+        m.put(2, 22);
+        m.put(3, 26);
+        m.get(5);
+        for (Map.Entry<Integer, Integer> e : m.entrySet()) {
+            System.out.println(e.getKey());
+        }
     }
 
     public static void sort(Integer[] a) {
@@ -62,7 +75,7 @@ public class Test {
         int j = hi + 1;
 
         int v = a[lo];
-        for (;;) {
+        for (; ; ) {
             while (a[++i] < v) if (i == hi) break;
             while (v < a[--j]) if (j == lo) break;
             if (i >= j) break;

@@ -40,33 +40,33 @@ import org.orange.arithmetic.base.stack.Stack;
  * @author mingle
  */
 public class EdgeWeightedDirectedCycle {
-    private boolean[] marked;             // marked[v] = has vertex v been marked?
-    private DirectedEdge[] edgeTo;        // edgeTo[v] = previous edge on path to v
-    private boolean[] onStack;            // onStack[v] = is vertex on the stack?
-    private Stack<DirectedEdge> cycle;    // directed cycle (or null if no such cycle)
+    private final boolean[] marked;             // marked[v] = has vertex v been marked?
+    private final DirectedEdge[] edgeTo;        // edgeTo[v] = previous edge on path to v
+    private final boolean[] onStack;            // onStack[v] = is vertex on the stack?
+    private Stack<DirectedEdge> cycle;         // directed cycle (or null if no such cycle)
 
     /**
-     * Determines whether the edge-weighted digraph {@code G} has a directed cycle and,
+     * Determines whether the edge-weighted digraph {@code graph} has a directed cycle and,
      * if so, finds such a cycle.
      *
-     * @param G the edge-weighted digraph
+     * @param graph the edge-weighted digraph
      */
-    public EdgeWeightedDirectedCycle(EdgeWeightedDigraph G) {
-        marked = new boolean[G.V()];
-        onStack = new boolean[G.V()];
-        edgeTo = new DirectedEdge[G.V()];
-        for (int v = 0; v < G.V(); v++)
-            if (!marked[v]) dfs(G, v);
+    public EdgeWeightedDirectedCycle(EdgeWeightedDigraph graph) {
+        marked = new boolean[graph.vertex()];
+        onStack = new boolean[graph.vertex()];
+        edgeTo = new DirectedEdge[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++)
+            if (!marked[v]) dfs(graph, v);
 
         // check that digraph has a cycle
         assert check();
     }
 
     // check that algorithm computes either the topological order or finds a directed cycle
-    private void dfs(EdgeWeightedDigraph G, int v) {
+    private void dfs(EdgeWeightedDigraph graph, int v) {
         onStack[v] = true;
         marked[v] = true;
-        for (DirectedEdge e : G.adj(v)) {
+        for (DirectedEdge e : graph.adj(v)) {
             int w = e.to();
 
             // short circuit if directed cycle found
@@ -75,7 +75,7 @@ public class EdgeWeightedDirectedCycle {
                 // found new vertex, so recur
             else if (!marked[w]) {
                 edgeTo[w] = e;
-                dfs(G, w);
+                dfs(graph, w);
             }
 
             // trace back directed cycle

@@ -42,78 +42,78 @@ import org.orange.arithmetic.base.queue.Queue;
  * @author mingle
  */
 public class TopologicalX {
-    private Queue<Integer> order;     // vertices in topological order
-    private int[] ranks;              // ranks[v] = order where vertex v appers in order
+    private Queue<Integer> order;    // vertices in topological order
+    private final int[] ranks;        // ranks[v] = order where vertex v appers in order
 
     /**
-     * Determines whether the digraph {@code G} has a topological order and, if so,
+     * Determines whether the digraph {@code graph} has a topological order and, if so,
      * finds such a topological order.
      *
-     * @param G the digraph
+     * @param graph the digraph
      */
-    public TopologicalX(Digraph G) {
+    public TopologicalX(Digraph graph) {
         // indegrees of remaining vertices
-        int[] indegree = new int[G.V()];
-        for (int v = 0; v < G.V(); v++) {
-            indegree[v] = G.indegree(v);
+        int[] indegree = new int[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++) {
+            indegree[v] = graph.indegree(v);
         }
 
         // initialize
-        ranks = new int[G.V()];
+        ranks = new int[graph.vertex()];
         order = new Queue<>();
         int count = 0;
 
         // initialize queue to contain all vertices with indegree = 0
         Queue<Integer> queue = new Queue<>();
-        for (int v = 0; v < G.V(); v++)
+        for (int v = 0; v < graph.vertex(); v++)
             if (indegree[v] == 0) queue.enqueue(v);
 
         while (!queue.isEmpty()) {
             int v = queue.dequeue();
             order.enqueue(v);
             ranks[v] = count++;
-            for (int w : G.adj(v)) {
+            for (int w : graph.adj(v)) {
                 indegree[w]--;
                 if (indegree[w] == 0) queue.enqueue(w);
             }
         }
 
         // there is a directed cycle in subgraph of vertices with indegree >= 1.
-        if (count != G.V()) {
+        if (count != graph.vertex()) {
             order = null;
         }
 
-        assert check(G);
+        assert check(graph);
     }
 
     /**
-     * Determines whether the edge-weighted digraph {@code G} has a
+     * Determines whether the edge-weighted digraph {@code graph} has a
      * topological order and, if so, finds such a topological order.
      *
-     * @param G the digraph
+     * @param graph the digraph
      */
-    public TopologicalX(EdgeWeightedDigraph G) {
+    public TopologicalX(EdgeWeightedDigraph graph) {
         // indegrees of remaining vertices
-        int[] indegree = new int[G.V()];
-        for (int v = 0; v < G.V(); v++) {
-            indegree[v] = G.indegree(v);
+        int[] indegree = new int[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++) {
+            indegree[v] = graph.indegree(v);
         }
 
         // initialize
-        ranks = new int[G.V()];
+        ranks = new int[graph.vertex()];
         order = new Queue<>();
         int count = 0;
 
         // initialize queue to contain all vertices with indegree = 0
         Queue<Integer> queue = new Queue<>();
-        for (int v = 0; v < G.V(); v++)
+        for (int v = 0; v < graph.vertex(); v++)
             if (indegree[v] == 0) queue.enqueue(v);
 
         while (!queue.isEmpty()) {
             int v = queue.dequeue();
             order.enqueue(v);
             ranks[v] = count++;
-            for (DirectedEdge e : G.adj(v)) {
+            for (DirectedEdge e : graph.adj(v)) {
                 int w = e.to();
                 indegree[w]--;
                 if (indegree[w] == 0) queue.enqueue(w);
@@ -121,11 +121,11 @@ public class TopologicalX {
         }
 
         // there is a directed cycle in subgraph of vertices with indegree >= 1.
-        if (count != G.V()) {
+        if (count != graph.vertex()) {
             order = null;
         }
 
-        assert check(G);
+        assert check(graph);
     }
 
     /**
@@ -170,11 +170,11 @@ public class TopologicalX {
         // digraph is acyclic
         if (hasOrder()) {
             // check that ranks are a permutation of 0 to V-1
-            boolean[] found = new boolean[G.V()];
-            for (int i = 0; i < G.V(); i++) {
+            boolean[] found = new boolean[G.vertex()];
+            for (int i = 0; i < G.vertex(); i++) {
                 found[rank(i)] = true;
             }
-            for (int i = 0; i < G.V(); i++) {
+            for (int i = 0; i < G.vertex(); i++) {
                 if (!found[i]) {
                     System.err.println("No vertex with rank " + i);
                     return false;
@@ -182,7 +182,7 @@ public class TopologicalX {
             }
 
             // check that ranks provide a valid topological order
-            for (int v = 0; v < G.V(); v++) {
+            for (int v = 0; v < G.vertex(); v++) {
                 for (int w : G.adj(v)) {
                     if (rank(v) > rank(w)) {
                         System.err.printf("%d-%d: rank(%d) = %d, rank(%d) = %d\n",
@@ -211,11 +211,11 @@ public class TopologicalX {
         // digraph is acyclic
         if (hasOrder()) {
             // check that ranks are a permutation of 0 to V-1
-            boolean[] found = new boolean[G.V()];
-            for (int i = 0; i < G.V(); i++) {
+            boolean[] found = new boolean[G.vertex()];
+            for (int i = 0; i < G.vertex(); i++) {
                 found[rank(i)] = true;
             }
-            for (int i = 0; i < G.V(); i++) {
+            for (int i = 0; i < G.vertex(); i++) {
                 if (!found[i]) {
                     System.err.println("No vertex with rank " + i);
                     return false;
@@ -223,7 +223,7 @@ public class TopologicalX {
             }
 
             // check that ranks provide a valid topological order
-            for (int v = 0; v < G.V(); v++) {
+            for (int v = 0; v < G.vertex(); v++) {
                 for (DirectedEdge e : G.adj(v)) {
                     int w = e.to();
                     if (rank(v) > rank(w)) {

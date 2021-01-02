@@ -39,26 +39,26 @@ import org.orange.arithmetic.base.stack.Stack;
  * @author mingle
  */
 public class BellmanFordSP {
-    private double[] distTo;               // distTo[v] = distance  of shortest s->v path
-    private DirectedEdge[] edgeTo;         // edgeTo[v] = last edge on shortest s->v path
-    private boolean[] onQueue;             // onQueue[v] = is v currently on the queue?
-    private Queue<Integer> queue;          // queue of vertices to relax
-    private int cost;                      // number of calls to relax()
-    private Iterable<DirectedEdge> cycle;  // negative cycle (or null if no such cycle)
+    private final double[] distTo;               // distTo[v] = distance  of shortest s->v path
+    private final DirectedEdge[] edgeTo;         // edgeTo[v] = last edge on shortest s->v path
+    private final boolean[] onQueue;             // onQueue[v] = is v currently on the queue?
+    private final Queue<Integer> queue;          // queue of vertices to relax
+    private int cost;                           // number of calls to relax()
+    private Iterable<DirectedEdge> cycle;       // negative cycle (or null if no such cycle)
 
     /**
      * Computes a shortest paths tree from {@code s} to every other vertex in
-     * the edge-weighted digraph {@code G}.
+     * the edge-weighted digraph {@code graph}.
      *
-     * @param G the acyclic digraph
+     * @param graph the acyclic digraph
      * @param s the source vertex
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
-    public BellmanFordSP(EdgeWeightedDigraph G, int s) {
-        distTo = new double[G.V()];
-        edgeTo = new DirectedEdge[G.V()];
-        onQueue = new boolean[G.V()];
-        for (int v = 0; v < G.V(); v++)
+    public BellmanFordSP(EdgeWeightedDigraph graph, int s) {
+        distTo = new double[graph.vertex()];
+        edgeTo = new DirectedEdge[graph.vertex()];
+        onQueue = new boolean[graph.vertex()];
+        for (int v = 0; v < graph.vertex(); v++)
             distTo[v] = Double.POSITIVE_INFINITY;
         distTo[s] = 0.0;
 
@@ -69,15 +69,15 @@ public class BellmanFordSP {
         while (!queue.isEmpty() && !hasNegativeCycle()) {
             int v = queue.dequeue();
             onQueue[v] = false;
-            relax(G, v);
+            relax(graph, v);
         }
 
-        assert check(G, s);
+        assert check(graph, s);
     }
 
     // relax vertex v and put other endpoints on queue if changed
-    private void relax(EdgeWeightedDigraph G, int v) {
-        for (DirectedEdge e : G.adj(v)) {
+    private void relax(EdgeWeightedDigraph graph, int v) {
+        for (DirectedEdge e : graph.adj(v)) {
             int w = e.to();
             if (distTo[w] > distTo[v] + e.weight()) {
                 distTo[w] = distTo[v] + e.weight();
@@ -87,7 +87,7 @@ public class BellmanFordSP {
                     onQueue[w] = true;
                 }
             }
-            if (cost++ % G.V() == 0) {
+            if (cost++ % graph.vertex() == 0) {
                 findNegativeCycle();
                 if (hasNegativeCycle()) return;  // found a negative cycle
             }
@@ -204,7 +204,7 @@ public class BellmanFordSP {
                 System.err.println("distanceTo[s] and edgeTo[s] inconsistent");
                 return false;
             }
-            for (int v = 0; v < G.V(); v++) {
+            for (int v = 0; v < G.vertex(); v++) {
                 if (v == s) continue;
                 if (edgeTo[v] == null && distTo[v] != Double.POSITIVE_INFINITY) {
                     System.err.println("distTo[] and edgeTo[] inconsistent");
@@ -213,7 +213,7 @@ public class BellmanFordSP {
             }
 
             // check that all edges e = v->w satisfy distTo[w] <= distTo[v] + e.weight()
-            for (int v = 0; v < G.V(); v++) {
+            for (int v = 0; v < G.vertex(); v++) {
                 for (DirectedEdge e : G.adj(v)) {
                     int w = e.to();
                     if (distTo[v] + e.weight() < distTo[w]) {
@@ -224,7 +224,7 @@ public class BellmanFordSP {
             }
 
             // check that all edges e = v->w on SPT satisfy distTo[w] == distTo[v] + e.weight()
-            for (int w = 0; w < G.V(); w++) {
+            for (int w = 0; w < G.vertex(); w++) {
                 if (edgeTo[w] == null) continue;
                 DirectedEdge e = edgeTo[w];
                 int v = e.from();

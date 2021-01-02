@@ -20,30 +20,30 @@ import org.orange.arithmetic.base.queue.Queue;
 import org.orange.arithmetic.base.stack.Stack;
 
 /**
- *  The {@code DirectedCycleX} class represents a data type for
- *  determining whether a digraph has a directed cycle.
- *  The <em>hasCycle</em> operation determines whether the digraph has
- *  a directed cycle and, and of so, the <em>cycle</em> operation
- *  returns one.
- *  <p>
- *  This implementation uses a nonrecursive, queue-based algorithm.
- *  The constructor takes time proportional to <em>V</em> + <em>E</em>
- *  (in the worst case),
- *  where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
- *  Afterwards, the <em>hasCycle</em> operation takes constant time;
- *  the <em>cycle</em> operation takes time proportional
- *  to the length of the cycle.
- *  <p>
- *  See {@link DirectedCycle} for a recursive version that uses depth-first search.
- *  See {@link Topological} or {@link TopologicalX} to compute a topological order
- *  when the digraph is acyclic.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/42digraph">Section 4.2</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The {@code DirectedCycleX} class represents a data type for
+ * determining whether a digraph has a directed cycle.
+ * The <em>hasCycle</em> operation determines whether the digraph has
+ * a directed cycle and, and of so, the <em>cycle</em> operation
+ * returns one.
+ * <p>
+ * This implementation uses a nonrecursive, queue-based algorithm.
+ * The constructor takes time proportional to <em>V</em> + <em>E</em>
+ * (in the worst case),
+ * where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
+ * Afterwards, the <em>hasCycle</em> operation takes constant time;
+ * the <em>cycle</em> operation takes time proportional
+ * to the length of the cycle.
+ * <p>
+ * See {@link DirectedCycle} for a recursive version that uses depth-first search.
+ * See {@link Topological} or {@link TopologicalX} to compute a topological order
+ * when the digraph is acyclic.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/42digraph">Section 4.2</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 
 public class DirectedCycleX {
@@ -52,17 +52,17 @@ public class DirectedCycleX {
     public DirectedCycleX(Digraph G) {
 
         // indegrees of remaining vertices
-        int[] indegree = new int[G.V()];
-        for (int v = 0; v < G.V(); v++) {
+        int[] indegree = new int[G.vertex()];
+        for (int v = 0; v < G.vertex(); v++) {
             indegree[v] = G.indegree(v);
         }
 
         // initialize queue to contain all vertices with indegree = 0
         Queue<Integer> queue = new Queue<>();
-        for (int v = 0; v < G.V(); v++)
+        for (int v = 0; v < G.vertex(); v++)
             if (indegree[v] == 0) queue.enqueue(v);
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             int v = queue.dequeue();
             for (int w : G.adj(v)) {
                 indegree[w]--;
@@ -71,9 +71,9 @@ public class DirectedCycleX {
         }
 
         // there is a directed cycle in subgraph of vertices with indegree >= 1.
-        int[] edgeTo = new int[G.V()];
+        int[] edgeTo = new int[G.vertex()];
         int root = -1;  // any vertex with indegree >= -1
-        for (int v = 0; v < G.V(); v++) {
+        for (int v = 0; v < G.vertex(); v++) {
             if (indegree[v] == 0) continue;
             else root = v;
             for (int w : G.adj(v)) {
@@ -86,7 +86,7 @@ public class DirectedCycleX {
         if (root != -1) {
 
             // find any vertex on cycle
-            boolean[] visited = new boolean[G.V()];
+            boolean[] visited = new boolean[G.vertex()];
             while (!visited[root]) {
                 visited[root] = true;
                 root = edgeTo[root];
@@ -107,8 +107,9 @@ public class DirectedCycleX {
 
     /**
      * Returns a directed cycle if the digraph has a directed cycle, and {@code null} otherwise.
+     *
      * @return a directed cycle (as an iterable) if the digraph has a directed cycle,
-     *    and {@code null} otherwise
+     * and {@code null} otherwise
      */
     public Iterable<Integer> cycle() {
         return cycle;
@@ -116,6 +117,7 @@ public class DirectedCycleX {
 
     /**
      * Does the digraph have a directed cycle?
+     *
      * @return {@code true} if the digraph has a directed cycle, {@code false} otherwise
      */
     public boolean hasCycle() {
