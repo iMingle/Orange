@@ -32,23 +32,23 @@ import org.orange.arithmetic.base.stack.Stack;
  * @author mingle
  */
 public class DepthFirstPaths {
-    private boolean[] marked;    // marked[v] = is there an s-v path?
-    private int[] edgeTo;        // edgeTo[v] = last edge on s-v path
-    private final int s;         // source vertex
+    private final boolean[] marked;    // marked[v] = is there an s-v path?
+    private final int[] edgeTo;        // edgeTo[v] = last edge on s-v path
+    private final int s;               // source vertex
 
     /**
-     * Computes a path between {@code s} and every other vertex in graph {@code G}.
+     * Computes a path between {@code s} and every other vertex in graph {@code graph}.
      *
-     * @param G the graph
-     * @param s the source vertex
+     * @param graph the graph
+     * @param s     the source vertex
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
-    public DepthFirstPaths(Graph G, int s) {
+    public DepthFirstPaths(Graph graph, int s) {
         this.s = s;
-        edgeTo = new int[G.vertex()];
-        marked = new boolean[G.vertex()];
+        edgeTo = new int[graph.vertex()];
+        marked = new boolean[graph.vertex()];
         validateVertex(s);
-        dfs(G, s);
+        dfs(graph, s);
     }
 
     // depth first search from v
