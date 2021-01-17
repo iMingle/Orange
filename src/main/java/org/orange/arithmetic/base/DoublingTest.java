@@ -16,8 +16,8 @@
 
 package org.orange.arithmetic.base;
 
-import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdRandom;
+import org.orange.arithmetic.util.RandomUtil;
+import org.orange.arithmetic.util.StandardDraw;
 
 public class DoublingTest {
     
@@ -26,7 +26,7 @@ public class DoublingTest {
         int[] a = new int[N];
         
         for (int i = 0; i < N; i++) {
-            a[i] = StdRandom.uniform(-MAX, MAX);
+            a[i] = RandomUtil.uniform(-MAX, MAX);
         }
         
         Stopwatch timer = new Stopwatch();
@@ -35,15 +35,15 @@ public class DoublingTest {
     }
 
     public static void main(String[] args) {
-        StdDraw.setCanvasSize(800, 600);
-        StdDraw.setXscale(0, 100);
-        StdDraw.setYscale(0, 100);
-        StdDraw.setPenRadius(.005);
+        StandardDraw.setCanvasSize(800, 600);
+        StandardDraw.setXscale(0, 100);
+        StandardDraw.setYscale(0, 100);
+        StandardDraw.setPenRadius(.005);
         
         for (int N = 2; true; N += 2) {
 //            System.out.printf("%7d %5.1f\n", N, timeTrial(N));
-//            StdDraw.point(N / 10, timeTrial(N) * 1000);
-            StdDraw.point(10 * Math.log(N / 10), 10 * Math.log(timeTrial(N) * 1000));
+//            StandardDraw.point(N / 10, timeTrial(N) * 1000);
+            StandardDraw.point(10 * Math.log(N / 10), 10 * Math.log(timeTrial(N) * 1000));
         }
     }
 

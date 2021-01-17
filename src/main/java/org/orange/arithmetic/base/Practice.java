@@ -16,11 +16,6 @@
 
 package org.orange.arithmetic.base;
 
-import edu.princeton.cs.algs4.Interval1D;
-import edu.princeton.cs.algs4.Interval2D;
-import edu.princeton.cs.algs4.Point2D;
-import edu.princeton.cs.algs4.StdOut;
-
 public class Practice {
 
     public static double[][] array = new double[100][51];
@@ -85,7 +80,7 @@ public class Practice {
             else
                 p.draw();
         }
-        StdOut.println(c);
-        StdOut.println(box.area());
+        System.out.println(c);
+        System.out.println(box.area());
     }
 }

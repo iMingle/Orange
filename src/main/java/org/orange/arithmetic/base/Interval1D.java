@@ -16,10 +16,9 @@
 
 package org.orange.arithmetic.base;
 
-import edu.princeton.cs.algs4.StdDraw;
+import org.orange.arithmetic.util.StandardDraw;
 
 public class Interval1D {
-    
     private double startLine;
     private double length;
 
@@ -43,13 +42,13 @@ public class Interval1D {
         this.startLine = lo;
         this.length = hi;
     }
-    
+
     public boolean intersects(Interval1D that) {
         if (this.startLine + this.length < that.startLine) return false;
         if (that.startLine + that.length < this.startLine) return false;
         return true;
     }
-    
+
     public boolean contains(double x) {
         return (startLine <= x) && (x <= startLine + length);
     }
@@ -57,20 +56,20 @@ public class Interval1D {
     public double length() {
         return this.length;
     }
-    
+
     public void draw() {
-        StdDraw.line(startLine, 0, startLine, 100);
-        StdDraw.line(startLine + length, 0, startLine + length, 100);
+        StandardDraw.line(startLine, 0, startLine, 100);
+        StandardDraw.line(startLine + length, 0, startLine + length, 100);
     }
 
     public static void main(String[] args) {
-        StdDraw.setCanvasSize(800, 600);
-        StdDraw.setXscale(0, 100);
-        StdDraw.setYscale(0, 100);
-        StdDraw.setPenRadius(.005);
-        
+        StandardDraw.setCanvasSize(800, 600);
+        StandardDraw.setXscale(0, 100);
+        StandardDraw.setYscale(0, 100);
+        StandardDraw.setPenRadius(.005);
+
         Interval1D inter = new Interval1D(10, 20);
-        
+
         inter.draw();
     }
 }

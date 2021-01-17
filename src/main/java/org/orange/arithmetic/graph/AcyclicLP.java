@@ -34,8 +34,8 @@ import org.orange.arithmetic.base.stack.Stack;
  * @author mingle
  */
 public class AcyclicLP {
-    private double[] distTo;          // distTo[v] = distance  of longest s->v path
-    private DirectedEdge[] edgeTo;    // edgeTo[v] = last edge on longest s->v path
+    private final double[] distTo;          // distTo[v] = distance  of longest s->v path
+    private final DirectedEdge[] edgeTo;    // edgeTo[v] = last edge on longest s->v path
 
     /**
      * Computes a longest paths tree from {@code s} to every other vertex in
@@ -109,7 +109,7 @@ public class AcyclicLP {
      * as an iterable of edges, and {@code null} if no such path
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
-    @SuppressWarnings("Duplicates") public Iterable<DirectedEdge> pathTo(int v) {
+    public Iterable<DirectedEdge> pathTo(int v) {
         validateVertex(v);
         if (!hasPathTo(v)) return null;
         Stack<DirectedEdge> path = new Stack<>();

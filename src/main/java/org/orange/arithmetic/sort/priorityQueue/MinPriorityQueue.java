@@ -42,7 +42,7 @@ import java.util.Scanner;
  */
 public class MinPriorityQueue<K> implements Iterable<K> {
     private K[] pq;                    // store items at indices 1 to n
-    private int n;                       // number of items on priority queue
+    private int n;                     // number of items on priority queue
     private Comparator<K> comparator;  // optional comparator
 
     /**
@@ -190,7 +190,7 @@ public class MinPriorityQueue<K> implements Iterable<K> {
         }
     }
 
-    private boolean greater(int i, int j) {
+    @SuppressWarnings("unchecked") private boolean greater(int i, int j) {
         if (comparator == null) {
             return ((Comparable<K>) pq[i]).compareTo(pq[j]) > 0;
         } else {
@@ -227,13 +227,14 @@ public class MinPriorityQueue<K> implements Iterable<K> {
      *
      * @return an iterator that iterates over the keys in ascending order
      */
+    @Override
     public Iterator<K> iterator() {
         return new HeapIterator();
     }
 
     private class HeapIterator implements Iterator<K> {
         // create a new pq
-        private MinPriorityQueue<K> copy;
+        private final MinPriorityQueue<K> copy;
 
         // add all items to copy of heap
         // takes linear time since already in heap order so no keys move

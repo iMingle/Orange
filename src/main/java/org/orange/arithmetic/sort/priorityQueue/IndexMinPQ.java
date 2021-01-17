@@ -45,11 +45,11 @@ import java.util.NoSuchElementException;
  * @author mingle
  */
 public class IndexMinPQ<K extends Comparable<K>> implements Iterable<Integer> {
-    private int maxN;        // maximum number of elements on PQ
-    private int n;           // number of elements on PQ
-    private int[] pq;        // binary heap using 1-based indexing
-    private int[] qp;        // inverse of pq - qp[pq[i]] = pq[qp[i]] = i
-    private K[] keys;      // keys[i] = priority of i
+    private final int maxN;        // maximum number of elements on PQ
+    private int n;                // number of elements on PQ
+    private final int[] pq;        // binary heap using 1-based indexing
+    private final int[] qp;        // inverse of pq - qp[pq[i]] = pq[qp[i]] = i
+    private final K[] keys;        // keys[i] = priority of i
 
     /**
      * Initializes an empty indexed priority queue with indices between {@code 0}
@@ -152,7 +152,7 @@ public class IndexMinPQ<K extends Comparable<K>> implements Iterable<Integer> {
     public int delMin() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
         int min = pq[1];
-        exch(1, n--);
+        exchange(1, n--);
         sink(1);
         assert min == pq[n + 1];
         qp[min] = -1;        // delete
@@ -240,7 +240,7 @@ public class IndexMinPQ<K extends Comparable<K>> implements Iterable<Integer> {
         if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
         if (!contains(i)) throw new NoSuchElementException("index is not in the priority queue");
         int index = qp[i];
-        exch(index, n--);
+        exchange(index, n--);
         swim(index);
         sink(index);
         keys[i] = null;
@@ -251,7 +251,7 @@ public class IndexMinPQ<K extends Comparable<K>> implements Iterable<Integer> {
         return keys[pq[i]].compareTo(keys[pq[j]]) > 0;
     }
 
-    private void exch(int i, int j) {
+    private void exchange(int i, int j) {
         int swap = pq[i];
         pq[i] = pq[j];
         pq[j] = swap;
@@ -261,17 +261,17 @@ public class IndexMinPQ<K extends Comparable<K>> implements Iterable<Integer> {
 
     private void swim(int k) {
         while (k > 1 && greater(k / 2, k)) {
-            exch(k, k / 2);
+            exchange(k, k / 2);
             k = k / 2;
         }
     }
 
-    @SuppressWarnings("Duplicates") private void sink(int k) {
+    private void sink(int k) {
         while (2 * k <= n) {
             int j = 2 * k;
             if (j < n && greater(j, j + 1)) j++;
             if (!greater(k, j)) break;
-            exch(k, j);
+            exchange(k, j);
             k = j;
         }
     }
@@ -283,13 +283,14 @@ public class IndexMinPQ<K extends Comparable<K>> implements Iterable<Integer> {
      *
      * @return an iterator that iterates over the keys in ascending order
      */
+    @Override
     public Iterator<Integer> iterator() {
         return new HeapIterator();
     }
 
     private class HeapIterator implements Iterator<Integer> {
         // create a new pq
-        private IndexMinPQ<K> copy;
+        private final IndexMinPQ<K> copy;
 
         // add all elements to copy of heap
         // takes linear time since already in heap order so no keys move

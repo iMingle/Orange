@@ -16,11 +16,8 @@
 
 package org.orange.arithmetic.graph;
 
-import edu.princeton.cs.algs4.In;
-import org.orange.arithmetic.base.stack.Stack;
 import org.orange.arithmetic.base.bag.Bag;
-
-import java.util.NoSuchElementException;
+import org.orange.arithmetic.base.stack.Stack;
 
 /**
  * The {@code Digraph} class represents a directed graph of vertices
@@ -60,38 +57,6 @@ public class Digraph {
         adjacency = (Bag<Integer>[]) new Bag[vertex];
         for (int v = 0; v < vertex; v++) {
             adjacency[v] = new Bag<>();
-        }
-    }
-
-    /**
-     * Initializes a digraph from the specified input stream.
-     * The format is the number of vertices <em>V</em>,
-     * followed by the number of edges <em>E</em>,
-     * followed by <em>E</em> pairs of vertices, with each entry separated by whitespace.
-     *
-     * @param in the input stream
-     * @throws IllegalArgumentException if the endpoints of any edge are not in prescribed range
-     * @throws IllegalArgumentException if the number of vertices or edges is negative
-     * @throws IllegalArgumentException if the input stream is in the wrong format
-     */
-    @SuppressWarnings("unchecked") public Digraph(In in) {
-        try {
-            this.vertex = in.readInt();
-            if (vertex < 0) throw new IllegalArgumentException("number of vertices in a Digraph must be nonnegative");
-            indegree = new int[vertex];
-            adjacency = (Bag<Integer>[]) new Bag[vertex];
-            for (int v = 0; v < vertex; v++) {
-                adjacency[v] = new Bag<>();
-            }
-            int E = in.readInt();
-            if (E < 0) throw new IllegalArgumentException("number of edges in a Digraph must be nonnegative");
-            for (int i = 0; i < E; i++) {
-                int v = in.readInt();
-                int w = in.readInt();
-                addEdge(v, w);
-            }
-        } catch (NoSuchElementException e) {
-            throw new IllegalArgumentException("invalid input format in Digraph constructor", e);
         }
     }
 

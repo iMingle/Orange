@@ -16,7 +16,7 @@
 
 package org.orange.arithmetic.sort;
 
-import edu.princeton.cs.algs4.StdDraw;
+import org.orange.arithmetic.util.StandardDraw;
 import org.orange.util.SortUtils;
 
 /**
@@ -92,15 +92,15 @@ public class QuickBars {
         double y = ROWS - row - 1;
         for (int k = 0; k < a.length; k++) {
             if (k < lo)
-                StdDraw.setPenColor(StdDraw.LIGHT_GRAY);
+                StandardDraw.setPenColor(StandardDraw.LIGHT_GRAY);
             else if (k > hi)
-                StdDraw.setPenColor(StdDraw.LIGHT_GRAY);
+                StandardDraw.setPenColor(StandardDraw.LIGHT_GRAY);
             else if (k >= lt && k <= gt)
-                StdDraw.setPenColor(StdDraw.BOOK_RED);
+                StandardDraw.setPenColor(StandardDraw.BOOK_RED);
             else
-                StdDraw.setPenColor(StdDraw.BLACK);
+                StandardDraw.setPenColor(StandardDraw.BLACK);
 
-            StdDraw.filledRectangle(k, y + a[k] * .25, .25, a[k] * .25);
+            StandardDraw.filledRectangle(k, y + a[k] * .25, .25, a[k] * .25);
         }
         row++;
     }
@@ -116,20 +116,20 @@ public class QuickBars {
         }
 
         // precompute the number of rows
-        StdDraw.show();
+        StandardDraw.show();
         ROWS = 0;
         sort(b);
         ROWS = row;
         row = 0;
-        StdDraw.clear();
+        StandardDraw.clear();
 
-        StdDraw.setCanvasSize(800, ROWS * VERTICAL);
-        StdDraw.show();
-        StdDraw.square(.5, .5, .5);
-        StdDraw.setXscale(-1, N);
-        StdDraw.setYscale(-0.5, ROWS);
-        StdDraw.show();
+        StandardDraw.setCanvasSize(800, ROWS * VERTICAL);
+        StandardDraw.show();
+        StandardDraw.square(.5, .5, .5);
+        StandardDraw.setXscale(-1, N);
+        StandardDraw.setYscale(-0.5, ROWS);
+        StandardDraw.show();
         sort(a);
-        StdDraw.show();
+        StandardDraw.show();
     }
 }

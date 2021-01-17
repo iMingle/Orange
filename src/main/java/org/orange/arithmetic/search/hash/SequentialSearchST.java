@@ -19,72 +19,53 @@ package org.orange.arithmetic.search.hash;
 import org.orange.arithmetic.base.queue.Queue;
 
 /**
- * The {@code SeparateChainingHash} class represents a symbol table of generic
- * key-value pairs.
+ * The {@code SequentialSearchST} class represents an (unordered)
+ * symbol table of generic key-value pairs.
  * It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
  * <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
  * It also provides a <em>keys</em> method for iterating over all of the keys.
  * A symbol table implements the <em>associative array</em> abstraction:
  * when associating a value with a key that is already in the symbol table,
  * the convention is to replace the old value with the new value.
- * Unlike {@link java.util.Map}, this class uses the convention that
- * values cannot be {@code null}—setting the
+ * The class also uses the convention that values cannot be {@code null}. Setting the
  * value associated with a key to {@code null} is equivalent to deleting the key
  * from the symbol table.
  * <p>
- * This implementation uses a separate chaining hash table. It requires that
- * the key type overrides the {@code equals()} and {@code hashCode()} methods.
- * The expected time per <em>put</em>, <em>contains</em>, or <em>remove</em>
- * operation is constant, subject to the uniform hashing assumption.
- * The <em>size</em>, and <em>is-empty</em> operations take constant time.
- * Construction takes constant time.
+ * It relies on the {@code equals()} method to test whether two keys
+ * are equal. It does not call either the {@code compareTo()} or
+ * {@code hashCode()} method.
  * <p>
+ * This implementation uses a <em>singly linked list</em> and
+ * <em>sequential search</em>.
+ * The <em>put</em> and <em>delete</em> operations take &Theta;(<em>n</em>).
+ * The <em>get</em> and <em>contains</em> operations takes &Theta;(<em>n</em>)
+ * time in the worst case.
+ * The <em>size</em>, and <em>is-empty</em> operations take &Theta;(1) time.
+ * Construction takes &Theta;(1) time.
  *
  * @author mingle
  */
-public class SeparateChainingHash<K, V> {
-    private static final int INIT_CAPACITY = 4;
+public class SequentialSearchST<K, V> {
+    private int n;           // number of key-value pairs
+    private Node first;      // the linked list of key-value pairs
 
-    private int n;                                // number of key-value pairs
-    private int m;                                // hash table size
-    private SequentialSearchST<K, V>[] st;  // array of linked-list symbol tables
+    // a helper linked list data type
+    private class Node {
+        private K key;
+        private V value;
+        private Node next;
+
+        public Node(K key, V value, Node next) {
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+    }
 
     /**
      * Initializes an empty symbol table.
      */
-    public SeparateChainingHash() {
-        this(INIT_CAPACITY);
-    }
-
-    /**
-     * Initializes an empty symbol table with {@code m} chains.
-     *
-     * @param m the initial number of chains
-     */
-    @SuppressWarnings("unchecked") public SeparateChainingHash(int m) {
-        this.m = m;
-        st = (SequentialSearchST<K, V>[]) new SequentialSearchST[m];
-        for (int i = 0; i < m; i++)
-            st[i] = new SequentialSearchST<>();
-    }
-
-    // resize the hash table to have the given number of chains,
-    // rehashing all of the keys
-    private void resize(int chains) {
-        SeparateChainingHash<K, V> temp = new SeparateChainingHash<>(chains);
-        for (int i = 0; i < m; i++) {
-            for (K key : st[i].keys()) {
-                temp.put(key, st[i].get(key));
-            }
-        }
-        this.m = temp.m;
-        this.n = temp.n;
-        this.st = temp.st;
-    }
-
-    // hash value between 0 and m-1
-    private int hash(K key) {
-        return (key.hashCode() & 0x7fffffff) % m;
+    public SequentialSearchST() {
     }
 
     /**
@@ -120,17 +101,20 @@ public class SeparateChainingHash<K, V> {
     }
 
     /**
-     * Returns the value associated with the specified key in this symbol table.
+     * Returns the value associated with the given key in this symbol table.
      *
      * @param key the key
-     * @return the value associated with {@code key} in the symbol table;
-     * {@code null} if no such value
+     * @return the value associated with the given key if the key is in the symbol table
+     * and {@code null} if the key is not in the symbol table
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     public V get(K key) {
         if (key == null) throw new IllegalArgumentException("argument to get() is null");
-        int i = hash(key);
-        return st[i].get(key);
+        for (Node x = first; x != null; x = x.next) {
+            if (key.equals(x.key))
+                return x.value;
+        }
+        return null;
     }
 
     /**
@@ -150,12 +134,14 @@ public class SeparateChainingHash<K, V> {
             return;
         }
 
-        // double table size if average length of list >= 10
-        if (n >= 10 * m) resize(2 * m);
-
-        int i = hash(key);
-        if (!st[i].contains(key)) n++;
-        st[i].put(key, val);
+        for (Node x = first; x != null; x = x.next) {
+            if (key.equals(x.key)) {
+                x.value = val;
+                return;
+            }
+        }
+        first = new Node(key, val, first);
+        n++;
     }
 
     /**
@@ -167,31 +153,32 @@ public class SeparateChainingHash<K, V> {
      */
     public void delete(K key) {
         if (key == null) throw new IllegalArgumentException("argument to delete() is null");
-
-        int i = hash(key);
-        if (st[i].contains(key)) n--;
-        st[i].delete(key);
-
-        // halve table size if average length of list <= 2
-        if (m > INIT_CAPACITY && n <= 2 * m) resize(m / 2);
+        first = delete(first, key);
     }
 
-    // return keys in symbol table as an Iterable
-    public Iterable<K> keys() {
-        Queue<K> queue = new Queue<>();
-        for (int i = 0; i < m; i++) {
-            for (K key : st[i].keys())
-                queue.enqueue(key);
+    // delete key in linked list beginning at Node x
+    // warning: function call stack too large if table is large
+    private Node delete(Node x, K key) {
+        if (x == null) return null;
+        if (key.equals(x.key)) {
+            n--;
+            return x.next;
         }
+        x.next = delete(x.next, key);
+        return x;
+    }
+
+    /**
+     * Returns all keys in the symbol table as an {@code Iterable}.
+     * To iterate over all of the keys in the symbol table named {@code st},
+     * use the foreach notation: {@code for (Key key : st.keys())}.
+     *
+     * @return all keys in the symbol table
+     */
+    public Iterable<K> keys() {
+        Queue<K> queue = new Queue<K>();
+        for (Node x = first; x != null; x = x.next)
+            queue.enqueue(x.key);
         return queue;
     }
-
-    public static void main(String[] args) {
-        SeparateChainingHash<String, Integer> st = new SeparateChainingHash<>();
-
-        for (String s : st.keys())
-            System.out.println(s + " " + st.get(s));
-
-    }
-
 }

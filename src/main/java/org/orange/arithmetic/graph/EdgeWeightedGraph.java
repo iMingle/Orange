@@ -16,10 +16,9 @@
 
 package org.orange.arithmetic.graph;
 
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdRandom;
-import org.orange.arithmetic.base.stack.Stack;
 import org.orange.arithmetic.base.bag.Bag;
+import org.orange.arithmetic.base.stack.Stack;
+import org.orange.arithmetic.util.RandomUtil;
 
 /**
  * The {@code EdgeWeightedGraph} class represents an edge-weighted
@@ -74,35 +73,9 @@ public class EdgeWeightedGraph {
         this(vertex);
         if (edge < 0) throw new IllegalArgumentException("Number of edges must be nonnegative");
         for (int i = 0; i < edge; i++) {
-            int v = StdRandom.uniform(vertex);
-            int w = StdRandom.uniform(vertex);
-            double weight = Math.round(100 * StdRandom.uniform()) / 100.0;
-            Edge e = new Edge(v, w, weight);
-            addEdge(e);
-        }
-    }
-
-    /**
-     * Initializes an edge-weighted graph from an input stream.
-     * The format is the number of vertices <em>V</em>,
-     * followed by the number of edges <em>E</em>,
-     * followed by <em>E</em> pairs of vertices and edge weights,
-     * with each entry separated by whitespace.
-     *
-     * @param in the input stream
-     * @throws IllegalArgumentException if the endpoints of any edge are not in prescribed range
-     * @throws IllegalArgumentException if the number of vertices or edges is negative
-     */
-    public EdgeWeightedGraph(In in) {
-        this(in.readInt());
-        int E = in.readInt();
-        if (E < 0) throw new IllegalArgumentException("Number of edges must be nonnegative");
-        for (int i = 0; i < E; i++) {
-            int v = in.readInt();
-            int w = in.readInt();
-            validateVertex(v);
-            validateVertex(w);
-            double weight = in.readDouble();
+            int v = RandomUtil.uniform(vertex);
+            int w = RandomUtil.uniform(vertex);
+            double weight = Math.round(100 * RandomUtil.uniform()) / 100.0;
             Edge e = new Edge(v, w, weight);
             addEdge(e);
         }

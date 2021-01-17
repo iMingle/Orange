@@ -19,7 +19,6 @@ package org.orange.util.json;
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import lombok.ToString;
 
@@ -29,7 +28,7 @@ import java.util.Collection;
 
 /**
  * Gson测试
- * 
+ *
  * @author mingle
  */
 public class GsonTest {
@@ -40,10 +39,10 @@ public class GsonTest {
         System.out.println("============== Primitives ==============");
         System.out.println(gson.toJson(1));
         System.out.println(gson.toJson("abcd"));
-        System.out.println(gson.toJson(new Long(10)));
-        int[] values = { 1 };
+        System.out.println(gson.toJson(10L));
+        int[] values = {1};
         System.out.println(gson.toJson(values));
-        
+
         int one = gson.fromJson("1", int.class);
         System.out.println(one);
         Integer ione = gson.fromJson("1", Integer.class);
@@ -56,15 +55,15 @@ public class GsonTest {
         System.out.println(str);
         String[] anotherStr = gson.fromJson("[\"abc\"]", String[].class);
         System.out.println(Arrays.toString(anotherStr));
-        
+
         System.out.println("============== Object ==============");
         GsonObject<String> obj = new GsonObject<String>(0, "Mingle", "X");
         String objGson = gson.toJson(obj);
         System.out.println(objGson);
-        
+
         GsonObject<String> objTransfer = gson.fromJson(objGson, GsonObject.class);
         System.out.println(objTransfer);
-        
+
         System.out.println("============== Array ==============");
         int[] ints = {1, 2, 3, 4, 5};
         String[] strings = {"abc", "def", "ghi"};
@@ -74,17 +73,18 @@ public class GsonTest {
 
         int[] ints2 = gson.fromJson("[1,2,3,4,5]", int[].class);
         System.out.println(Arrays.toString(ints2));
-        
+
         System.out.println("============== Collections ==============");
-        Collection<Integer> intss = Lists.asList(1, new Integer[] {2,3,4,5});
+        Collection<Integer> intss = Lists.asList(1, new Integer[]{2, 3, 4, 5});
 
         String json = gson.toJson(intss);
         System.out.println(json);
 
-        Type collectionType = new TypeToken<Collection<Integer>>(){}.getType();
+        Type collectionType = new TypeToken<Collection<Integer>>() {
+        }.getType();
         Collection<Integer> ints22 = gson.fromJson(json, collectionType);
         System.out.println(ints22);
-        
+
         @SuppressWarnings("rawtypes")
         Collection collection = Lists.newArrayList();
         collection.add("hello");
@@ -92,13 +92,11 @@ public class GsonTest {
         json = gson.toJson(collection);
         System.out.println(json);
         System.out.println("Using Gson.toJson() on a raw collection: " + json);
-        JsonParser parser = new JsonParser();
-        JsonArray array = parser.parse(json).getAsJsonArray();
+        JsonArray array = gson.fromJson(json, JsonArray.class);
         String message = gson.fromJson(array.get(0), String.class);
         int number = gson.fromJson(array.get(1), int.class);
         System.out.printf("Using Gson.fromJson() to get: %s, %d", message, number);
     }
-
 }
 
 @ToString
@@ -106,15 +104,10 @@ class GsonObject<T> {
     private int no;
     private String name;
     private T value;
-    
-    /**
-     * @param no
-     * @param name
-     */
+
     public GsonObject(int no, String name, T value) {
         this.no = no;
         this.name = name;
         this.value = value;
     }
-
 }

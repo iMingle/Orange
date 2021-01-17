@@ -16,8 +16,6 @@
 
 package org.orange.arithmetic.base;
 
-import edu.princeton.cs.algs4.StdOut;
-
 public class Fibonacci {
     
     public static int[] array = new int[100];
@@ -41,7 +39,7 @@ public class Fibonacci {
 
     public static void main(String[] args) {
         for (int N = 0; N < 100; N++)
-            StdOut.println(N + " " + newF(N));
+            System.out.println(N + " " + newF(N));
     }
 
 }

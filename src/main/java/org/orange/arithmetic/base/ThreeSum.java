@@ -16,7 +16,6 @@
 
 package org.orange.arithmetic.base;
 
-import edu.princeton.cs.algs4.In;
 import org.orange.arithmetic.search.BinarySearch;
 
 import java.util.Arrays;
@@ -53,23 +52,5 @@ public class ThreeSum {
                 if (BinarySearch.search(a, -a[i] - a[j]) > j)
                     cnt++;
         return cnt;
-    }
-
-    public static void main(String[] args) {
-        In in = new In("1.txt");
-        int[] a = in.readAllInts();
-
-        System.out.println(a.length);
-        int count = 0;
-
-        Arrays.sort(a);
-
-        for (int i = 0; i < a.length; i++) {
-            if (BinarySearch.search(a, -a[i]) > i) {
-                count++;
-            }
-        }
-
-        System.out.println(count);
     }
 }

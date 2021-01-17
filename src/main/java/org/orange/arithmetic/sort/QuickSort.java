@@ -16,8 +16,7 @@
 
 package org.orange.arithmetic.sort;
 
-import edu.princeton.cs.algs4.Insertion;
-import edu.princeton.cs.algs4.StdRandom;
+import org.orange.arithmetic.util.RandomUtil;
 import org.orange.util.SortUtils;
 
 /**
@@ -41,7 +40,7 @@ public class QuickSort {
      * @param <T> type
      */
     public static <T extends Comparable<? super T>> void sort(T[] a) {
-        StdRandom.shuffle(a);
+        RandomUtil.shuffle(a);
         sort(a, 0, a.length - 1);
     }
 
@@ -53,7 +52,7 @@ public class QuickSort {
         // cutoff to insertion sort
         int n = hi - lo + 1;
         if (n <= INSERTION_SORT_CUTOFF) {
-            Insertion.sort(a, lo, hi);
+            InsertionSort.sort(a, lo, hi);
             return;
         }
 
@@ -100,7 +99,7 @@ public class QuickSort {
         // cutoff to insertion sort
         int n = hi - lo + 1;
         if (n <= INSERTION_SORT_CUTOFF) {
-            Insertion.sort(a, lo, hi);
+            InsertionSort.sort(a, lo, hi);
             return;
         }
 

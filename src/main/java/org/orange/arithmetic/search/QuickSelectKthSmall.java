@@ -16,7 +16,7 @@
 
 package org.orange.arithmetic.search;
 
-import edu.princeton.cs.algs4.StdRandom;
+import org.orange.arithmetic.util.RandomUtil;
 import org.orange.util.SortUtils;
 
 /**
@@ -47,7 +47,7 @@ public class QuickSelectKthSmall {
             throw new IllegalArgumentException("index is not between 0 and " + a.length + ": " + k);
         }
 
-        StdRandom.shuffle(a);
+        RandomUtil.shuffle(a);
         int lo = 0, hi = a.length - 1;
         while (hi > lo) {
             int i = partition(a, lo, hi);

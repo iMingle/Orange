@@ -16,9 +16,12 @@
 
 package org.orange.arithmetic.graph;
 
-import edu.princeton.cs.algs4.In;
-
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 /**
@@ -52,14 +55,15 @@ public class SymbolDigraph {
      * @param filename  the name of the file
      * @param delimiter the delimiter between fields
      */
-    public SymbolDigraph(String filename, String delimiter) {
+    public SymbolDigraph(String filename, String delimiter) throws FileNotFoundException {
         st = new TreeMap<>();
 
         // First pass builds the index by reading strings to associate
         // distinct strings with an index
-        In in = new In(filename);
-        while (in.hasNextLine()) {
-            String[] a = in.readLine().split(delimiter);
+        InputStream in = new FileInputStream(filename);
+        Scanner scanner = new Scanner(new BufferedInputStream(in), "UTF-8");
+        while (scanner.hasNextLine()) {
+            String[] a = scanner.nextLine().split(delimiter);
             for (int i = 0; i < a.length; i++) {
                 if (!st.containsKey(a[i]))
                     st.put(a[i], st.size());
@@ -75,9 +79,10 @@ public class SymbolDigraph {
         // second pass builds the digraph by connecting first vertex on each
         // line to all others
         graph = new Digraph(st.size());
-        in = new In(filename);
-        while (in.hasNextLine()) {
-            String[] a = in.readLine().split(delimiter);
+        in = new FileInputStream(filename);
+        scanner = new Scanner(new BufferedInputStream(in), "UTF-8");
+        while (scanner.hasNextLine()) {
+            String[] a = scanner.nextLine().split(delimiter);
             int v = st.get(a[0]);
             for (int i = 1; i < a.length; i++) {
                 int w = st.get(a[i]);

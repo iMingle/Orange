@@ -16,8 +16,8 @@
 
 package org.orange.arithmetic.sort;
 
-import edu.princeton.cs.algs4.StdRandom;
 import org.orange.arithmetic.base.Stopwatch;
+import org.orange.arithmetic.util.RandomUtil;
 
 /**
  * 排序算法比较
@@ -42,7 +42,7 @@ public class SortCompare {
 
         for (int t = 0; t < T; t++) {
             for (int i = 0; i < N; i++) {
-                a[i] = StdRandom.uniform();
+                a[i] = RandomUtil.uniform();
             }
 
             total += time(alg, a);

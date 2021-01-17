@@ -16,7 +16,6 @@
 
 package org.orange.util.json;
 
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -63,11 +62,6 @@ public class JacksonTest {
         mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         // to allow use of apostrophes (single quotes), non standard
         mapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
-
-        // JsonGenerator.Feature for configuring low-level JSON generation:
-
-        // to force escaping of non-ASCII characters:
-        mapper.configure(JsonGenerator.Feature.ESCAPE_NON_ASCII, true);
 
         String json;
         List<String> lists = Lists.newArrayList();

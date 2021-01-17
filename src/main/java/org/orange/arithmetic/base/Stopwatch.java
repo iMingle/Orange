@@ -16,7 +16,7 @@
 
 package org.orange.arithmetic.base;
 
-import edu.princeton.cs.algs4.StdRandom;
+import org.orange.arithmetic.util.RandomUtil;
 
 public class Stopwatch {
     private final long start;
@@ -34,7 +34,7 @@ public class Stopwatch {
     public static void main(String[] args) {
         int[] a = new int[16000];
         for (int i = 0; i < a.length; i++) {
-            a[i] = StdRandom.uniform(-1000000, 1000000);
+            a[i] = RandomUtil.uniform(-1000000, 1000000);
         }
         
         Stopwatch stopwatch = new Stopwatch();

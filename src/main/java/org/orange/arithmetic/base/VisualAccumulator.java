@@ -16,27 +16,26 @@
 
 package org.orange.arithmetic.base;
 
-import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.StdRandom;
+import org.orange.arithmetic.util.RandomUtil;
+import org.orange.arithmetic.util.StandardDraw;
 
 public class VisualAccumulator {
     private double total;
     private int N;
 
     public VisualAccumulator(int trials, double max) {
-        StdDraw.setXscale(0, trials);
-        StdDraw.setYscale(0, max);
-        StdDraw.setPenRadius(.005);
+        StandardDraw.setXscale(0, trials);
+        StandardDraw.setYscale(0, max);
+        StandardDraw.setPenRadius(.005);
     }
 
     public void addDataValue(double val) {
         N++;
         total += val;
-        StdDraw.setPenColor(StdDraw.DARK_GRAY);
-        StdDraw.point(N, val);
-        StdDraw.setPenColor(StdDraw.RED);
-        StdDraw.point(N, total / N);
+        StandardDraw.setPenColor(StandardDraw.DARK_GRAY);
+        StandardDraw.point(N, val);
+        StandardDraw.setPenColor(StandardDraw.RED);
+        StandardDraw.point(N, total / N);
     }
 
     public double mean() {
@@ -51,10 +50,10 @@ public class VisualAccumulator {
         VisualAccumulator v = new VisualAccumulator(2000, 1.0);
 
         for (int i = 0; i < 2000; i++) {
-            v.addDataValue(StdRandom.uniform());
+            v.addDataValue(RandomUtil.uniform());
         }
 
-        StdOut.println(v);
+        System.out.println(v);
     }
 
 }

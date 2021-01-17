@@ -16,10 +16,9 @@
 
 package org.orange.arithmetic.graph;
 
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdRandom;
-import org.orange.arithmetic.base.stack.Stack;
 import org.orange.arithmetic.base.bag.Bag;
+import org.orange.arithmetic.base.stack.Stack;
+import org.orange.arithmetic.util.RandomUtil;
 
 /**
  * The {@code EdgeWeightedDigraph} class represents a edge-weighted
@@ -76,36 +75,11 @@ public class EdgeWeightedDigraph {
         this(vertex);
         if (edge < 0) throw new IllegalArgumentException("Number of edges in a Digraph must be nonnegative");
         for (int i = 0; i < edge; i++) {
-            int v = StdRandom.uniform(vertex);
-            int w = StdRandom.uniform(vertex);
-            double weight = 0.01 * StdRandom.uniform(100);
+            int v = RandomUtil.uniform(vertex);
+            int w = RandomUtil.uniform(vertex);
+            double weight = 0.01 * RandomUtil.uniform(100);
             DirectedEdge e = new DirectedEdge(v, w, weight);
             addEdge(e);
-        }
-    }
-
-    /**
-     * Initializes an edge-weighted digraph from the specified input stream.
-     * The format is the number of vertices <em>V</em>,
-     * followed by the number of edges <em>E</em>,
-     * followed by <em>E</em> pairs of vertices and edge weights,
-     * with each entry separated by whitespace.
-     *
-     * @param in the input stream
-     * @throws IllegalArgumentException if the endpoints of any edge are not in prescribed range
-     * @throws IllegalArgumentException if the number of vertices or edges is negative
-     */
-    public EdgeWeightedDigraph(In in) {
-        this(in.readInt());
-        int E = in.readInt();
-        if (E < 0) throw new IllegalArgumentException("Number of edges must be nonnegative");
-        for (int i = 0; i < E; i++) {
-            int v = in.readInt();
-            int w = in.readInt();
-            validateVertex(v);
-            validateVertex(w);
-            double weight = in.readDouble();
-            addEdge(new DirectedEdge(v, w, weight));
         }
     }
 

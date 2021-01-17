@@ -37,10 +37,6 @@ import org.orange.arithmetic.base.stack.Stack;
  * See {@link DirectedCycle} for a recursive version that uses depth-first search.
  * See {@link Topological} or {@link TopologicalX} to compute a topological order
  * when the digraph is acyclic.
- * <p>
- * For additional documentation,
- * see <a href="http://algs4.cs.princeton.edu/42digraph">Section 4.2</a> of
- * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
  * @author Robert Sedgewick
  * @author Kevin Wayne

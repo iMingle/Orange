@@ -77,7 +77,7 @@ public class DijkstraSP {
     }
 
     // relax edge e and update pq if changed
-    @SuppressWarnings("Duplicates") private void relax(DirectedEdge e) {
+    private void relax(DirectedEdge e) {
         int v = e.from(), w = e.to();
         if (distTo[w] > distTo[v] + e.weight()) {
             distTo[w] = distTo[v] + e.weight();
@@ -121,7 +121,7 @@ public class DijkstraSP {
      * as an iterable of edges, and {@code null} if no such path
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
-    @SuppressWarnings("Duplicates") public Iterable<DirectedEdge> pathTo(int v) {
+    public Iterable<DirectedEdge> pathTo(int v) {
         validateVertex(v);
         if (!hasPathTo(v)) return null;
         Stack<DirectedEdge> path = new Stack<>();
@@ -134,7 +134,7 @@ public class DijkstraSP {
     // check optimality conditions:
     // (i) for all edges e:            distTo[e.to()] <= distTo[e.from()] + e.weight()
     // (ii) for all edge e on the SPT: distTo[e.to()] == distTo[e.from()] + e.weight()
-    @SuppressWarnings("Duplicates") private boolean check(EdgeWeightedDigraph G, int s) {
+    private boolean check(EdgeWeightedDigraph G, int s) {
         // check that edge weights are nonnegative
         for (DirectedEdge e : G.edges()) {
             if (e.weight() < 0) {

@@ -1,6 +1,6 @@
 /*
  * Copyright 2012 the original author or authors.
- *  
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -42,14 +42,13 @@ import org.orange.arithmetic.base.queue.Queue;
  *
  * @author mingle
  */
-public class LinearProbingHash<Key, Value> {
+public class LinearProbingHash<K, V> {
     private static final int INIT_CAPACITY = 4;
 
     private int n;           // number of key-value pairs in the symbol table
     private int m;           // size of linear probing table
-    private Key[] keys;      // the keys
-    private Value[] vals;    // the values
-
+    private K[] keys;        // the keys
+    private V[] values;      // the values
 
     /**
      * Initializes an empty symbol table.
@@ -66,8 +65,8 @@ public class LinearProbingHash<Key, Value> {
     @SuppressWarnings("unchecked") public LinearProbingHash(int capacity) {
         m = capacity;
         n = 0;
-        keys = (Key[]) new Object[m];
-        vals = (Value[]) new Object[m];
+        keys = (K[]) new Object[m];
+        values = (V[]) new Object[m];
     }
 
     /**
@@ -97,26 +96,26 @@ public class LinearProbingHash<Key, Value> {
      * {@code false} otherwise
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public boolean contains(Key key) {
+    public boolean contains(K key) {
         if (key == null) throw new IllegalArgumentException("argument to contains() is null");
         return get(key) != null;
     }
 
     // hash function for keys - returns value between 0 and M-1
-    private int hash(Key key) {
+    private int hash(K key) {
         return (key.hashCode() & 0x7fffffff) % m;
     }
 
     // resizes the hash table to the given capacity by re-hashing all of the keys
     private void resize(int capacity) {
-        LinearProbingHash<Key, Value> temp = new LinearProbingHash<>(capacity);
+        LinearProbingHash<K, V> temp = new LinearProbingHash<>(capacity);
         for (int i = 0; i < m; i++) {
             if (keys[i] != null) {
-                temp.put(keys[i], vals[i]);
+                temp.put(keys[i], values[i]);
             }
         }
         keys = temp.keys;
-        vals = temp.vals;
+        values = temp.values;
         m = temp.m;
     }
 
@@ -130,7 +129,7 @@ public class LinearProbingHash<Key, Value> {
      * @param val the value
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void put(Key key, Value val) {
+    public void put(K key, V val) {
         if (key == null) throw new IllegalArgumentException("first argument to put() is null");
 
         if (val == null) {
@@ -144,12 +143,12 @@ public class LinearProbingHash<Key, Value> {
         int i;
         for (i = hash(key); keys[i] != null; i = (i + 1) % m) {
             if (keys[i].equals(key)) {
-                vals[i] = val;
+                values[i] = val;
                 return;
             }
         }
         keys[i] = key;
-        vals[i] = val;
+        values[i] = val;
         n++;
     }
 
@@ -161,11 +160,11 @@ public class LinearProbingHash<Key, Value> {
      * {@code null} if no such value
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Value get(Key key) {
+    public V get(K key) {
         if (key == null) throw new IllegalArgumentException("argument to get() is null");
         for (int i = hash(key); keys[i] != null; i = (i + 1) % m)
             if (keys[i].equals(key))
-                return vals[i];
+                return values[i];
         return null;
     }
 
@@ -176,7 +175,7 @@ public class LinearProbingHash<Key, Value> {
      * @param key the key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void delete(Key key) {
+    public void delete(K key) {
         if (key == null) throw new IllegalArgumentException("argument to delete() is null");
         if (!contains(key)) return;
 
@@ -188,16 +187,16 @@ public class LinearProbingHash<Key, Value> {
 
         // delete key and associated value
         keys[i] = null;
-        vals[i] = null;
+        values[i] = null;
 
         // rehash all keys in same cluster
         i = (i + 1) % m;
         while (keys[i] != null) {
             // delete keys[i] an vals[i] and reinsert
-            Key keyToRehash = keys[i];
-            Value valToRehash = vals[i];
+            K keyToRehash = keys[i];
+            V valToRehash = values[i];
             keys[i] = null;
-            vals[i] = null;
+            values[i] = null;
             n--;
             put(keyToRehash, valToRehash);
             i = (i + 1) % m;
@@ -218,8 +217,8 @@ public class LinearProbingHash<Key, Value> {
      *
      * @return all keys in this symbol table
      */
-    public Iterable<Key> keys() {
-        Queue<Key> queue = new Queue<>();
+    public Iterable<K> keys() {
+        Queue<K> queue = new Queue<>();
         for (int i = 0; i < m; i++)
             if (keys[i] != null) queue.enqueue(keys[i]);
         return queue;
@@ -238,8 +237,8 @@ public class LinearProbingHash<Key, Value> {
         // check that each key in table can be found by get()
         for (int i = 0; i < m; i++) {
             if (keys[i] == null) continue;
-            else if (get(keys[i]) != vals[i]) {
-                System.err.println("get[" + keys[i] + "] = " + get(keys[i]) + "; vals[i] = " + vals[i]);
+            else if (get(keys[i]) != values[i]) {
+                System.err.println("get[" + keys[i] + "] = " + get(keys[i]) + "; vals[i] = " + values[i]);
                 return false;
             }
         }
@@ -247,7 +246,7 @@ public class LinearProbingHash<Key, Value> {
     }
 
     public static void main(String[] args) {
-        LinearProbingHash<String, Integer> st = new LinearProbingHash<String, Integer>();
+        LinearProbingHash<String, Integer> st = new LinearProbingHash<>();
 
         // print keys
         for (String s : st.keys())
