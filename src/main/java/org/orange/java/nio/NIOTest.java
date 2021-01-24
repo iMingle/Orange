@@ -28,21 +28,16 @@ import java.nio.channels.FileChannel;
 import java.util.zip.CRC32;
 
 /**
- * 内存文件映射<br>
- * This program computes the CRC checksum of a file. <br>
- * Usage: java NIOTest filename
- * 
+ * 内存文件映射
+ * This program computes the CRC checksum of a file.
+ *
  * @author mingle
  */
 public class NIOTest {
 
-    /**
-     * @param args
-     * @throws IOException 
-     * @throws URISyntaxException 
-     */
     public static void main(String[] args) throws IOException, URISyntaxException {
-        String filename = new File(NIOTest.class.getResource("/documents/io/rt.jar").toURI()).getAbsolutePath();
+        String filename = new File(NIOTest.class.getResource("/documents/streaming/shakespeare.txt")
+                .toURI()).getAbsolutePath();
         System.out.println(filename);
         System.out.println("Input Stream:");
         long start = System.currentTimeMillis();
@@ -80,9 +75,9 @@ public class NIOTest {
         int c;
         while ((c = in.read()) != -1)
             crc.update(c);
-        
+
         in.close();
-        
+
         return crc.getValue();
     }
 
@@ -94,9 +89,9 @@ public class NIOTest {
         int c;
         while ((c = in.read()) != -1)
             crc.update(c);
-        
+
         in.close();
-        
+
         return crc.getValue();
     }
 
@@ -112,7 +107,7 @@ public class NIOTest {
             crc.update(c);
         }
         file.close();
-        
+
         return crc.getValue();
     }
 
@@ -130,7 +125,7 @@ public class NIOTest {
             crc.update(c);
         }
         in.close();
-        
+
         return crc.getValue();
     }
 }

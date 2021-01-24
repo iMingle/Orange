@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
+        <version>2.3.8.RELEASE</version>
     </parent>
 
     <groupId>org.orange</groupId>
@@ -162,12 +162,6 @@
             <groupId>org.javatuples</groupId>
             <artifactId>javatuples</artifactId>
             <version>1.2</version>
-        </dependency>
-
-        <!-- Date and time library to replace JDK date handling -->
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
         </dependency>
 
         <!-- Spice up your java: Automatic Resource Management, automatic generation
