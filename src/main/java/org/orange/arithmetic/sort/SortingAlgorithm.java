@@ -16,27 +16,27 @@
 
 package org.orange.arithmetic.sort;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class SortingAlgorithm {
 
-    public static void exchange(Comparable<Integer>[] array, int i, int j) {
-        Integer temp = (Integer) array[i];
+    public static <E extends Comparable<E>> void exchange(E[] array, int i, int j) {
+        E temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public static boolean less(Comparable v, Comparable w) {
+    public static <E extends Comparable<E>> boolean less(E v, E w) {
         return v.compareTo(w) < 0;
     }
 
     /**
      * 冒泡排序(大气泡沉底)
      *
-     * @param array
+     * @param array 待排序数组
      */
-    public static void bubbleSortBig(Comparable<Integer>[] array) {
+    public static <E extends Comparable<E>> void bubbleSortBig(E[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (less(array[j + 1], array[j])) {
@@ -49,9 +49,9 @@ public class SortingAlgorithm {
     /**
      * 冒泡排序(轻气泡上浮)
      *
-     * @param array
+     * @param array 待排序数组
      */
-    public static void bubbleSortSmall(Comparable<Integer>[] array) {
+    public static <E extends Comparable<E>> void bubbleSortSmall(E[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = array.length - 1; j > i; j--) {
                 if (less(array[j], array[j - 1])) {
@@ -64,10 +64,10 @@ public class SortingAlgorithm {
     /**
      * 选择排序
      *
-     * @param array
+     * @param array 待排序数组
      */
-    public static void selectSort(Comparable<Integer>[] array) {
-        int min = 0;
+    public static <E extends Comparable<E>> void selectSort(E[] array) {
+        int min;
 
         for (int i = 0; i < array.length; i++) {
             min = i;
@@ -84,9 +84,9 @@ public class SortingAlgorithm {
     /**
      * 简单插入排序
      *
-     * @param array
+     * @param array 待排序数组
      */
-    public static void insertSort(Comparable<Integer>[] array) {
+    public static <E extends Comparable<E>> void insertSort(E[] array) {
         for (int index = 1; index < array.length; index++) {
             for (int i = index; i > 0 && less(array[i], array[i - 1]); i--) {
                 exchange(array, i, i - 1);
@@ -97,9 +97,9 @@ public class SortingAlgorithm {
     /**
      * shell排序
      *
-     * @param array
+     * @param array 待排序数组
      */
-    public static void shellSort(Comparable<Integer>[] array) {
+    public static <E extends Comparable<E>> void shellSort(E[] array) {
         int N = array.length;
         int h = 1;
 
@@ -117,18 +117,9 @@ public class SortingAlgorithm {
         }
     }
 
-    /**
-     * 数组归并
-     *
-     * @param array
-     * @param start
-     * @param middle
-     * @param end
-     */
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public static void merge(Comparable<Integer>[] array, int start,
-                             int middle, int end) {
-        Comparable[] temp = new Comparable[array.length];
+    @SuppressWarnings({"unchecked"})
+    private static <E extends Comparable<E>> void merge(E[] array, int start, int middle, int end) {
+        E[] temp = (E[]) Array.newInstance(array.getClass().getComponentType(), array.length);
         int i = start;
         int j = middle + 1;
 
@@ -151,13 +142,14 @@ public class SortingAlgorithm {
     /**
      * 归并排序
      *
-     * @param array
-     * @param low
-     * @param high
+     * @param array 待排序数组
+     * @param low   low index
+     * @param high  high index
      */
-    public static void mergeSort(Comparable<Integer>[] array, int low, int high) {
+    public static <E extends Comparable<E>> void mergeSort(E[] array, int low, int high) {
         if (high <= low)
             return;
+
         int middle = low + (high - low) / 2;
 
         mergeSort(array, low, middle);
@@ -166,11 +158,10 @@ public class SortingAlgorithm {
         merge(array, low, middle, high);
     }
 
-    @SuppressWarnings("rawtypes")
-    public static int partition(Comparable<Integer>[] array, int low, int high) {
+    private static <E extends Comparable<E>> int partition(E[] array, int low, int high) {
         int i = low;
         int j = high + 1;
-        Comparable v = array[low];
+        E v = array[low];
 
         while (true) {
             // 从左向右找到比v大的元素
@@ -187,6 +178,7 @@ public class SortingAlgorithm {
 
             if (i >= j)
                 break;
+
             exchange(array, i, j);
         }
 
@@ -198,29 +190,25 @@ public class SortingAlgorithm {
     /**
      * 快速排序
      *
-     * @param array
-     * @param low
-     * @param high
+     * @param array 待排序数组
+     * @param low   low index
+     * @param high  high index
      */
-    public static void quickSort(Comparable<Integer>[] array, int low, int high) {
+    public static <E extends Comparable<E>> void quickSort(E[] array, int low, int high) {
         if (high <= low)
             return;
+
         int j = partition(array, low, high);
 
         quickSort(array, low, j - 1);
         quickSort(array, j + 1, high);
     }
 
-    /**
-     * @param array
-     * @param start
-     * @param N
-     */
-    public static void sink(Comparable<Integer>[] array, int start, int N) {
-        while (2 * start < N) {
+    private static <E extends Comparable<E>> void sink(E[] array, int start, int N) {
+        while (2 * start <= N) {
             int j = 2 * start;
 
-            if (j < N && less(array[j], array[j + 1])) {
+            if (j + 1 <= N && less(array[j], array[j + 1])) {
                 j++;
             }
 
@@ -234,9 +222,9 @@ public class SortingAlgorithm {
     /**
      * 堆排序
      *
-     * @param array
+     * @param array 待排序数组
      */
-    public static void heapSort(Comparable<Integer>[] array) {
+    public static <E extends Comparable<E>> void heapSort(E[] array) {
         int N = array.length - 1;
 
         for (int i = N / 2; i >= 1; i--) {
@@ -249,47 +237,11 @@ public class SortingAlgorithm {
         }
     }
 
-    /**
-     * 基数排序
-     *
-     * @param array
-     * @param digit 表示最大的数有多少位
-     */
-    public static void radixSort(int[] array, int digit) {
-        int k = 0;                                    // 计数用
-        int n = 1;                                    // 跳位用，个位到十位
-        int m = 1;                                    // 控制键值排序依据在哪一位
-        int[][] bucket = new int[10][array.length];    // 数组的第一维表示可能的余数0-9
-        int[] number = new int[10];                    // 数组order[i]用来表示该位是i的数的个数
-
-        while (m <= digit) {
-            for (int i = 0; i < array.length; i++) {
-                int remainder = ((array[i] / n) % 10);
-                bucket[remainder][number[remainder]] = array[i];
-                number[remainder]++;
-            }
-
-            for (int i = 0; i < 10; i++) {
-                if (number[i] != 0) {
-                    for (int j = 0; j < number[i]; j++) {
-                        array[k] = bucket[i][j];
-                        k++;
-                    }
-                }
-
-                number[i] = 0;
-            }
-
-            n *= 10;
-            k = 0;
-            m++;
-        }
-    }
-
     public static void main(String[] args) {
-//        Integer[] array = new Integer[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+//        Integer[] array = new Integer[]{0, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        Integer[] array = new Integer[]{0, 4, 6, 8, 5, 9};
 
-        int[] array = new int[]{88, 76, 65, 91, 23, 34, 44, 100, 103, 888};
+//        int[] array = new int[]{88, 76, 65, 91, 23, 34, 44, 100, 103, 888};
 
 //        SortingAlgorithm.bubbleSortBig(array);
 //        SortingAlgorithm.bubbleSortSmall(array);
@@ -298,8 +250,7 @@ public class SortingAlgorithm {
 //        SortingAlgorithm.shellSort(array);
 //        SortingAlgorithm.mergeSort(array, 0, array.length - 1);
 //        SortingAlgorithm.quickSort(array, 0, array.length - 1);
-//        SortingAlgorithm.heapSort(array);
-        SortingAlgorithm.radixSort(array, 3);
+        SortingAlgorithm.heapSort(array);
 
         System.out.println(Arrays.toString(array));
     }

@@ -17,9 +17,9 @@
 package org.orange.util.message;
 
 import com.google.common.collect.Lists;
+import org.apache.kafka.clients.consumer.ConsumerPartitionAssignor;
 import org.apache.kafka.clients.consumer.StickyAssignor;
 import org.apache.kafka.clients.consumer.internals.AbstractPartitionAssignor;
-import org.apache.kafka.clients.consumer.internals.PartitionAssignor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,14 +33,14 @@ public class KafkaPartitionAssignorTest {
 //        AbstractPartitionAssignor assignor = new RoundRobinAssignor();
         AbstractPartitionAssignor assignor = new StickyAssignor();
         Map<String, Integer> partitionsPerTopic = new HashMap<>(4);
-        Map<String, PartitionAssignor.Subscription> subscriptions = new HashMap<>(4);
+        Map<String, ConsumerPartitionAssignor.Subscription> subscriptions = new HashMap<>(4);
         partitionsPerTopic.put("topic0", 1);
         partitionsPerTopic.put("topic1", 2);
         partitionsPerTopic.put("topic2", 3);
 
-        subscriptions.put("c0", new PartitionAssignor.Subscription(Lists.newArrayList("topic0")));
-        subscriptions.put("c1", new PartitionAssignor.Subscription(Lists.newArrayList("topic0", "topic1")));
-        subscriptions.put("c2", new PartitionAssignor.Subscription(Lists.newArrayList("topic0", "topic1",
+        subscriptions.put("c0", new ConsumerPartitionAssignor.Subscription(Lists.newArrayList("topic0")));
+        subscriptions.put("c1", new ConsumerPartitionAssignor.Subscription(Lists.newArrayList("topic0", "topic1")));
+        subscriptions.put("c2", new ConsumerPartitionAssignor.Subscription(Lists.newArrayList("topic0", "topic1",
                 "topic2")));
 
         System.out.println(assignor.assign(partitionsPerTopic, subscriptions));
