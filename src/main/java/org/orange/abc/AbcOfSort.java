@@ -14,30 +14,22 @@
  * limitations under the License.
  */
 
-package org.orange;
+package org.orange.abc;
 
 import java.util.Arrays;
 
 /**
  * @author mingle
  */
-public class Abc {
+public class AbcOfSort {
     public static void main(String[] args) {
-        /**
-         * 12345的浮点数标识
-         * 11000000111001  1.1000000111001*(2**13)
-         */
-        System.out.println(Long.toBinaryString(-1L));
-        System.out.println(Float.floatToIntBits(1.2f));
-        System.out.println(Long.toBinaryString((-1L) >> 2));
-        System.out.println(Long.toBinaryString(12345)); // 1+8+16+32+2**12+2**13
-
 //        Integer[] a = new Integer[]{5, 3, 6, 7, 2, 1, 9, 8, 4};
         Integer[] a = new Integer[]{0, 4, 6, 8, 5, 9};
 //        sort(a);
 //        shell(a);
-        heap(a);
-//        quick(a, 0, a.length - 1);
+//        insert1(a);
+        count(a);
+//        quick1(a, 0, a.length - 1);
         System.out.println(Arrays.toString(a));
     }
 
@@ -45,6 +37,40 @@ public class Abc {
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
+    }
+
+    public static void count(Integer[] a) {
+        int N = a.length - 1;
+        if (N <= 1)
+            return;
+
+        int max = a[0];
+        for (int i = 1; i < N; i++) {
+            if (max < a[i])
+                max = a[i];
+        }
+
+        int[] c = new int[max + 1];
+        for (int i = 0; i <= max; i++) {
+            c[i] = 0;
+        }
+
+        for (int i = 0; i < N; i++) {
+            c[a[i]]++;
+        }
+
+        for (int i = 1; i <= max; i++) {
+            c[i] = c[i - 1] + c[i];
+        }
+
+        // 临时数组r，存储排序之后的结果
+        Integer[] r = new Integer[N];
+        for (int i = N - 1; i >= 0; i--) {
+            int index = --c[a[i]];
+            r[index] = a[i];
+        }
+
+        System.arraycopy(r, 0, a, 0, N);
     }
 
     public static void heap(Integer[] a) {
@@ -81,6 +107,29 @@ public class Abc {
 
         quick(a, low, j - 1);
         quick(a, j + 1, high);
+    }
+
+    public static void quick1(Integer[] a, int low, int high) {
+        if (high <= low)
+            return;
+
+        int lt = low;
+        int i = low + 1;
+        int gt = high;
+
+        Integer v = a[low];
+        while (i <= gt) {
+            int cmp = a[i].compareTo(v);
+            if (cmp < 0)
+                swap(a, lt++, i++);
+            else if (cmp > 0)
+                swap(a, i, gt--);
+            else
+                i++;
+        }
+
+        quick1(a, low, lt - 1);
+        quick1(a, gt + 1, high);
     }
 
     private static int partition(Integer[] a, int low, int high) {
@@ -182,6 +231,20 @@ public class Abc {
                 a[j] = a[j - 1];
                 a[j - 1] = temp;
             }
+        }
+    }
+
+    public static void insert1(Integer[] a) {
+        for (int i = 1; i < a.length; i++) {
+            Integer value = a[i];
+            int j = i - 1;
+            for (; j >= 0; j--) {
+                if (a[j] > value)
+                    a[j + 1] = a[j];
+                else
+                    break;
+            }
+            a[j + 1] = value;
         }
     }
 
