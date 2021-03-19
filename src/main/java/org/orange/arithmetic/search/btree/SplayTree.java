@@ -21,34 +21,34 @@ package org.orange.arithmetic.search.btree;
  *
  * @author mingle
  */
-public class SplayTree<Key extends Comparable<Key>, Value> {
+public class SplayTree<K extends Comparable<K>, V> {
     private Node root;
 
     private class Node {
-        private Key key;            // key
-        private Value value;        // associated data
-        private Node left, right;   // left and right subtrees
+        final K key;         // key
+        V value;            // associated data
+        Node left, right;   // left and right subtrees
 
-        public Node(Key key, Value value) {
+        public Node(K key, V value) {
             this.key = key;
             this.value = value;
         }
     }
 
-    public boolean contains(Key key) {
+    public boolean contains(K key) {
         return get(key) != null;
     }
 
     // return value associated with the given key
     // if no such value, return null
-    public Value get(Key key) {
+    public V get(K key) {
         root = splay(root, key);
         int cmp = key.compareTo(root.key);
         if (cmp == 0) return root.value;
         else return null;
     }
 
-    public void put(Key key, Value value) {
+    public void put(K key, V value) {
         // splay key to root
         if (root == null) {
             root = new Node(key, value);
@@ -92,7 +92,7 @@ public class SplayTree<Key extends Comparable<Key>, Value> {
      * right subtree. Finally, A's right child is made the new root's right
      * child.
      */
-    public void remove(Key key) {
+    public void remove(K key) {
         if (root == null) return; // empty tree
 
         root = splay(root, key);
@@ -117,7 +117,7 @@ public class SplayTree<Key extends Comparable<Key>, Value> {
     // splay key in the tree rooted at Node h. If a node with that key exists,
     //   it is splayed to the root of the tree. If it does not, the last node
     //   along the search path for the key is splayed to the root.
-    private Node splay(Node h, Key key) {
+    private Node splay(Node h, K key) {
         if (h == null) return null;
 
         int cmp1 = key.compareTo(h.key);

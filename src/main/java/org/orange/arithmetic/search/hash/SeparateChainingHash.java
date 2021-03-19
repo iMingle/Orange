@@ -47,7 +47,7 @@ public class SeparateChainingHash<K, V> {
 
     private int n;                                // number of key-value pairs
     private int m;                                // hash table size
-    private SequentialSearchST<K, V>[] st;  // array of linked-list symbol tables
+    private SequentialSearchST<K, V>[] st;        // array of linked-list symbol tables
 
     /**
      * Initializes an empty symbol table.

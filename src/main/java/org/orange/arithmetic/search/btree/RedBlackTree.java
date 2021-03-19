@@ -1,6 +1,6 @@
 /*
  * Copyright 2012 the original author or authors.
- *  
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,20 +25,20 @@ import java.util.NoSuchElementException;
  *
  * @author mingle
  */
-public class RedBlackTree<Key extends Comparable<Key>, Value> {
+public class RedBlackTree<K extends Comparable<K>, V> {
     private static final boolean RED = true;
     private static final boolean BLACK = false;
 
     private Node root;
 
     private class Node {
-        private Key key;           // key
-        private Value val;         // associated data
-        private Node left, right;  // links to left and right subtrees
-        private boolean color;     // color of parent link
-        private int size;          // subtree count
+        K key;             // key
+        V val;             // associated data
+        Node left, right;  // links to left and right subtrees
+        boolean color;     // color of parent link
+        int size;          // subtree count
 
-        public Node(Key key, Value val, boolean color, int size) {
+        public Node(K key, V val, boolean color, int size) {
             this.key = key;
             this.val = val;
             this.color = color;
@@ -87,13 +87,13 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * and {@code null} if the key is not in the symbol table
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Value get(Key key) {
+    public V get(K key) {
         if (key == null) throw new IllegalArgumentException("argument to get() is null");
         return get(root, key);
     }
 
     // value associated with the given key in subtree rooted at x; null if no such key
-    private Value get(Node x, Key key) {
+    private V get(Node x, K key) {
         while (x != null) {
             int cmp = key.compareTo(x.key);
             if (cmp < 0) x = x.left;
@@ -111,7 +111,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * {@code false} otherwise
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public boolean contains(Key key) {
+    public boolean contains(K key) {
         return get(key) != null;
     }
 
@@ -125,7 +125,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @param val the value
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void put(Key key, Value val) {
+    public void put(K key, V val) {
         if (key == null) throw new IllegalArgumentException("first argument to put() is null");
         if (val == null) {
             delete(key);
@@ -138,7 +138,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
     }
 
     // insert the key-value pair in the subtree rooted at h
-    private Node put(Node h, Key key, Value val) {
+    private Node put(Node h, K key, V val) {
         if (h == null) return new Node(key, val, RED, 1);
 
         int cmp = key.compareTo(h.key);
@@ -224,7 +224,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @param key the key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void delete(Key key) {
+    public void delete(K key) {
         if (key == null) throw new IllegalArgumentException("argument to delete() is null");
         if (!contains(key)) return;
 
@@ -238,7 +238,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
     }
 
     // delete the key-value pair with the given key rooted at h
-    private Node delete(Node h, Key key) {
+    private Node delete(Node h, K key) {
         assert get(h, key) != null;
 
         if (key.compareTo(h.key) < 0) {
@@ -365,7 +365,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @return the smallest key in the symbol table
      * @throws NoSuchElementException if the symbol table is empty
      */
-    public Key min() {
+    public K min() {
         if (isEmpty()) throw new NoSuchElementException("called min() with empty symbol table");
         return min(root).key;
     }
@@ -383,7 +383,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @return the largest key in the symbol table
      * @throws NoSuchElementException if the symbol table is empty
      */
-    public Key max() {
+    public K max() {
         if (isEmpty()) throw new NoSuchElementException("called max() with empty symbol table");
         return max(root).key;
     }
@@ -403,7 +403,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @throws NoSuchElementException   if there is no such key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Key floor(Key key) {
+    public K floor(K key) {
         if (key == null) throw new IllegalArgumentException("argument to floor() is null");
         if (isEmpty()) throw new NoSuchElementException("called floor() with empty symbol table");
         Node x = floor(root, key);
@@ -412,7 +412,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
     }
 
     // the largest key in the subtree rooted at x less than or equal to the given key
-    private Node floor(Node x, Key key) {
+    private Node floor(Node x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
@@ -430,7 +430,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @throws NoSuchElementException   if there is no such key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Key ceiling(Key key) {
+    public K ceiling(K key) {
         if (key == null) throw new IllegalArgumentException("argument to ceiling() is null");
         if (isEmpty()) throw new NoSuchElementException("called ceiling() with empty symbol table");
         Node x = ceiling(root, key);
@@ -439,7 +439,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
     }
 
     // the smallest key in the subtree rooted at x greater than or equal to the given key
-    private Node ceiling(Node x, Key key) {
+    private Node ceiling(Node x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
@@ -457,7 +457,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException unless {@code k} is between 0 and
      *                                  <em>N</em> &minus; 1
      */
-    public Key select(int k) {
+    public K select(int k) {
         if (k < 0 || k >= size()) throw new IllegalArgumentException();
         Node x = select(root, k);
         return x.key;
@@ -480,13 +480,13 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @return the number of keys in the symbol table strictly less than {@code key}
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public int rank(Key key) {
+    public int rank(K key) {
         if (key == null) throw new IllegalArgumentException("argument to rank() is null");
         return rank(key, root);
     }
 
     // number of keys less than key in the subtree rooted at x
-    private int rank(Key key, Node x) {
+    private int rank(K key, Node x) {
         if (x == null) return 0;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return rank(key, x.left);
@@ -501,8 +501,8 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      *
      * @return all keys in the symbol table as an {@code Iterable}
      */
-    public Iterable<Key> keys() {
-        if (isEmpty()) return new Queue<Key>();
+    public Iterable<K> keys() {
+        if (isEmpty()) return new Queue<K>();
         return keys(min(), max());
     }
 
@@ -517,11 +517,11 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if either {@code lo} or {@code hi}
      *                                  is {@code null}
      */
-    public Iterable<Key> keys(Key lo, Key hi) {
+    public Iterable<K> keys(K lo, K hi) {
         if (lo == null) throw new IllegalArgumentException("first argument to keys() is null");
         if (hi == null) throw new IllegalArgumentException("second argument to keys() is null");
 
-        Queue<Key> queue = new Queue<>();
+        Queue<K> queue = new Queue<>();
         // if (isEmpty() || lo.compareTo(hi) > 0) return queue;
         keys(root, queue, lo, hi);
         return queue;
@@ -529,7 +529,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 
     // add the keys between lo and hi in the subtree rooted at x
     // to the queue
-    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+    private void keys(Node x, Queue<K> queue, K lo, K hi) {
         if (x == null) return;
         int cmplo = lo.compareTo(x.key);
         int cmphi = hi.compareTo(x.key);
@@ -548,7 +548,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if either {@code lo} or {@code hi}
      *                                  is {@code null}
      */
-    public int size(Key lo, Key hi) {
+    public int size(K lo, K hi) {
         if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
         if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
 
@@ -575,7 +575,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
     // is the tree rooted at x a BST with all keys strictly between min and max
     // (if min or max is null, treat as empty constraint)
     // Credit: Bob Dondero's elegant solution
-    private boolean isBST(Node x, Key min, Key max) {
+    private boolean isBST(Node x, K min, K max) {
         if (x == null) return true;
         if (min != null && x.key.compareTo(min) <= 0) return false;
         if (max != null && x.key.compareTo(max) >= 0) return false;
@@ -597,7 +597,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
     private boolean isRankConsistent() {
         for (int i = 0; i < size(); i++)
             if (i != rank(select(i))) return false;
-        for (Key key : keys())
+        for (K key : keys())
             if (key.compareTo(select(rank(key))) != 0) return false;
         return true;
     }

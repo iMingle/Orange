@@ -16,11 +16,10 @@
 
 package org.orange.arithmetic.sort.priorityQueue;
 
-import java.io.BufferedInputStream;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 /**
  * The {@code MaxPriorityQueue} class represents a priority queue of generic keys.
@@ -42,7 +41,7 @@ import java.util.Scanner;
  */
 public class MaxPriorityQueue<K> implements Iterable<K> {
     private K[] pq;                    // store items at indices 1 to n
-    private int n;                       // number of items on priority queue
+    private int n;                     // number of items on priority queue
     private Comparator<K> comparator;  // optional Comparator
 
     /**
@@ -258,14 +257,13 @@ public class MaxPriorityQueue<K> implements Iterable<K> {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(new BufferedInputStream(System.in), "UTF-8");
-        MaxPriorityQueue<String> pq = new MaxPriorityQueue<>();
-        while (scanner.hasNext()) {
-            String item = scanner.next();
-            if (!item.equals("-")) pq.insert(item);
-            else if (!pq.isEmpty()) System.out.print(pq.delMax() + " ");
-        }
-        System.out.println("(" + pq.size() + " left on pq)");
-    }
+        Integer[] array = {1, 7, 4, 5, 8, 2, 3, 6, 9};
 
+        MaxPriorityQueue<Integer> heap = new MaxPriorityQueue<>(array);
+
+        System.out.println(Arrays.toString(heap.pq));
+        System.out.println(heap.delMax());
+        System.out.println(Arrays.toString(heap.pq));
+        System.out.println(heap.max());
+    }
 }

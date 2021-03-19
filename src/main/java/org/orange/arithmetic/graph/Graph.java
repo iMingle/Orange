@@ -57,11 +57,6 @@ public class Graph {
     private final Bag<Integer>[] adjacency;
 
     /**
-     * 是否找到节点
-     */
-    private boolean found;
-
-    /**
      * Initializes an empty graph with {@code V} vertices and 0 edges.
      * param V the number of vertices
      *
@@ -240,10 +235,8 @@ public class Graph {
      * @param t target vertex
      */
     public void dfs(int s, int t) {
-        found = false;
         // visited是用来记录已经被访问的顶点，用来避免顶点被重复访问。
         boolean[] visited = new boolean[vertex];
-        visited[s] = true;
         // prev用来记录搜索路径。
         int[] prev = new int[vertex];
         for (int i = 0; i < vertex; ++i) {
@@ -255,17 +248,15 @@ public class Graph {
         print(prev, s, t);
     }
 
-    private void recursiveDfs(int w, int t, boolean[] visited, int[] prev) {
-        if (found) return;
-        visited[w] = true;
-        if (w == t) {
-            found = true;
+    private void recursiveDfs(int s, int t, boolean[] visited, int[] prev) {
+        visited[s] = true;
+        if (s == t) {
             return;
         }
 
-        for (int q : adj(w)) {
+        for (int q : adj(s)) {
             if (!visited[q]) {
-                prev[q] = w;
+                prev[q] = s;
                 recursiveDfs(q, t, visited, prev);
             }
         }

@@ -29,10 +29,17 @@ public class Abc {
          * 12345的浮点数标识
          * 11000000111001  1.1000000111001*(2**13)
          */
-        System.out.println(Long.toBinaryString(-1L));
+        System.out.println(Integer.toBinaryString(-1));
+        System.out.println(Integer.toBinaryString(-1 >> 2));
+        System.out.println(-1 >> 20);
+        System.out.println(Integer.toBinaryString(-1 >>> 1));
+        System.out.println(-1 >>> 1);
+
+        System.out.println(1 ^ 3);
+
         System.out.println(Float.floatToIntBits(1.2f));
-        System.out.println(Long.toBinaryString((-1L) >> 2));
-        System.out.println(Long.toBinaryString(12345)); // 1+8+16+32+2**12+2**13
+        System.out.println(Integer.toBinaryString((-1) >> 2));
+        System.out.println(Integer.toBinaryString(12345)); // 1+8+16+32+2**12+2**13
 
         List<Integer> ss = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
@@ -41,6 +48,9 @@ public class Abc {
 
         Collections.sort(ss);
 
-        ss.toArray(new Integer[102]);
+        System.out.println((int)'A');
+        System.out.println((int)'Z');
+        System.out.println((int)'a');
+        System.out.println((int)'z');
     }
 }

@@ -16,11 +16,10 @@
 
 package org.orange.arithmetic.sort.priorityQueue;
 
-import java.io.BufferedInputStream;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 /**
  * The {@code MinPriorityQueue} class represents a priority queue of generic keys.
@@ -260,14 +259,13 @@ public class MinPriorityQueue<K> implements Iterable<K> {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(new BufferedInputStream(System.in), "UTF-8");
-        MinPriorityQueue<String> pq = new MinPriorityQueue<>();
-        while (scanner.hasNext()) {
-            String item = scanner.next();
-            if (!item.equals("-")) pq.insert(item);
-            else if (!pq.isEmpty()) System.out.print(pq.delMin() + " ");
-        }
-        System.out.println("(" + pq.size() + " left on pq)");
-    }
+        Integer[] array = {1, 7, 4, 5, 8, 2, 3, 6, 9};
 
+        MinPriorityQueue<Integer> heap = new MinPriorityQueue<>(array);
+
+        System.out.println(Arrays.toString(heap.pq));
+        System.out.println(heap.delMin());
+        System.out.println(Arrays.toString(heap.pq));
+        System.out.println(heap.min());
+    }
 }

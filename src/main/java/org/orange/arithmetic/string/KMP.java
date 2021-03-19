@@ -85,6 +85,9 @@ public class KMP {
             dfa[pattern[j]][j] = j + 1;    // Set match case.
             x = dfa[pattern[j]][x];        // Update restart state.
         }
+
+        // build next
+        next(new String(pattern));
     }
 
     /**
@@ -130,7 +133,7 @@ public class KMP {
         int n = text.length();
         int j = 0;
         for (int i = 0; i < n; ++i) {
-            while (j > 0 && text.charAt(i) != pattern.charAt(j)) { // 一直找到a[i]和b[j]
+            while (j > 0 && text.charAt(i) != pattern.charAt(j)) { // 一直找到text[i]和pattern[j]
                 j = next[j - 1] + 1;
             }
             if (text.charAt(i) == pattern.charAt(j)) {
@@ -144,7 +147,7 @@ public class KMP {
         return -1;
     }
 
-    // b表示模式串
+    // pattern表示模式串
     private void next(String pattern) {
         next = new int[patternLength];
         next[0] = -1;

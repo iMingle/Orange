@@ -51,9 +51,9 @@ public class SequentialSearchST<K, V> {
 
     // a helper linked list data type
     private class Node {
-        private K key;
-        private V value;
-        private Node next;
+        final K key;
+        V value;
+        Node next;
 
         public Node(K key, V value, Node next) {
             this.key = key;
@@ -176,7 +176,7 @@ public class SequentialSearchST<K, V> {
      * @return all keys in the symbol table
      */
     public Iterable<K> keys() {
-        Queue<K> queue = new Queue<K>();
+        Queue<K> queue = new Queue<>();
         for (Node x = first; x != null; x = x.next)
             queue.enqueue(x.key);
         return queue;

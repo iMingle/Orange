@@ -16,8 +16,6 @@
 
 package org.orange.arithmetic.search.btree;
 
-import lombok.Data;
-
 import java.util.LinkedList;
 
 /**
@@ -29,13 +27,10 @@ public class BinaryTree<T> {
     // 根节点
     private Node<T> root;
 
-    @Data private static class Node<V> {
-        private V value;
-        private Node<V> left;
-        private Node<V> right;
-
-        public Node() {
-        }
+    static class Node<V> {
+        final V value;
+        Node<V> left;
+        Node<V> right;
 
         public Node(V value) {
             this.value = value;
@@ -49,7 +44,7 @@ public class BinaryTree<T> {
 
     // 无参构造器
     public BinaryTree() {
-        root = new Node<>();
+        root = new Node<>(null);
     }
 
     // 数组构造器
@@ -76,10 +71,10 @@ public class BinaryTree<T> {
             else
                 parent = queue.removeFirst();
             if (isLeft) {
-                parent.setLeft(current);
+                parent.left = current;
                 isLeft = false;
             } else {
-                parent.setRight(current);
+                parent.right = current;
                 isLeft = true;
             }
         }
@@ -104,11 +99,11 @@ public class BinaryTree<T> {
         Node<T> current;
         while (!queue.isEmpty()) {
             current = queue.removeFirst();
-            if (current.getLeft() != null)
-                queue.addLast(current.getLeft());
-            if (current.getRight() != null)
-                queue.addLast(current.getRight());
-            System.out.print(current.getValue());
+            if (current.left != null)
+                queue.addLast(current.left);
+            if (current.right != null)
+                queue.addLast(current.right);
+            System.out.print(current.value);
         }
         System.out.println();
     }
@@ -125,8 +120,8 @@ public class BinaryTree<T> {
     private int getDepthRecursion(Node<T> node) {
         if (node == null)
             return 0;
-        int llen = getDepthRecursion(node.getLeft());
-        int rlen = getDepthRecursion(node.getRight());
+        int llen = getDepthRecursion(node.left);
+        int rlen = getDepthRecursion(node.right);
         int maxlen = Math.max(llen, rlen);
         return maxlen + 1;
     }
@@ -150,27 +145,27 @@ public class BinaryTree<T> {
     }
 
     private void inorderTraverseRecursion(Node<T> node) {
-        if (node.getLeft() != null)
-            inorderTraverseRecursion(node.getLeft());
-        System.out.print(node.getValue());
-        if (node.getRight() != null)
-            inorderTraverseRecursion(node.getRight());
+        if (node.left != null)
+            inorderTraverseRecursion(node.left);
+        System.out.print(node.value);
+        if (node.right != null)
+            inorderTraverseRecursion(node.right);
     }
 
     private void preorderTraverseRecursion(Node<T> node) {
-        System.out.print(node.getValue());
-        if (node.getLeft() != null)
-            preorderTraverseRecursion(node.getLeft());
-        if (node.getRight() != null)
-            preorderTraverseRecursion(node.getRight());
+        System.out.print(node.value);
+        if (node.left != null)
+            preorderTraverseRecursion(node.left);
+        if (node.right != null)
+            preorderTraverseRecursion(node.right);
     }
 
     private void postorderTraverseRecursion(Node<T> node) {
-        if (node.getLeft() != null)
-            preorderTraverseRecursion(node.getLeft());
-        if (node.getRight() != null)
-            preorderTraverseRecursion(node.getRight());
-        System.out.print(node.getValue());
+        if (node.left != null)
+            preorderTraverseRecursion(node.left);
+        if (node.right != null)
+            preorderTraverseRecursion(node.right);
+        System.out.print(node.value);
     }
 
     /**
@@ -183,11 +178,11 @@ public class BinaryTree<T> {
         Node<T> current;
         while (!stack.isEmpty()) {
             current = stack.pop();
-            System.out.print(current.getValue());
-            if (current.getRight() != null)
-                stack.push(current.getRight());
-            if (current.getLeft() != null)
-                stack.push(current.getLeft());
+            System.out.print(current.value);
+            if (current.right != null)
+                stack.push(current.right);
+            if (current.left != null)
+                stack.push(current.left);
         }
         System.out.println();
     }
@@ -202,12 +197,12 @@ public class BinaryTree<T> {
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
-                current = current.getLeft();
+                current = current.left;
             }
             if (!stack.isEmpty()) {
                 current = stack.pop();
-                System.out.print(current.getValue());
-                current = current.getRight();
+                System.out.print(current.value);
+                current = current.right;
             }
         }
         System.out.println();
@@ -226,13 +221,13 @@ public class BinaryTree<T> {
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
-                current = current.getLeft();
+                current = current.left;
             }
             current = stack.pop();
             while (current != null
-                    && (current.getRight() == null || current
-                    .getRight() == rNode)) {
-                System.out.print(current.getValue());
+                    && (current.right == null || current
+                    .right == rNode)) {
+                System.out.print(current.value);
                 rNode = current;
                 if (stack.isEmpty()) {
                     System.out.println();
@@ -241,7 +236,7 @@ public class BinaryTree<T> {
                 current = stack.pop();
             }
             stack.push(current);
-            current = current.getRight();
+            current = current.right;
         }
     }
 
