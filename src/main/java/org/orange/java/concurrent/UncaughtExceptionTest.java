@@ -23,9 +23,6 @@ package org.orange.java.concurrent;
 public class UncaughtExceptionTest {
     private static int count = 0;
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Thread thread = new Thread(new Runnable() {
             

@@ -24,9 +24,6 @@ import java.util.Locale;
  */
 public class LocaleTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Locale locale = Locale.CHINA;
         System.out.println("country: " + locale.getDisplayCountry());

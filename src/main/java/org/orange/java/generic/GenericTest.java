@@ -31,9 +31,6 @@ import java.util.Map;
  */
 public class GenericTest<T> {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         String[] words = {"Mary", "had", "a", "little", "lamb"};
         

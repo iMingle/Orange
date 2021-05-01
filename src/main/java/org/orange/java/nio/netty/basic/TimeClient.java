@@ -39,7 +39,7 @@ public class TimeClient {
                     .option(ChannelOption.TCP_NODELAY, true)
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        public void initChannel(SocketChannel ch) throws Exception {
+                        public void initChannel(SocketChannel ch) {
                             ch.pipeline().addLast(new TimeClientHandler());
                         }
                     });
@@ -59,7 +59,7 @@ public class TimeClient {
         int port = 8080;
         if (args != null && args.length > 0) {
             try {
-                port = Integer.valueOf(args[0]);
+                port = Integer.parseInt(args[0]);
             } catch (NumberFormatException e) {
                 // 采用默认值
             }

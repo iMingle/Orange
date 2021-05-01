@@ -21,14 +21,11 @@ import java.util.BitSet;
 /**
  * This program runs the Sieve of Erathostenes benchmark. It computes all primes
  * up to 2,000,000.
- * 
+ *
  * @author mingle
  */
 public class Sieve {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         int n = 2000000;
         long start = System.currentTimeMillis();

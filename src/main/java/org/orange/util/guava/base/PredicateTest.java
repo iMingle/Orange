@@ -30,9 +30,6 @@ import com.google.common.collect.Lists;
  */
 public class PredicateTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         // filter even number
         Predicate<Integer> evenFilter = new Predicate<Integer>() {

@@ -22,22 +22,19 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 /**
- * 
  * @author mingle
  */
 public class CollectionTest {
-    
+
     public static void MapTest() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("key1", "value1");
         map.put("key2", "value2");
         map.put("key3", "value3");
-        
+
         System.out.println(map);
     }
-    /**
-     * @param args
-     */
+
     public static void main(String[] args) {
 //        CollectionTest.MapTest();
         
@@ -118,25 +115,25 @@ public class CollectionTest {
         System.out.println(point1.hashCode() == point2.hashCode());
         
         System.out.println(pointSet);
-*/        
-                
+*/
+
         Map<Integer, String> map = new HashMap<Integer, String>();
-        
+
         map.put(1, "JinMinglei");
         map.put(2, "WangJianzong");
         map.put(3, "YangJingang");
         map.put(4, "LiQiang");
-        
+
         System.out.println(map);
-        
+
         Set<Integer> keySet = map.keySet();
-        
+
         for (Integer key : keySet) {
             System.out.println(map.get(key));
         }
-        
+
         Set<Entry<Integer, String>> entrySet = map.entrySet();
-        
+
         System.out.println(entrySet);
     }
 

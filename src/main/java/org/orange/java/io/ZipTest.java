@@ -42,9 +42,6 @@ import java.util.zip.ZipInputStream;
  */
 public class ZipTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
 

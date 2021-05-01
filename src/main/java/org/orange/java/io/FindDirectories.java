@@ -25,9 +25,6 @@ import java.io.IOException;
  */
 public class FindDirectories {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         // if no arguments provided, start at the parent directory
         if (args.length == 0) args = new String[] {".."};

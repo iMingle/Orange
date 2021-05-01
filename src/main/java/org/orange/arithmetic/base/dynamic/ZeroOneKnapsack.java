@@ -173,7 +173,7 @@ public class ZeroOneKnapsack {
         }
 
         states[0][0] = 0;
-        if (weightItems[0] < weight) {
+        if (weightItems[0] <= weight) {
             states[0][weightItems[0]] = weightValue[0];
         }
 
@@ -196,9 +196,9 @@ public class ZeroOneKnapsack {
         }
 
         // 找最大值
-        for (int j = 0; j <= weight; j++) {
+        for (int j = weight; j >= 0; j--) {
             if (states[weightItemsSize - 1][j] > maxValue)
-                maxValue = states[weightItemsSize - 1][j];
+                return states[weightItemsSize - 1][j];
         }
 
         return maxValue;
@@ -206,11 +206,11 @@ public class ZeroOneKnapsack {
 
     public static void main(String[] args) {
         int[] items = new int[]{2, 2, 4, 6, 3};
-        int[] value = new int[]{3, 4, 8, 9, 6};
-        ZeroOneKnapsack knapsack = new ZeroOneKnapsack(items, value, 9);
+        int[] values = new int[]{3, 4, 8, 9, 6};
+        ZeroOneKnapsack knapsack = new ZeroOneKnapsack(items, values, 9);
         knapsack.find(0, 0);
         System.out.println("weightItems: " + Arrays.toString(items));
-        System.out.println("weightValue: " + Arrays.toString(value));
+        System.out.println("weightValue: " + Arrays.toString(values));
         System.out.println("maxWeight: " + knapsack.maxWeight);
 
         System.out.println("maxWeight: " + knapsack.knapsack());

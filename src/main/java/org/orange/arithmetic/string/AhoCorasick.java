@@ -16,8 +16,7 @@
 
 package org.orange.arithmetic.string;
 
-import com.google.common.collect.Lists;
-
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -73,7 +72,7 @@ public class AhoCorasick {
         queue.add(root);
         while (!queue.isEmpty()) {
             AcNode p = queue.remove();
-            for (int i = 0; i < 26; ++i) {
+            for (int i = 0; i < R; ++i) {
                 AcNode pc = p.children[i];
                 if (pc == null) continue;
                 if (p == root) {
@@ -123,10 +122,9 @@ public class AhoCorasick {
     }
 
     public static void main(String[] args) {
-        List<String> patterns = Lists.newArrayList("at", "spere", "image", "country");
+        List<String> patterns = Arrays.asList("c", "bc", "bcd", "abcd");
         AhoCorasick ac = new AhoCorasick(patterns);
-        String text = "Early in the day it was whispered that we should sail in a boat, only thou and I, and never a "
-                + "soul in the world would know of this our pilgrimage to no country and to no end.";
+        String text = "abcd";
         ac.match(text);
     }
 }

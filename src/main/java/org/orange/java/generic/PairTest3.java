@@ -25,9 +25,6 @@ import java.util.GregorianCalendar;
  */
 public class PairTest3 {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Manager ceo = new Manager("Gus Greedy", 800000, 2003, 12, 15);
         Manager cfo = new Manager("Sid Sneaky", 600000, 2003, 12, 15);

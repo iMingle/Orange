@@ -31,9 +31,6 @@ import java.util.Scanner;
  */
 public class TextFileTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Employee[] staff = new Employee[3];
 

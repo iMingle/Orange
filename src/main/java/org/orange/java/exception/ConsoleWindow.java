@@ -61,9 +61,6 @@ public class ConsoleWindow {
         System.setErr(consoleStream);
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         ConsoleWindow.init();
         System.out.println("Hello, Console");

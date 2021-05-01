@@ -22,9 +22,6 @@ package org.orange.java.generic;
  */
 public class PairTest1 {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         String[] words = {"Mary", "had", "a", "little", "lamb"};
         Pair<String> mm = ArrayAlg1.minmax(words);

@@ -41,9 +41,6 @@ public class FinalizeTest {
         super.finalize();
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         new FinalizeTest();
         new FinalizeTest();

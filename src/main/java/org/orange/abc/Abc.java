@@ -16,10 +16,6 @@
 
 package org.orange.abc;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 /**
  * @author mingle
  */
@@ -34,23 +30,12 @@ public class Abc {
         System.out.println(-1 >> 20);
         System.out.println(Integer.toBinaryString(-1 >>> 1));
         System.out.println(-1 >>> 1);
+        System.out.println(Integer.MAX_VALUE);
 
         System.out.println(1 ^ 3);
 
         System.out.println(Float.floatToIntBits(1.2f));
         System.out.println(Integer.toBinaryString((-1) >> 2));
         System.out.println(Integer.toBinaryString(12345)); // 1+8+16+32+2**12+2**13
-
-        List<Integer> ss = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            ss.add(100 - i);
-        }
-
-        Collections.sort(ss);
-
-        System.out.println((int)'A');
-        System.out.println((int)'Z');
-        System.out.println((int)'a');
-        System.out.println((int)'z');
     }
 }

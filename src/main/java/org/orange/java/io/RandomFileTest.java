@@ -34,9 +34,6 @@ import java.util.GregorianCalendar;
  */
 public class RandomFileTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Employee2[] staff = new Employee2[3];
 

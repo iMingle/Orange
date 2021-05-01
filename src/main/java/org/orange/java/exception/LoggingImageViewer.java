@@ -44,9 +44,6 @@ import java.util.logging.StreamHandler;
  */
 public class LoggingImageViewer {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         if ((null == System.getProperty("java.util.logging.config.class")) &&
                 (null == System.getProperty("java.util.logging.config.file"))) {

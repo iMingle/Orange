@@ -70,9 +70,6 @@ public class ProcessFiles {
         }
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         new ProcessFiles(new ProcessFiles.Strategy() {
             

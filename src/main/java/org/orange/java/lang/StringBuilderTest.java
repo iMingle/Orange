@@ -23,9 +23,6 @@ package org.orange.java.lang;
  */
 public class StringBuilderTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         StringBuilder builder = new StringBuilder();
         System.out.println(builder);

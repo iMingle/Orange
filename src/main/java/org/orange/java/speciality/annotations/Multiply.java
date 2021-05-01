@@ -39,9 +39,6 @@ public class Multiply {
         return x + y;
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Multiply m = new Multiply();
         System.out.println("11 * 16 = " + m.multiply(11, 16));

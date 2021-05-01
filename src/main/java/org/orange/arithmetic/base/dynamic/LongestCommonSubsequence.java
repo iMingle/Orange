@@ -46,7 +46,7 @@ public class LongestCommonSubsequence {
      */
     public static int longestCommonSubsequence(String text1, String text2) {
         if (Objects.isNull(text1) || Objects.isNull(text2)) {
-            return Objects.nonNull(text1) ? text1.length() : Objects.nonNull(text2) ? text2.length() : 0;
+            return 0;
         }
 
         int text1Length = text1.length();

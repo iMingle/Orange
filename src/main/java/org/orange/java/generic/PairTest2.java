@@ -26,9 +26,6 @@ import java.util.GregorianCalendar;
  */
 public class PairTest2 {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         GregorianCalendar[] birthdays = {
                 new GregorianCalendar(1800, Calendar.DECEMBER, 4),

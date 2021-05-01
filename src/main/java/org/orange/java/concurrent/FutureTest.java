@@ -31,9 +31,6 @@ import java.util.concurrent.FutureTask;
  */
 public class FutureTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter base directory (e.g. /usr/local/jdk1.6.0/src): ");

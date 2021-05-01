@@ -24,9 +24,6 @@ public class UnsynchBankTest {
     private static final int NACCOUNTS = 100;
     private static final double INITIAL_BALANCE = 1000;
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Bank bank = new Bank(NACCOUNTS, INITIAL_BALANCE);
         

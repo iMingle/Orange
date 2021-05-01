@@ -24,9 +24,6 @@ import java.util.IdentityHashMap;
  */
 public class IdentityHashMapTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         IdentityHashMap<Person, String> identity = new IdentityHashMap<Person, String>();
         identity.put(new Person("Mingle", 26), "one");

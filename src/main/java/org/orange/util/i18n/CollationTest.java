@@ -43,9 +43,6 @@ import javax.swing.JTextField;
  */
 public class CollationTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {

@@ -22,9 +22,6 @@ package org.orange.java.lang;
  */
 public class IntegerTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         System.out.println(Integer.toBinaryString(0xffffffff));
         System.out.println(Integer.toUnsignedLong(0xffffffff));

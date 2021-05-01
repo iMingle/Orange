@@ -35,9 +35,6 @@ import java.util.logging.StreamHandler;
  */
 public class LoggerTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Logger logger = null;
         logger = Logger.getAnonymousLogger();

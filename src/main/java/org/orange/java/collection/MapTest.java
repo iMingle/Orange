@@ -20,31 +20,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * @author mingle
  */
 public class MapTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        Map<String, Employee> staff = new HashMap<String, Employee>();
+        Map<String, Employee> staff = new HashMap<>();
         staff.put("135-4647-9335", new Employee("Jack"));
         staff.put("155-2456-6289", new Employee("Mingle"));
         staff.put("135-0372-3456", new Employee("Mary"));
         staff.put("139-3998-1143", new Employee("Mom"));
-        
+
         System.out.println(staff);
-        
+
         staff.remove("135-0372-3456");
-        
+
         System.out.println(staff);
-        
+
         staff.put("139-3998-1143", new Employee("Mother"));
-        
+
         System.out.println(staff.get("155-2456-6289"));
-        
+
         // iterate through all entries
         for (Map.Entry<String, Employee> entry : staff.entrySet()) {
             String key = entry.getKey();
@@ -60,6 +56,7 @@ public class MapTest {
 class Employee {
     private String name;
     private double salary;
+
     /**
      * @param name
      */
@@ -68,7 +65,7 @@ class Employee {
         this.name = name;
         this.salary = 0;
     }
-    
+
     @Override
     public String toString() {
         return "Employee [name=" + name + ", salary=" + salary + "]";

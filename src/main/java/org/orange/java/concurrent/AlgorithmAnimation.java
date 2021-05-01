@@ -16,6 +16,10 @@
 
 package org.orange.java.concurrent;
 
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -27,28 +31,18 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.concurrent.Semaphore;
 
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 /**
  * This program animates a sort algorithm.
- * 
+ *
  * @author mingle
  */
 public class AlgorithmAnimation {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new AnimationFrame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            JFrame frame = new AnimationFrame();
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
         });
     }
 
@@ -60,7 +54,7 @@ public class AlgorithmAnimation {
  */
 class AnimationFrame extends JFrame {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 1903321498984042398L;
     private static final int DEFAULT_WIDTH = 800;
@@ -112,11 +106,9 @@ class Sorter implements Runnable {
 
     /**
      * Constructs a Sorter.
-     * 
-     * @param values
-     *            the array to be sorted
-     * @param comp
-     *            the component on which to display the sorting progress
+     *
+     * @param values the array to be sorted
+     * @param comp   the component on which to display the sorting progress
      */
     public Sorter(ArrayComponent comp) {
         values = new Double[VALUES_LENGTH];
@@ -169,7 +161,7 @@ class Sorter implements Runnable {
  */
 class ArrayComponent extends JComponent {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 50845022073269600L;
     private Double marked1;
@@ -178,16 +170,13 @@ class ArrayComponent extends JComponent {
 
     /**
      * Sets the values to be painted. Called on the sorter thread.
-     * 
-     * @param values
-     *            the array of values to display
-     * @param marked1
-     *            the first marked element
-     * @param marked2
-     *            the second marked element
+     *
+     * @param values  the array of values to display
+     * @param marked1 the first marked element
+     * @param marked2 the second marked element
      */
     public synchronized void setValues(Double[] values, Double marked1,
-            Double marked2) {
+                                       Double marked2) {
         this.values = values.clone();
         this.marked1 = marked1;
         this.marked2 = marked2;

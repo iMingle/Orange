@@ -33,9 +33,6 @@ import java.util.GregorianCalendar;
  */
 public class ObjectStreamTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Employee4 harry = new Employee4("Harry Hacker", 50000, 1989, 10, 1);
         Manager3 carl = new Manager3("Carl Cracker", 80000, 1987, 12, 15);

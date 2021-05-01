@@ -30,9 +30,6 @@ import com.google.common.collect.Lists;
  */
 public class FunctionTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Function<String, Integer> lengthFunction = new Function<String, Integer>() {
 

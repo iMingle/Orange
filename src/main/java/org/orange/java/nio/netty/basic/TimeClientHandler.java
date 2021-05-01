@@ -21,6 +21,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Logger;
 
 /**
@@ -44,12 +45,11 @@ public class TimeClientHandler extends ChannelInboundHandlerAdapter {
     }
 
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg)
-            throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf buf = (ByteBuf) msg;
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
-        String body = new String(req, "UTF-8");
+        String body = new String(req, StandardCharsets.UTF_8);
         System.out.println("Now is : " + body);
     }
 

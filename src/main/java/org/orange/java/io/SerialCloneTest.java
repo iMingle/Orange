@@ -29,9 +29,6 @@ import java.util.GregorianCalendar;
  */
 public class SerialCloneTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         Employee4 harry = new Employee4("Harry Hacker", 35000, 1989, 10, 1);

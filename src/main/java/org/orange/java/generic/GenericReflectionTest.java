@@ -32,9 +32,6 @@ import java.util.Scanner;
  */
 public class GenericReflectionTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         // read class name from command-line or user input
         String name = null;

@@ -43,9 +43,6 @@ import javax.swing.JTextField;
  */
 public class NumberFormatTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
 

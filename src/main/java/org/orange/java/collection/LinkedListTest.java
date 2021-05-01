@@ -23,16 +23,13 @@ import java.util.ListIterator;
 
 /**
  * This program demonstrates operations on linked lists.
- * 
+ *
  * @author mingle
  */
 public class LinkedListTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        List<String> lists = new LinkedList<String>();
+        List<String> lists = new LinkedList<>();
         lists.add("one");
         lists.add("two");
         lists.add("three");
@@ -59,12 +56,12 @@ public class LinkedListTest {
 
         System.out.println("lists = " + lists);//lists = [seven, eight, one, three, four, five, six]
 
-        List<String> a = new LinkedList<String>();
+        List<String> a = new LinkedList<>();
         a.add("Amy");
         a.add("Carl");
         a.add("Erica");
 
-        List<String> b = new LinkedList<String>();
+        List<String> b = new LinkedList<>();
         b.add("Bob");
         b.add("Doug");
         b.add("Frances");
@@ -73,14 +70,14 @@ public class LinkedListTest {
         // merge the words from b into a
         ListIterator<String> aIter = a.listIterator();
         Iterator<String> bIter = b.iterator();
-        
+
         while (bIter.hasNext()) {
             if (aIter.hasNext()) aIter.next();
             aIter.add(bIter.next());
         }
-        
+
         System.out.println("a = " + a);
-        
+
         // remove every second word from b
         bIter = b.iterator();
         while (bIter.hasNext()) {
@@ -90,9 +87,9 @@ public class LinkedListTest {
                 bIter.remove();
             }
         }
-        
+
         System.out.println("b = " + b);
-        
+
         // remove all words in b from a
         a.removeAll(b);
         System.out.println("a = " + a);

@@ -26,9 +26,6 @@ import java.util.GregorianCalendar;
  */
 public class MessageFormatTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         // {2, date, long} 占位符，类型，风格
         // 类型:number, time, date, choice

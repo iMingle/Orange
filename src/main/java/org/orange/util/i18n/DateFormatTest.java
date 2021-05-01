@@ -41,9 +41,6 @@ import javax.swing.JTextField;
  */
 public class DateFormatTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {

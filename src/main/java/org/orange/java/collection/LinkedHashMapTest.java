@@ -22,16 +22,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- *
  * @author mingle
  */
 public class LinkedHashMapTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        Map<String, String> linked = new LinkedHashMap<String, String>(128, 0.75F, true);
+        Map<String, String> linked = new LinkedHashMap<>(128, 0.75F, true);
         linked.put("4", "four");
         linked.put("5", "five");
         linked.put("6", "six");
@@ -44,8 +40,8 @@ public class LinkedHashMapTest {
             System.out.print(ita.next() + ",");
         }
         System.out.println();
-        
-        Map<String, String> linkedMap = new LinkedHashMap<String, String>(128, 0.75F, true);
+
+        Map<String, String> linkedMap = new LinkedHashMap<>(128, 0.75F, true);
         linkedMap.put("4", "four");
         linkedMap.put("5", "five");
         linkedMap.put("6", "six");
@@ -58,8 +54,8 @@ public class LinkedHashMapTest {
             System.out.print(it.next() + ",");
         }
         System.out.println();
-        
-        Map<String, String> map = new HashMap<String, String>();
+
+        Map<String, String> map = new HashMap<>();
         map.put("1", "one");
         map.put("2", "two");
         map.put("3", "three");

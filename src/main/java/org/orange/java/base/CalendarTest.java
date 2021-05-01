@@ -27,9 +27,6 @@ import java.util.Locale;
  * @author mingle
  */
 public class CalendarTest {
-    /**
-     * @param args
-     */
     @SuppressWarnings("unused")
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);

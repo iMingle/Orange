@@ -34,9 +34,6 @@ import javax.swing.JPanel;
  */
 public class SwingThreadTest {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {

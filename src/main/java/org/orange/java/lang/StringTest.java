@@ -56,9 +56,6 @@ public class StringTest {
         System.out.println(this.email);
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         System.out.println(new StringTest("jinminglei@yeah.net").notInit); // null
         System.out.println(new char[0].length);

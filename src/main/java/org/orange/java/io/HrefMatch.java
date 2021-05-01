@@ -31,9 +31,6 @@ import java.util.regex.Pattern;
  */
 public class HrefMatch {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         // get URL string from command line or use default
         String urlString = "";

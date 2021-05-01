@@ -52,9 +52,9 @@ public class TimeServer {
         }
     }
 
-    private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
+    private static class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
         @Override
-        protected void initChannel(SocketChannel socketChannel) throws Exception {
+        protected void initChannel(SocketChannel socketChannel) {
             socketChannel.pipeline().addLast(new TimeServerHandler());
         }
     }
@@ -63,7 +63,7 @@ public class TimeServer {
         int port = 8080;
         if (args != null && args.length > 0) {
             try {
-                port = Integer.valueOf(args[0]);
+                port = Integer.parseInt(args[0]);
             } catch (NumberFormatException e) {
                 // 采用默认值
             }
