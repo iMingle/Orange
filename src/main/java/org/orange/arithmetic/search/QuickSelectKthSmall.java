@@ -16,18 +16,20 @@
 
 package org.orange.arithmetic.search;
 
+import org.orange.arithmetic.sort.QuickSort;
 import org.orange.arithmetic.util.RandomUtil;
-import org.orange.util.SortUtils;
 
 /**
  * @author mingle
  */
 public class QuickSelectKthSmall {
-    private static final int M = 10;
-
     public static void main(String[] args) {
-        Integer[] array = {4, 5, 2, 1, 3, 11, 9, 8, 7, 6, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
-        int k = 17;
+        Integer[] array = {1332802, 1177178, 1514891, 871248, 753214, 123866, 1615405, 328656, 1540395, 968891, 1884022,
+                252932, 1034406, 1455178, 821713, 486232, 860175, 1896237, 852300, 566715, 1285209, 1845742, 883142,
+                259266, 520911, 1844960, 218188, 1528217, 332380, 261485, 1111670, 16920, 1249664, 1199799, 1959818,
+                1546744, 1904944, 51047, 1176397, 190970, 48715, 349690, 673887, 1648782, 1010556, 1165786, 937247,
+                986578, 798663};
+        int k = 25;
 
         System.out.println(select(array, k));
     }
@@ -50,47 +52,11 @@ public class QuickSelectKthSmall {
         RandomUtil.shuffle(a);
         int lo = 0, hi = a.length - 1;
         while (hi > lo) {
-            int i = partition(a, lo, hi);
+            int i = QuickSort.partitionMedian(a, lo, hi);
             if (i > k) hi = i - 1;
             else if (i < k) lo = i + 1;
             else return a[i];
         }
         return a[lo];
-    }
-
-    private static <T extends Comparable<? super T>> int partition(T[] a, int lo, int hi) {
-        int n = hi - lo + 1;
-        int m = SortUtils.median(a, lo, lo + n / 2, hi);
-        SortUtils.exchange(a, m, lo);
-
-        int i = lo;
-        int j = hi + 1;
-        T v = a[lo];
-
-        // a[lo] is unique largest element
-        while (SortUtils.less(a[++i], v)) {
-            if (i == hi) {
-                SortUtils.exchange(a, lo, hi);
-                return hi;
-            }
-        }
-
-        // a[lo] is unique smallest element
-        while (SortUtils.less(v, a[--j])) {
-            if (j == lo + 1) return lo;
-        }
-
-        // the main loop
-        while (i < j) {
-            SortUtils.exchange(a, i, j);
-            while (SortUtils.less(a[++i], v)) ;
-            while (SortUtils.less(v, a[--j])) ;
-        }
-
-        // put partitioning item v at a[j]
-        SortUtils.exchange(a, lo, j);
-
-        // now, a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
-        return j;
     }
 }

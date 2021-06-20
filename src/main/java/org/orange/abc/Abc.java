@@ -38,4 +38,10 @@ public class Abc {
         System.out.println(Integer.toBinaryString((-1) >> 2));
         System.out.println(Integer.toBinaryString(12345)); // 1+8+16+32+2**12+2**13
     }
+
+    private static class TreeNode {
+        int val = 0;
+        TreeNode left;
+        TreeNode right;
+    }
 }

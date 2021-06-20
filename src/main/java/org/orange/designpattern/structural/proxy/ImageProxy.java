@@ -30,7 +30,7 @@ import java.io.OutputStream;
  * @author mingle
  */
 public class ImageProxy implements Graphic {
-    private org.orange.designpattern.structural.proxy.Image image;
+    private Image image;
     private Point extent;
     private final String filename;
 
@@ -64,7 +64,7 @@ public class ImageProxy implements Graphic {
         out.write(filename.getBytes());
     }
 
-    public org.orange.designpattern.structural.proxy.Image getImage() {
+    public Image getImage() {
         if (image == null)
             image = new Image(filename);
         return image;
