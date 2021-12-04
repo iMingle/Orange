@@ -18,10 +18,8 @@ package org.orange.abc;
 
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -52,10 +50,6 @@ public class Abc {
         String s2 = new String("a") +"b"; //s2 指向 堆 里面ab 的地址,并且常量池不存在 ab
         String s3 = s2.intern();// 由于常量池并没有ab 因此会把 s2 的堆地址引用 放到常量池
         System.out.println(s2 == s3);// 同时指向 ab 堆里面的地址 固为true
-
-
-        List<Byte> bytes = new ArrayList<>(Integer.MAX_VALUE);
-        System.out.println(bytes.get(Integer.MAX_VALUE - 1));
 
         System.out.println(abc.miniSpanningTree(9, 15, new int[][]{
                 {4, 5, 18},
