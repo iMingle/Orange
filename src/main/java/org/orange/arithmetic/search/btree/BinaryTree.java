@@ -16,7 +16,9 @@
 
 package org.orange.arithmetic.search.btree;
 
+import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 二叉树的遍历
@@ -58,7 +60,7 @@ public class BinaryTree<T> {
         int len = values.length;
         if (len == 0)
             return;
-        LinkedList<Node<T>> queue = new LinkedList<>();
+        Deque<Node<T>> queue = new LinkedList<>();
         root = new Node<>(values[0]);
         queue.addLast(root);
         Node<T> parent;
@@ -94,15 +96,15 @@ public class BinaryTree<T> {
      */
     public void layerorder() {
         System.out.print("binaryTree层次遍历:");
-        LinkedList<Node<T>> queue = new LinkedList<>();
-        queue.addLast(root);
+        Queue<Node<T>> queue = new LinkedList<>();
+        queue.offer(root);
         Node<T> current;
         while (!queue.isEmpty()) {
-            current = queue.removeFirst();
+            current = queue.poll();
             if (current.left != null)
-                queue.addLast(current.left);
+                queue.offer(current.left);
             if (current.right != null)
-                queue.addLast(current.right);
+                queue.offer(current.right);
             System.out.print(current.value);
         }
         System.out.println();
@@ -162,9 +164,9 @@ public class BinaryTree<T> {
 
     private void postorderTraverseRecursion(Node<T> node) {
         if (node.left != null)
-            preorderTraverseRecursion(node.left);
+            postorderTraverseRecursion(node.left);
         if (node.right != null)
-            preorderTraverseRecursion(node.right);
+            postorderTraverseRecursion(node.right);
         System.out.print(node.value);
     }
 
@@ -173,7 +175,7 @@ public class BinaryTree<T> {
      */
     public void preorderNoRecursion() {
         System.out.print("binaryTree非递归先序遍历:");
-        LinkedList<Node<T>> stack = new LinkedList<>();
+        Deque<Node<T>> stack = new LinkedList<>();
         stack.push(root);
         Node<T> current;
         while (!stack.isEmpty()) {
@@ -192,7 +194,7 @@ public class BinaryTree<T> {
      */
     public void inorderNoRecursion() {
         System.out.print("binaryTree非递归中序遍历:");
-        LinkedList<Node<T>> stack = new LinkedList<>();
+        Deque<Node<T>> stack = new LinkedList<>();
         Node<T> current = root;
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
@@ -215,35 +217,29 @@ public class BinaryTree<T> {
      */
     public void postorderNoRecursion() {
         System.out.print("binaryTree非递归后序遍历:");
-        Node<T> rNode = null;
+        Node<T> prev = null;
         Node<T> current = root;
-        LinkedList<Node<T>> stack = new LinkedList<>();
+        Deque<Node<T>> stack = new LinkedList<>();
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
                 current = current.left;
             }
             current = stack.pop();
-            while (current != null
-                    && (current.right == null || current
-                    .right == rNode)) {
+            if (current.right == null || current.right == prev) {
                 System.out.print(current.value);
-                rNode = current;
-                if (stack.isEmpty()) {
-                    System.out.println();
-                    return;
-                }
-                current = stack.pop();
+                prev = current;
+                current = null;
+            } else {
+                stack.push(current);
+                current = current.right;
             }
-            stack.push(current);
-            current = current.right;
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        BinaryTree<String> bt = new BinaryTree<>(new String[]{"-", "+", "/", "a", "*",
-                "e", "f", "", "", "b", "-", "", "", "", "", "", "",
-                "", "", "", "", "c", "d"});
+        BinaryTree<String> bt = new BinaryTree<>(new String[]{"A", "B", "C", "D", "E", "F", "G"});
         bt.preorder();
         bt.inorder();
         bt.postorder();

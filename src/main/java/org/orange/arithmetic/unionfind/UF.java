@@ -82,9 +82,9 @@ package org.orange.arithmetic.unionfind;
  * @author mingle
  */
 public class UF {
-    private int[] parent;  // parent[i] = parent of i
-    private byte[] rank;   // rank[i] = rank of subtree rooted at i (never more than 31)
-    private int count;     // number of components
+    private final int[] parent;  // parent[i] = parent of i
+    private final byte[] rank;   // rank[i] = rank of subtree rooted at i (never more than 31)
+    private int count;          // number of components
 
     /**
      * Initializes an empty union–find data structure with {@code n} sites

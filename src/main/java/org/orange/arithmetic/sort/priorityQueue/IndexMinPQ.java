@@ -63,9 +63,9 @@ public class IndexMinPQ<K extends Comparable<K>> implements Iterable<Integer> {
         if (maxN < 0) throw new IllegalArgumentException();
         this.maxN = maxN;
         n = 0;
-        keys = (K[]) new Comparable[maxN + 1];    // make this of length maxN??
+        keys = (K[]) new Comparable[maxN + 1];
         pq = new int[maxN + 1];
-        qp = new int[maxN + 1];                   // make this of length maxN??
+        qp = new int[maxN + 1];
         for (int i = 0; i <= maxN; i++)
             qp[i] = -1;
     }

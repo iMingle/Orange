@@ -35,9 +35,10 @@ public class AbcOfDynamic {
             states[0][items[0]] = true;
 
         for (int i = 1; i < itemSize; i++) {
-            for (int j = 0; j <= weight; j++)
+            for (int j = 0; j <= weight; j++) {
                 if (states[i - 1][j])
                     states[i][j] = states[i - 1][j];
+            }
             for (int j = 0; j <= weight - items[i]; j++) {
                 if (states[i - 1][j])
                     states[i][j + items[i]] = true;
@@ -63,13 +64,15 @@ public class AbcOfDynamic {
             states[items[0]] = true;
 
         for (int i = 1; i < itemSize; i++) {
-            for (int j = weight - items[i]; j >= 0; j--)
+            for (int j = weight - items[i]; j >= 0; j--) {
                 if (states[j])
                     states[j + items[i]] = true;
+            }
         }
 
-        for (int j = weight; j >= 0; j--)
+        for (int j = weight; j >= 0; j--) {
             if (states[j]) return j;
+        }
 
         return 0;
     }
