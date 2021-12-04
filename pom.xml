@@ -39,7 +39,7 @@
             <version>4.0</version>
             <scope>system</scope>
             <type>jar</type>
-            <systemPath>/Users/mingle/.m2/repository/org/arithmetic/algs/4.0/algs-4.0.jar</systemPath>
+            <systemPath>${user.home}/.m2/repository/org/arithmetic/algs/4.0/algs-4.0.jar</systemPath>
         </dependency>
 
         <!-- 单元测试 -->
