@@ -18,7 +18,7 @@ package org.orange.java.concurrent.servicesinthread.parallel;
 
 /**
  * 回调计数器方式
- * 
+ *
  * @author mingle
  */
 public class FibVCB extends NullFJTask {
@@ -62,7 +62,7 @@ public class FibVCB extends NullFJTask {
 
             // Wait for callbacks from children
             while (callbacksReceived < callbacksExpected)
-                yield();
+                Thread.yield();
         }
 
         // Call back parent
