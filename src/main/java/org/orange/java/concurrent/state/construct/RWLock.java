@@ -17,8 +17,7 @@
 package org.orange.java.concurrent.state.construct;
 
 import org.orange.java.concurrent.lock.ReadWriteLock;
-
-import com.sun.corba.se.impl.orbutil.concurrent.Sync;
+import org.orange.java.concurrent.state.util.Sync;
 
 /**
  * 

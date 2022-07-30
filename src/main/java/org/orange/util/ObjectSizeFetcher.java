@@ -16,7 +16,7 @@
 
 package org.orange.util;
 
-import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
+//import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 
 /**
  * Minimum object size is 16 bytes for modern 64-bit JDK since the object has 12-byte header,
@@ -41,6 +41,6 @@ public class ObjectSizeFetcher {
     Object[] o = new Object[2];
 
     public static void main(String[] args) {
-        System.out.println(ObjectSizeCalculator.getObjectSize(new ObjectSizeFetcher()));
+//        System.out.println(ObjectSizeCalculator.getObjectSize(new ObjectSizeFetcher()));
     }
 }

@@ -16,19 +16,15 @@
 
 package org.orange.util.autotest.selenium;
 
-import java.net.URISyntaxException;
-import java.util.concurrent.TimeUnit;
-
-import org.orange.util.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.orange.util.WebDriverUtils;
+
+import java.net.URISyntaxException;
+import java.time.Duration;
 
 /**
- *
- *
  * @author mingle
  */
 public class WebDriverTest {
@@ -36,38 +32,26 @@ public class WebDriverTest {
     public static void main(String[] args) throws URISyntaxException {
         WebDriver driver = WebDriverUtils.driver();
 
+        driver.get("https://www.google.com");
+
         // Puts a Implicit wait, Will wait for 10 seconds before throwing
         // exception
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        driver.get("https://www.google.com");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 
         // Maximize the browser
         driver.manage().window().maximize();
 
         // Find the text input element by its name
-        WebElement element = driver.findElement(By.name("q"));
+        WebElement searchBox = driver.findElement(By.name("q"));
+        WebElement searchButton = driver.findElement(By.name("btnK"));
 
-        // Enter something to search for
-        element.sendKeys("Cheese!");
+        searchBox.sendKeys("Selenium");
+        searchButton.click();
 
-        // Now submit the form. WebDriver will find the form for us from the
-        // element
-        element.submit();
+        searchBox = driver.findElement(By.name("q"));
 
         // Check the title of the page
-        System.out.println("Page title is: " + driver.getTitle());
-
-        // Google's search is rendered dynamically with JavaScript.
-        // Wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().toLowerCase().startsWith("cheese!");
-            }
-        });
-
-        // Should see: "cheese! - Google Search"
+        System.out.println("Value is: " + searchBox.getAttribute("value"));
         System.out.println("Page title is: " + driver.getTitle());
 
         // Close the browser

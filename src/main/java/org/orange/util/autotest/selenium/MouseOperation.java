@@ -16,18 +16,15 @@
 
 package org.orange.util.autotest.selenium;
 
-import java.net.URISyntaxException;
-
-import org.orange.util.WebDriverUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.orange.util.WebDriverUtils;
+
+import java.net.URISyntaxException;
 
 /**
- *
- *
  * @author mingle
  */
 public class MouseOperation {
@@ -41,13 +38,11 @@ public class MouseOperation {
 
         Actions action = new Actions(driver);
 
-        WebElement element = driver.findElement(By.xpath("html/body/header/div/div/nav[2]/div/form/label/input"));
-        element.sendKeys("spring-framework");
-        element.click();
-
-        action.keyDown(Keys.CONTROL).sendKeys("t").perform();
-        action.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).keyDown(Keys.TAB).perform();
-        action.contextClick(element).perform();
+        WebElement searchBox = driver.findElement(By.xpath(
+                "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"));
+        searchBox.sendKeys("spring-framework");
+        action.doubleClick(searchBox);
+//        action.keyDown(searchBox, Keys.ENTER);
 
         Thread.sleep(6000);
 

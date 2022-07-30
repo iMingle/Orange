@@ -19,8 +19,6 @@ package org.orange.java.concurrent.lock;
 import java.awt.Graphics;
 import java.util.Random;
 
-import com.sun.corba.se.impl.orbutil.concurrent.Mutex;
-
 /**
  * 互斥锁
  * 

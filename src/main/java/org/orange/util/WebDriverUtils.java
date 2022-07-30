@@ -16,35 +16,27 @@
 
 package org.orange.util;
 
-import java.io.File;
-import java.net.URISyntaxException;
-
-import org.orange.util.autotest.selenium.WebDriverTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.orange.util.autotest.selenium.WebDriverTest;
+
+import java.io.File;
+import java.net.URISyntaxException;
 
 /**
- *
- *
  * @author mingle
  */
 public abstract class WebDriverUtils {
 
-    /**
-     * @return
-     * @throws URISyntaxException
-     */
     public static WebDriver driver() throws URISyntaxException {
-        System.setProperty("webdriver.chrome.driver", "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe");
+        System.setProperty("webdriver.chrome.driver", "/documents/autotest/chromedriver");
 
         ChromeDriverService chromeDriverService = new ChromeDriverService.Builder().usingDriverExecutable(
-                new File(WebDriverTest.class.getResource("/documents/autotest/chromedriver.exe").toURI()))
+                        new File(WebDriverTest.class.getResource("/documents/autotest/chromedriver").toURI()))
                 .usingAnyFreePort().build();
 
-        WebDriver driver = new ChromeDriver(chromeDriverService);
-
-        return driver;
+        return new ChromeDriver(chromeDriverService);
     }
 
 }

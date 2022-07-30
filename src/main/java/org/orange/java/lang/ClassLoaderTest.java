@@ -18,7 +18,6 @@ package org.orange.java.lang;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 
 /**
  * @author mingle
@@ -31,20 +30,17 @@ public class ClassLoaderTest {
      */
     public static void main(String[] args) throws Exception {
         // bootstrap classloader
-        URL[] urls = sun.misc.Launcher.getBootstrapClassPath().getURLs();
-        for (URL url : urls) {
-            System.out.println(url);
-        }
+        ClassLoader bootstrapClassloader = ClassLoader.getPlatformClassLoader().getParent();
+        System.out.println("bootstrapClassloader: " + bootstrapClassloader);
 
-        // extension classloader
-        System.out.println(System.getProperty("java.ext.dirs"));
-        ClassLoader extensionClassloader = ClassLoader.getSystemClassLoader().getParent();
-        System.out.println(extensionClassloader);
-        System.out.println(extensionClassloader.getParent());
+        // platform classloader
+        ClassLoader platformClassloader = ClassLoader.getSystemClassLoader().getParent();
+        System.out.println("platformClassloader: " + platformClassloader);
+        System.out.println(platformClassloader.getParent());
 
-        // system classloader
+        // app classloader
         System.out.println(System.getProperty("java.class.path"));
-        System.out.println(ClassLoader.getSystemClassLoader());
+        System.out.println("appClassloader: " + ClassLoader.getSystemClassLoader());
 
         ClassLoader loader = new ClassLoader() {
             @Override

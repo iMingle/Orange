@@ -16,11 +16,9 @@
 
 package org.orange.java.concurrent.lock;
 
-import com.sun.corba.se.impl.orbutil.concurrent.Sync;
+import org.orange.java.concurrent.state.util.Sync;
 
 /**
- * 
- * 
  * @author mingle
  */
 public class RWLock implements ReadWriteLock {

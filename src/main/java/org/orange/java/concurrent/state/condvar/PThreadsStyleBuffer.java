@@ -16,8 +16,8 @@
 
 package org.orange.java.concurrent.state.condvar;
 
-import com.sun.corba.se.impl.orbutil.concurrent.Mutex;
-import com.sun.corba.se.impl.orbutil.concurrent.Sync;
+import org.orange.java.concurrent.lock.Mutex;
+import org.orange.java.concurrent.state.util.Sync;
 
 /**
  * 一把锁的多个条件变量

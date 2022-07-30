@@ -18,8 +18,6 @@ package org.orange.java.concurrent.lock;
 
 import java.util.Random;
 
-import com.sun.corba.se.impl.orbutil.concurrent.Mutex;
-
 /**
  * 方法适配器
  * 
