@@ -5,7 +5,7 @@ import java.util.Currency;
 import java.util.Locale;
 
 /**
- * @author jinminglei
+ * @author mingle
  */
 public class UnicodeLocale {
     public static void main(String[] args) {

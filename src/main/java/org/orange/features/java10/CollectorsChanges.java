@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author jinminglei
+ * @author mingle
  */
 public class CollectorsChanges {
     public static void main(String[] args) {

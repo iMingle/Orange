@@ -7,7 +7,7 @@ import java.nio.file.Path;
 /**
  * @author mingle
  */
-public class FileUpdates {
+public class FileChanges {
     public static void main(String[] args) throws IOException {
         Path path = Files.writeString(Files.createTempFile("test", ".txt"), "Java 11 features");
 

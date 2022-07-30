@@ -3,7 +3,7 @@ package org.orange.java.concurrent.lock;
 import org.orange.java.concurrent.state.util.Sync;
 
 /**
- * @author jinminglei
+ * @author mingle
  */
 public class Mutex implements Sync {
     public void acquire() throws InterruptedException {

@@ -11,7 +11,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 /**
- * @author jinminglei
+ * @author mingle
  */
 public class TryWithResourceBlocks {
     public static void writeToFileZipFileContents(String zipFileName,

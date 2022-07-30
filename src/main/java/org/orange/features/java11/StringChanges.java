@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 /**
  * @author mingle
  */
-public class StringUpdates {
+public class StringChanges {
     public static void main(String[] args) {
         System.out.println(" ".isBlank());
 

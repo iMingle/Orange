@@ -5,7 +5,7 @@ import java.util.Optional;
 /**
  * @author mingle
  */
-public class OptionalUpdates {
+public class OptionalChanges {
     public static void main(String[] args) {
         Optional<String> str = Optional.of("Mano");
         System.out.println(str.isEmpty());
