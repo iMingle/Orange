@@ -17,8 +17,10 @@
 package org.orange.abc;
 
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Queue;
 
 /**
  * @author mingle
@@ -44,10 +46,8 @@ public class AbcOfBinaryTree {
         System.out.println();
 
         Node<Character> root = new Node<>('A',
-                new Node<>('B',
-                        new Node<>('D'), new Node<>('E')),
-                new Node<>('C',
-                        new Node<>('F'), new Node<>('G')));
+                new Node<>('B', new Node<>('D'), new Node<>('E')),
+                new Node<>('C', new Node<>('F'), new Node<>('G')));
         System.out.println("----链表Tree遍历----");
         System.out.print("前序遍历: ");
         AbcOfBinaryTree.preOrder(root);
@@ -61,6 +61,82 @@ public class AbcOfBinaryTree {
         System.out.print("按层遍历: ");
         AbcOfBinaryTree.layerOrder(root);
         System.out.println();
+
+        System.out.println("----链表Tree遍历非递归----");
+        System.out.print("前序非递归: ");
+        AbcOfBinaryTree.preOrderNew(root);
+        System.out.println();
+        System.out.print("中序非递归: ");
+        AbcOfBinaryTree.inOrderNew(root);
+        System.out.println();
+        System.out.print("后序非递归: ");
+        AbcOfBinaryTree.postOrderNew(root);
+        System.out.println();
+    }
+
+    public static void preOrderNew(Node<Character> root) {
+        if (Objects.isNull(root))
+            return;
+
+        Deque<Node<Character>> stack = new LinkedList<>();
+        Node<Character> current;
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            current = stack.pop();
+            System.out.print(current.value + ", ");
+            if (current.right != null)
+                stack.push(current.right);
+            if (current.left != null)
+                stack.push(current.left);
+        }
+    }
+
+    public static void inOrderNew(Node<Character> root) {
+        if (Objects.isNull(root))
+            return;
+
+        Deque<Node<Character>> stack = new LinkedList<>();
+        Node<Character> current = root;
+
+        while (current != null || !stack.isEmpty()) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+
+            if (!stack.isEmpty()) {
+                current = stack.pop();
+                System.out.print(current.value + ", ");
+                current = current.right;
+            }
+        }
+    }
+
+    public static void postOrderNew(Node<Character> root) {
+        if (Objects.isNull(root))
+            return;
+
+        Deque<Node<Character>> stack = new LinkedList<>();
+        Node<Character> current = root;
+        Node<Character> prev = null;
+
+        while (current != null || !stack.isEmpty()) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+
+            current = stack.pop();
+            if (current.right == null || current.right == prev) {
+                System.out.print(current.value + ", ");
+                prev = current;
+                current = null;
+            } else {
+                stack.push(current);
+                current = current.right;
+            }
+        }
     }
 
     public static void preOrder(Node<Character> root) {
@@ -94,15 +170,15 @@ public class AbcOfBinaryTree {
         if (Objects.isNull(root))
             return;
 
-        LinkedList<Node<Character>> queue = new LinkedList<>();
+        Queue<Node<Character>> queue = new LinkedList<>();
         queue.add(root);
         Node<Character> current;
         while (!queue.isEmpty()) {
-            current = queue.removeFirst();
+            current = queue.poll();
             if (Objects.nonNull(current.left))
-                queue.addLast(current.left);
+                queue.offer(current.left);
             if (Objects.nonNull(current.right))
-                queue.addLast(current.right);
+                queue.offer(current.right);
             System.out.print(current.value + ", ");
         }
     }

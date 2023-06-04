@@ -26,7 +26,7 @@ public class Subject {
     private List<Observer> observers;
 
     public void attach(Observer observer) {
-        if (observer == null)
+        if (observers == null)
             observers = new ArrayList<>();
         observers.add(observer);
     }

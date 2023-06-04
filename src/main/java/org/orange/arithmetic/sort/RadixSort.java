@@ -84,8 +84,7 @@ public class RadixSort {
             }
 
             // 将临时数组的内容复制到data中
-            for (j = 0; j < n; j++)
-                a[j] = tmp[j];
+            System.arraycopy(tmp, 0, a, 0, n);
 
             radix = radix * 10;
         }

@@ -205,7 +205,7 @@ public class BinarySearch {
      * 我们发现循环数组存在一个性质：以数组中间点为分区，会将数组分成一个有序数组和一个循环有序数组。
      * <p>
      * 如果首元素小于 mid，说明前半部分是有序的，后半部分是循环有序数组；
-     * 如果首元素大于 mid，说明后半部分是有序的，前半部分是循环有序的数组；
+     * 如果首元素大于 mid，说明后半部分是有序的，前半部分是循环有序数组；
      * 如果目标元素在有序数组范围中，使用二分查找；
      * 如果目标元素在循环有序数组中，设定数组边界后，使用以上方法继续查找。
      * <p>
@@ -213,7 +213,7 @@ public class BinarySearch {
      *
      * @param a   查询数组
      * @param key 查询的值
-     * @return 等于查询值的下标
+     * @return 查询值的下标
      */
     public static int circularSearch(int[] a, int key) {
         int lo = 0;

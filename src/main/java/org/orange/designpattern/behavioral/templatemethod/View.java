@@ -23,12 +23,12 @@ public abstract class View {
     public void display() {
         setFocus();
         doDisplay();
-        resetFocut();
+        resetFocus();
     }
 
     protected abstract void doDisplay();
 
-    private void resetFocut() {
+    private void resetFocus() {
 
     }
 

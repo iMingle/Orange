@@ -23,13 +23,14 @@ import java.util.Arrays;
  */
 public class AbcOfSort {
     public static void main(String[] args) {
-//        Integer[] a = new Integer[]{5, 3, 6, 7, 2, 1, 9, 8, 4};
-        Integer[] a = new Integer[]{0, 4, 6, 8, 5, 9};
+        Integer[] a = new Integer[]{5, 3, 6, 7, 2, 1, 9, 8, 4};
+//        Integer[] a = new Integer[]{0, 4, 6, 8, 5, 9};
 //        sort(a);
 //        shell(a);
 //        insert1(a);
-        count(a);
+//        count(a);
 //        quick1(a, 0, a.length - 1);
+        merge(a, 0, a.length - 1);
         System.out.println(Arrays.toString(a));
     }
 
@@ -143,9 +144,7 @@ public class AbcOfSort {
 
             if (i >= j) break;
 
-            int temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
+            swap(a, i, j);
         }
 
         a[low] = a[j];
@@ -171,9 +170,10 @@ public class AbcOfSort {
         int i = low;
         int j = middle + 1;
 
-        for (int k = low; k <= high; k++) {
-            temp[k] = a[k];
-        }
+        System.arraycopy(a, low, temp, low, high - low + 1);
+//        for (int k = low; k <= high; k++) {
+//            temp[k] = a[k];
+//        }
 
         for (int k = low; k <= high; k++) {
             if (i > middle)
@@ -198,9 +198,7 @@ public class AbcOfSort {
         while (h >= 1) {
             for (int i = h; i < N; i++) {
                 for (int j = i; j >= h && a[j] < a[j - h]; j -= h) {
-                    int temp = a[j];
-                    a[j] = a[j - h];
-                    a[j - h] = temp;
+                    swap(a, j, j - h);
                 }
             }
 
@@ -218,18 +216,14 @@ public class AbcOfSort {
                 }
             }
 
-            int temp = a[i];
-            a[i] = a[min];
-            a[min] = temp;
+            swap(a, i, min);
         }
     }
 
     public static void insert(Integer[] a) {
         for (int i = 1; i < a.length; i++) {
             for (int j = i; j > 0 && a[j] < a[j - 1]; j--) {
-                int temp = a[j];
-                a[j] = a[j - 1];
-                a[j - 1] = temp;
+                swap(a, j, j - 1);
             }
         }
     }
@@ -252,9 +246,7 @@ public class AbcOfSort {
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length - i - 1; j++) {
                 if (a[j] > a[j + 1]) {
-                    int temp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = temp;
+                    swap(a, j, j + 1);
                 }
             }
         }
@@ -264,9 +256,7 @@ public class AbcOfSort {
         for (int i = 0; i < a.length; i++) {
             for (int j = a.length - 1; j > i; j--) {
                 if (a[j] < a[j - 1]) {
-                    int temp = a[j];
-                    a[j] = a[j - 1];
-                    a[j - 1] = temp;
+                    swap(a, j, j - 1);
                 }
             }
         }
