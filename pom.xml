@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
+        <version>3.0.12</version>
     </parent>
 
     <groupId>org.orange</groupId>
@@ -37,7 +37,7 @@
             <artifactId>algs</artifactId>
             <version>4.0</version>
             <scope>system</scope>
-            <systemPath>${user.home}/.m2/repository/org/arithmetic/algs/4.0/algs-4.0.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/lib/algs-4.0.jar</systemPath>
         </dependency>
 
         <!-- 单元测试 -->
@@ -277,6 +277,13 @@
             <artifactId>kafka-clients</artifactId>
         </dependency>
 
+        <!-- rocketmq -->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.9.3</version>
+        </dependency>
+
         <!-- Java library which enables encryption in java apps with minimum effort. -->
         <dependency>
             <groupId>org.jasypt</groupId>
@@ -362,7 +369,7 @@
             <scope>system</scope>
             <version>${btrace.version}</version>
             <type>jar</type>
-            <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-boot.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/lib/btrace-boot-1.3.11.1.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -371,7 +378,7 @@
             <scope>system</scope>
             <version>${btrace.version}</version>
             <type>jar</type>
-            <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-client.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/lib/btrace-client-1.3.11.1.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -380,7 +387,7 @@
             <scope>system</scope>
             <version>${btrace.version}</version>
             <type>jar</type>
-            <systemPath>/usr/local/Cellar/btrace/btrace-bin-1.3.11.1/build/btrace-agent.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/lib/btrace-agent-1.3.11.1.jar</systemPath>
         </dependency>
     </dependencies>
 
